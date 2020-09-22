@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HistorySummaryView: View {
-    
+        
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -79,7 +79,6 @@ struct HistorySummaryView: View {
         .padding()
         .background(Color(.secondarySystemBackground))
         .cornerRadius(8)
-        .padding(.horizontal)
     }
 }
 
@@ -87,6 +86,7 @@ struct HistorySummaryView_Previews: PreviewProvider {
     static var previews: some View {
         ScrollView {
             HistorySummaryView()
+                .padding()
             Spacer()
         }
             

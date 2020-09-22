@@ -36,7 +36,6 @@ struct MatchSetupView: View {
                     self.pageIndex = 2
                 }
                 
-                
                 VStack {
                     Text("Previous Match")
                         .font(.caption2)

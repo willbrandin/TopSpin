@@ -15,7 +15,7 @@ struct MatchHistoryItem: View {
             HStack {
                 Image(systemName: "clock")
                     .foregroundColor(.yellow)
-                    .font(.subheadline)
+                    .font(.headline)
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Duration")
@@ -38,7 +38,7 @@ struct MatchHistoryItem: View {
             HStack {
                 Image(systemName: "waveform.path.ecg")
                     .foregroundColor(.green)
-                    .font(.subheadline)
+                    .font(.headline)
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Calories")
                         .font(.caption)
@@ -61,7 +61,7 @@ struct MatchHistoryItem: View {
             HStack {
                 Image(systemName: "heart")
                     .foregroundColor(.red)
-                    .font(.subheadline)
+                    .font(.headline)
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Avg. Pulse")
                         .font(.caption)

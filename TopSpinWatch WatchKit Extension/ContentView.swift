@@ -17,8 +17,8 @@ struct ContentView: View {
         if activeMatch {
             TabView(selection: $currentPage) {
                 MatchWorkoutView()
-                .tag(1)
-                Text("Match Details")
+                    .tag(1)
+                ActiveMatchView()
                     .tag(2)
             }
         } else {

@@ -52,6 +52,7 @@ struct MatchWorkoutView: View {
                     Button("Cancel") {
                         
                     }
+                    .buttonStyle(BorderedButtonStyle(tint: .red))
                     .padding(.top, 24)
                 }
                 
