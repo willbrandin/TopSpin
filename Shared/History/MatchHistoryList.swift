@@ -35,7 +35,6 @@ struct MatchHistoryList: View {
                     .buttonStyle(PlainButtonStyle())
                     .padding(.horizontal)
                     .padding(.vertical, 6)
-                    
                 }
             }
         }

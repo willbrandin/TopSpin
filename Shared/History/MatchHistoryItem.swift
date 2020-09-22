@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct MatchHistoryItem: View {
-    
+
     var workoutMetrics: some View {
         HStack(spacing: 0) {
             
             HStack {
                 Image(systemName: "clock")
                     .foregroundColor(.yellow)
-                    .font(.title3)
+                    .font(.subheadline)
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Duration")
@@ -38,16 +38,17 @@ struct MatchHistoryItem: View {
             HStack {
                 Image(systemName: "waveform.path.ecg")
                     .foregroundColor(.green)
-                    .font(.title3)
+                    .font(.subheadline)
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Calories")
                         .font(.caption)
                         .bold()
                         .foregroundColor(.secondary)
                     HStack(spacing: 0) {
-                        Text("568")
-                            .font(.callout)
+                        Text("1568")
                             .bold()
+                            .font(.callout)
+                            
                         Text("CAL")
                             .font(Font.callout.smallCaps())
                             .bold()
@@ -60,7 +61,7 @@ struct MatchHistoryItem: View {
             HStack {
                 Image(systemName: "heart")
                     .foregroundColor(.red)
-                    .font(.title3)
+                    .font(.subheadline)
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Avg. Pulse")
                         .font(.caption)
@@ -77,6 +78,9 @@ struct MatchHistoryItem: View {
                 }
             }
         }
+        .minimumScaleFactor(0.7)
+        .lineLimit(1)
+        .layoutPriority(1)
     }
     
     var backgroundColor: UIColor {
@@ -97,11 +101,11 @@ struct MatchHistoryItem: View {
                             .fontWeight(.bold)
                             .foregroundColor(.green)
                         HStack {
-                            Text("11")
+                            Text("13")
                                 .bold()
                             Text("-")
                                 .bold()
-                            Text("8")
+                            Text("11")
                                 .bold()
                         }
                         .font(.title)
@@ -131,9 +135,7 @@ struct MatchHistoryItem_Previews: PreviewProvider {
             MatchHistoryItem()
                 .padding()
                 .preferredColorScheme(.dark)
-            
-            MatchHistoryItem()
-                .padding()
+        
         }
     }
 }

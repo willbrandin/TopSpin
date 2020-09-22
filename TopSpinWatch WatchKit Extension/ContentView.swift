@@ -11,14 +11,25 @@ struct ContentView: View {
     
     @State private var currentPage: Int = 2
     
+    @State private var activeMatch: Bool = false
+    
     var body: some View {
-        TabView(selection: $currentPage) {
-            SettingsView()
+        if activeMatch {
+            TabView(selection: $currentPage) {
+                MatchWorkoutView()
                 .tag(1)
-            Text("Start Match")
-                .tag(2)
-            MatchHistoryList()
-                .tag(3)
+                Text("Match Details")
+                    .tag(2)
+            }
+        } else {
+            TabView(selection: $currentPage) {
+                SettingsView()
+                    .tag(1)
+                MatchSetupView(pageIndex: $currentPage, matchActive: $activeMatch)
+                    .tag(2)
+                MatchHistoryList()
+                    .tag(3)
+            }
         }
     }
 }

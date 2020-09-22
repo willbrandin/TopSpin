@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HistorySummaryView: View {
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -16,13 +17,18 @@ struct HistorySummaryView: View {
                     .bold()
                 
                 Spacer()
+                
+                Text("Sep 1 - Sep 14")
+                    .font(.caption2)
+                    .foregroundColor(.secondary)
+                    .bold()
             }
             .padding(.bottom, 8)
                         
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Wins")
-                        .font(.caption)
+                        .font(.caption2)
                         .foregroundColor(.green)
                         .bold()
                     
@@ -35,7 +41,7 @@ struct HistorySummaryView: View {
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Loses")
-                        .font(.caption)
+                        .font(.caption2)
                         .foregroundColor(.red)
                         .bold()
                     Text("12")
@@ -47,36 +53,25 @@ struct HistorySummaryView: View {
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Calories")
-                        .font(.caption)
+                        .font(.caption2)
                         .foregroundColor(.secondary)
                         .bold()
-                    HStack(spacing: 0) {
-                        Text("5,788")
-                            .font(Font.system(.title3, design: .rounded))
-                            .fontWeight(.bold)
-                            .bold()
-                        
-                        Text("CAL")
-                            .font(Font.system(.title3, design: .rounded).smallCaps())
-                            .fontWeight(.bold)
-                    }
+                    Text("5,788")
+                        .font(Font.system(.title3, design: .rounded))
+                        .fontWeight(.bold)
+                        .bold()
                 }
                 
                 Divider()
                 
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("Heart Rate")
-                        .font(.caption)
+                    Text("Avg. Heart Rate")
+                        .font(.caption2)
                         .foregroundColor(.secondary)
                         .bold()
-                    HStack(spacing: 0) {
-                        Text("140")
-                            .font(Font.system(.title3, design: .rounded))
-                            .fontWeight(.bold)
-                        Text("BPM")
-                            .font(Font.system(.title3, design: .rounded).smallCaps())
-                            .fontWeight(.bold)
-                    }
+                    Text("140")
+                        .font(Font.system(.title3, design: .rounded))
+                        .fontWeight(.bold)
                 }
             }
             .frame(minHeight: 50)
@@ -90,7 +85,10 @@ struct HistorySummaryView: View {
 
 struct HistorySummaryView_Previews: PreviewProvider {
     static var previews: some View {
-        HistorySummaryView()
-            .frame(height: 200)
+        ScrollView {
+            HistorySummaryView()
+            Spacer()
+        }
+            
     }
 }
