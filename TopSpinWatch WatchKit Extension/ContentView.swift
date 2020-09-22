@@ -13,7 +13,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView(selection: $currentPage) {
-            Text("Settings")
+            SettingsView()
                 .tag(1)
             Text("Start Match")
                 .tag(2)

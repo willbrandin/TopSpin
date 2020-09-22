@@ -25,8 +25,10 @@ struct HistorySummaryView: View {
                         .font(.caption)
                         .foregroundColor(.green)
                         .bold()
+                    
                     Text("32")
-                        .font(Font.system(size: 18, weight: .bold, design: .rounded))
+                        .font(Font.system(.title3, design: .rounded))
+                        .fontWeight(.bold)
                 }
                 
                 Divider()
@@ -37,8 +39,8 @@ struct HistorySummaryView: View {
                         .foregroundColor(.red)
                         .bold()
                     Text("12")
-                        .font(Font.system(size: 18, weight: .bold, design: .rounded))
-                        .bold()
+                        .font(Font.system(.title3, design: .rounded))
+                        .fontWeight(.bold)
                 }
                 
                 Divider()
@@ -48,9 +50,16 @@ struct HistorySummaryView: View {
                         .font(.caption)
                         .foregroundColor(.secondary)
                         .bold()
-                    Text("5,788 cal")
-                        .font(Font.system(size: 18, weight: .bold, design: .rounded))
-                        .bold()
+                    HStack(spacing: 0) {
+                        Text("5,788")
+                            .font(Font.system(.title3, design: .rounded))
+                            .fontWeight(.bold)
+                            .bold()
+                        
+                        Text("CAL")
+                            .font(Font.system(.title3, design: .rounded).smallCaps())
+                            .fontWeight(.bold)
+                    }
                 }
                 
                 Divider()
@@ -60,11 +69,17 @@ struct HistorySummaryView: View {
                         .font(.caption)
                         .foregroundColor(.secondary)
                         .bold()
-                    Text("143 bpm")
-                        .font(Font.system(size: 18, weight: .bold, design: .rounded))
-                        .bold()
+                    HStack(spacing: 0) {
+                        Text("140")
+                            .font(Font.system(.title3, design: .rounded))
+                            .fontWeight(.bold)
+                        Text("BPM")
+                            .font(Font.system(.title3, design: .rounded).smallCaps())
+                            .fontWeight(.bold)
+                    }
                 }
             }
+            .frame(minHeight: 50)
         }
         .padding()
         .background(Color(.secondarySystemBackground))

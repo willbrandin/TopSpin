@@ -8,22 +8,48 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        TabView {
-            NavigationView {
-                MatchHistoryList()
-                    
-            }
-            .tabItem {
-                Image(systemName: "list.dash")
-                Text("History")
+    
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
+    
+    var sideBarRootNavigation: some View {
+        List {
+            NavigationLink(destination: MatchHistoryList()) {
+                Text("Match History")
             }
             
-            Text("other screen")
+            NavigationLink(destination: SettingsView()) {
+                Text("Settings")
+            }
+        }
+        .navigationTitle("Top Spin")
+    }
+    
+    var body: some View {
+        if horizontalSizeClass == .compact {
+            
+            TabView {
+                NavigationView {
+                    MatchHistoryList()
+                        
+                }
+                .tabItem {
+                    Image(systemName: "list.dash")
+                    Text("History")
+                }
+                
+                NavigationView{
+                    SettingsView()
+                }
                 .tabItem {
                     Image(systemName: "square.grid.2x2.fill")
                     Text("Settings")
                 }
+            }
+        } else {
+            NavigationView {
+                sideBarRootNavigation
+                MatchHistoryList()
+            }
         }
     }
 }
@@ -31,5 +57,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .preferredColorScheme(.dark)
     }
 }

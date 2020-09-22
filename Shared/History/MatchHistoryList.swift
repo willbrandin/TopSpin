@@ -25,13 +25,17 @@ struct MatchHistoryList: View {
                 .padding([.horizontal, .top])
                 
                 ForEach(0..<10) { _ in
-                    MatchHistoryItem()
-                        .padding(.horizontal)
-                        .padding(.vertical, 6)
-                        .contextMenu {
-                            Label("Delete", systemImage: "trash")
-                            Label("Share", systemImage: "square.and.arrow.up")
-                        }
+                    NavigationLink(destination: MatchSummaryView()) {
+                        MatchHistoryItem()
+                            .contextMenu {
+                                Label("Delete", systemImage: "trash")
+                                Label("Share", systemImage: "square.and.arrow.up")
+                            }
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .padding(.horizontal)
+                    .padding(.vertical, 6)
+                    
                 }
             }
         }
