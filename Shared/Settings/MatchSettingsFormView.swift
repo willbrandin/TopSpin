@@ -11,6 +11,7 @@ struct MatchSettingsFormView: View {
     
     @State private var settingsName: String = ""
     @State private var scoreLimit: Int = 11
+    @State private var serveInterval: Int = 2
     @State private var winByTwo: Bool = true
     @State private var trackWorkoutData: Bool = true
     
@@ -32,11 +33,22 @@ struct MatchSettingsFormView: View {
                         Text("11").tag(11)
                         Text("21").tag(21)
                     }
+                    Picker("Serve Interval", selection: $serveInterval) {
+                        Text("2").tag(2)
+                        Text("5").tag(5)
+                    }
                     #else
                     Text("What are you playing up to?")
                     Picker("Score Limit", selection: $scoreLimit) {
                         Text("11").tag(11)
                         Text("21").tag(21)
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                    
+                    Text("How often will you switch servers?")
+                    Picker("Serve Interval", selection: $serveInterval) {
+                        Text("2").tag(2)
+                        Text("5").tag(5)
                     }
                     .pickerStyle(SegmentedPickerStyle())
                     #endif
@@ -48,7 +60,7 @@ struct MatchSettingsFormView: View {
             }
             
             Section {
-                Button("Save Match Settings", action: {})
+                Button("Save Settings", action: {})
             }
         }
         .navigationTitle("Match Settings")
@@ -60,7 +72,6 @@ struct MatchSettingsFormView_Previews: PreviewProvider {
         NavigationView {
             MatchSettingsFormView()
         }
-//        .preferredColorScheme(.dark)
     }
 }
 

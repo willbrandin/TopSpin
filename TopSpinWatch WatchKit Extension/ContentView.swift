@@ -10,7 +10,6 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var currentPage: Int = 2
-    
     @State private var activeMatch: Bool = false
     
     var body: some View {

@@ -9,10 +9,13 @@ import SwiftUI
 
 @main
 struct TopSpinApp: App {
+    let persistenceController = PersistenceController.shared
+
     var body: some Scene {
         WindowGroup {
             NavigationView {
                 ContentView()
+                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
             }
         }
     }
