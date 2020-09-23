@@ -8,24 +8,35 @@
 import SwiftUI
 
 struct MatchHistoryList: View {
+    
+    @ObservedObject var matchesStore: MatchStorage
 
     var body: some View {
-        List {
-            ForEach(0..<10) { _ in
-                NavigationLink(destination: Text("Destination")) {
-                    MatchHistoryItem()
+        if matchesStore.matches.isEmpty {
+            Text("Start a Match for it to appear in Match History.")
+                .font(.headline)
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal)
+                
+        } else {
+            List {
+                ForEach(matchesStore.matches) { match in
+                    MatchHistoryItem(match: match)
                 }
             }
+            .navigationTitle("Match History")
         }
-        .navigationTitle("Match History")
     }
 }
 
 struct MatchHistoryList_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            MatchHistoryList()
+        Group {
+            NavigationView {
+                MatchHistoryList(matchesStore: MatchStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext))
+            }
+            .preferredColorScheme(.dark)
         }
-        .preferredColorScheme(.dark)
     }
 }

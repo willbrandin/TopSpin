@@ -9,6 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @ObservedObject var matchStorage: MatchStorage
+    @ObservedObject var settingStore: SettingStorage
+
     @State private var currentPage: Int = 2
     @State private var activeMatch: Bool = false
     
@@ -22,11 +25,11 @@ struct ContentView: View {
             }
         } else {
             TabView(selection: $currentPage) {
-                SettingsView()
+                SettingsView(settingStore: settingStore)
                     .tag(1)
                 MatchSetupView(pageIndex: $currentPage, matchActive: $activeMatch)
                     .tag(2)
-                MatchHistoryList()
+                MatchHistoryList(matchesStore: matchStorage)
                     .tag(3)
             }
         }
@@ -35,6 +38,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(matchStorage: MatchStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext),
+                    settingStore: SettingStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext))
     }
 }

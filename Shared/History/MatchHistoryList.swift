@@ -8,39 +8,16 @@
 import SwiftUI
 
 struct MatchHistoryList: View {
+    
+    @ObservedObject var matchesStore: MatchStorage
 
-    var body: some View {
+    var historyListView: some View {
         ScrollView {
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(spacing: 8) {
-                    ForEach(0..<6) { _ in
-                        HistorySummaryView()
-                            .contextMenu {
-                                Button(action: {}) {
-                                    Label("Share", systemImage: "square.and.arrow.up")
-                                }
-                            }
-                    }
-                }
-                .padding(.horizontal)
-            }
-            
             LazyVStack(spacing: 0) {
-                HStack {
-                    Text("History")
-                        .font(.caption)
-                        .bold()
-                        .foregroundColor(.secondary)
-                    
-                    Spacer()
-                }
-                .padding([.horizontal, .top])
-                
-                ForEach(0..<10) { _ in
-//                    NavigationLink(destination: MatchSummaryView()) {
-                    MatchHistoryItem()
+                ForEach(matchesStore.matches) { match in
+                    MatchHistoryItem(match: match)
                         .contextMenu {
-                            Button(action: {}){
+                            Button(action: { self.delete(match) }){
                                 Label("Delete", systemImage: "trash")
                             }
                             
@@ -48,14 +25,37 @@ struct MatchHistoryList: View {
                                 Label("Share", systemImage: "square.and.arrow.up")
                             }
                         }
-//                    }
-                    .buttonStyle(PlainButtonStyle())
                     .padding(.horizontal)
                     .padding(.vertical, 6)
                 }
             }
         }
+    }
+    
+    var devMockAddButton: some View {
+        Button("ADD FAKE") {
+            matchesStore.addNew()
+        }
+    }
+    
+    var body: some View {
+        VStack {
+            if matchesStore.matches.isEmpty {
+                Text("Start a match on your wrist.\nWhen finished, it will display here.")
+                    .font(.headline)
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal)
+            } else {
+                historyListView
+            }
+        }
         .navigationTitle("Match History")
+        .navigationBarItems(trailing: devMockAddButton)
+    }
+    
+    func delete(_ match: Match) {
+        matchesStore.delete([match])
     }
 }
 
@@ -63,11 +63,12 @@ struct MatchHistoryList_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             NavigationView {
-                MatchHistoryList()
+                MatchHistoryList(matchesStore: MatchStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext))
             }
             .preferredColorScheme(.dark)
+            
             NavigationView {
-                MatchHistoryList()
+                MatchHistoryList(matchesStore: MatchStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext))
             }
         }
     }

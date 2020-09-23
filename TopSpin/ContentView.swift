@@ -11,13 +11,16 @@ struct ContentView: View {
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
     
+    @ObservedObject var matchStorage: MatchStorage
+    @ObservedObject var settingStore: SettingStorage
+
     var sideBarRootNavigation: some View {
         List {
-            NavigationLink(destination: MatchHistoryList()) {
+            NavigationLink(destination: MatchHistoryList(matchesStore: matchStorage)) {
                 Text("Match History")
             }
             
-            NavigationLink(destination: SettingsView()) {
+            NavigationLink(destination: SettingsView(settingStore: settingStore)) {
                 Text("Settings")
             }
         }
@@ -29,7 +32,7 @@ struct ContentView: View {
             
             TabView {
                 NavigationView {
-                    MatchHistoryList()
+                    MatchHistoryList(matchesStore: matchStorage)
                         
                 }
                 .tabItem {
@@ -38,7 +41,7 @@ struct ContentView: View {
                 }
                 
                 NavigationView{
-                    SettingsView()
+                    SettingsView(settingStore: settingStore)
                 }
                 .tabItem {
                     Image(systemName: "square.grid.2x2.fill")
@@ -48,7 +51,7 @@ struct ContentView: View {
         } else {
             NavigationView {
                 sideBarRootNavigation
-                MatchHistoryList()
+                MatchHistoryList(matchesStore: matchStorage)
             }
         }
     }
@@ -56,7 +59,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(matchStorage: MatchStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext), settingStore: SettingStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext))
             .preferredColorScheme(.dark)
     }
 }

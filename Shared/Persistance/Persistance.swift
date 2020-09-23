@@ -10,16 +10,30 @@ import CoreData
 struct PersistenceController {
     static let shared = PersistenceController()
 
-    static var preview: PersistenceController = {
+    static var standardContainer: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         
-        for _ in 0..<10 {
+        for i in 0..<2 {
             let workout = Workout(context: viewContext)
             workout.id = UUID()
+            workout.activeCalories = 200
+            workout.totalCalories = 240
+            workout.endDate = Date()
+            workout.startDate = Date()
+            workout.maxHeartRate = 146
+            workout.minHeartRate = 112
+            workout.averageHeartRate = 132
+            
+            let score = MatchScore(context: viewContext)
+            score.id = UUID()
+            score.opponentScore = i % 2 == 0 ? 7 : 11
+            score.playerScore = i % 2 == 0 ? 11 : 4
             
             let newItem = Match(context: viewContext)
             newItem.workout = workout
+            newItem.score = score
+            newItem.date = Date()
             newItem.id = UUID()
         }
         

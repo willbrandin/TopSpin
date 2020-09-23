@@ -9,17 +9,37 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @State private var selectedSettings: Int = 0
+    @ObservedObject var settingStore: SettingStorage
+    @State private var selectedSettings: MatchSetting
+    
+    init(settingStore: SettingStorage) {
+        self.settingStore = settingStore
+        
+        self._selectedSettings = State(wrappedValue: settingStore.settings.first(where: { $0.isDefault }) ?? settingStore.settings.first!)
+    }
+    
+    var pickerView: some View {
+        Picker("Default Settings", selection: $selectedSettings) {
+            ForEach(settingStore.settings) { setting in
+                if let name = setting.name {
+                    VStack {
+                        Text(name)
+                    }
+                    .tag(setting)
+                }
+            }
+        }
+    }
     
     var listView: some View {
         List {
             Section(header: Text("Match Settings")) {
-                Picker("Default Settings", selection: $selectedSettings) {
-                    Text("My Default").tag(0)
-                    Text("Just for fun").tag(1)
+                pickerView
+                .onChange(of: selectedSettings) { setting in
+                    settingStore.setDefault(setting)
                 }
                 
-                NavigationLink(destination: MatchSettingsFormView()) {
+                NavigationLink(destination: MatchSettingsFormView(settingStore: settingStore, onComplete: setSelected)) {
                     Text("Add New")
                 }
             }
@@ -41,12 +61,16 @@ struct SettingsView: View {
         #endif
         
     }
+    
+    private func setSelected() {
+        selectedSettings = settingStore.settings.first(where: { $0.isDefault })!
+    }
 }
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            SettingsView()
+            SettingsView(settingStore: SettingStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext))
         }
     }
 }

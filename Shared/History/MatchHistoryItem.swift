@@ -9,79 +9,7 @@ import SwiftUI
 
 struct MatchHistoryItem: View {
 
-    var workoutMetrics: some View {
-        HStack(spacing: 0) {
-            
-            HStack {
-                Image(systemName: "clock")
-                    .foregroundColor(.yellow)
-                    .font(.headline)
-                
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Duration")
-                        .font(.caption)
-                        .bold()
-                        .foregroundColor(.secondary)
-                    HStack(spacing: 0) {
-                        Text("20")
-                            .font(.callout)
-                            .bold()
-                        Text("MIN")
-                            .font(Font.callout.smallCaps())
-                            .bold()
-                    }
-                }
-            }
-            
-            Spacer()
-            
-            HStack {
-                Image(systemName: "waveform.path.ecg")
-                    .foregroundColor(.green)
-                    .font(.headline)
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Calories")
-                        .font(.caption)
-                        .bold()
-                        .foregroundColor(.secondary)
-                    HStack(spacing: 0) {
-                        Text("1568")
-                            .bold()
-                            .font(.callout)
-                            
-                        Text("CAL")
-                            .font(Font.callout.smallCaps())
-                            .bold()
-                    }
-                }
-            }
-            
-            Spacer()
-            
-            HStack {
-                Image(systemName: "heart")
-                    .foregroundColor(.red)
-                    .font(.headline)
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Avg. Pulse")
-                        .font(.caption)
-                        .bold()
-                        .foregroundColor(.secondary)
-                    HStack(spacing: 0) {
-                        Text("140")
-                            .font(.callout)
-                            .bold()
-                        Text("BPM")
-                            .font(Font.callout.smallCaps())
-                            .bold()
-                    }
-                }
-            }
-        }
-        .minimumScaleFactor(0.7)
-        .lineLimit(1)
-        .layoutPriority(1)
-    }
+    var match: Match
     
     var backgroundColor: UIColor {
         #if os(watchOS)
@@ -95,31 +23,21 @@ struct MatchHistoryItem: View {
         HStack {
             VStack(alignment: .leading, spacing: 8) {
                 HStack(alignment: .top) {
-                    VStack(alignment: .leading) {
-                        Text("WIN")
-                            .font(.subheadline)
-                            .fontWeight(.bold)
-                            .foregroundColor(.green)
-                        HStack {
-                            Text("13")
-                                .bold()
-                            Text("-")
-                                .bold()
-                            Text("11")
-                                .bold()
-                        }
-                        .font(.title)
+                    if let player = match.score?.playerScore,
+                       let opponent = match.score?.opponentScore {
+                        MatchHistoryScoreView(playerScore: player, opponentScore: opponent)
                     }
+                    
                     Spacer()
                     
-                    Text("SEP 3")
+                    Text(match.shortDate.uppercased())
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                         .bold()
                 }
                 
                 #if os(iOS)
-                    workoutMetrics
+                    HistoryWorkoutMetricView()
                 #endif
             }
         }
@@ -130,12 +48,39 @@ struct MatchHistoryItem: View {
 }
 
 struct MatchHistoryItem_Previews: PreviewProvider {
+    
+    static let context = PersistenceController.standardContainer.container.viewContext
+    
+    static var match: Match {
+        let workout = Workout(context: context)
+        workout.id = UUID()
+        workout.activeCalories = 200
+        workout.totalCalories = 240
+        workout.endDate = Date()
+        workout.startDate = Date()
+        workout.maxHeartRate = 146
+        workout.minHeartRate = 112
+        workout.averageHeartRate = 132
+        
+        let score = MatchScore(context: context)
+        score.id = UUID()
+        score.opponentScore = 7
+        score.playerScore = 11
+        
+        let newItem = Match(context: context)
+        newItem.workout = workout
+        newItem.score = score
+        newItem.date = Date()
+        newItem.id = UUID()
+        
+        return newItem
+    }
+    
     static var previews: some View {
         Group {
-            MatchHistoryItem()
+            MatchHistoryItem(match: match)
                 .padding()
                 .preferredColorScheme(.dark)
-        
         }
     }
 }

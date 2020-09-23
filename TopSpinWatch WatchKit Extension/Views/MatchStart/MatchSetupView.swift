@@ -13,38 +13,18 @@ struct MatchSetupView: View {
     @Binding var matchActive: Bool
     
     var body: some View {
-        ScrollView {
-            VStack {
-                Text("Top Spin")
-                    .font(.headline)
-                Text("🏓")
-                    .font(.title2)
-                    .padding(.bottom)
-                
-                Spacer()
-                
-                NavigationLink(destination: MatchSettingsFormView()) {
-                    HStack {
-                        Text("Match Settings")
-                        Spacer()
-                        Image(systemName: "chevron.right")
-                    }
-                }
-                
-                Button("Start Match") {
-                    self.matchActive = true
-                    self.pageIndex = 2
-                }
-                
-                VStack {
-                    Text("Previous Match")
-                        .font(.caption2)
-                        .foregroundColor(.secondary)
-                    NavigationLink(destination: Text("Summary View")) {
-                        MatchHistoryItem()
-                    }
-                }
-                .padding(.top, 24)
+        VStack {
+            Text("Top Spin")
+                .font(.headline)
+            Text("🏓")
+                .font(.title2)
+                .padding(.bottom)
+            
+            Spacer()
+            
+            Button("Start Match") {
+                self.matchActive = true
+                self.pageIndex = 2
             }
         }
     }
