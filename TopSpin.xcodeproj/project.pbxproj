@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D20C55D3251C046D00107FBD /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20C55D2251C046D00107FBD /* WorkoutManager.swift */; };
+		D20C55DA251C04E000107FBD /* RallyMatchConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20C55D8251C04E000107FBD /* RallyMatchConfigurable.swift */; };
+		D20C55DB251C04E000107FBD /* RallyMatchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20C55D9251C04E000107FBD /* RallyMatchController.swift */; };
+		D20C55E2251C04EE00107FBD /* RallyTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20C55E1251C04EE00107FBD /* RallyTeam.swift */; };
 		D23CCB65251AD634002EBE72 /* Match+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23CCB64251AD634002EBE72 /* Match+Extensions.swift */; };
 		D23CCB8D251ADEC2002EBE72 /* HorizontalSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23CCB8C251ADEC2002EBE72 /* HorizontalSummaryView.swift */; };
 		D23CCB9A251AE68A002EBE72 /* Match+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23CCB64251AD634002EBE72 /* Match+Extensions.swift */; };
@@ -96,6 +100,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D20C55D2251C046D00107FBD /* WorkoutManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
+		D20C55D8251C04E000107FBD /* RallyMatchConfigurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RallyMatchConfigurable.swift; sourceTree = "<group>"; };
+		D20C55D9251C04E000107FBD /* RallyMatchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RallyMatchController.swift; sourceTree = "<group>"; };
+		D20C55E1251C04EE00107FBD /* RallyTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RallyTeam.swift; sourceTree = "<group>"; };
 		D23CCB64251AD634002EBE72 /* Match+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Match+Extensions.swift"; sourceTree = "<group>"; };
 		D23CCB8C251ADEC2002EBE72 /* HorizontalSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSummaryView.swift; sourceTree = "<group>"; };
 		D23CCB9F251B8AE3002EBE72 /* HistoryWorkoutMetricView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryWorkoutMetricView.swift; sourceTree = "<group>"; };
@@ -160,6 +168,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D20C55FD251CEC7F00107FBD /* Rally */ = {
+			isa = PBXGroup;
+			children = (
+				D20C55E1251C04EE00107FBD /* RallyTeam.swift */,
+				D20C55D8251C04E000107FBD /* RallyMatchConfigurable.swift */,
+				D20C55D9251C04E000107FBD /* RallyMatchController.swift */,
+			);
+			path = Rally;
+			sourceTree = "<group>";
+		};
+		D20C55FE251CEC8800107FBD /* Workout */ = {
+			isa = PBXGroup;
+			children = (
+				D20C55D2251C046D00107FBD /* WorkoutManager.swift */,
+			);
+			path = Workout;
+			sourceTree = "<group>";
+		};
 		D23CCB63251AD625002EBE72 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +282,8 @@
 		D23F764F25198AF8006BF603 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				D20C55FE251CEC8800107FBD /* Workout */,
+				D20C55FD251CEC7F00107FBD /* Rally */,
 				D2B74D8F251ABD0000D1004B /* Persistance */,
 				D2F35DF3251A41E400739463 /* Settings */,
 				D23F765A25198D01006BF603 /* History */,
@@ -531,14 +559,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				D261A864251A662100689252 /* MatchSetupView.swift in Sources */,
+				D20C55E2251C04EE00107FBD /* RallyTeam.swift in Sources */,
 				D2F35E12251A4D0100739463 /* SettingsView.swift in Sources */,
 				D23CCBB5251B95A7002EBE72 /* HistoryWorkoutMetricView.swift in Sources */,
 				D23F763025198AB7006BF603 /* ContentView.swift in Sources */,
 				D23CCB9A251AE68A002EBE72 /* Match+Extensions.swift in Sources */,
+				D20C55DA251C04E000107FBD /* RallyMatchConfigurable.swift in Sources */,
 				D2F35DDB2519A5B400739463 /* MatchHistoryList.swift in Sources */,
 				D23CCBBB251B95E3002EBE72 /* MatchStorage.swift in Sources */,
 				D2B74D69251AA49B00D1004B /* ActiveMatchView.swift in Sources */,
 				D2B74D91251ABD0C00D1004B /* Persistance.swift in Sources */,
+				D20C55D3251C046D00107FBD /* WorkoutManager.swift in Sources */,
 				D261A876251A6D9300689252 /* MatchWorkoutView.swift in Sources */,
 				D23F763225198AB7006BF603 /* TopSpinApp.swift in Sources */,
 				D23F763425198AB7006BF603 /* ComplicationController.swift in Sources */,
@@ -546,6 +577,7 @@
 				D23F7666251991F5006BF603 /* MatchHistoryItem.swift in Sources */,
 				D23CCBB6251B95A7002EBE72 /* MatchHistoryScoreView.swift in Sources */,
 				D2B74DAC251ABEA800D1004B /* TopSpin.xcdatamodeld in Sources */,
+				D20C55DB251C04E000107FBD /* RallyMatchController.swift in Sources */,
 				D2B74D5F251A931700D1004B /* ActiveMatchSwipeView.swift in Sources */,
 				D2F35E07251A454700739463 /* MatchSettingsFormView.swift in Sources */,
 			);
