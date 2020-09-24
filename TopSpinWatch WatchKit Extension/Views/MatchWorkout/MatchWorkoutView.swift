@@ -8,16 +8,21 @@
 import SwiftUI
 
 struct MatchWorkoutView: View {
+    
+    var cancelAction: () -> Void
+    
+    @EnvironmentObject var workoutSession: WorkoutManager
+    
     var body: some View {
         ScrollView {
             HStack {
                 VStack(alignment: .leading, spacing: 0) {
-                    Text("12:34.64")
+                    Text("\(elapsedTimeString(elapsed: secondsToHoursMinutesSeconds(seconds: workoutSession.elapsedSeconds)))")
                         .font(.title2)
                         .foregroundColor(.yellow)
-                                    
+                    
                     HStack {
-                        Text("132")
+                        Text("\(Int(workoutSession.activeCalories))")
                             .font(.title2)
                         VStack(alignment: .leading, spacing: 0) {
                             Text("ACTIVE")
@@ -27,19 +32,8 @@ struct MatchWorkoutView: View {
                         .foregroundColor(.secondary)
                     }
                     
-                    HStack {
-                        Text("98")
-                            .font(.title2)
-                        VStack(alignment: .leading, spacing: 0) {
-                            Text("TOTAL")
-                            Text("CAL")
-                        }
-                        .font(Font.system(size: 11))
-                        .foregroundColor(.secondary)
-                    }
-                    
                     HStack(alignment: .firstTextBaseline) {
-                        Text("98")
+                        Text("\(Int(workoutSession.heartrate))")
                             .font(.title2)
                         Text("BPM")
                             .font(Font.system(.title2).smallCaps())
@@ -47,13 +41,41 @@ struct MatchWorkoutView: View {
                             .foregroundColor(.red)
                             .font(.title3)
                             .padding(.leading)
+                            .opacity(0.7)
                     }
                     
-                    Button("Cancel") {
+                    HStack {
                         
+                        VStack {
+                            Text("AVG")
+                            Text("\(Int(workoutSession.avgHeartRate))")
+                        }
+                        
+                        Spacer()
+                        Divider()
+                        Spacer()
+                        
+                        VStack {
+                            Text("MIN")
+                            Text("\(Int(workoutSession.minHeartRate))")
+                        }
+                        
+                        Spacer()
+                        Divider()
+                        Spacer()
+                        
+                        VStack {
+                            Text("MAX")
+                            Text("\(Int(workoutSession.maxHeartRate))")
+                        }
                     }
-                    .buttonStyle(BorderedButtonStyle(tint: .red))
-                    .padding(.top, 24)
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                    .padding(.vertical)
+                    
+                    Button("Cancel", action: cancelAction)
+                        .buttonStyle(BorderedButtonStyle(tint: .red))
+                        .padding(.top)
                 }
                 
                 Spacer()
@@ -61,12 +83,21 @@ struct MatchWorkoutView: View {
         }
         .navigationTitle("Workout")
     }
+    
+    // Convert the seconds into seconds, minutes, hours.
+    func secondsToHoursMinutesSeconds (seconds: Int) -> (Int, Int, Int) {
+        return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+    }
+    
+    // Convert the seconds, minutes, hours into a string.
+    func elapsedTimeString(elapsed: (h: Int, m: Int, s: Int)) -> String {
+        return String(format: "%d:%02d:%02d", elapsed.h, elapsed.m, elapsed.s)
+    }
 }
 
 struct MatchWorkoutView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            MatchWorkoutView()
-        }
+        MatchWorkoutView(cancelAction: {})
+            .environmentObject(WorkoutManager())
     }
 }

@@ -9,23 +9,20 @@ import SwiftUI
 
 struct MatchSetupView: View {
     
-    @Binding var pageIndex: Int
-    @Binding var matchActive: Bool
+    var startAction: () -> Void
     
     var body: some View {
         VStack {
             Text("Top Spin")
                 .font(.headline)
+                .padding(.bottom)
             Text("🏓")
                 .font(.title2)
                 .padding(.bottom)
             
             Spacer()
             
-            Button("Start Match") {
-                self.matchActive = true
-                self.pageIndex = 2
-            }
+            Button("Start Match", action: startAction)
         }
     }
 }
@@ -33,7 +30,7 @@ struct MatchSetupView: View {
 struct MatchSetupView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            MatchSetupView(pageIndex: .constant(1), matchActive: .constant(false))
+            MatchSetupView(startAction: { })
         }
     }
 }

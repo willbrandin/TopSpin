@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ActiveMatchView: View {
+    
+    var cancelAction: () -> Void
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -48,9 +51,7 @@ struct ActiveMatchView: View {
                     
                 }
                 
-                Button("Cancel") {
-                    
-                }
+                Button("Cancel", action: cancelAction)
                 .buttonStyle(BorderedButtonStyle(tint: .red))
                 .padding(.top, 24)
             }
@@ -60,6 +61,6 @@ struct ActiveMatchView: View {
 
 struct ActiveMatchView_Previews: PreviewProvider {
     static var previews: some View {
-        ActiveMatchView()
+        ActiveMatchView(cancelAction: {})
     }
 }

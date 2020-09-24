@@ -11,34 +11,34 @@ struct ContentView: View {
     
     @ObservedObject var matchStorage: MatchStorage
     @ObservedObject var settingStore: SettingStorage
-
+    
     @State private var currentPage: Int = 2
     @State private var activeMatch: Bool = false
     
+    @EnvironmentObject var workoutSession: WorkoutManager
+
     var body: some View {
         if activeMatch {
-            TabView(selection: $currentPage) {
-                MatchWorkoutView()
-                    .tag(1)
-                ActiveMatchView()
-                    .tag(2)
-            }
+            ActiveMatchTabView(activeMatch: $activeMatch, currentPage: $currentPage)
+                .onAppear {
+                    currentPage = 2
+                }
         } else {
-            TabView(selection: $currentPage) {
-                SettingsView(settingStore: settingStore)
-                    .tag(1)
-                MatchSetupView(pageIndex: $currentPage, matchActive: $activeMatch)
-                    .tag(2)
-                MatchHistoryList(matchesStore: matchStorage)
-                    .tag(3)
-            }
+            HomeTabView(matchStorage: matchStorage, settingStore: settingStore, currentPage: $currentPage, activeMatch: $activeMatch)
+                .onAppear {
+                    self.workoutSession.requestAuthorization()
+                    currentPage = 2
+                }
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
+    static let matchStorage = MatchStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext)
+    static let settingStore = SettingStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext)
+    
     static var previews: some View {
-        ContentView(matchStorage: MatchStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext),
-                    settingStore: SettingStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext))
+        ContentView(matchStorage: matchStorage, settingStore: settingStore)
+            .environmentObject(WorkoutManager())
     }
 }

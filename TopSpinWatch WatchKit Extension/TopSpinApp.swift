@@ -13,7 +13,8 @@ struct TopSpinApp: App {
     let persistenceController: PersistenceController
     @StateObject var matchStorage: MatchStorage
     @StateObject var settingStorage: SettingStorage
-
+    @StateObject var workoutManager: WorkoutManager
+    
     init() {
         self.persistenceController = PersistenceController.shared
         let managedObjectContext = persistenceController.container.viewContext
@@ -23,6 +24,8 @@ struct TopSpinApp: App {
         
         let settingStorage = SettingStorage(managedObjectContext: managedObjectContext)
         self._settingStorage = StateObject(wrappedValue: settingStorage)
+        
+        self._workoutManager = StateObject(wrappedValue: WorkoutManager())
     }
     
     var body: some Scene {
@@ -30,6 +33,7 @@ struct TopSpinApp: App {
             NavigationView {
                 ContentView(matchStorage: matchStorage, settingStore: settingStorage)
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                    .environmentObject(workoutManager)
             }
         }
     }
