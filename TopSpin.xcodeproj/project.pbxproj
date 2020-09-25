@@ -26,7 +26,6 @@
 		D23F760C25198A87006BF603 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F760B25198A87006BF603 /* ContentView.swift */; };
 		D23F760E25198A89006BF603 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D23F760D25198A89006BF603 /* Assets.xcassets */; };
 		D23F761125198A89006BF603 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D23F761025198A89006BF603 /* Preview Assets.xcassets */; };
-		D23F761F25198AB5006BF603 /* TopSpinWatch WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D23F761E25198AB5006BF603 /* TopSpinWatch WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D23F762425198AB7006BF603 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D23F762325198AB7006BF603 /* Assets.xcassets */; };
 		D23F762B25198AB7006BF603 /* TopSpinWatch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D23F762A25198AB7006BF603 /* TopSpinWatch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D23F763025198AB7006BF603 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F762F25198AB7006BF603 /* ContentView.swift */; };
@@ -73,13 +72,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D23F762025198AB5006BF603 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D23F75FE25198A87006BF603 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D23F761D25198AB5006BF603;
-			remoteInfo = "TopSpinWatch WatchKit App";
-		};
 		D23F762C25198AB7006BF603 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D23F75FE25198A87006BF603 /* Project object */;
@@ -106,17 +98,6 @@
 				D23F762B25198AB7006BF603 /* TopSpinWatch WatchKit Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D23F764225198AB8006BF603 /* Embed Watch Content */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
-			dstSubfolderSpec = 16;
-			files = (
-				D23F761F25198AB5006BF603 /* TopSpinWatch WatchKit App.app in Embed Watch Content */,
-			);
-			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D2797951251D931A00771DB9 /* Embed Watch Content */ = {
@@ -149,7 +130,6 @@
 		D23F760D25198A89006BF603 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D23F761025198A89006BF603 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D23F761225198A89006BF603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D23F761B25198AB5006BF603 /* Top Spin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Top Spin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D23F761E25198AB5006BF603 /* TopSpinWatch WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TopSpinWatch WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D23F762325198AB7006BF603 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D23F762525198AB7006BF603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -273,7 +253,6 @@
 			isa = PBXGroup;
 			children = (
 				D23F760625198A87006BF603 /* TopSpin.app */,
-				D23F761B25198AB5006BF603 /* Top Spin.app */,
 				D23F761E25198AB5006BF603 /* TopSpinWatch WatchKit App.app */,
 				D23F762A25198AB7006BF603 /* TopSpinWatch WatchKit Extension.appex */,
 				D27978AA251CED0800771DB9 /* TopSpinTests.xctest */,
@@ -521,23 +500,6 @@
 			productReference = D23F760625198A87006BF603 /* TopSpin.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D23F761A25198AB5006BF603 /* TopSpinWatch */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D23F764325198AB8006BF603 /* Build configuration list for PBXNativeTarget "TopSpinWatch" */;
-			buildPhases = (
-				D23F761925198AB5006BF603 /* Resources */,
-				D23F764225198AB8006BF603 /* Embed Watch Content */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D23F762125198AB5006BF603 /* PBXTargetDependency */,
-			);
-			name = TopSpinWatch;
-			productName = TopSpinWatch;
-			productReference = D23F761B25198AB5006BF603 /* Top Spin.app */;
-			productType = "com.apple.product-type.application.watchapp2-container";
-		};
 		D23F761D25198AB5006BF603 /* TopSpinWatch WatchKit App */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D23F763F25198AB8006BF603 /* Build configuration list for PBXNativeTarget "TopSpinWatch WatchKit App" */;
@@ -602,9 +564,6 @@
 					D23F760525198A87006BF603 = {
 						CreatedOnToolsVersion = 12.0;
 					};
-					D23F761A25198AB5006BF603 = {
-						CreatedOnToolsVersion = 12.0;
-					};
 					D23F761D25198AB5006BF603 = {
 						CreatedOnToolsVersion = 12.0;
 					};
@@ -631,7 +590,6 @@
 			projectRoot = "";
 			targets = (
 				D23F760525198A87006BF603 /* TopSpin */,
-				D23F761A25198AB5006BF603 /* TopSpinWatch */,
 				D23F761D25198AB5006BF603 /* TopSpinWatch WatchKit App */,
 				D23F762925198AB7006BF603 /* TopSpinWatch WatchKit Extension */,
 				D27978A9251CED0800771DB9 /* TopSpinTests */,
@@ -646,13 +604,6 @@
 			files = (
 				D23F761125198A89006BF603 /* Preview Assets.xcassets in Resources */,
 				D23F760E25198A89006BF603 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D23F761925198AB5006BF603 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -758,11 +709,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D23F762125198AB5006BF603 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D23F761D25198AB5006BF603 /* TopSpinWatch WatchKit App */;
-			targetProxy = D23F762025198AB5006BF603 /* PBXContainerItemProxy */;
-		};
 		D23F762D25198AB7006BF603 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D23F762925198AB7006BF603 /* TopSpinWatch WatchKit Extension */;
@@ -955,7 +901,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.willBrandin.TopSpinWatch.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.willBrandin.dev.TopSpin.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -980,7 +926,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.willBrandin.TopSpinWatch.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.willBrandin.dev.TopSpin.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1000,7 +946,7 @@
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;
 				IBSC_MODULE = TopSpinWatch_WatchKit_Extension;
 				INFOPLIST_FILE = "TopSpinWatch WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.willBrandin.TopSpinWatch.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.willBrandin.dev.TopSpin.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1020,39 +966,13 @@
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;
 				IBSC_MODULE = TopSpinWatch_WatchKit_Extension;
 				INFOPLIST_FILE = "TopSpinWatch WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.willBrandin.TopSpinWatch.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.willBrandin.dev.TopSpin.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 7.0;
-			};
-			name = Release;
-		};
-		D23F764425198AB8006BF603 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2J9S2B5EZD;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.willBrandin.TopSpinWatch;
-				PRODUCT_NAME = "Top Spin";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		D23F764525198AB8006BF603 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2J9S2B5EZD;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.willBrandin.TopSpinWatch;
-				PRODUCT_NAME = "Top Spin";
-				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -1131,15 +1051,6 @@
 			buildConfigurations = (
 				D23F764025198AB8006BF603 /* Debug */,
 				D23F764125198AB8006BF603 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D23F764325198AB8006BF603 /* Build configuration list for PBXNativeTarget "TopSpinWatch" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D23F764425198AB8006BF603 /* Debug */,
-				D23F764525198AB8006BF603 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

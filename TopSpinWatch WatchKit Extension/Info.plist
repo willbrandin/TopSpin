@@ -27,7 +27,7 @@
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>WKAppBundleIdentifier</key>
-			<string>com.willBrandin.TopSpinWatch.watchkitapp</string>
+			<string>com.willBrandin.dev.TopSpin.watchkitapp</string>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.watchkit</string>
@@ -45,6 +45,6 @@
 		<string>workout-processing</string>
 	</array>
 	<key>WKWatchOnly</key>
-	<true/>
+	<false/>
 </dict>
 </plist>

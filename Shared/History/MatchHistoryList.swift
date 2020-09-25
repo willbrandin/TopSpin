@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import WatchConnectivity
 
 struct MatchHistoryList: View {
     
+    @Environment(\.colorScheme) var colorScheme
     @ObservedObject var matchesStore: MatchStorage
 
     var historyListView: some View {
@@ -33,19 +35,50 @@ struct MatchHistoryList: View {
     }
     
     var devMockAddButton: some View {
-        Button("ADD FAKE") {
-//            matchesStore.addNew()
+        Button("Add Match") {
         }
+    }
+    
+    var isConnected: Bool {
+        return WCSession.default.isWatchAppInstalled
     }
     
     var body: some View {
         VStack {
             if matchesStore.matches.isEmpty {
-                Text("Start a match on your wrist.\nWhen finished, it will display here.")
-                    .font(.headline)
-                    .foregroundColor(.secondary)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal)
+                VStack {
+                    Text("Start a match on your wrist.\nWhen finished, it will display here.")
+                        .font(.headline)
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal)
+                    
+                    if !isConnected && WCSession.isSupported() {
+                        if colorScheme == .light {
+                            Button(action: openWatchAction) {
+                                Text("Open Watch Settings")
+                                    .bold()
+                                    .padding()
+                            }
+                        } else {
+                            Button(action: openWatchAction) {
+                                Text("Open Watch Settings")
+                                    .bold()
+                                    .foregroundColor(.accentColor)
+                                    .frame(maxWidth: .infinity)
+                                    .frame(height: 48)
+                                    .background(Color.clear)
+                                    .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                                    .cornerRadius(8)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .stroke(Color.accentColor, lineWidth: 1)
+                                    )
+                                    .padding()
+                            }
+                        }
+                    }
+                }
             } else {
                 historyListView
             }
@@ -56,6 +89,12 @@ struct MatchHistoryList: View {
     
     func delete(_ match: Match) {
         matchesStore.delete([match])
+    }
+    
+    func openWatchAction() {
+        UIApplication.shared.open(URL(string: "itms-watchs://com.willBrandin.dev")!) { (didOpen) in
+            print(didOpen ? "Did open url" : "FAILED TO OPEN")
+        }
     }
 }
 
