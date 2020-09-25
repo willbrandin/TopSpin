@@ -48,14 +48,40 @@ class SettingStorage: NSObject, ObservableObject {
         }
     }
     
-    func addNew(name: String, setAsDefault: Bool) {
+    func update(settings: MatchSetting, name: String, setAsDefault: Bool, scoreLimit: Int, serveInterval: Int, isWinByTwo: Bool, isTrackingWorkout: Bool) {
+        
+        settings.setValue(name, forKey: "name")
+        settings.setValue(scoreLimit, forKeyPath: "scoreLimit")
+        settings.setValue(serveInterval, forKeyPath: "serveInterval")
+        settings.setValue(isWinByTwo, forKeyPath: "isWinByTwo")
+        settings.setValue(isTrackingWorkout, forKeyPath: "isTrackingWorkout")
+        settings.setValue(setAsDefault, forKeyPath: "isDefault")
+
+        if self.settings.filter({ $0.isDefault }).isEmpty {
+            if let setting = self.settings.first {
+                setDefault(setting)
+            }
+        }
+        
+        if setAsDefault {
+            self.settings.filter({$0.id != settings.id}).forEach {
+                $0.setValue(false, forKey: "isDefault")
+            }
+        }
+
+        if context.hasChanges {
+            try? self.context.save()
+        }
+    }
+    
+    func addNew(name: String, setAsDefault: Bool, scoreLimit: Int, serveInterval: Int, isWinByTwo: Bool, isTrackingWorkout: Bool) {
         let settings = MatchSetting(context: context)
         settings.id = UUID()
         settings.name = name
-        settings.scoreLimit = Int16(11)
-        settings.serveInterval = Int16(2)
-        settings.isWinByTwo = true
-        settings.isTrackingWorkout = true
+        settings.scoreLimit = Int16(scoreLimit)
+        settings.serveInterval = Int16(serveInterval)
+        settings.isWinByTwo = isWinByTwo
+        settings.isTrackingWorkout = isTrackingWorkout
         settings.isDefault = setAsDefault
         
         if setAsDefault {
@@ -139,6 +165,5 @@ extension SettingStorage: NSFetchedResultsControllerDelegate {
         
         self.settings = settings
         print("SETTINGS UPDATED")
-        print(settings.first(where: {$0.isDefault})?.name ?? "NO DEFAULT")
     }
 }

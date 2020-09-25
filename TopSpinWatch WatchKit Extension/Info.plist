@@ -46,7 +46,5 @@
 	</array>
 	<key>WKRunsIndependentlyOfCompanionApp</key>
 	<false/>
-	<key>WKWatchOnly</key>
-	<false/>
 </dict>
 </plist>

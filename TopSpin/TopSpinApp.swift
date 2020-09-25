@@ -16,7 +16,7 @@ struct TopSpinApp: App {
     
     init() {
         self.persistenceController = PersistenceController.shared
-        let managedObjectContext = PersistenceController.standardContainer.container.viewContext
+        let managedObjectContext = persistenceController.container.viewContext
         let matchStorage = MatchStorage(managedObjectContext: managedObjectContext)
         self._matchStorage = StateObject(wrappedValue: matchStorage)
         

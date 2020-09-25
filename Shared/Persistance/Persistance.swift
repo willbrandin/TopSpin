@@ -88,8 +88,20 @@ extension PersistenceController {
         myCustom.isTrackingWorkout = true
         myCustom.isWinByTwo = true
         myCustom.name = "My 21 Settings"
-        myCustom.scoreLimit = 11
-        myCustom.serveInterval = 2
+        myCustom.scoreLimit = 21
+        myCustom.serveInterval = 5
+        
+        creationDateString = "2020-09-20T12:59:00+0000"
+
+        let relaxedCustom = MatchSetting(context: context)
+        relaxedCustom.createdDate = dateFormatter.date(from: creationDateString)
+        relaxedCustom.id = UUID()
+        relaxedCustom.isDefault = false
+        relaxedCustom.isTrackingWorkout = false
+        relaxedCustom.isWinByTwo = false
+        relaxedCustom.name = "My Relaxed Settings"
+        relaxedCustom.scoreLimit = 21
+        relaxedCustom.serveInterval = 5
     }
     
     static func loadMatchData(in context: NSManagedObjectContext) {

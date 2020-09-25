@@ -15,9 +15,13 @@ struct ContentView: View {
     @State private var currentPage: Int = 2
     @State private var activeMatch: Bool = false
     
+    var defaultSettings: MatchSetting {
+        return settingStore.settings.first(where: { $0.isDefault })!
+    }
+    
     var body: some View {
         if activeMatch {
-            ActiveMatchTabView(activeMatch: $activeMatch, currentPage: $currentPage)
+            ActiveMatchTabView(activeMatch: $activeMatch, currentPage: $currentPage, matchSettings: defaultSettings)
                 .onAppear {
                     currentPage = 2
                 }

@@ -32,23 +32,30 @@ struct MatchSettingsPickerView: View {
         }
     }
     
+    func listItemLink(_ name: String, isDefault: Bool, setting: MatchSetting) -> some View {
+        NavigationLink(
+            destination: MatchSettingsFormView(settingStore: settingStore, setting: setting, onComplete: setSelected),
+            label: {
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text(name)
+                        
+                        if isDefault {
+                            Text("Default Match Settings")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                    Spacer()
+                }
+            })
+    }
+    
     var listView: some View {
         List {
             Section {
                 ForEach(settingStore.settings) { setting in
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text(setting.name ?? "Unknown")
-                            
-                            if setting.id! == defaultSetting.id! {
-                                Text("Default Match Settings")
-                                    .font(.caption)
-                                    .foregroundColor(.secondary)
-                            }
-                        }
-                        Spacer()
-                        Image(systemName: "chevron.right")
-                    }
+                    listItemLink(setting.name ?? "Unknown", isDefault: setting.isDefault, setting: setting)
                 }
                 .onDelete { set in
                     delete(at: set)

@@ -35,6 +35,7 @@ struct TopSpinApp: App {
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
                     .environmentObject(matchStorage)
                     .environmentObject(workoutManager)
+                    .environmentObject(settingStorage)
             }
         }
     }

@@ -17,7 +17,7 @@ struct WorkoutMetricContent {
     let minHeartRate: Int
     
     var duration: String {
-        let timeInterval = startDate.timeIntervalSince(endDate)
+        let timeInterval = endDate.timeIntervalSince(startDate)
         let timePassed = timeInterval.truncatingRemainder(dividingBy: 3600) / 60
         return "\(Int(timePassed))"
     }
