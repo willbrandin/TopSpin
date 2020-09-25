@@ -37,7 +37,9 @@ struct MatchHistoryItem: View {
                 }
                 
                 #if os(iOS)
-                    HistoryWorkoutMetricView()
+                if let metric = WorkoutMetricContent(match: match) {
+                    HistoryWorkoutMetricView(metricContent: metric)
+                }
                 #endif
             }
         }

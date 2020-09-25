@@ -14,36 +14,7 @@ struct PersistenceController {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         
-        for i in 0..<2 {
-            let workout = Workout(context: viewContext)
-            workout.id = UUID()
-            workout.activeCalories = 200
-            workout.endDate = Date()
-            workout.startDate = Date()
-            workout.maxHeartRate = 146
-            workout.minHeartRate = 112
-            workout.averageHeartRate = 132
-            
-            let score = MatchScore(context: viewContext)
-            score.id = UUID()
-            score.opponentScore = i % 2 == 0 ? 7 : 11
-            score.playerScore = i % 2 == 0 ? 11 : 4
-            
-            let newItem = Match(context: viewContext)
-            newItem.workout = workout
-            newItem.score = score
-            newItem.date = Date()
-            newItem.id = UUID()
-        }
-        
-        do {
-            try viewContext.save()
-        } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-        }
+        loadFullAccountData(in: viewContext)
         return result
     }()
 
@@ -75,3 +46,116 @@ struct PersistenceController {
         })
     }
 }
+
+#if DEBUG
+extension PersistenceController {
+    static func loadFullAccountData(in context: NSManagedObjectContext) {
+        loadSettingsData(in: context)
+        loadMatchData(in: context)
+        
+        do {
+            try context.save()
+        } catch {
+            // Replace this implementation with code to handle the error appropriately.
+            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        }
+    }
+    
+    static func loadSettingsData(in context: NSManagedObjectContext) {
+        var creationDateString = "2020-09-20T12:59:00+0000"
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        
+        let settings = MatchSetting(context: context)
+        settings.createdDate = dateFormatter.date(from: creationDateString)
+        settings.id = UUID()
+        settings.isDefault = false
+        settings.isTrackingWorkout = true
+        settings.isWinByTwo = true
+        settings.name = "Default"
+        settings.scoreLimit = 11
+        settings.serveInterval = 2
+        
+        creationDateString = "2020-09-21T12:59:00+0000"
+        
+        let myCustom = MatchSetting(context: context)
+        myCustom.createdDate = dateFormatter.date(from: creationDateString)
+        myCustom.id = UUID()
+        myCustom.isDefault = true
+        myCustom.isTrackingWorkout = true
+        myCustom.isWinByTwo = true
+        myCustom.name = "My 21 Settings"
+        myCustom.scoreLimit = 11
+        myCustom.serveInterval = 2
+    }
+    
+    static func loadMatchData(in context: NSManagedObjectContext) {
+        
+        var matchStartString = "2020-09-20T14:13:14+0000"
+        var matchEndString = "2020-09-20T12:59:00+0000"
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        
+        // MATCH WINS
+        
+        for i in 0..<2 {
+            let workout = Workout(context: context)
+            workout.id = UUID()
+            workout.activeCalories = 200
+            workout.endDate = dateFormatter.date(from: matchEndString)
+            workout.startDate = dateFormatter.date(from: matchStartString)
+            workout.maxHeartRate = 146
+            workout.minHeartRate = 112
+            workout.averageHeartRate = 132
+            
+            let score = MatchScore(context: context)
+            score.id = UUID()
+            score.opponentScore = i % 2 == 0 ? 7 : 11
+            score.playerScore = i % 2 == 0 ? 11 : 4
+            
+            let newItem = Match(context: context)
+            newItem.workout = workout
+            newItem.score = score
+            newItem.date = Date()
+            newItem.id = UUID()
+            
+            matchStartString = "2020-09-22T14:13:14+0000"
+            matchEndString = "2020-09-22T12:39:00+0000"
+        }
+        
+        // MATCH LOSES
+        
+        matchStartString = "2020-09-21T14:13:14+0000"
+        matchEndString = "2020-09-21T12:59:00+0000"
+        
+        for i in 0..<2 {
+            let workout = Workout(context: context)
+            workout.id = UUID()
+            workout.activeCalories = 132
+            workout.endDate = dateFormatter.date(from: matchEndString)
+            workout.startDate = dateFormatter.date(from: matchStartString)
+            workout.maxHeartRate = 146
+            workout.minHeartRate = 112
+            workout.averageHeartRate = 132
+            
+            let score = MatchScore(context: context)
+            score.id = UUID()
+            score.opponentScore = i % 2 == 0 ? 7 : 11
+            score.playerScore = i % 2 == 0 ? 11 : 4
+            
+            let newItem = Match(context: context)
+            newItem.workout = workout
+            newItem.score = score
+            newItem.date = Date()
+            newItem.id = UUID()
+            
+            matchStartString = "2020-09-23T14:13:14+0000"
+            matchEndString = "2020-09-23T12:59:00+0000"
+        }
+    }
+}
+#endif

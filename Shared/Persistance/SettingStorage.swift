@@ -73,17 +73,24 @@ class SettingStorage: NSObject, ObservableObject {
         self.settings.filter({$0.id != setting.id}).forEach {
             $0.setValue(false, forKey: "isDefault")
         }
-        
-        do {
-            try context.save()
-            print("SAVED NEW DEFAULT")
-        } catch {
-            print("FAILED TO SAVE")
-        }
     }
     
     func delete(_ settings: [MatchSetting]) {
         settings.forEach { context.delete($0) }
+        
+        save()
+    }
+    
+    func save(_ saving: Bool = true) {
+        if settings.isEmpty {
+            setInitialSettings(false)
+        }
+        
+        if settings.filter({ $0.isDefault }).isEmpty {
+            if let setting = settings.first {
+                setDefault(setting)
+            }
+        }
         
         do {
             try context.save()
@@ -93,7 +100,7 @@ class SettingStorage: NSObject, ObservableObject {
         }
     }
     
-    private func setInitialSettings() {
+    func setInitialSettings(_ saving: Bool = true) {
         let settings = MatchSetting(context: context)
         settings.createdDate = Date()
         settings.id = UUID()
@@ -104,11 +111,13 @@ class SettingStorage: NSObject, ObservableObject {
         settings.scoreLimit = 11
         settings.serveInterval = 2
         
-        do {
-            try context.save()
-            print("DID SAVE DEFAULT SETTINGS")
-        } catch {
-            print("FAILED TO SAVE")
+        if saving {
+            do {
+                try context.save()
+                print("DID SAVE DEFAULT SETTINGS")
+            } catch {
+                print("FAILED TO SAVE")
+            }
         }
     }
 }
@@ -120,6 +129,12 @@ extension SettingStorage: NSFetchedResultsControllerDelegate {
         
         if settings.isEmpty {
             setInitialSettings()
+        }
+        
+        if settings.filter({ $0.isDefault }).isEmpty {
+            if let setting = settings.first {
+                setDefault(setting)
+            }
         }
         
         self.settings = settings

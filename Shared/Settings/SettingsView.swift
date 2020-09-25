@@ -12,6 +12,8 @@ struct SettingsView: View {
     @ObservedObject var settingStore: SettingStorage
     @State private var selectedSettings: MatchSetting
     
+    @State private var isAddNewPresented: Bool = false
+    
     init(settingStore: SettingStorage) {
         self.settingStore = settingStore
         
@@ -19,16 +21,11 @@ struct SettingsView: View {
     }
     
     var pickerView: some View {
-        Picker("Default Settings", selection: $selectedSettings) {
-            ForEach(settingStore.settings) { setting in
-                if let name = setting.name {
-                    VStack {
-                        Text(name)
-                    }
-                    .tag(setting)
-                }
-            }
-        }
+        NavigationLink(
+            destination: MatchSettingsPickerView(settingStore: settingStore),
+            label: {
+                Text("Match Settings")
+            })
     }
     
     var listView: some View {
@@ -39,9 +36,20 @@ struct SettingsView: View {
                     settingStore.setDefault(setting)
                 }
                 
-                NavigationLink(destination: MatchSettingsFormView(settingStore: settingStore, onComplete: setSelected)) {
-                    Text("Add New")
+                #if os(watchOS)
+                NavigationLink("Add New", destination: MatchSettingsFormView(settingStore: settingStore, onComplete: setSelected))
+                #else
+                Button("Add New") {
+                    
+                    isAddNewPresented = true
                 }
+                .sheet(isPresented: $isAddNewPresented) {
+                    NavigationView {
+                        MatchSettingsFormView(settingStore: settingStore, onComplete: setSelected)
+                    }
+                }
+                #endif
+                
             }
             
             Section(header: Text("About")) {

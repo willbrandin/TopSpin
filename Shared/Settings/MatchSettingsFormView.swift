@@ -26,7 +26,16 @@ struct MatchSettingsFormView: View {
     @State private var trackWorkoutData: Bool = true
     @State private var setAsDefault: Bool = true
     
-    var body: some View {
+    @State private var isEmptyNameError: Bool = false
+    
+    var closeButton: some View {
+        return Button(action: { self.presentationMode.wrappedValue.dismiss() }) {
+            Image(systemName: "xmark")
+                .font(.headline)
+        }
+    }
+    
+    var formView: some View {
         Form {
             Section {
                 TextField("My Settings", text: $settingsName)
@@ -54,7 +63,7 @@ struct MatchSettingsFormView: View {
                         Text("21").tag(21)
                     }
                     .pickerStyle(SegmentedPickerStyle())
-                    
+                
                     Text("How often will you switch servers?")
                     Picker("Serve Interval", selection: $serveInterval) {
                         Text("2").tag(2)
@@ -64,7 +73,9 @@ struct MatchSettingsFormView: View {
                 }
                 .padding(.vertical)
                 #endif
-                            
+            }
+            
+            Section {
                 Toggle("Win by Two", isOn: $winByTwo)
                 Toggle("Track Workout", isOn: $trackWorkoutData)
                 Toggle("Set as Default", isOn: $setAsDefault)
@@ -73,11 +84,31 @@ struct MatchSettingsFormView: View {
             Section {
                 Button("Save Settings", action: onSave)
             }
+            .alert(isPresented: $isEmptyNameError) {
+                Alert(title: Text("Name for Match Settings cannot be empty"))
+            }
         }
         .navigationTitle("Match Settings")
     }
     
+    var body: some View {
+        #if os(watchOS)
+        formView
+            .navigationTitle("New Settings")
+        #else
+        formView
+            .navigationTitle("New Settings")
+            .navigationBarItems(leading: closeButton)
+
+        #endif
+    }
+    
     private func onSave() {
+        guard !settingsName.isEmpty else {
+            isEmptyNameError = true
+            return
+        }
+        
         settingStore.addNew(name: self.settingsName,
                             setAsDefault: self.setAsDefault)
         onComplete?()
