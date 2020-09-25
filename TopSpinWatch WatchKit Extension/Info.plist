@@ -32,11 +32,19 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.watchkit</string>
 	</dict>
-	<key>WKWatchOnly</key>
-	<true/>
-	<key>NSHealthUpdateUsageDescription</key>
-	<string>Workouts tracked by TopSpin on Apple Watch will be saved to HealthKit.</string>
 	<key>NSHealthShareUsageDescription</key>
 	<string>Your workout related data will be used to display your saved workouts in TopSpin.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Workouts tracked by TopSpin on Apple Watch will be saved to HealthKit.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
+	<key>WKBackgroundModes</key>
+	<array>
+		<string>workout-processing</string>
+	</array>
+	<key>WKWatchOnly</key>
+	<true/>
 </dict>
 </plist>

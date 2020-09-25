@@ -14,40 +14,34 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D23F760525198A87006BF603"
-               BuildableName = "TopSpin.app"
-               BlueprintName = "TopSpin"
+               BlueprintIdentifier = "D23F761D25198AB5006BF603"
+               BuildableName = "TopSpinWatch WatchKit App.app"
+               BlueprintName = "TopSpinWatch WatchKit App"
+               ReferencedContainer = "container:TopSpin.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D23F761A25198AB5006BF603"
+               BuildableName = "Top Spin.app"
+               BlueprintName = "TopSpinWatch"
                ReferencedContainer = "container:TopSpin.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      onlyGenerateCoverageForSpecifiedTargets = "YES">
-      <CodeCoverageTargets>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D23F760525198A87006BF603"
-            BuildableName = "TopSpin.app"
-            BlueprintName = "TopSpin"
-            ReferencedContainer = "container:TopSpin.xcodeproj">
-         </BuildableReference>
-      </CodeCoverageTargets>
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D27978A9251CED0800771DB9"
-               BuildableName = "TopSpinTests.xctest"
-               BlueprintName = "TopSpinTests"
-               ReferencedContainer = "container:TopSpin.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -64,9 +58,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D23F760525198A87006BF603"
-            BuildableName = "TopSpin.app"
-            BlueprintName = "TopSpin"
+            BlueprintIdentifier = "D23F761D25198AB5006BF603"
+            BuildableName = "TopSpinWatch WatchKit App.app"
+            BlueprintName = "TopSpinWatch WatchKit App"
             ReferencedContainer = "container:TopSpin.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -81,9 +75,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D23F760525198A87006BF603"
-            BuildableName = "TopSpin.app"
-            BlueprintName = "TopSpin"
+            BlueprintIdentifier = "D23F761D25198AB5006BF603"
+            BuildableName = "TopSpinWatch WatchKit App.app"
+            BlueprintName = "TopSpinWatch WatchKit App"
             ReferencedContainer = "container:TopSpin.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

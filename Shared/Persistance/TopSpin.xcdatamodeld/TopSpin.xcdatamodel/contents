@@ -30,13 +30,12 @@
         <attribute name="maxHeartRate" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="minHeartRate" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="totalCalories" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="match" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Match" inverseName="workout" inverseEntity="Match"/>
     </entity>
     <elements>
         <element name="Match" positionX="-63" positionY="-18" width="128" height="103"/>
         <element name="MatchScore" positionX="-36" positionY="45" width="128" height="103"/>
         <element name="MatchSetting" positionX="-45" positionY="27" width="128" height="163"/>
-        <element name="Workout" positionX="-54" positionY="-9" width="128" height="178"/>
+        <element name="Workout" positionX="-54" positionY="-9" width="128" height="163"/>
     </elements>
 </model>

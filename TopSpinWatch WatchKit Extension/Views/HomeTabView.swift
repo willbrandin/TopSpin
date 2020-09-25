@@ -26,6 +26,13 @@ struct HomeTabView: View {
             MatchHistoryList(matchesStore: matchStorage)
                 .tag(3)
         }
+        .onAppear {
+            workoutSession.requestAuthorization()
+            
+            if workoutSession.isWorkoutActive {
+                workoutSession.endWorkout()
+            }
+        }
     }
     
     func start() {

@@ -18,7 +18,6 @@ struct PersistenceController {
             let workout = Workout(context: viewContext)
             workout.id = UUID()
             workout.activeCalories = 200
-            workout.totalCalories = 240
             workout.endDate = Date()
             workout.startDate = Date()
             workout.maxHeartRate = 146
@@ -55,6 +54,9 @@ struct PersistenceController {
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
+        
+        container.viewContext.automaticallyMergesChangesFromParent = true
+        
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.

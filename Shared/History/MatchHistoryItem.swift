@@ -55,7 +55,6 @@ struct MatchHistoryItem_Previews: PreviewProvider {
         let workout = Workout(context: context)
         workout.id = UUID()
         workout.activeCalories = 200
-        workout.totalCalories = 240
         workout.endDate = Date()
         workout.startDate = Date()
         workout.maxHeartRate = 146

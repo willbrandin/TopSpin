@@ -15,8 +15,6 @@ struct ContentView: View {
     @State private var currentPage: Int = 2
     @State private var activeMatch: Bool = false
     
-    @EnvironmentObject var workoutSession: WorkoutManager
-
     var body: some View {
         if activeMatch {
             ActiveMatchTabView(activeMatch: $activeMatch, currentPage: $currentPage)
@@ -25,10 +23,6 @@ struct ContentView: View {
                 }
         } else {
             HomeTabView(matchStorage: matchStorage, settingStore: settingStore, currentPage: $currentPage, activeMatch: $activeMatch)
-                .onAppear {
-                    self.workoutSession.requestAuthorization()
-                    currentPage = 2
-                }
         }
     }
 }
@@ -39,6 +33,5 @@ struct ContentView_Previews: PreviewProvider {
     
     static var previews: some View {
         ContentView(matchStorage: matchStorage, settingStore: settingStore)
-            .environmentObject(WorkoutManager())
     }
 }

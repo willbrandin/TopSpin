@@ -9,17 +9,24 @@ import SwiftUI
 
 struct ActiveMatchView: View {
     
+    var completeAction: () -> Void
     var cancelAction: () -> Void
+    
+    @EnvironmentObject var matchController: RallyMatchController
+    
+    fileprivate let id = UUID()
     
     var body: some View {
         ScrollView {
             VStack {
-                Text("MATCH POINT")
-                    .font(.caption2)
-                    .bold()
-                    .padding(2)
-                    .background(Color.orange)
-                    .cornerRadius(2)
+                if matchController.teamHasGamePoint {
+                    Text("MATCH POINT")
+                        .font(.caption2)
+                        .bold()
+                        .padding(2)
+                        .background(Color.orange)
+                        .cornerRadius(2)
+                }
                 
                 HStack {
                     Spacer()
@@ -27,15 +34,15 @@ struct ActiveMatchView: View {
                         HStack {
                             Circle()
                                 .frame(width: 5, height: 5)
-                                .foregroundColor(.green)
-                            Text("10")
+                                .foregroundColor(matchController.servingTeam == .one ? .green : .clear)
+                            Text("\(matchController.teamOneScore)")
                         }
                         Text("-")
                         HStack {
-                            Text("8")
+                            Text("\(matchController.teamTwoScore)")
                             Circle()
                                 .frame(width: 5, height: 5)
-                                .foregroundColor(.clear)
+                                .foregroundColor(matchController.servingTeam == .two ? .green : .clear)
                         }
                     }
                     .font(.title)
@@ -45,22 +52,36 @@ struct ActiveMatchView: View {
                 Spacer()
                 
                 Button("Player 1") {
-                    
+                    matchController.incrementScore(for: .one)
                 }
                 Button("Player 2") {
-                    
+                    matchController.incrementScore(for: .two)
                 }
                 
                 Button("Cancel", action: cancelAction)
                 .buttonStyle(BorderedButtonStyle(tint: .red))
                 .padding(.top, 24)
+                
+            }
+            .alert(isPresented: $matchController.teamDidWin) {
+                let winningTeam = matchController.winningTeam
+                let title = winningTeam == .one ? "You win!" : "Maybe next time!"
+                let button: Alert.Button = .default(Text("Save Match"), action: completeAction)
+                return Alert(title: Text(title), message: nil, dismissButton: button)
             }
         }
     }
 }
 
+// https://stackoverflow.com/questions/60482098/swiftui-how-to-prevent-view-to-reload-whole-body
+extension ActiveMatchView: Equatable {
+    static func == (lhs: ActiveMatchView, rhs: ActiveMatchView) -> Bool {
+        return true
+    }
+}
+
 struct ActiveMatchView_Previews: PreviewProvider {
     static var previews: some View {
-        ActiveMatchView(cancelAction: {})
+        ActiveMatchView(completeAction: {}, cancelAction: {})
     }
 }

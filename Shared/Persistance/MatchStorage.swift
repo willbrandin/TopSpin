@@ -7,6 +7,24 @@
 
 import CoreData
 
+struct MatchWorkout {
+    let id: UUID
+    let activeCalories: Int
+    let endDate: Date
+    let startDate: Date
+    let maxHeartRate: Int
+    let minHeartRate: Int
+    let avgHeartRate: Int
+}
+
+struct CompleteMatch {
+    let id: UUID
+    let opponentScore: Int
+    let playerScore: Int
+    let date: Date
+    let workout: MatchWorkout
+}
+
 extension Match {
     static var sortedByDateFetchRequest: NSFetchRequest<Match> {
         let request: NSFetchRequest<Match> = Match.fetchRequest()
@@ -41,27 +59,26 @@ class MatchStorage: NSObject, ObservableObject {
         }
     }
     
-    func addNew() {
+    func addNew(_ match: CompleteMatch) {
         let workout = Workout(context: context)
-        workout.id = UUID()
-        workout.activeCalories = 200
-        workout.totalCalories = 240
-        workout.endDate = Date()
-        workout.startDate = Date()
-        workout.maxHeartRate = 146
-        workout.minHeartRate = 112
-        workout.averageHeartRate = 132
+        workout.id = match.workout.id
+        workout.activeCalories = Int16(match.workout.activeCalories)
+        workout.endDate = match.workout.endDate
+        workout.startDate = match.workout.startDate
+        workout.maxHeartRate = Int16(match.workout.maxHeartRate)
+        workout.minHeartRate = Int16(match.workout.minHeartRate)
+        workout.averageHeartRate = Int16(match.workout.avgHeartRate)
         
         let score = MatchScore(context: context)
         score.id = UUID()
-        score.opponentScore = 32
-        score.playerScore = 14
+        score.opponentScore = Int16(match.opponentScore)
+        score.playerScore = Int16(match.playerScore)
         
         let newItem = Match(context: context)
         newItem.workout = workout
         newItem.score = score
-        newItem.date = Date()
-        newItem.id = UUID()
+        newItem.date = match.date
+        newItem.id = match.id
         
         do {
             try context.save()

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum RallyTeam {
+public enum RallyTeam: Equatable {
     case one
     case two
     

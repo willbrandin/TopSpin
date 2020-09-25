@@ -33,6 +33,7 @@ struct TopSpinApp: App {
             NavigationView {
                 ContentView(matchStorage: matchStorage, settingStore: settingStorage)
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                    .environmentObject(matchStorage)
                     .environmentObject(workoutManager)
             }
         }

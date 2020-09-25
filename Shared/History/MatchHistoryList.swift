@@ -34,7 +34,7 @@ struct MatchHistoryList: View {
     
     var devMockAddButton: some View {
         Button("ADD FAKE") {
-            matchesStore.addNew()
+//            matchesStore.addNew()
         }
     }
     

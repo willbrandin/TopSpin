@@ -29,8 +29,8 @@ class WorkoutManager: NSObject, ObservableObject {
     @Published var heartrate: Double = 0
     @Published var avgHeartRate: Double = 0
     
-    var maxHeartRate: Double = 0
-    var minHeartRate: Double = 0
+    @Published var maxHeartRate: Double = 0
+    @Published var minHeartRate: Double = 0
     
     @Published var activeCalories: Double = 0
     @Published var elapsedSeconds: Int = 0

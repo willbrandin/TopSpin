@@ -54,6 +54,7 @@
 		D27978FE251CF70E00771DB9 /* StatefulPreviewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27978FD251CF70E00771DB9 /* StatefulPreviewWrapper.swift */; };
 		D27978FF251CF70E00771DB9 /* StatefulPreviewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27978FD251CF70E00771DB9 /* StatefulPreviewWrapper.swift */; };
 		D2797910251D00FB00771DB9 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D279790F251D00FB00771DB9 /* HealthKit.framework */; };
+		D279794E251D931A00771DB9 /* TopSpinWatch WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D23F761E25198AB5006BF603 /* TopSpinWatch WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D2801F4E25199BCC00E85E90 /* HistorySummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2801F4D25199BCC00E85E90 /* HistorySummaryView.swift */; };
 		D2B74D5F251A931700D1004B /* ActiveMatchSwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B74D5E251A931700D1004B /* ActiveMatchSwipeView.swift */; };
 		D2B74D69251AA49B00D1004B /* ActiveMatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B74D68251AA49B00D1004B /* ActiveMatchView.swift */; };
@@ -114,6 +115,17 @@
 			dstSubfolderSpec = 16;
 			files = (
 				D23F761F25198AB5006BF603 /* TopSpinWatch WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2797951251D931A00771DB9 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				D279794E251D931A00771DB9 /* TopSpinWatch WatchKit App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -498,6 +510,7 @@
 				D23F760225198A87006BF603 /* Sources */,
 				D23F760325198A87006BF603 /* Frameworks */,
 				D23F760425198A87006BF603 /* Resources */,
+				D2797951251D931A00771DB9 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
