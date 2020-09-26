@@ -23,7 +23,7 @@ struct MatchSettingsFormView: View {
     @State private var isEmptyNameError: Bool = false
     
     var closeButton: some View {
-        if presentationMode.wrappedValue.isPresented {
+        if !presentationMode.wrappedValue.isPresented {
             return AnyView(EmptyView())
         }
         

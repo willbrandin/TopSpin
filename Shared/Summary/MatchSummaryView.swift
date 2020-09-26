@@ -10,7 +10,7 @@ import SwiftUI
 struct MatchSummaryView: View {
     
     @Environment(\.colorScheme) var colorScheme
-    
+        
     var yellowColor: Color {
         return colorScheme == .dark ? .yellow : Color(UIColor.label)
     }
@@ -44,22 +44,24 @@ struct MatchSummaryView: View {
     }
     
     var workoutMetrics: some View {
-        VStack {
-            Divider()
-            
-            largeMetricSection
-            
-            Divider()
-
-            VStack(alignment: .leading) {
-                Text("Heart Rate")
-                    .font(.headline)
+        HStack {
+            VStack {
+                Divider()
                 
-                HeartRatesView()
-            }
-            .padding()
+                largeMetricSection
+                
+                Divider()
 
-            Divider()
+                VStack(alignment: .leading) {
+                    Text("Heart Rate")
+                        .font(.headline)
+                    
+                    HeartRatesView()
+                }
+                .padding()
+
+                Divider()
+            }
         }
     }
     

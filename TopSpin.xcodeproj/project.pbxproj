@@ -80,6 +80,7 @@
 		D2B74DA7251ABE1000D1004B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2B74DA6251ABE1000D1004B /* CloudKit.framework */; };
 		D2B74DAB251ABEA800D1004B /* TopSpin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D2B74DA9251ABEA800D1004B /* TopSpin.xcdatamodeld */; };
 		D2B74DAC251ABEA800D1004B /* TopSpin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D2B74DA9251ABEA800D1004B /* TopSpin.xcdatamodeld */; };
+		D2D73E1B251ED74D006896C3 /* MatchTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E1A251ED74D006896C3 /* MatchTimelineView.swift */; };
 		D2F35DDB2519A5B400739463 /* MatchHistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F35DD62519A55900739463 /* MatchHistoryList.swift */; };
 		D2F35DE5251A379D00739463 /* MatchSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F35DE4251A379D00739463 /* MatchSummaryView.swift */; };
 		D2F35DF5251A41F500739463 /* MatchSettingsFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F35DF4251A41F500739463 /* MatchSettingsFormView.swift */; };
@@ -199,6 +200,7 @@
 		D2B74DA1251ABE0C00D1004B /* TopSpinWatch WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TopSpinWatch WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		D2B74DA6251ABE1000D1004B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		D2B74DAA251ABEA800D1004B /* TopSpin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TopSpin.xcdatamodel; sourceTree = "<group>"; };
+		D2D73E1A251ED74D006896C3 /* MatchTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTimelineView.swift; sourceTree = "<group>"; };
 		D2F35DD62519A55900739463 /* MatchHistoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchHistoryList.swift; sourceTree = "<group>"; };
 		D2F35DE4251A379D00739463 /* MatchSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSummaryView.swift; sourceTree = "<group>"; };
 		D2F35DF4251A41F500739463 /* MatchSettingsFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSettingsFormView.swift; sourceTree = "<group>"; };
@@ -485,6 +487,7 @@
 		D2B279C1251EB9A50007FF3F /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				D2D73E19251ED739006896C3 /* MatchTimeline */,
 				D2D73E0F251ED312006896C3 /* HeartRate */,
 				D2B279C2251EB9B30007FF3F /* HorizontalIconView.swift */,
 				D2B279E5251EC3C80007FF3F /* LargeMetricView.swift */,
@@ -529,6 +532,14 @@
 				D2B01F0C251ED2A2002E8E74 /* HeartRateValueView.swift */,
 			);
 			path = HeartRate;
+			sourceTree = "<group>";
+		};
+		D2D73E19251ED739006896C3 /* MatchTimeline */ = {
+			isa = PBXGroup;
+			children = (
+				D2D73E1A251ED74D006896C3 /* MatchTimelineView.swift */,
+			);
+			path = MatchTimeline;
 			sourceTree = "<group>";
 		};
 		D2F35DD42519A54D00739463 /* Views */ = {
@@ -726,6 +737,7 @@
 				D2B279ED251EC5450007FF3F /* MatchSummaryScoreView.swift in Sources */,
 				D23CCB8D251ADEC2002EBE72 /* HorizontalSummaryView.swift in Sources */,
 				D23CCBC5251BA65B002EBE72 /* SettingStorage.swift in Sources */,
+				D2D73E1B251ED74D006896C3 /* MatchTimelineView.swift in Sources */,
 				D23CCBAC251B8DBE002EBE72 /* MatchStorage.swift in Sources */,
 				D23CCB65251AD634002EBE72 /* Match+Extensions.swift in Sources */,
 				D23CCBA0251B8AE3002EBE72 /* HistoryWorkoutMetricView.swift in Sources */,
