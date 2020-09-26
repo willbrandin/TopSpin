@@ -12,6 +12,7 @@ struct ActiveMatchView: View {
     var completeAction: () -> Void
     var cancelAction: () -> Void
     
+    @EnvironmentObject var workoutSession: WorkoutManager
     @EnvironmentObject var matchController: RallyMatchController
     
     fileprivate let id = UUID()
@@ -64,19 +65,13 @@ struct ActiveMatchView: View {
                 
             }
             .alert(isPresented: $matchController.teamDidWin) {
+                workoutSession.pauseWorkout()
                 let winningTeam = matchController.winningTeam
                 let title = winningTeam == .one ? "You win!" : "Maybe next time!"
                 let button: Alert.Button = .default(Text("Save Match"), action: completeAction)
                 return Alert(title: Text(title), message: nil, dismissButton: button)
             }
         }
-    }
-}
-
-// https://stackoverflow.com/questions/60482098/swiftui-how-to-prevent-view-to-reload-whole-body
-extension ActiveMatchView: Equatable {
-    static func == (lhs: ActiveMatchView, rhs: ActiveMatchView) -> Bool {
-        return true
     }
 }
 

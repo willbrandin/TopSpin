@@ -35,7 +35,6 @@ struct ActiveMatchTabView: View {
             MatchWorkoutView(cancelAction: cancel)
                 .tag(1)
             ActiveMatchView(completeAction: complete, cancelAction: cancel)
-                .equatable()
                 .environmentObject(matchController)
                 .tag(2)
         }

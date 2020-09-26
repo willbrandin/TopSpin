@@ -81,6 +81,9 @@
 		D2B74DAB251ABEA800D1004B /* TopSpin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D2B74DA9251ABEA800D1004B /* TopSpin.xcdatamodeld */; };
 		D2B74DAC251ABEA800D1004B /* TopSpin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D2B74DA9251ABEA800D1004B /* TopSpin.xcdatamodeld */; };
 		D2D73E1B251ED74D006896C3 /* MatchTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E1A251ED74D006896C3 /* MatchTimelineView.swift */; };
+		D2D73E2A251EF398006896C3 /* FloatingLiveWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E29251EF398006896C3 /* FloatingLiveWorkoutView.swift */; };
+		D2D73E35251EFA4B006896C3 /* LiveMatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E34251EFA4B006896C3 /* LiveMatchView.swift */; };
+		D2D73E3C251F05C0006896C3 /* HomeHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E3B251F05C0006896C3 /* HomeHistoryView.swift */; };
 		D2F35DDB2519A5B400739463 /* MatchHistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F35DD62519A55900739463 /* MatchHistoryList.swift */; };
 		D2F35DE5251A379D00739463 /* MatchSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F35DE4251A379D00739463 /* MatchSummaryView.swift */; };
 		D2F35DF5251A41F500739463 /* MatchSettingsFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F35DF4251A41F500739463 /* MatchSettingsFormView.swift */; };
@@ -201,6 +204,9 @@
 		D2B74DA6251ABE1000D1004B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		D2B74DAA251ABEA800D1004B /* TopSpin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TopSpin.xcdatamodel; sourceTree = "<group>"; };
 		D2D73E1A251ED74D006896C3 /* MatchTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTimelineView.swift; sourceTree = "<group>"; };
+		D2D73E29251EF398006896C3 /* FloatingLiveWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingLiveWorkoutView.swift; sourceTree = "<group>"; };
+		D2D73E34251EFA4B006896C3 /* LiveMatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveMatchView.swift; sourceTree = "<group>"; };
+		D2D73E3B251F05C0006896C3 /* HomeHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHistoryView.swift; sourceTree = "<group>"; };
 		D2F35DD62519A55900739463 /* MatchHistoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchHistoryList.swift; sourceTree = "<group>"; };
 		D2F35DE4251A379D00739463 /* MatchSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSummaryView.swift; sourceTree = "<group>"; };
 		D2F35DF4251A41F500739463 /* MatchSettingsFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSettingsFormView.swift; sourceTree = "<group>"; };
@@ -342,6 +348,8 @@
 		D23F764F25198AF8006BF603 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				D2D73E3A251F05AE006896C3 /* Home */,
+				D2D73E33251EFA2A006896C3 /* LiveMatchView */,
 				D2B279DC251EC3740007FF3F /* Summary */,
 				D2B279C1251EB9A50007FF3F /* Components */,
 				D2B279B8251EB8DD0007FF3F /* HistorySummary */,
@@ -487,6 +495,7 @@
 		D2B279C1251EB9A50007FF3F /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				D2D73E28251EF379006896C3 /* FloatingLiveWorkoutView */,
 				D2D73E19251ED739006896C3 /* MatchTimeline */,
 				D2D73E0F251ED312006896C3 /* HeartRate */,
 				D2B279C2251EB9B30007FF3F /* HorizontalIconView.swift */,
@@ -540,6 +549,30 @@
 				D2D73E1A251ED74D006896C3 /* MatchTimelineView.swift */,
 			);
 			path = MatchTimeline;
+			sourceTree = "<group>";
+		};
+		D2D73E28251EF379006896C3 /* FloatingLiveWorkoutView */ = {
+			isa = PBXGroup;
+			children = (
+				D2D73E29251EF398006896C3 /* FloatingLiveWorkoutView.swift */,
+			);
+			path = FloatingLiveWorkoutView;
+			sourceTree = "<group>";
+		};
+		D2D73E33251EFA2A006896C3 /* LiveMatchView */ = {
+			isa = PBXGroup;
+			children = (
+				D2D73E34251EFA4B006896C3 /* LiveMatchView.swift */,
+			);
+			path = LiveMatchView;
+			sourceTree = "<group>";
+		};
+		D2D73E3A251F05AE006896C3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D2D73E3B251F05C0006896C3 /* HomeHistoryView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		D2F35DD42519A54D00739463 /* Views */ = {
@@ -735,8 +768,10 @@
 				D2227EFB251E3154009DD539 /* MatchSettingsPickerView.swift in Sources */,
 				D23F760C25198A87006BF603 /* ContentView.swift in Sources */,
 				D2B279ED251EC5450007FF3F /* MatchSummaryScoreView.swift in Sources */,
+				D2D73E2A251EF398006896C3 /* FloatingLiveWorkoutView.swift in Sources */,
 				D23CCB8D251ADEC2002EBE72 /* HorizontalSummaryView.swift in Sources */,
 				D23CCBC5251BA65B002EBE72 /* SettingStorage.swift in Sources */,
+				D2D73E35251EFA4B006896C3 /* LiveMatchView.swift in Sources */,
 				D2D73E1B251ED74D006896C3 /* MatchTimelineView.swift in Sources */,
 				D23CCBAC251B8DBE002EBE72 /* MatchStorage.swift in Sources */,
 				D23CCB65251AD634002EBE72 /* Match+Extensions.swift in Sources */,
@@ -756,6 +791,7 @@
 				D2F35DE5251A379D00739463 /* MatchSummaryView.swift in Sources */,
 				D2B279AE251EA4C00007FF3F /* SettingFormViewModel.swift in Sources */,
 				D2F35DF5251A41F500739463 /* MatchSettingsFormView.swift in Sources */,
+				D2D73E3C251F05C0006896C3 /* HomeHistoryView.swift in Sources */,
 				D27978B9251CED2400771DB9 /* RallyTeam.swift in Sources */,
 				D2B279E6251EC3C80007FF3F /* LargeMetricView.swift in Sources */,
 				D2B74DAB251ABEA800D1004B /* TopSpin.xcdatamodeld in Sources */,

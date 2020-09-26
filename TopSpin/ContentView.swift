@@ -30,7 +30,6 @@ struct ContentView: View {
             TabView {
                 NavigationView {
                     MatchHistoryList()
-                        
                 }
                 .tabItem {
                     Image(systemName: "list.dash")

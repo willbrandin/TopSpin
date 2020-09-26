@@ -129,7 +129,7 @@ class WorkoutManager: NSObject, ObservableObject {
                                                      workoutConfiguration: workoutConfiguration())
         
         // Start the workout session and begin data collection.
-        /// - Tag: StartSession
+        print("Workout did Start")
         session.startActivity(with: Date())
         builder.beginCollection(withStart: Date()) { (success, error) in
             if let error = error {
@@ -152,6 +152,7 @@ class WorkoutManager: NSObject, ObservableObject {
     }
     
     func pauseWorkout() {
+        print("Workout did Pause")
         // Pause the workout.
         session.pause()
         // Stop the timer.
@@ -162,6 +163,7 @@ class WorkoutManager: NSObject, ObservableObject {
     }
     
     func resumeWorkout() {
+        print("Workout did Resume")
         // Resume the workout.
         session.resume()
         // Start the timer.
@@ -188,8 +190,9 @@ class WorkoutManager: NSObject, ObservableObject {
     
     // Update the published values.
     func updateForStatistics(_ statistics: HKStatistics?) {
-        guard let statistics = statistics else { return }
+        guard let statistics = statistics, isWorkoutActive else { return }
         
+        print("Workout did Receive Stats")
         DispatchQueue.main.async {
             switch statistics.quantityType {
             case HKQuantityType.quantityType(forIdentifier: .heartRate):
