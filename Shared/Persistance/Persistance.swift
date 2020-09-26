@@ -107,7 +107,7 @@ extension PersistenceController {
     static func loadMatchData(in context: NSManagedObjectContext) {
         
         var matchStartString = "2020-09-20T14:13:14+0000"
-        var matchEndString = "2020-09-20T12:59:00+0000"
+        var matchEndString = "2020-09-20T15:59:00+0000"
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -136,13 +136,13 @@ extension PersistenceController {
             newItem.id = UUID()
             
             matchStartString = "2020-09-22T14:13:14+0000"
-            matchEndString = "2020-09-22T12:39:00+0000"
+            matchEndString = "2020-09-22T15:39:00+0000"
         }
         
         // MATCH LOSES
         
         matchStartString = "2020-09-21T14:13:14+0000"
-        matchEndString = "2020-09-21T12:59:00+0000"
+        matchEndString = "2020-09-21T15:59:00+0000"
         
         for i in 0..<2 {
             let workout = Workout(context: context)
@@ -166,7 +166,7 @@ extension PersistenceController {
             newItem.id = UUID()
             
             matchStartString = "2020-09-23T14:13:14+0000"
-            matchEndString = "2020-09-23T12:59:00+0000"
+            matchEndString = "2020-09-23T15:59:00+0000"
         }
     }
 }

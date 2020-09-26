@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MatchHistoryList: View {
     
-    @ObservedObject var matchesStore: MatchStorage
+    @EnvironmentObject var matchesStore: MatchStorage
 
     var body: some View {
         if matchesStore.matches.isEmpty {
@@ -34,8 +34,9 @@ struct MatchHistoryList_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             NavigationView {
-                MatchHistoryList(matchesStore: MatchStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext))
+                MatchHistoryList()
             }
+            .environmentObject(MatchStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext))
             .preferredColorScheme(.dark)
         }
     }

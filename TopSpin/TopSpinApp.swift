@@ -15,8 +15,9 @@ struct TopSpinApp: App {
     @StateObject var settingStorage: SettingStorage
     
     init() {
-        self.persistenceController = PersistenceController.shared
+        self.persistenceController = PersistenceController.standardContainer
         let managedObjectContext = persistenceController.container.viewContext
+        
         let matchStorage = MatchStorage(managedObjectContext: managedObjectContext)
         self._matchStorage = StateObject(wrappedValue: matchStorage)
         
@@ -26,8 +27,10 @@ struct TopSpinApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView(matchStorage: matchStorage, settingStore: settingStorage)
+            ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(matchStorage)
+                .environmentObject(settingStorage)
         }
     }
 }

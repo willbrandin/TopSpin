@@ -23,11 +23,10 @@ struct ActiveMatchTabView: View {
     
     @StateObject private var matchController: RallyMatchController
     
-    init(activeMatch: Binding<Bool>, currentPage: Binding<Int>, matchSettings: MatchSetting) {
+    init(activeMatch: Binding<Bool>, currentPage: Binding<Int>, matchSettings: RallySettings) {
         self._activeMatch = activeMatch
         self._currentPage = currentPage
         
-        let matchSettings = RallySettings(limit: Int(matchSettings.scoreLimit), winByTwo: matchSettings.isWinByTwo, serveInterval: Int(matchSettings.serveInterval))
         self._matchController = StateObject(wrappedValue: RallyMatchController(settings: matchSettings))
     }
     
@@ -71,22 +70,13 @@ struct ActiveMatchTabView_Previews: PreviewProvider {
     
     static let context = PersistenceController.standardContainer.container.viewContext
     
-    static var match: MatchSetting {
-        let settings = MatchSetting(context: context)
-        settings.createdDate = Date()
-        settings.id = UUID()
-        settings.isDefault = false
-        settings.isTrackingWorkout = true
-        settings.isWinByTwo = true
-        settings.name = "Default"
-        settings.scoreLimit = 11
-        settings.serveInterval = 2
-        return settings
+    static var matchSettings: RallySettings {
+        return RallySettings(limit: 11, winByTwo: true, serveInterval: 2)
     }
     
     static var previews: some View {
         StatefulPreviewWrapper(2) {
-            ActiveMatchTabView(activeMatch: .constant(true), currentPage: $0, matchSettings: match)
+            ActiveMatchTabView(activeMatch: .constant(true), currentPage: $0, matchSettings: matchSettings)
         }
         .environmentObject(WorkoutManager())
     }

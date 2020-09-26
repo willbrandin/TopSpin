@@ -6,12 +6,11 @@
 //
 
 import SwiftUI
-import WatchConnectivity
 
 struct MatchHistoryList: View {
     
     @Environment(\.colorScheme) var colorScheme
-    @ObservedObject var matchesStore: MatchStorage
+    @EnvironmentObject var matchesStore: MatchStorage
 
     var historyListView: some View {
         ScrollView {
@@ -34,81 +33,36 @@ struct MatchHistoryList: View {
         }
     }
     
-    var devMockAddButton: some View {
-        Button("Add Match") {
-        }
-    }
-    
-    var isConnected: Bool {
-        return WCSession.default.isWatchAppInstalled
-    }
-    
     var body: some View {
         VStack {
             if matchesStore.matches.isEmpty {
-                VStack {
-                    Text("Start a match on your wrist.\nWhen finished, it will display here.")
-                        .font(.headline)
-                        .foregroundColor(.secondary)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal)
-                    
-                    if !isConnected && WCSession.isSupported() {
-                        if colorScheme == .light {
-                            Button(action: openWatchAction) {
-                                Text("Open Watch Settings")
-                                    .bold()
-                                    .padding()
-                            }
-                        } else {
-                            Button(action: openWatchAction) {
-                                Text("Open Watch Settings")
-                                    .bold()
-                                    .foregroundColor(.accentColor)
-                                    .frame(maxWidth: .infinity)
-                                    .frame(height: 48)
-                                    .background(Color.clear)
-                                    .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                                    .cornerRadius(8)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 8)
-                                            .stroke(Color.accentColor, lineWidth: 1)
-                                    )
-                                    .padding()
-                            }
-                        }
-                    }
-                }
+                HistoryEmptyView()
             } else {
                 historyListView
             }
         }
         .navigationTitle("Match History")
-        .navigationBarItems(trailing: devMockAddButton)
     }
     
     func delete(_ match: Match) {
         matchesStore.delete([match])
     }
-    
-    func openWatchAction() {
-        UIApplication.shared.open(URL(string: "itms-watchs://com.willBrandin.dev")!) { (didOpen) in
-            print(didOpen ? "Did open url" : "FAILED TO OPEN")
-        }
-    }
 }
 
 struct MatchHistoryList_Previews: PreviewProvider {
+    static let matchStorage = MatchStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext)
+
     static var previews: some View {
         Group {
             NavigationView {
-                MatchHistoryList(matchesStore: MatchStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext))
+                MatchHistoryList()
             }
             .preferredColorScheme(.dark)
             
             NavigationView {
-                MatchHistoryList(matchesStore: MatchStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext))
+                MatchHistoryList()
             }
         }
+        .environmentObject(matchStorage)
     }
 }

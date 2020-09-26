@@ -10,20 +10,17 @@ import SwiftUI
 struct HomeTabView: View {
     
     @EnvironmentObject var workoutSession: WorkoutManager
-    
-    @ObservedObject var matchStorage: MatchStorage
-    @ObservedObject var settingStore: SettingStorage
-    
+        
     @Binding var currentPage: Int
     @Binding var activeMatch: Bool
 
     var body: some View {
         TabView(selection: $currentPage) {
-            SettingsView(settingStore: settingStore)
+            SettingsView()
                 .tag(1)
             MatchSetupView(startAction: start)
                 .tag(2)
-            MatchHistoryList(matchesStore: matchStorage)
+            MatchHistoryList()
                 .tag(3)
         }
         .onAppear {
@@ -47,7 +44,9 @@ struct HomeTabView_Previews: PreviewProvider {
     static let settingStore = SettingStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext)
     
     static var previews: some View {
-        HomeTabView(matchStorage: matchStorage, settingStore: settingStore, currentPage: .constant(2), activeMatch: .constant(false))
+        HomeTabView(currentPage: .constant(2), activeMatch: .constant(false))
+            .environmentObject(matchStorage)
+            .environmentObject(settingStore)
             .environmentObject(WorkoutManager())
     }
 }

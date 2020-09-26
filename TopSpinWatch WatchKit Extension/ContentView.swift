@@ -9,8 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var matchStorage: MatchStorage
-    @ObservedObject var settingStore: SettingStorage
+    @EnvironmentObject var settingStore: SettingStorage
     
     @State private var currentPage: Int = 2
     @State private var activeMatch: Bool = false
@@ -19,14 +18,19 @@ struct ContentView: View {
         return settingStore.settings.first(where: { $0.isDefault })!
     }
     
+    var rallySettings: RallySettings {
+        let matchSettings = RallySettings(limit: Int(defaultSettings.scoreLimit), winByTwo: defaultSettings.isWinByTwo, serveInterval: Int(defaultSettings.serveInterval))
+        return matchSettings
+    }
+    
     var body: some View {
         if activeMatch {
-            ActiveMatchTabView(activeMatch: $activeMatch, currentPage: $currentPage, matchSettings: defaultSettings)
+            ActiveMatchTabView(activeMatch: $activeMatch, currentPage: $currentPage, matchSettings: rallySettings)
                 .onAppear {
                     currentPage = 2
                 }
         } else {
-            HomeTabView(matchStorage: matchStorage, settingStore: settingStore, currentPage: $currentPage, activeMatch: $activeMatch)
+            HomeTabView(currentPage: $currentPage, activeMatch: $activeMatch)
         }
     }
 }
@@ -36,6 +40,8 @@ struct ContentView_Previews: PreviewProvider {
     static let settingStore = SettingStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext)
     
     static var previews: some View {
-        ContentView(matchStorage: matchStorage, settingStore: settingStore)
+        ContentView()
+            .environmentObject(matchStorage)
+            .environmentObject(settingStore)
     }
 }

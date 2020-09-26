@@ -9,20 +9,13 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @ObservedObject var settingStore: SettingStorage
-    @State private var selectedSettings: MatchSetting
+    @EnvironmentObject var settingStore: SettingStorage
     
     @State private var isAddNewPresented: Bool = false
     
-    init(settingStore: SettingStorage) {
-        self.settingStore = settingStore
-        
-        self._selectedSettings = State(wrappedValue: settingStore.settings.first(where: { $0.isDefault }) ?? settingStore.settings.first!)
-    }
-    
     var pickerView: some View {
         NavigationLink(
-            destination: MatchSettingsPickerView(settingStore: settingStore),
+            destination: MatchSettingsPickerContainer(),
             label: {
                 Text("Match Settings")
             })
@@ -32,20 +25,16 @@ struct SettingsView: View {
         List {
             Section(header: Text("Match Settings")) {
                 pickerView
-                .onChange(of: selectedSettings) { setting in
-                    settingStore.setDefault(setting)
-                }
                 
                 #if os(watchOS)
-                NavigationLink("Add New", destination: MatchSettingsFormView(settingStore: settingStore, onComplete: setSelected))
+                NavigationLink("Add New", destination: MatchSettingsFormView(viewModel: SettingFormViewModel(settingStore: settingStore), onComplete: {}))
                 #else
                 Button("Add New") {
-                    
                     isAddNewPresented = true
                 }
                 .sheet(isPresented: $isAddNewPresented) {
                     NavigationView {
-                        MatchSettingsFormView(settingStore: settingStore, onComplete: setSelected)
+                        MatchSettingsFormView(viewModel: SettingFormViewModel(settingStore: settingStore), onComplete: {})
                     }
                 }
                 #endif
@@ -69,16 +58,13 @@ struct SettingsView: View {
         #endif
         
     }
-    
-    private func setSelected() {
-        selectedSettings = settingStore.settings.first(where: { $0.isDefault })!
-    }
+
 }
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            SettingsView(settingStore: SettingStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext))
+            SettingsView()
         }
     }
 }

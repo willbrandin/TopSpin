@@ -13,8 +13,8 @@ struct MatchSettingsFormView: View {
     
     var onComplete: (() -> Void)?
     
-    init(settingStore: SettingStorage, setting: MatchSetting? = nil, onComplete: (() -> Void)? = nil) {
-        self.viewModel = SettingFormViewModel(settingStore: settingStore, setting: setting)
+    init(viewModel: SettingFormViewModel, onComplete: (() -> Void)? = nil) {
+        self.viewModel = viewModel
         self.onComplete = onComplete
     }
     
@@ -115,9 +115,12 @@ struct MatchSettingsFormView: View {
 }
 
 struct MatchSettingsFormView_Previews: PreviewProvider {
+    
+    static let viewModel = SettingFormViewModel(settingStore: SettingStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext))
+    
     static var previews: some View {
         NavigationView {
-            MatchSettingsFormView(settingStore: SettingStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext))
+            MatchSettingsFormView(viewModel: viewModel)
         }
     }
 }

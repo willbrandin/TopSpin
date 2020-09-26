@@ -89,6 +89,5 @@ struct HistorySummaryView_Previews: PreviewProvider {
                 .padding()
             Spacer()
         }
-            
     }
 }

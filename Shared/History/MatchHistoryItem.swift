@@ -22,18 +22,9 @@ struct MatchHistoryItem: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 8) {
-                HStack(alignment: .top) {
-                    if let player = match.score?.playerScore,
-                       let opponent = match.score?.opponentScore {
-                        MatchHistoryScoreView(playerScore: player, opponentScore: opponent)
-                    }
-                    
-                    Spacer()
-                    
-                    Text(match.shortDate.uppercased())
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                        .bold()
+                if let player = match.score?.playerScore,
+                   let opponent = match.score?.opponentScore, let date = match.shortDate {
+                    MatchHistoryScoreView(playerScore: Int(player), opponentScore: Int(opponent), date: date)
                 }
                 
                 #if os(iOS)
@@ -80,8 +71,13 @@ struct MatchHistoryItem_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             MatchHistoryItem(match: match)
+                .previewLayout(.sizeThatFits)
                 .padding()
                 .preferredColorScheme(.dark)
+            
+            MatchHistoryItem(match: match)
+                .previewLayout(.sizeThatFits)
+                .padding()
         }
     }
 }

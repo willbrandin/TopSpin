@@ -8,7 +8,7 @@
 import SwiftUI
 
 class SettingFormViewModel: ObservableObject {
-    
+        
     @ObservedObject var settingStore: SettingStorage
     
     @Published var settingsName: String = ""

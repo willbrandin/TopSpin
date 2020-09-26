@@ -56,9 +56,22 @@
 		D27978FF251CF70E00771DB9 /* StatefulPreviewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27978FD251CF70E00771DB9 /* StatefulPreviewWrapper.swift */; };
 		D2797910251D00FB00771DB9 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D279790F251D00FB00771DB9 /* HealthKit.framework */; };
 		D2801F4E25199BCC00E85E90 /* HistorySummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2801F4D25199BCC00E85E90 /* HistorySummaryView.swift */; };
+		D2B01F02251ED201002E8E74 /* HeartRatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B01F01251ED201002E8E74 /* HeartRatesView.swift */; };
+		D2B01F03251ED201002E8E74 /* HeartRatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B01F01251ED201002E8E74 /* HeartRatesView.swift */; };
+		D2B01F0D251ED2A2002E8E74 /* HeartRateValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B01F0C251ED2A2002E8E74 /* HeartRateValueView.swift */; };
+		D2B01F0E251ED2A2002E8E74 /* HeartRateValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B01F0C251ED2A2002E8E74 /* HeartRateValueView.swift */; };
 		D2B27993251E76C90007FF3F /* TopSpinWatch WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D23F761E25198AB5006BF603 /* TopSpinWatch WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D2B279AE251EA4C00007FF3F /* SettingFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B279AD251EA4C00007FF3F /* SettingFormViewModel.swift */; };
 		D2B279AF251EA4C00007FF3F /* SettingFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B279AD251EA4C00007FF3F /* SettingFormViewModel.swift */; };
+		D2B279BB251EB97F0007FF3F /* WorkoutMetricContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B279BA251EB97F0007FF3F /* WorkoutMetricContent.swift */; };
+		D2B279BC251EB97F0007FF3F /* WorkoutMetricContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B279BA251EB97F0007FF3F /* WorkoutMetricContent.swift */; };
+		D2B279C3251EB9B30007FF3F /* HorizontalIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B279C2251EB9B30007FF3F /* HorizontalIconView.swift */; };
+		D2B279C4251EB9B30007FF3F /* HorizontalIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B279C2251EB9B30007FF3F /* HorizontalIconView.swift */; };
+		D2B279CE251EC25F0007FF3F /* HistoryEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B279CD251EC25F0007FF3F /* HistoryEmptyView.swift */; };
+		D2B279E6251EC3C80007FF3F /* LargeMetricView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B279E5251EC3C80007FF3F /* LargeMetricView.swift */; };
+		D2B279E7251EC3C80007FF3F /* LargeMetricView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B279E5251EC3C80007FF3F /* LargeMetricView.swift */; };
+		D2B279ED251EC5450007FF3F /* MatchSummaryScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B279EC251EC5450007FF3F /* MatchSummaryScoreView.swift */; };
+		D2B279EE251EC5450007FF3F /* MatchSummaryScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B279EC251EC5450007FF3F /* MatchSummaryScoreView.swift */; };
 		D2B74D5F251A931700D1004B /* ActiveMatchSwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B74D5E251A931700D1004B /* ActiveMatchSwipeView.swift */; };
 		D2B74D69251AA49B00D1004B /* ActiveMatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B74D68251AA49B00D1004B /* ActiveMatchView.swift */; };
 		D2B74D91251ABD0C00D1004B /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B74D90251ABD0C00D1004B /* Persistance.swift */; };
@@ -171,7 +184,14 @@
 		D27978FD251CF70E00771DB9 /* StatefulPreviewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulPreviewWrapper.swift; sourceTree = "<group>"; };
 		D279790F251D00FB00771DB9 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.0.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		D2801F4D25199BCC00E85E90 /* HistorySummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySummaryView.swift; sourceTree = "<group>"; };
+		D2B01F01251ED201002E8E74 /* HeartRatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRatesView.swift; sourceTree = "<group>"; };
+		D2B01F0C251ED2A2002E8E74 /* HeartRateValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateValueView.swift; sourceTree = "<group>"; };
 		D2B279AD251EA4C00007FF3F /* SettingFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingFormViewModel.swift; sourceTree = "<group>"; };
+		D2B279BA251EB97F0007FF3F /* WorkoutMetricContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutMetricContent.swift; sourceTree = "<group>"; };
+		D2B279C2251EB9B30007FF3F /* HorizontalIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalIconView.swift; sourceTree = "<group>"; };
+		D2B279CD251EC25F0007FF3F /* HistoryEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryEmptyView.swift; sourceTree = "<group>"; };
+		D2B279E5251EC3C80007FF3F /* LargeMetricView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeMetricView.swift; sourceTree = "<group>"; };
+		D2B279EC251EC5450007FF3F /* MatchSummaryScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSummaryScoreView.swift; sourceTree = "<group>"; };
 		D2B74D5E251A931700D1004B /* ActiveMatchSwipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveMatchSwipeView.swift; sourceTree = "<group>"; };
 		D2B74D68251AA49B00D1004B /* ActiveMatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveMatchView.swift; sourceTree = "<group>"; };
 		D2B74D90251ABD0C00D1004B /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
@@ -238,15 +258,6 @@
 				D23CCB64251AD634002EBE72 /* Match+Extensions.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		D23CCB8B251ADE95002EBE72 /* HorizontalSummary */ = {
-			isa = PBXGroup;
-			children = (
-				D2801F4D25199BCC00E85E90 /* HistorySummaryView.swift */,
-				D23CCB8C251ADEC2002EBE72 /* HorizontalSummaryView.swift */,
-			);
-			path = HorizontalSummary;
 			sourceTree = "<group>";
 		};
 		D23F75FD25198A87006BF603 = {
@@ -329,10 +340,11 @@
 		D23F764F25198AF8006BF603 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				D2B279DC251EC3740007FF3F /* Summary */,
+				D2B279C1251EB9A50007FF3F /* Components */,
+				D2B279B8251EB8DD0007FF3F /* HistorySummary */,
 				D2B279A8251EA49F0007FF3F /* SettingsForm */,
 				D27978FC251CF6F500771DB9 /* Utility */,
-				D20C55FE251CEC8800107FBD /* Workout */,
-				D20C55FD251CEC7F00107FBD /* Rally */,
 				D2B74D8F251ABD0000D1004B /* Persistance */,
 				D2F35DF3251A41E400739463 /* Settings */,
 				D23F765A25198D01006BF603 /* History */,
@@ -343,12 +355,11 @@
 		D23F765A25198D01006BF603 /* History */ = {
 			isa = PBXGroup;
 			children = (
-				D23CCB8B251ADE95002EBE72 /* HorizontalSummary */,
+				D2B279B9251EB9630007FF3F /* HistoryMetric */,
 				D23F765425198CF5006BF603 /* MatchHistoryList.swift */,
 				D23F766025198D24006BF603 /* MatchHistoryItem.swift */,
-				D2F35DE4251A379D00739463 /* MatchSummaryView.swift */,
-				D23CCB9F251B8AE3002EBE72 /* HistoryWorkoutMetricView.swift */,
 				D23CCBA5251B8B2C002EBE72 /* MatchHistoryScoreView.swift */,
+				D2B279CD251EC25F0007FF3F /* HistoryEmptyView.swift */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -437,6 +448,8 @@
 		D27978FC251CF6F500771DB9 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				D20C55FD251CEC7F00107FBD /* Rally */,
+				D20C55FE251CEC8800107FBD /* Workout */,
 				D27978FD251CF70E00771DB9 /* StatefulPreviewWrapper.swift */,
 			);
 			path = Utility;
@@ -449,6 +462,43 @@
 				D2B279AD251EA4C00007FF3F /* SettingFormViewModel.swift */,
 			);
 			path = SettingsForm;
+			sourceTree = "<group>";
+		};
+		D2B279B8251EB8DD0007FF3F /* HistorySummary */ = {
+			isa = PBXGroup;
+			children = (
+				D2801F4D25199BCC00E85E90 /* HistorySummaryView.swift */,
+				D23CCB8C251ADEC2002EBE72 /* HorizontalSummaryView.swift */,
+			);
+			path = HistorySummary;
+			sourceTree = "<group>";
+		};
+		D2B279B9251EB9630007FF3F /* HistoryMetric */ = {
+			isa = PBXGroup;
+			children = (
+				D23CCB9F251B8AE3002EBE72 /* HistoryWorkoutMetricView.swift */,
+				D2B279BA251EB97F0007FF3F /* WorkoutMetricContent.swift */,
+			);
+			path = HistoryMetric;
+			sourceTree = "<group>";
+		};
+		D2B279C1251EB9A50007FF3F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D2D73E0F251ED312006896C3 /* HeartRate */,
+				D2B279C2251EB9B30007FF3F /* HorizontalIconView.swift */,
+				D2B279E5251EC3C80007FF3F /* LargeMetricView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D2B279DC251EC3740007FF3F /* Summary */ = {
+			isa = PBXGroup;
+			children = (
+				D2F35DE4251A379D00739463 /* MatchSummaryView.swift */,
+				D2B279EC251EC5450007FF3F /* MatchSummaryScoreView.swift */,
+			);
+			path = Summary;
 			sourceTree = "<group>";
 		};
 		D2B74D5D251A930D00D1004B /* ActiveMatch */ = {
@@ -470,6 +520,15 @@
 				D23CCBC4251BA65B002EBE72 /* SettingStorage.swift */,
 			);
 			path = Persistance;
+			sourceTree = "<group>";
+		};
+		D2D73E0F251ED312006896C3 /* HeartRate */ = {
+			isa = PBXGroup;
+			children = (
+				D2B01F01251ED201002E8E74 /* HeartRatesView.swift */,
+				D2B01F0C251ED2A2002E8E74 /* HeartRateValueView.swift */,
+			);
+			path = HeartRate;
 			sourceTree = "<group>";
 		};
 		D2F35DD42519A54D00739463 /* Views */ = {
@@ -664,13 +723,16 @@
 			files = (
 				D2227EFB251E3154009DD539 /* MatchSettingsPickerView.swift in Sources */,
 				D23F760C25198A87006BF603 /* ContentView.swift in Sources */,
+				D2B279ED251EC5450007FF3F /* MatchSummaryScoreView.swift in Sources */,
 				D23CCB8D251ADEC2002EBE72 /* HorizontalSummaryView.swift in Sources */,
 				D23CCBC5251BA65B002EBE72 /* SettingStorage.swift in Sources */,
 				D23CCBAC251B8DBE002EBE72 /* MatchStorage.swift in Sources */,
 				D23CCB65251AD634002EBE72 /* Match+Extensions.swift in Sources */,
 				D23CCBA0251B8AE3002EBE72 /* HistoryWorkoutMetricView.swift in Sources */,
 				D23CCBA6251B8B2C002EBE72 /* MatchHistoryScoreView.swift in Sources */,
+				D2B01F02251ED201002E8E74 /* HeartRatesView.swift in Sources */,
 				D27978BB251CED2400771DB9 /* RallyMatchController.swift in Sources */,
+				D2B279C3251EB9B30007FF3F /* HorizontalIconView.swift in Sources */,
 				D2F35E0D251A497200739463 /* SettingsView.swift in Sources */,
 				D23F760A25198A87006BF603 /* TopSpinApp.swift in Sources */,
 				D23F765525198CF5006BF603 /* MatchHistoryList.swift in Sources */,
@@ -678,12 +740,16 @@
 				D2B74D9A251ABD6500D1004B /* Persistance.swift in Sources */,
 				D2801F4E25199BCC00E85E90 /* HistorySummaryView.swift in Sources */,
 				D27978FE251CF70E00771DB9 /* StatefulPreviewWrapper.swift in Sources */,
+				D2B279CE251EC25F0007FF3F /* HistoryEmptyView.swift in Sources */,
 				D2F35DE5251A379D00739463 /* MatchSummaryView.swift in Sources */,
 				D2B279AE251EA4C00007FF3F /* SettingFormViewModel.swift in Sources */,
 				D2F35DF5251A41F500739463 /* MatchSettingsFormView.swift in Sources */,
 				D27978B9251CED2400771DB9 /* RallyTeam.swift in Sources */,
+				D2B279E6251EC3C80007FF3F /* LargeMetricView.swift in Sources */,
 				D2B74DAB251ABEA800D1004B /* TopSpin.xcdatamodeld in Sources */,
+				D2B279BB251EB97F0007FF3F /* WorkoutMetricContent.swift in Sources */,
 				D27978BA251CED2400771DB9 /* RallyMatchConfigurable.swift in Sources */,
+				D2B01F0D251ED2A2002E8E74 /* HeartRateValueView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,7 +757,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2B279C4251EB9B30007FF3F /* HorizontalIconView.swift in Sources */,
 				D261A864251A662100689252 /* MatchSetupView.swift in Sources */,
+				D2B279EE251EC5450007FF3F /* MatchSummaryScoreView.swift in Sources */,
+				D2B01F0E251ED2A2002E8E74 /* HeartRateValueView.swift in Sources */,
 				D2227EFC251E3154009DD539 /* MatchSettingsPickerView.swift in Sources */,
 				D20C55E2251C04EE00107FBD /* RallyTeam.swift in Sources */,
 				D2B279AF251EA4C00007FF3F /* SettingFormViewModel.swift in Sources */,
@@ -700,6 +769,7 @@
 				D27978FF251CF70E00771DB9 /* StatefulPreviewWrapper.swift in Sources */,
 				D23F763025198AB7006BF603 /* ContentView.swift in Sources */,
 				D27978EF251CF48500771DB9 /* ActiveMatchTabView.swift in Sources */,
+				D2B279E7251EC3C80007FF3F /* LargeMetricView.swift in Sources */,
 				D23CCB9A251AE68A002EBE72 /* Match+Extensions.swift in Sources */,
 				D20C55DA251C04E000107FBD /* RallyMatchConfigurable.swift in Sources */,
 				D2F35DDB2519A5B400739463 /* MatchHistoryList.swift in Sources */,
@@ -714,8 +784,10 @@
 				D23CCBC6251BA65B002EBE72 /* SettingStorage.swift in Sources */,
 				D23F7666251991F5006BF603 /* MatchHistoryItem.swift in Sources */,
 				D23CCBB6251B95A7002EBE72 /* MatchHistoryScoreView.swift in Sources */,
+				D2B279BC251EB97F0007FF3F /* WorkoutMetricContent.swift in Sources */,
 				D2B74DAC251ABEA800D1004B /* TopSpin.xcdatamodeld in Sources */,
 				D20C55DB251C04E000107FBD /* RallyMatchController.swift in Sources */,
+				D2B01F03251ED201002E8E74 /* HeartRatesView.swift in Sources */,
 				D2B74D5F251A931700D1004B /* ActiveMatchSwipeView.swift in Sources */,
 				D2F35E07251A454700739463 /* MatchSettingsFormView.swift in Sources */,
 			);

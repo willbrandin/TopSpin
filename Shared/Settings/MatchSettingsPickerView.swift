@@ -8,17 +8,23 @@
 import SwiftUI
 import CoreData
 
+struct MatchSettingsPickerContainer: View {
+    @EnvironmentObject var settingStore: SettingStorage
+    
+    var body: some View {
+        MatchSettingsPickerView(defaultSetting: settingStore.settings.first(where: { $0.isDefault }) ?? settingStore.settings.first!)
+    }
+}
+
 struct MatchSettingsPickerView: View {
     
-    @ObservedObject var settingStore: SettingStorage
-    @State private var defaultSetting: MatchSetting
+    @EnvironmentObject var settingStore: SettingStorage
     
+    @State private var defaultSetting: MatchSetting
     @State private var isAddNewPresented: Bool = false
     
-    init(settingStore: SettingStorage) {
-        self.settingStore = settingStore
-        
-        self._defaultSetting = State(wrappedValue: settingStore.settings.first(where: { $0.isDefault }) ?? settingStore.settings.first!)
+    init(defaultSetting: MatchSetting) {
+        self._defaultSetting = State(wrappedValue: defaultSetting)
     }
     
     var addSettingsButtton: some View {
@@ -27,14 +33,14 @@ struct MatchSettingsPickerView: View {
         }
         .sheet(isPresented: $isAddNewPresented) {
             NavigationView {
-                MatchSettingsFormView(settingStore: settingStore, onComplete: setSelected)
+                MatchSettingsFormView(viewModel: SettingFormViewModel(settingStore: settingStore), onComplete: setSelected)
             }
         }
     }
     
     func listItemLink(_ name: String, isDefault: Bool, setting: MatchSetting) -> some View {
         NavigationLink(
-            destination: MatchSettingsFormView(settingStore: settingStore, setting: setting, onComplete: setSelected),
+            destination: MatchSettingsFormView(viewModel: SettingFormViewModel(settingStore: settingStore, setting: setting), onComplete: setSelected),
             label: {
                 HStack {
                     VStack(alignment: .leading) {
@@ -64,15 +70,14 @@ struct MatchSettingsPickerView: View {
             
             Section {
                 #if os(watchOS)
-                NavigationLink("Add New", destination: MatchSettingsFormView(settingStore: settingStore, onComplete: setSelected))
+                NavigationLink("Add New", destination: MatchSettingsFormView(viewModel: SettingFormViewModel(settingStore: settingStore), onComplete: setSelected))
                 #else
                 Button("Add New") {
-                    
                     isAddNewPresented = true
                 }
                 .sheet(isPresented: $isAddNewPresented) {
                     NavigationView {
-                        MatchSettingsFormView(settingStore: settingStore, onComplete: setSelected)
+                        MatchSettingsFormView(viewModel: SettingFormViewModel(settingStore: settingStore), onComplete: setSelected)
                     }
                 }
                 #endif
@@ -108,7 +113,8 @@ struct MatchSettingsPickerView: View {
 struct MatchSettingsPickerView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            MatchSettingsPickerView(settingStore: SettingStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext))
+            MatchSettingsPickerContainer()
+                .environmentObject(SettingStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext))
         }
     }
 }
