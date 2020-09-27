@@ -77,7 +77,6 @@
 		D2B74DAB251ABEA800D1004B /* TopSpin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D2B74DA9251ABEA800D1004B /* TopSpin.xcdatamodeld */; };
 		D2B74DAC251ABEA800D1004B /* TopSpin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D2B74DA9251ABEA800D1004B /* TopSpin.xcdatamodeld */; };
 		D2BCC687251FF17E0032CC23 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E8C251FE3FF006896C3 /* AppEnvironment.swift */; };
-		D2BCC690252004D10032CC23 /* TopSpinWatch WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D23F761E25198AB5006BF603 /* TopSpinWatch WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D2BCC6A0252004FB0032CC23 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E80251FE33D006896C3 /* Store.swift */; };
 		D2BCC6A1252004FB0032CC23 /* Store+Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E86251FE36F006896C3 /* Store+Binding.swift */; };
 		D2BCC6AC2520053C0032CC23 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BCC6AB2520053C0032CC23 /* AppEnvironment.swift */; };
@@ -147,7 +146,6 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				D2BCC690252004D10032CC23 /* TopSpinWatch WatchKit App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,6 +314,7 @@
 		D23F760825198A87006BF603 /* TopSpin */ = {
 			isa = PBXGroup;
 			children = (
+				D27773BF252132BF00F1787A /* App */,
 				D23F764A25198AE0006BF603 /* TopSpin.entitlements */,
 				D23F760925198A87006BF603 /* TopSpinApp.swift */,
 				D23F760B25198A87006BF603 /* ContentView.swift */,
@@ -372,15 +371,15 @@
 			children = (
 				D2D73E7F251FE33D006896C3 /* App */,
 				D2D73E47251FDE47006896C3 /* Models */,
-				D2D73E3A251F05AE006896C3 /* Home */,
 				D2D73E33251EFA2A006896C3 /* LiveMatchView */,
 				D2B279DC251EC3740007FF3F /* Summary */,
 				D2B279C1251EB9A50007FF3F /* Views */,
 				D2B279B8251EB8DD0007FF3F /* HistorySummary */,
-				D2B279A8251EA49F0007FF3F /* SettingsForm */,
 				D27978FC251CF6F500771DB9 /* Utility */,
 				D2B74D8F251ABD0000D1004B /* Persistance */,
+				D2B279A8251EA49F0007FF3F /* SettingsForm */,
 				D2F35DF3251A41E400739463 /* Settings */,
+				D2D73E3A251F05AE006896C3 /* Home */,
 				D23F765A25198D01006BF603 /* History */,
 			);
 			path = Shared;
@@ -423,6 +422,14 @@
 				D261A875251A6D9300689252 /* MatchWorkoutView.swift */,
 			);
 			path = MatchWorkout;
+			sourceTree = "<group>";
+		};
+		D27773BF252132BF00F1787A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				D2D73E8C251FE3FF006896C3 /* AppEnvironment.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 		D27978AB251CED0800771DB9 /* TopSpinTests */ = {
@@ -621,7 +628,6 @@
 		D2D73E7F251FE33D006896C3 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				D2D73E8C251FE3FF006896C3 /* AppEnvironment.swift */,
 				D2D73E80251FE33D006896C3 /* Store.swift */,
 				D2D73E86251FE36F006896C3 /* Store+Binding.swift */,
 			);
