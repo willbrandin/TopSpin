@@ -40,6 +40,7 @@
 		D261A864251A662100689252 /* MatchSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D261A863251A662100689252 /* MatchSetupView.swift */; };
 		D261A86F251A6BC600689252 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D261A86E251A6BC600689252 /* HealthKit.framework */; };
 		D261A876251A6D9300689252 /* MatchWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D261A875251A6D9300689252 /* MatchWorkoutView.swift */; };
+		D27773CE2521385300F1787A /* SettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27773CD2521385300F1787A /* SettingsRepository.swift */; };
 		D27978AD251CED0800771DB9 /* RallyTeamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27978AC251CED0800771DB9 /* RallyTeamTests.swift */; };
 		D27978B9251CED2400771DB9 /* RallyTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20C55E1251C04EE00107FBD /* RallyTeam.swift */; };
 		D27978BA251CED2400771DB9 /* RallyMatchConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20C55D8251C04E000107FBD /* RallyMatchConfigurable.swift */; };
@@ -186,6 +187,7 @@
 		D261A863251A662100689252 /* MatchSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSetupView.swift; sourceTree = "<group>"; };
 		D261A86E251A6BC600689252 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		D261A875251A6D9300689252 /* MatchWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchWorkoutView.swift; sourceTree = "<group>"; };
+		D27773CD2521385300F1787A /* SettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepository.swift; sourceTree = "<group>"; };
 		D27978AA251CED0800771DB9 /* TopSpinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TopSpinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D27978AC251CED0800771DB9 /* RallyTeamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RallyTeamTests.swift; sourceTree = "<group>"; };
 		D27978AE251CED0800771DB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 		D23F764F25198AF8006BF603 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				D27773CC2521384200F1787A /* Repository */,
 				D2D73E7F251FE33D006896C3 /* App */,
 				D2D73E47251FDE47006896C3 /* Models */,
 				D2D73E33251EFA2A006896C3 /* LiveMatchView */,
@@ -430,6 +433,14 @@
 				D2D73E8C251FE3FF006896C3 /* AppEnvironment.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		D27773CC2521384200F1787A /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				D27773CD2521385300F1787A /* SettingsRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		D27978AB251CED0800771DB9 /* TopSpinTests */ = {
@@ -837,6 +848,7 @@
 				D23CCB65251AD634002EBE72 /* Match+Extensions.swift in Sources */,
 				D23CCBA0251B8AE3002EBE72 /* HistoryWorkoutMetricView.swift in Sources */,
 				D2BCC687251FF17E0032CC23 /* AppEnvironment.swift in Sources */,
+				D27773CE2521385300F1787A /* SettingsRepository.swift in Sources */,
 				D2D73E49251FDE53006896C3 /* Match.swift in Sources */,
 				D23CCBA6251B8B2C002EBE72 /* MatchHistoryScoreView.swift in Sources */,
 				D2B01F02251ED201002E8E74 /* HeartRatesView.swift in Sources */,

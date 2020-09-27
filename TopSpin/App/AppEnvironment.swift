@@ -10,6 +10,7 @@ import Combine
 
 struct AppEnvironment {
     // COntext here??
+    let settingsRepository = SettingsRepository()
 }
 
 struct AppState: Equatable {
@@ -22,6 +23,7 @@ struct MatchHistoryState: Equatable {
 }
 
 enum AppAction {
+    case load
     case matchHistory(action: MatchHistoryAction)
     case settings(action: MatchSettingsAction)
 }
@@ -38,9 +40,7 @@ enum MatchSettingsAction {
 }
 
 struct MatchSettingState: Equatable {
-    var settings: [MatchSetting] = [.defaultSettings,
-                                    MatchSetting(id: UUID(), createdDate: Date(), isDefault: false, isTrackingWorkout: true, isWinByTwo: true, name: "21", scoreLimit: .twentyOne, serveInterval: .everyFive)
-    ]
+    var settings: [MatchSetting] = []
     
     var defaultSetting: MatchSetting {
         return settings.first(where: { $0.isDefault }) ?? settings.first!
@@ -56,7 +56,7 @@ private func historyReducer(_ state: inout MatchHistoryState, _ action: MatchHis
     return Empty(completeImmediately: true).eraseToAnyPublisher()
 }
 
-private func settingsReducer(_ state: inout MatchSettingState, _ action: MatchSettingsAction) -> AnyPublisher<AppAction, Never>  {
+private func settingsReducer(_ state: inout MatchSettingState, _ action: MatchSettingsAction, _ environment: AppEnvironment) -> AnyPublisher<AppAction, Never>  {
     switch action {
     case let .add(setting):
         if setting.isDefault {
@@ -68,11 +68,14 @@ private func settingsReducer(_ state: inout MatchSettingState, _ action: MatchSe
         }
         
         state.settings.append(setting)
+        environment.settingsRepository.save(state.settings)
         
     case let .update(setting):
         print(setting)
+
     case let .delete(setting):
         print(setting)
+
     case let .setDefault(setting):
         print(setting)
     }
@@ -83,11 +86,18 @@ private func settingsReducer(_ state: inout MatchSettingState, _ action: MatchSe
 let appReducer: Reducer<AppState, AppAction, AppEnvironment> = Reducer { state, action, environment in
     switch action {
     case let .settings(action):
-        return settingsReducer(&state.settingState, action)
+        return settingsReducer(&state.settingState, action, environment)
         
     case let .matchHistory(action):
         return historyReducer(&state.matchHistory, action, environment)
+        
+    case .load:
+        state.settingState.settings = environment.settingsRepository.load()
+    
+        // Listen to Repo changes.
     }
+    
+    return Empty(completeImmediately: true).eraseToAnyPublisher()
 }
 
 typealias AppStore = Store<AppState, AppAction>

@@ -9,7 +9,8 @@ import SwiftUI
 
 @main
 struct TopSpinApp: App {
-
+    
+    @Environment(\.scenePhase) var scenePhase
     @StateObject private var store: AppStore
     
     init() {
@@ -21,6 +22,20 @@ struct TopSpinApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(store)
+                .onAppear {
+                    store.send(.load)
+                }
+                .onChange(of: scenePhase) { scenePhase in
+                    switch scenePhase {
+                    case .active:
+                        print("FOREGROUND")
+                    case .background:
+                        print("BACKGROUND")
+                    default:
+                        print("\(scenePhase)")
+                        break
+                    }
+                }
         }
     }
 }
