@@ -8,15 +8,11 @@
 import SwiftUI
 
 struct ActiveMatchView: View {
-    
+        
+    @ObservedObject var matchController: RallyMatchController
     var completeAction: () -> Void
     var cancelAction: () -> Void
-    
-    @EnvironmentObject var store: AppStore
-    @EnvironmentObject var matchController: RallyMatchController
-    
-    fileprivate let id = UUID()
-    
+        
     var body: some View {
         ScrollView {
             VStack {
@@ -74,8 +70,17 @@ struct ActiveMatchView: View {
     }
 }
 
+extension ActiveMatchView: Equatable {
+    static func == (lhs: ActiveMatchView, rhs: ActiveMatchView) -> Bool {
+        return lhs.matchController.teamOneScore == rhs.matchController.teamOneScore
+            && lhs.matchController.teamTwoScore == rhs.matchController.teamTwoScore
+            && rhs.matchController.servingTeam == lhs.matchController.servingTeam
+            && rhs.matchController.teamHasGamePoint == lhs.matchController.teamHasGamePoint
+    }
+}
+
 struct ActiveMatchView_Previews: PreviewProvider {
     static var previews: some View {
-        ActiveMatchView(completeAction: {}, cancelAction: {})
+        ActiveMatchView(matchController: .init(settings: RallySettings(limit: 11, winByTwo: true, serveInterval: 2)), completeAction: {}, cancelAction: {})
     }
 }

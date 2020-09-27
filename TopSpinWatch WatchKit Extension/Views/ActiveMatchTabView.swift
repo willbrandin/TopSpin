@@ -13,8 +13,7 @@ struct RallySettings: RallyMatchConfigurable {
     let serveInterval: Int
 }
 
-struct ActiveMatchTabView: View {
-    
+struct ActiveMatchTabContainer: View {
     @EnvironmentObject var store: AppStore
     
     @Binding var currentPage: Int
@@ -30,45 +29,57 @@ struct ActiveMatchTabView: View {
     }
     
     var body: some View {
-        TabView(selection: $currentPage) {
-            MatchWorkoutContainerView(cancelAction: cancel)
-                .tag(1)
-            
-            ActiveMatchView(completeAction: complete, cancelAction: cancel)
-                .environmentObject(matchController)
-                .tag(2)
-        }
-        
+        ActiveMatchTabView(currentPage: $currentPage, matchController: matchController, cancel: cancel, complete: complete)
     }
     
     func cancel() {
         print("MATCH CANCELLED")
+        store.send(.workout(action: .end))
         store.send(.endMatch)
         currentPage = 2
     }
     
     func complete() {
-//        let workout = MatchWorkout(id: UUID(),
-//                                   activeCalories: workoutSession.activeCalories,
-//                                   endDate: workoutSession.workoutEndDate ?? Date(),
-//                                   startDate: workoutSession.workoutStart ?? Date(),
-//                                   maxHeartRate: workoutSession.maxHeartRate),
-//                                   minHeartRate: Int(workoutSession.minHeartRate),
-//                                   avgHeartRate: Int(workoutSession.avgHeartRate))
-//
-//        let match = CompleteMatch(id: UUID(), opponentScore: matchController.teamTwoScore, playerScore: matchController.teamOneScore, date: Date(), workout: workout)
-        
+        store.send(.workout(action: .end))
+
+        let workoutState = store.state.workoutState
+        let workout = Workout(id: UUID(), activeCalories: workoutState.activeCalories, heartRateMetrics: workoutState.heartMetrics, startDate: workoutState.startDate ?? Date(), endDate: workoutState.endDate ?? Date())
+        let match = Match(id: UUID(), date: Date(), score: MatchScore(id: UUID(), playerScore: matchController.teamOneScore, opponentScore: matchController.teamTwoScore), workout: workout)
+
+        store.send(.matchHistory(action: .add(match: match)))
         print("MATCH COMPLETE")
         store.send(.endMatch)
         currentPage = 2
     }
 }
 
-struct ActiveMatchTabView_Previews: PreviewProvider {
-        
-    static var previews: some View {
-        StatefulPreviewWrapper(2) {
-            ActiveMatchTabView(currentPage: $0, defaultSettings: .defaultSettings)
+struct ActiveMatchTabView: View {
+    
+    @EnvironmentObject var store: AppStore
+    
+    @Binding var currentPage: Int
+    @ObservedObject var matchController: RallyMatchController
+    
+    var cancel: () -> Void
+    var complete: () -> Void
+    
+    var body: some View {
+        TabView(selection: $currentPage) {
+            MatchWorkoutContainerView(cancelAction: cancel)
+                .tag(1)
+            
+            ActiveMatchView(matchController: matchController, completeAction: complete, cancelAction: cancel)
+                .equatable()
+                .tag(2)
         }
     }
 }
+
+//struct ActiveMatchTabView_Previews: PreviewProvider {
+//
+//    static var previews: some View {
+//        StatefulPreviewWrapper(2) {
+//            ActiveMatchTabView(currentPage: $0, defaultSettings: .defaultSettings)
+//        }
+//    }
+//}

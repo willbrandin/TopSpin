@@ -33,13 +33,14 @@ struct HomeTabView: View {
                 )
         }
         .onAppear {
-            store.send(.requestPermissions)
+            store.send(.workout(action: .requestPermissions))
         }
     }
     
     func start() {
         print("MATCH STARTED")
-        store.send(.activateMatch)
+        store.send(.matchActive)
+        store.send(.workout(action: .start))
     }
 }
 

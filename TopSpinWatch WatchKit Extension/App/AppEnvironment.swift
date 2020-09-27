@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 struct AppEnvironment {
-    let workoutSession = WorkoutManager.shared
+    let workoutSession: WorkoutManager = WorkoutManager()
 }
 
 struct AppState: Equatable {
@@ -23,9 +23,8 @@ enum AppAction {
     case matchHistory(action: MatchHistoryAction)
     case settings(action: MatchSettingsAction)
     case workout(action: WorkoutAction)
-    case activateMatch
+    case matchActive
     case endMatch
-    case requestPermissions
 }
 
 struct MatchHistoryState: Equatable {
@@ -58,32 +57,41 @@ struct WorkoutState: Equatable {
     var heartRate = 0
     var activeCalories = 0
     var elapsedSeconds = 0
+    var startDate: Date?
+    var endDate: Date?
 }
 
 enum WorkoutAction {
-    case setHeartMetrics(metrics: WorkoutHeartMetric)
-    case setHeartRate(rate: Int)
-    case setCalories(calories: Int)
-    case setElapsedTime(time: Int)
+    case start
+    case end
+    case setWorkoutState(workout: WorkoutState)
     case pause
+    case requestPermissions
 }
 
-private func workoutReducer(_ state: inout WorkoutState, _ action: WorkoutAction, _ environment: AppEnvironment) -> AnyPublisher<AppAction, Never>  {
+func workoutReducer(_ state: inout WorkoutState, _ action: WorkoutAction, _ environment: AppEnvironment) -> AnyPublisher<AppAction, Never>  {
     switch action {
-    case let .setHeartRate(rate):
-        state.heartRate = rate
+    
+    case .start:
+        environment.workoutSession.startWorkout()
         
-    case let .setHeartMetrics(metrics):
-        state.heartMetrics = metrics
+        return environment.workoutSession
+            .workoutPublisher
+            .map { AppAction.workout(action: .setWorkoutState(workout: $0)) }
+            .eraseToAnyPublisher()
+    
+    case .end:
+        environment.workoutSession.endWorkout()
+        state.endDate = environment.workoutSession.workoutEndDate ?? Date()
         
-    case let .setCalories(calories):
-        state.activeCalories = calories
-        
-    case let .setElapsedTime(time):
-        state.elapsedSeconds = time
+    case .requestPermissions:
+        environment.workoutSession.requestAuthorization()
         
     case .pause:
         environment.workoutSession.pauseWorkout()
+        
+    case let .setWorkoutState(workout):
+        state = workout
     }
     
     return Empty(completeImmediately: true).eraseToAnyPublisher()
@@ -132,16 +140,11 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = Reducer { state, 
         
     case let .workout(action):
         return workoutReducer(&state.workoutState, action, environment)
-        
-    case .requestPermissions:
-        environment.workoutSession.requestAuthorization()
-        
-    case .activateMatch:
-        environment.workoutSession.startWorkout()
+                
+    case .matchActive:
         state.matchIsActive = true
         
     case .endMatch:
-        environment.workoutSession.endWorkout()
         state.matchIsActive = false
     }
     

@@ -13,7 +13,7 @@ import Combine
 class WorkoutManager: NSObject, ObservableObject {
         
     static let shared = WorkoutManager()
-    
+        
     // MARK: - DeclareSessionBuilder
     
     let healthStore = HKHealthStore()
@@ -22,10 +22,19 @@ class WorkoutManager: NSObject, ObservableObject {
     
     // MARK: - Publishers
             
-    @Published var heartrate: Double = 0
-    @Published var activeCalories: Double = 0
-    @Published var elapsedSeconds: Int = 0
-    @Published var heartMetrics: WorkoutHeartMetric = .mock
+    @Published private var heartRate: Int = 0
+    @Published private var activeCalories: Int = 0
+    @Published private var elapsedSeconds: Int = 0
+    @Published private var heartMetrics: WorkoutHeartMetric = WorkoutHeartMetric(averageHeartRate: 0, maxHeartRate: 0, minHeartRate: 0)
+    
+    var workoutPublisher: AnyPublisher<WorkoutState, Never> {
+        Publishers.CombineLatest4($heartRate.eraseToAnyPublisher(), $activeCalories.eraseToAnyPublisher(), $elapsedSeconds.eraseToAnyPublisher(), $heartMetrics.eraseToAnyPublisher())
+            .map { (heartRate: Int, calories: Int, time: Int, metrics: WorkoutHeartMetric) in
+                return WorkoutState(heartMetrics: metrics, heartRate: heartRate, activeCalories: calories, elapsedSeconds: time, startDate: self.workoutStart, endDate: nil)
+            }
+            .eraseToAnyPublisher()
+    }
+    
     
     // MARK: - Properties
 
@@ -144,6 +153,10 @@ class WorkoutManager: NSObject, ObservableObject {
     }
     
     func pauseWorkout() {
+        if session.state == .paused {
+            return
+        }
+        
         print("Workout did Pause")
         // Pause the workout.
         session.pause()
@@ -174,7 +187,7 @@ class WorkoutManager: NSObject, ObservableObject {
         DispatchQueue.main.async {
             self.elapsedSeconds = 0
             self.activeCalories = 0
-            self.heartrate = 0
+            self.heartRate = 0
         }
     }
     
@@ -202,13 +215,13 @@ class WorkoutManager: NSObject, ObservableObject {
                 let roundedMin = Int(Double( round( 1 * minValue! ) / 1 ))
                 let roundedMax = Int(Double( round( 1 * maxValue! ) / 1 ))
                 
-                self.heartrate = roundedValue
+                self.heartRate = Int(roundedValue)
                 self.heartMetrics = WorkoutHeartMetric(averageHeartRate: roundedAvg, maxHeartRate: roundedMax, minHeartRate: roundedMin)
                 
             case HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned):
                 let energyUnit = HKUnit.kilocalorie()
                 let value = statistics.sumQuantity()?.doubleValue(for: energyUnit)
-                self.activeCalories = Double( round( 1 * value! ) / 1 )
+                self.activeCalories = Int(Double( round( 1 * value! ) / 1 ))
                 return
              
             default:

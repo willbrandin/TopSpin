@@ -23,18 +23,6 @@ struct MatchWorkoutContainerView: View {
                          heartRate: store.state.workoutState.heartRate,
                          heartMetrics: store.state.workoutState.heartMetrics,
                          cancelAction: cancelAction)
-            .onReceive(WorkoutManager.shared.$heartrate) { object in
-                store.send(.workout(action: .setHeartRate(rate: Int(object))))
-            }
-            .onReceive(WorkoutManager.shared.$heartMetrics) { object in
-                store.send(.workout(action: .setHeartMetrics(metrics: object)))
-            }
-            .onReceive(WorkoutManager.shared.$elapsedSeconds) { object in
-                store.send(.workout(action: .setElapsedTime(time: object)))
-            }
-            .onReceive(WorkoutManager.shared.$activeCalories) { object in
-                store.send(.workout(action: .setCalories(calories: Int(object))))
-            }
     }
 }
 

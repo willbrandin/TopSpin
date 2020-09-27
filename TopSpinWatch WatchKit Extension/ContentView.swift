@@ -20,7 +20,7 @@ struct ContentView: View {
     
     var body: some View {
         if store.state.matchIsActive {
-            ActiveMatchTabView(currentPage: $currentPage, defaultSettings: defaultSettings)
+            ActiveMatchTabContainer(currentPage: $currentPage, defaultSettings: defaultSettings)
                 .onAppear {
                     currentPage = 2
                 }
