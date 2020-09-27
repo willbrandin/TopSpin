@@ -7,11 +7,11 @@
 
 import CoreData
 
-extension MatchSetting {
-    static var sortedByDateFetchRequest: NSFetchRequest<MatchSetting> {
-        let request: NSFetchRequest<MatchSetting> = MatchSetting.fetchRequest()
+extension CDMatchSetting {
+    static var sortedByDateFetchRequest: NSFetchRequest<CDMatchSetting> {
+        let request: NSFetchRequest<CDMatchSetting> = CDMatchSetting.fetchRequest()
         request.sortDescriptors = [
-            NSSortDescriptor(keyPath: \MatchSetting.createdDate, ascending: false)
+            NSSortDescriptor(keyPath: \CDMatchSetting.createdDate, ascending: false)
         ]
         
         return request
@@ -20,12 +20,12 @@ extension MatchSetting {
 
 class SettingStorage: NSObject, ObservableObject {
     
-    @Published var settings: [MatchSetting] = []
-    private let dueSoonController: NSFetchedResultsController<MatchSetting>
+    @Published var settings: [CDMatchSetting] = []
+    private let dueSoonController: NSFetchedResultsController<CDMatchSetting>
     private let context: NSManagedObjectContext
     
     init(managedObjectContext: NSManagedObjectContext) {
-        dueSoonController = NSFetchedResultsController(fetchRequest: MatchSetting.sortedByDateFetchRequest,
+        dueSoonController = NSFetchedResultsController(fetchRequest: CDMatchSetting.sortedByDateFetchRequest,
                                                        managedObjectContext: managedObjectContext,
                                                        sectionNameKeyPath: nil, cacheName: nil)
         
@@ -48,7 +48,7 @@ class SettingStorage: NSObject, ObservableObject {
         }
     }
     
-    func update(settings: MatchSetting, name: String, setAsDefault: Bool, scoreLimit: Int, serveInterval: Int, isWinByTwo: Bool, isTrackingWorkout: Bool) {
+    func update(settings: CDMatchSetting, name: String, setAsDefault: Bool, scoreLimit: Int, serveInterval: Int, isWinByTwo: Bool, isTrackingWorkout: Bool) {
         
         settings.setValue(name, forKey: "name")
         settings.setValue(scoreLimit, forKeyPath: "scoreLimit")
@@ -75,7 +75,7 @@ class SettingStorage: NSObject, ObservableObject {
     }
     
     func addNew(name: String, setAsDefault: Bool, scoreLimit: Int, serveInterval: Int, isWinByTwo: Bool, isTrackingWorkout: Bool) {
-        let settings = MatchSetting(context: context)
+        let settings = CDMatchSetting(context: context)
         settings.id = UUID()
         settings.name = name
         settings.scoreLimit = Int16(scoreLimit)
@@ -93,7 +93,7 @@ class SettingStorage: NSObject, ObservableObject {
         try? self.context.save()
     }
     
-    func setDefault(_ setting: MatchSetting) {
+    func setDefault(_ setting: CDMatchSetting) {
         setting.setValue(true, forKey: "isDefault")
         
         self.settings.filter({$0.id != setting.id}).forEach {
@@ -101,7 +101,7 @@ class SettingStorage: NSObject, ObservableObject {
         }
     }
     
-    func delete(_ settings: [MatchSetting]) {
+    func delete(_ settings: [CDMatchSetting]) {
         settings.forEach { context.delete($0) }
         
         save()
@@ -127,7 +127,7 @@ class SettingStorage: NSObject, ObservableObject {
     }
     
     func setInitialSettings(_ saving: Bool = true) {
-        let settings = MatchSetting(context: context)
+        let settings = CDMatchSetting(context: context)
         settings.createdDate = Date()
         settings.id = UUID()
         settings.isDefault = true
@@ -150,7 +150,7 @@ class SettingStorage: NSObject, ObservableObject {
 
 extension SettingStorage: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        guard let settings = controller.fetchedObjects as? [MatchSetting]
+        guard let settings = controller.fetchedObjects as? [CDMatchSetting]
         else { return }
         
         if settings.isEmpty {

@@ -9,44 +9,43 @@ import SwiftUI
 
 struct HomeTabView: View {
     
-    @EnvironmentObject var workoutSession: WorkoutManager
+    @EnvironmentObject var store: AppStore
         
     @Binding var currentPage: Int
-    @Binding var activeMatch: Bool
 
     var body: some View {
         TabView(selection: $currentPage) {
             SettingsView()
                 .tag(1)
+                .environmentObject(
+                    store.derived(
+                        deriveState: \.settingState,
+                        embedAction: AppAction.settings)
+                )
             MatchSetupView(startAction: start)
                 .tag(2)
             MatchHistoryList()
                 .tag(3)
+                .environmentObject(
+                    store.derived(
+                        deriveState: \.matchHistory,
+                        embedAction: AppAction.matchHistory)
+                )
         }
         .onAppear {
-            workoutSession.requestAuthorization()
-            
-            if workoutSession.isWorkoutActive {
-                workoutSession.endWorkout()
-            }
+            store.send(.requestPermissions)
         }
     }
     
     func start() {
         print("MATCH STARTED")
-        self.activeMatch = true
-        self.workoutSession.startWorkout()
+        store.send(.activateMatch)
     }
 }
 
 struct HomeTabView_Previews: PreviewProvider {
-    static let matchStorage = MatchStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext)
-    static let settingStore = SettingStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext)
     
     static var previews: some View {
-        HomeTabView(currentPage: .constant(2), activeMatch: .constant(false))
-            .environmentObject(matchStorage)
-            .environmentObject(settingStore)
-            .environmentObject(WorkoutManager())
+        HomeTabView(currentPage: .constant(2))
     }
 }

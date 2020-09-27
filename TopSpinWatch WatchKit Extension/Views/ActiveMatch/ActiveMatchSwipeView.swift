@@ -16,6 +16,7 @@ struct ActiveMatchSwipeView: View {
     @State var playerOneOpacity: Double = 0
     @State var playerTwoOpacity: Double = 0
     @State var centralOpacity: Double = 1
+    
     var body: some View {
         ZStack {
             VStack {

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @EnvironmentObject var store: AppStore
     @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
     
     var sideBarRootNavigation: some View {
@@ -35,7 +36,13 @@ struct ContentView: View {
                     Image(systemName: "list.dash")
                     Text("History")
                 }
-                
+                .environmentObject(
+                    store.derived(
+                        deriveState: \.matchHistory,
+                        embedAction: AppAction.matchHistory
+                    )
+                )
+               
                 NavigationView{
                     SettingsView()
                 }
@@ -43,6 +50,12 @@ struct ContentView: View {
                     Image(systemName: "square.grid.2x2.fill")
                     Text("Settings")
                 }
+                .environmentObject(
+                    store.derived(
+                        deriveState: \.settingState,
+                        embedAction: AppAction.settings
+                    )
+                )
             }
         } else {
             NavigationView {

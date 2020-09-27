@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HeartRatesView: View {
+    
     var body: some View {
         HStack {
             HeartRateValueView(title: "AVG", subtitle: "160")

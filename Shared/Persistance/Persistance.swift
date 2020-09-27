@@ -69,7 +69,7 @@ extension PersistenceController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         
-        let settings = MatchSetting(context: context)
+        let settings = CDMatchSetting(context: context)
         settings.createdDate = dateFormatter.date(from: creationDateString)
         settings.id = UUID()
         settings.isDefault = false
@@ -81,7 +81,7 @@ extension PersistenceController {
         
         creationDateString = "2020-09-21T12:59:00+0000"
         
-        let myCustom = MatchSetting(context: context)
+        let myCustom = CDMatchSetting(context: context)
         myCustom.createdDate = dateFormatter.date(from: creationDateString)
         myCustom.id = UUID()
         myCustom.isDefault = true
@@ -93,7 +93,7 @@ extension PersistenceController {
         
         creationDateString = "2020-09-20T12:59:00+0000"
 
-        let relaxedCustom = MatchSetting(context: context)
+        let relaxedCustom = CDMatchSetting(context: context)
         relaxedCustom.createdDate = dateFormatter.date(from: creationDateString)
         relaxedCustom.id = UUID()
         relaxedCustom.isDefault = false
@@ -115,7 +115,7 @@ extension PersistenceController {
         // MATCH WINS
         
         for i in 0..<2 {
-            let workout = Workout(context: context)
+            let workout = CDWorkout(context: context)
             workout.id = UUID()
             workout.activeCalories = 200
             workout.endDate = dateFormatter.date(from: matchEndString)
@@ -124,12 +124,12 @@ extension PersistenceController {
             workout.minHeartRate = 112
             workout.averageHeartRate = 132
             
-            let score = MatchScore(context: context)
+            let score = CDMatchScore(context: context)
             score.id = UUID()
             score.opponentScore = i % 2 == 0 ? 7 : 11
             score.playerScore = i % 2 == 0 ? 11 : 4
             
-            let newItem = Match(context: context)
+            let newItem = CDMatch(context: context)
             newItem.workout = workout
             newItem.score = score
             newItem.date = Date()
@@ -145,7 +145,7 @@ extension PersistenceController {
         matchEndString = "2020-09-21T15:59:00+0000"
         
         for i in 0..<2 {
-            let workout = Workout(context: context)
+            let workout = CDWorkout(context: context)
             workout.id = UUID()
             workout.activeCalories = 132
             workout.endDate = dateFormatter.date(from: matchEndString)
@@ -154,12 +154,12 @@ extension PersistenceController {
             workout.minHeartRate = 112
             workout.averageHeartRate = 132
             
-            let score = MatchScore(context: context)
+            let score = CDMatchScore(context: context)
             score.id = UUID()
             score.opponentScore = i % 2 == 0 ? 7 : 11
             score.playerScore = i % 2 == 0 ? 11 : 4
             
-            let newItem = Match(context: context)
+            let newItem = CDMatch(context: context)
             newItem.workout = workout
             newItem.score = score
             newItem.date = Date()

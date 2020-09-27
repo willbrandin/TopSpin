@@ -22,14 +22,12 @@ struct MatchHistoryItem: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 8) {
-                if let player = match.score?.playerScore,
-                   let opponent = match.score?.opponentScore, let date = match.shortDate {
-                    MatchHistoryScoreView(playerScore: Int(player), opponentScore: Int(opponent), date: date)
-                }
+                MatchHistoryScoreView(playerScore: match.score.playerScore, opponentScore: match.score.opponentScore, date: match.shortDate)
+                
                 
                 #if os(iOS)
-                if let metric = WorkoutMetricContent(match: match) {
-                    HistoryWorkoutMetricView(metricContent: metric)
+                if let workout = match.workout {
+                    HistoryWorkoutMetricView(metricContent: WorkoutMetricContent(workout: workout))
                 }
                 #endif
             }
@@ -42,40 +40,14 @@ struct MatchHistoryItem: View {
 
 struct MatchHistoryItem_Previews: PreviewProvider {
     
-    static let context = PersistenceController.standardContainer.container.viewContext
-    
-    static var match: Match {
-        let workout = Workout(context: context)
-        workout.id = UUID()
-        workout.activeCalories = 200
-        workout.endDate = Date()
-        workout.startDate = Date()
-        workout.maxHeartRate = 146
-        workout.minHeartRate = 112
-        workout.averageHeartRate = 132
-        
-        let score = MatchScore(context: context)
-        score.id = UUID()
-        score.opponentScore = 7
-        score.playerScore = 11
-        
-        let newItem = Match(context: context)
-        newItem.workout = workout
-        newItem.score = score
-        newItem.date = Date()
-        newItem.id = UUID()
-        
-        return newItem
-    }
-    
     static var previews: some View {
         Group {
-            MatchHistoryItem(match: match)
+            MatchHistoryItem(match: .mock)
                 .previewLayout(.sizeThatFits)
                 .padding()
                 .preferredColorScheme(.dark)
             
-            MatchHistoryItem(match: match)
+            MatchHistoryItem(match: .mock)
                 .previewLayout(.sizeThatFits)
                 .padding()
         }

@@ -9,17 +9,17 @@ import SwiftUI
 import CoreData
 
 struct MatchSettingsPickerContainer: View {
-    @EnvironmentObject var settingStore: SettingStorage
-    
+    @EnvironmentObject var store: Store<MatchSettingState, MatchSettingsAction>
+
     var body: some View {
-        MatchSettingsPickerView(defaultSetting: settingStore.settings.first(where: { $0.isDefault }) ?? settingStore.settings.first!)
+        MatchSettingsPickerView(defaultSetting: store.state.defaultSetting)
     }
 }
 
 struct MatchSettingsPickerView: View {
     
-    @EnvironmentObject var settingStore: SettingStorage
-    
+    @EnvironmentObject var store: Store<MatchSettingState, MatchSettingsAction>
+
     @State private var defaultSetting: MatchSetting
     @State private var isAddNewPresented: Bool = false
     
@@ -33,14 +33,14 @@ struct MatchSettingsPickerView: View {
         }
         .sheet(isPresented: $isAddNewPresented) {
             NavigationView {
-                MatchSettingsFormView(viewModel: SettingFormViewModel(settingStore: settingStore), onComplete: setSelected)
+                MatchSettingsFormView()
             }
         }
     }
     
     func listItemLink(_ name: String, isDefault: Bool, setting: MatchSetting) -> some View {
         NavigationLink(
-            destination: MatchSettingsFormView(viewModel: SettingFormViewModel(settingStore: settingStore, setting: setting), onComplete: setSelected),
+            destination: MatchSettingsFormView(setting: setting),
             label: {
                 HStack {
                     VStack(alignment: .leading) {
@@ -60,8 +60,8 @@ struct MatchSettingsPickerView: View {
     var listView: some View {
         List {
             Section {
-                ForEach(settingStore.settings) { setting in
-                    listItemLink(setting.name ?? "Unknown", isDefault: setting.isDefault, setting: setting)
+                ForEach(store.state.settings) { setting in
+                    listItemLink(setting.name, isDefault: setting.isDefault, setting: setting)
                 }
                 .onDelete { set in
                     delete(at: set)
@@ -70,18 +70,21 @@ struct MatchSettingsPickerView: View {
             
             Section {
                 #if os(watchOS)
-                NavigationLink("Add New", destination: MatchSettingsFormView(viewModel: SettingFormViewModel(settingStore: settingStore), onComplete: setSelected))
+                NavigationLink("Add New", destination: MatchSettingsFormView())
                 #else
                 Button("Add New") {
                     isAddNewPresented = true
                 }
                 .sheet(isPresented: $isAddNewPresented) {
                     NavigationView {
-                        MatchSettingsFormView(viewModel: SettingFormViewModel(settingStore: settingStore), onComplete: setSelected)
+                        MatchSettingsFormView()
                     }
                 }
                 #endif
             }
+        }
+        .onAppear {
+            setSelected()
         }
     }
     
@@ -99,12 +102,12 @@ struct MatchSettingsPickerView: View {
     }
     
     private func setSelected() {
-        defaultSetting = settingStore.settings.first(where: { $0.isDefault })!
+        defaultSetting = store.state.defaultSetting
     }
     
     private func delete(at offsets: IndexSet) {
-        let settings = offsets.map { settingStore.settings[$0] }
-        settingStore.delete(settings)
+//        let settings = offsets.map { settingStore.settings[$0] }
+//        settingStore.delete(settings)
         
         setSelected()
     }

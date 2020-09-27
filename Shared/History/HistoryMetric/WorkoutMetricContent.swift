@@ -24,22 +24,12 @@ struct WorkoutMetricContent {
 }
 
 extension WorkoutMetricContent {
-    init?(match: Match) {
-        guard let start = match.workout?.startDate,
-              let end = match.workout?.endDate,
-              let calories = match.workout?.activeCalories,
-              let avgHeartRate = match.workout?.averageHeartRate,
-              let minHeartRate = match.workout?.minHeartRate,
-              let maxHeartRate = match.workout?.maxHeartRate
-        else {
-            return nil
-        }
-        
-        self.startDate = start
-        self.endDate = end
-        self.calories = Int(calories)
-        self.avgHeartRate = Int(avgHeartRate)
-        self.minHeartRate = Int(minHeartRate)
-        self.maxHeartRate = Int(maxHeartRate)
+    init(workout: Workout) {
+        self.startDate = workout.startDate
+        self.endDate = workout.endDate
+        self.calories = workout.activeCalories
+        self.avgHeartRate = workout.heartRateMetrics.averageHeartRate
+        self.minHeartRate = workout.heartRateMetrics.minHeartRate
+        self.maxHeartRate = workout.heartRateMetrics.maxHeartRate
     }
 }

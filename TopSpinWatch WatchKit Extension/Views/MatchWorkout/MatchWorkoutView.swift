@@ -6,23 +6,57 @@
 //
 
 import SwiftUI
+import Combine
 
-struct MatchWorkoutView: View {
+struct MatchWorkoutContainerView: View {
     
+    @EnvironmentObject var store: AppStore
     var cancelAction: () -> Void
     
-    @EnvironmentObject var workoutSession: WorkoutManager
+    init(cancelAction: @escaping () -> Void) {
+        self.cancelAction = cancelAction
+    }
+        
+    var body: some View {
+        MatchWorkoutView(activeCalories: store.state.workoutState.activeCalories,
+                         elapsedSeconds: store.state.workoutState.elapsedSeconds,
+                         heartRate: store.state.workoutState.heartRate,
+                         heartMetrics: store.state.workoutState.heartMetrics,
+                         cancelAction: cancelAction)
+            .onReceive(WorkoutManager.shared.$heartrate) { object in
+                store.send(.workout(action: .setHeartRate(rate: Int(object))))
+            }
+            .onReceive(WorkoutManager.shared.$heartMetrics) { object in
+                store.send(.workout(action: .setHeartMetrics(metrics: object)))
+            }
+            .onReceive(WorkoutManager.shared.$elapsedSeconds) { object in
+                store.send(.workout(action: .setElapsedTime(time: object)))
+            }
+            .onReceive(WorkoutManager.shared.$activeCalories) { object in
+                store.send(.workout(action: .setCalories(calories: Int(object))))
+            }
+    }
+}
+
+struct MatchWorkoutView: View {
+         
+    var activeCalories: Int
+    var elapsedSeconds: Int
+    var heartRate: Int
+    var heartMetrics: WorkoutHeartMetric
     
+    var cancelAction: () -> Void
+
     var body: some View {
         ScrollView {
             HStack {
                 VStack(alignment: .leading, spacing: 0) {
-                    Text("\(elapsedTimeString(elapsed: secondsToHoursMinutesSeconds(seconds: workoutSession.elapsedSeconds)))")
+                    Text("\(elapsedTimeString(elapsed: secondsToHoursMinutesSeconds(seconds: elapsedSeconds)))")
                         .font(.title2)
                         .foregroundColor(.yellow)
                     
                     HStack {
-                        Text("\(Int(workoutSession.activeCalories))")
+                        Text("\(activeCalories)")
                             .font(.title2)
                         VStack(alignment: .leading, spacing: 0) {
                             Text("ACTIVE")
@@ -33,7 +67,7 @@ struct MatchWorkoutView: View {
                     }
                     
                     HStack(alignment: .firstTextBaseline) {
-                        Text("\(Int(workoutSession.heartrate))")
+                        Text("\(heartRate)")
                             .font(.title2)
                         Text("BPM")
                             .font(Font.system(.title2).smallCaps())
@@ -48,7 +82,7 @@ struct MatchWorkoutView: View {
                         
                         VStack {
                             Text("AVG")
-                            Text("\(Int(workoutSession.avgHeartRate))")
+                            Text("\(heartMetrics.averageHeartRate)")
                         }
                         
                         Spacer()
@@ -57,7 +91,7 @@ struct MatchWorkoutView: View {
                         
                         VStack {
                             Text("MIN")
-                            Text("\(Int(workoutSession.minHeartRate))")
+                            Text("\(heartMetrics.minHeartRate)")
                         }
                         
                         Spacer()
@@ -66,7 +100,7 @@ struct MatchWorkoutView: View {
                         
                         VStack {
                             Text("MAX")
-                            Text("\(Int(workoutSession.maxHeartRate))")
+                            Text("\(heartMetrics.maxHeartRate)")
                         }
                     }
                     .font(.caption)
@@ -97,7 +131,7 @@ struct MatchWorkoutView: View {
 
 struct MatchWorkoutView_Previews: PreviewProvider {
     static var previews: some View {
-        MatchWorkoutView(cancelAction: {})
+        MatchWorkoutView(activeCalories: 123, elapsedSeconds: 1231, heartRate: 133, heartMetrics: .mock, cancelAction: { })
             .environmentObject(WorkoutManager())
     }
 }

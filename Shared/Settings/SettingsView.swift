@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    
-    @EnvironmentObject var settingStore: SettingStorage
-    
+        
     @State private var isAddNewPresented: Bool = false
     
     var pickerView: some View {
@@ -27,14 +25,14 @@ struct SettingsView: View {
                 pickerView
                 
                 #if os(watchOS)
-                NavigationLink("Add New", destination: MatchSettingsFormView(viewModel: SettingFormViewModel(settingStore: settingStore), onComplete: {}))
+                NavigationLink("Add New", destination: MatchSettingsFormView())
                 #else
                 Button("Add New") {
                     isAddNewPresented = true
                 }
                 .sheet(isPresented: $isAddNewPresented) {
                     NavigationView {
-                        MatchSettingsFormView(viewModel: SettingFormViewModel(settingStore: settingStore), onComplete: {})
+                        MatchSettingsFormView()
                     }
                 }
                 #endif

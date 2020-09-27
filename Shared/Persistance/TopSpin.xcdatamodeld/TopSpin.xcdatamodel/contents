@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Match" representedClassName="Match" syncable="YES" codeGenerationType="class">
+    <entity name="CDMatch" representedClassName="CDMatch" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <relationship name="score" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MatchScore" inverseName="match" inverseEntity="MatchScore"/>
-        <relationship name="workout" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Workout" inverseName="match" inverseEntity="Workout"/>
+        <relationship name="score" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDMatchScore" inverseName="match" inverseEntity="CDMatchScore"/>
+        <relationship name="workout" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDWorkout" inverseName="match" inverseEntity="CDWorkout"/>
     </entity>
-    <entity name="MatchScore" representedClassName="MatchScore" syncable="YES" codeGenerationType="class">
+    <entity name="CDMatchScore" representedClassName="CDMatchScore" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="opponentScore" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="playerScore" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="match" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Match" inverseName="score" inverseEntity="Match"/>
+        <relationship name="match" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDMatch" inverseName="score" inverseEntity="CDMatch"/>
     </entity>
-    <entity name="MatchSetting" representedClassName="MatchSetting" syncable="YES" codeGenerationType="class">
+    <entity name="CDMatchSetting" representedClassName="CDMatchSetting" syncable="YES" codeGenerationType="class">
         <attribute name="createdDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="isDefault" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -22,7 +22,7 @@
         <attribute name="scoreLimit" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="serveInterval" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
-    <entity name="Workout" representedClassName="Workout" syncable="YES" codeGenerationType="class">
+    <entity name="CDWorkout" representedClassName="CDWorkout" syncable="YES" codeGenerationType="class">
         <attribute name="activeCalories" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="averageHeartRate" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -30,12 +30,12 @@
         <attribute name="maxHeartRate" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="minHeartRate" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="match" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Match" inverseName="workout" inverseEntity="Match"/>
+        <relationship name="match" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDMatch" inverseName="workout" inverseEntity="CDMatch"/>
     </entity>
     <elements>
-        <element name="Match" positionX="-63" positionY="-18" width="128" height="103"/>
-        <element name="MatchScore" positionX="-36" positionY="45" width="128" height="103"/>
-        <element name="MatchSetting" positionX="-45" positionY="27" width="128" height="163"/>
-        <element name="Workout" positionX="-54" positionY="-9" width="128" height="163"/>
+        <element name="CDMatch" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="CDMatchScore" positionX="-36" positionY="45" width="128" height="103"/>
+        <element name="CDMatchSetting" positionX="-45" positionY="27" width="128" height="163"/>
+        <element name="CDWorkout" positionX="-54" positionY="-9" width="128" height="163"/>
     </elements>
 </model>

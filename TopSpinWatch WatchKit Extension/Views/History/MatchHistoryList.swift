@@ -9,10 +9,10 @@ import SwiftUI
 
 struct MatchHistoryList: View {
     
-    @EnvironmentObject var matchesStore: MatchStorage
+    @EnvironmentObject var store: Store<MatchHistoryState, MatchHistoryAction>
 
     var body: some View {
-        if matchesStore.matches.isEmpty {
+        if store.state.matches.isEmpty {
             Text("Start a Match for it to appear in Match History.")
                 .font(.headline)
                 .foregroundColor(.secondary)
@@ -21,7 +21,7 @@ struct MatchHistoryList: View {
                 
         } else {
             List {
-                ForEach(matchesStore.matches) { match in
+                ForEach(store.state.matches) { match in
                     MatchHistoryItem(match: match)
                 }
             }
@@ -36,7 +36,6 @@ struct MatchHistoryList_Previews: PreviewProvider {
             NavigationView {
                 MatchHistoryList()
             }
-            .environmentObject(MatchStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext))
             .preferredColorScheme(.dark)
         }
     }

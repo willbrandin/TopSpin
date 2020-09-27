@@ -9,35 +9,35 @@ import SwiftUI
 
 struct MatchSettingsFormView: View {
     
-    @ObservedObject var viewModel: SettingFormViewModel
-    
-    var onComplete: (() -> Void)?
-    
-    init(viewModel: SettingFormViewModel, onComplete: (() -> Void)? = nil) {
-        self.viewModel = viewModel
-        self.onComplete = onComplete
-    }
-    
-    @Environment(\.presentationMode) var presentationMode
- 
     @State private var isEmptyNameError: Bool = false
+
+    @State private var settingsName: String = ""
+    @State private var scoreLimit: Int = 11
+    @State private var serveInterval: Int = 2
+    @State private var winByTwo: Bool = true
+    @State private var trackWorkoutData: Bool = true
+    @State private var setAsDefault: Bool = true
     
-    var closeButton: some View {
-        if !presentationMode.wrappedValue.isPresented {
-            return AnyView(EmptyView())
-        }
-        
-        return AnyView(
-            Button(action: { self.presentationMode.wrappedValue.dismiss() }) {
-            Image(systemName: "xmark")
-                .font(.headline)
-        })
+    @EnvironmentObject var store: Store<MatchSettingState, MatchSettingsAction>
+    @Environment(\.presentationMode) var presentationMode
+    
+    private var setting: MatchSetting?
+    
+    init(setting: MatchSetting? = nil) {
+        self.setting = setting
+
+        self._settingsName = State(wrappedValue: setting?.name ?? "")
+        self._scoreLimit = State(wrappedValue: setting?.scoreLimit.rawValue ?? 11)
+        self._serveInterval = State(wrappedValue: setting?.serveInterval.rawValue ?? 2)
+        self._winByTwo = State(wrappedValue: setting?.isWinByTwo ?? true)
+        self._trackWorkoutData = State(wrappedValue: setting?.isTrackingWorkout ?? true)
+        self._setAsDefault = State(wrappedValue: setting?.isDefault ?? true)
     }
     
     var formView: some View {
         Form {
             Section {
-                TextField("My Settings", text: $viewModel.settingsName)
+                TextField("My Settings", text: $settingsName)
                 Text("Give your settings a custom name.")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
@@ -45,28 +45,35 @@ struct MatchSettingsFormView: View {
             
             Section {
                 #if os(watchOS)
-                Picker("Score Limit", selection: $viewModel.scoreLimit) {
-                    Text("11").tag(11)
-                    Text("21").tag(21)
+                Picker("Score Limit", selection: $scoreLimit) {
+                    ForEach(MatchScoreLimit.allCases, id: \.self.rawValue) { limit in
+                        Text("\(limit.rawValue)")
+                            .tag(limit.rawValue)
+                    }
                 }
                                 
-                Picker("Serve Interval", selection: $viewModel.serveInterval) {
-                    Text("2").tag(2)
-                    Text("5").tag(5)
+                Picker("Serve Interval", selection: $serveInterval) {
+                    ForEach(MatchServeInterval.allCases, id: \.self.rawValue) { interval in
+                        Text("\(interval.rawValue)").tag(interval.rawValue)
+                    }
                 }
                 #else
                 VStack {
                     Text("What are you playing up to?")
-                    Picker("Score Limit", selection: $viewModel.scoreLimit) {
-                        Text("11").tag(11)
-                        Text("21").tag(21)
+                    Picker("Score Limit", selection: $scoreLimit) {
+                        ForEach(MatchScoreLimit.allCases, id: \.self.rawValue) { limit in
+                            Text("\(limit.rawValue)")
+                                .tag(limit.rawValue)
+                        }
                     }
                     .pickerStyle(SegmentedPickerStyle())
                 
                     Text("How often will you switch servers?")
-                    Picker("Serve Interval", selection: $viewModel.serveInterval) {
-                        Text("2").tag(2)
-                        Text("5").tag(5)
+                    Picker("Serve Interval", selection: $serveInterval) {
+                        ForEach(MatchServeInterval.allCases, id: \.self.rawValue) { interval in
+                            Text("\(interval.rawValue)")
+                                .tag(interval.rawValue)
+                        }
                     }
                     .pickerStyle(SegmentedPickerStyle())
                 }
@@ -75,9 +82,9 @@ struct MatchSettingsFormView: View {
             }
             
             Section {
-                Toggle("Win by Two", isOn: $viewModel.winByTwo)
-                Toggle("Track Workout", isOn: $viewModel.trackWorkoutData)
-                Toggle("Set as Default", isOn: $viewModel.setAsDefault)
+                Toggle("Win by Two", isOn: $winByTwo)
+                Toggle("Track Workout", isOn: $trackWorkoutData)
+                Toggle("Set as Default", isOn: $setAsDefault)
             }
             
             Section {
@@ -97,30 +104,41 @@ struct MatchSettingsFormView: View {
         #else
         formView
             .navigationTitle("New Settings")
-            .navigationBarItems(leading: closeButton)
 
         #endif
     }
     
     private func onSave() {
-        guard !viewModel.settingsName.isEmpty else {
+        guard !settingsName.isEmpty else {
             isEmptyNameError = true
             return
         }
         
-        viewModel.saveAction()
-        onComplete?()
+        if setting == nil {
+            guard let limit = MatchScoreLimit(rawValue: scoreLimit),
+                  let interval = MatchServeInterval(rawValue: serveInterval) else {
+                return
+            }
+            
+            store.send(.add(setting: MatchSetting(id: UUID(),
+                             createdDate: Date(),
+                             isDefault: setAsDefault,
+                             isTrackingWorkout: trackWorkoutData,
+                             isWinByTwo: winByTwo,
+                             name: settingsName,
+                             scoreLimit: limit,
+                             serveInterval: interval)))
+        }
+        
         presentationMode.wrappedValue.dismiss()
     }
 }
 
 struct MatchSettingsFormView_Previews: PreviewProvider {
     
-    static let viewModel = SettingFormViewModel(settingStore: SettingStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext))
-    
     static var previews: some View {
         NavigationView {
-            MatchSettingsFormView(viewModel: viewModel)
+            MatchSettingsFormView()
         }
     }
 }

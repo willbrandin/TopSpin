@@ -12,7 +12,7 @@ struct ActiveMatchView: View {
     var completeAction: () -> Void
     var cancelAction: () -> Void
     
-    @EnvironmentObject var workoutSession: WorkoutManager
+    @EnvironmentObject var store: AppStore
     @EnvironmentObject var matchController: RallyMatchController
     
     fileprivate let id = UUID()
@@ -65,7 +65,6 @@ struct ActiveMatchView: View {
                 
             }
             .alert(isPresented: $matchController.teamDidWin) {
-                workoutSession.pauseWorkout()
                 let winningTeam = matchController.winningTeam
                 let title = winningTeam == .one ? "You win!" : "Maybe next time!"
                 let button: Alert.Button = .default(Text("Save Match"), action: completeAction)

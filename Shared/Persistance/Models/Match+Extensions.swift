@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Match {
+extension CDMatch {
     var shortDate: String {
         guard let date = self.date else {
             return ""

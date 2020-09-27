@@ -9,28 +9,18 @@ import SwiftUI
 
 @main
 struct TopSpinApp: App {
-    
-    let persistenceController: PersistenceController
-    @StateObject var matchStorage: MatchStorage
-    @StateObject var settingStorage: SettingStorage
+
+    @StateObject private var store: AppStore
     
     init() {
-        self.persistenceController = PersistenceController.standardContainer
-        let managedObjectContext = persistenceController.container.viewContext
-        
-        let matchStorage = MatchStorage(managedObjectContext: managedObjectContext)
-        self._matchStorage = StateObject(wrappedValue: matchStorage)
-        
-        let settingStorage = SettingStorage(managedObjectContext: managedObjectContext)
-        self._settingStorage = StateObject(wrappedValue: settingStorage)
+        let environment = AppEnvironment()
+        self._store = StateObject(wrappedValue: AppStore(initialState: AppState(), reducer: appReducer, environment: environment))
     }
-
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                .environmentObject(matchStorage)
-                .environmentObject(settingStorage)
+                .environmentObject(store)
         }
     }
 }

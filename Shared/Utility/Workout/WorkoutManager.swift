@@ -11,6 +11,8 @@ import Combine
 
 // https://developer.apple.com/documentation/healthkit/workouts_and_activity_rings/speedysloth_creating_a_workout
 class WorkoutManager: NSObject, ObservableObject {
+        
+    static let shared = WorkoutManager()
     
     // MARK: - DeclareSessionBuilder
     
@@ -18,22 +20,12 @@ class WorkoutManager: NSObject, ObservableObject {
     var session: HKWorkoutSession!
     var builder: HKLiveWorkoutBuilder!
     
-    // Publish the following:
-    // - heartrate
-    // - active calories
-    // - distance moved
-    // - elapsed time
-    
     // MARK: - Publishers
-    
+            
     @Published var heartrate: Double = 0
-    @Published var avgHeartRate: Double = 0
-    
-    @Published var maxHeartRate: Double = 0
-    @Published var minHeartRate: Double = 0
-    
     @Published var activeCalories: Double = 0
     @Published var elapsedSeconds: Int = 0
+    @Published var heartMetrics: WorkoutHeartMetric = .mock
     
     // MARK: - Properties
 
@@ -206,14 +198,12 @@ class WorkoutManager: NSObject, ObservableObject {
                 let minValue = statistics.minimumQuantity()?.doubleValue(for: heartRateUnit)
                 
                 let roundedValue = Double( round( 1 * mostRctValue! ) / 1 )
-                let roundedAvg = Double( round( 1 * avgValue! ) / 1 )
-                let roundedMin = Double( round( 1 * minValue! ) / 1 )
-                let roundedMax = Double( round( 1 * maxValue! ) / 1 )
+                let roundedAvg = Int(Double( round( 1 * avgValue! ) / 1 ))
+                let roundedMin = Int(Double( round( 1 * minValue! ) / 1 ))
+                let roundedMax = Int(Double( round( 1 * maxValue! ) / 1 ))
                 
-                self.avgHeartRate = roundedAvg
                 self.heartrate = roundedValue
-                self.minHeartRate = roundedMin
-                self.maxHeartRate = roundedMax
+                self.heartMetrics = WorkoutHeartMetric(averageHeartRate: roundedAvg, maxHeartRate: roundedMax, minHeartRate: roundedMin)
                 
             case HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned):
                 let energyUnit = HKUnit.kilocalorie()
