@@ -18,7 +18,7 @@ struct MatchSettingsFormView: View {
     @State private var trackWorkoutData: Bool = true
     @State private var setAsDefault: Bool = true
     
-    @EnvironmentObject var store: Store<MatchSettingState, MatchSettingsAction>
+    @EnvironmentObject var store: AppStore
     @Environment(\.presentationMode) var presentationMode
     
     private var setting: MatchSetting?
@@ -120,14 +120,19 @@ struct MatchSettingsFormView: View {
                 return
             }
             
-            store.send(.add(setting: MatchSetting(id: UUID(),
-                             createdDate: Date(),
-                             isDefault: setAsDefault,
-                             isTrackingWorkout: trackWorkoutData,
-                             isWinByTwo: winByTwo,
-                             name: settingsName,
-                             scoreLimit: limit,
-                             serveInterval: interval)))
+            let setting = MatchSetting(id: UUID(),
+                                       createdDate: Date(),
+                                       isDefault: setAsDefault,
+                                       isTrackingWorkout: trackWorkoutData,
+                                       isWinByTwo: winByTwo,
+                                       name: settingsName,
+                                       scoreLimit: limit,
+                                       serveInterval: interval)
+            
+            store.send(.settings(action:.add(setting: setting)))
+            
+        } else {
+            store.send(.settings(action: .delete(setting: setting!)))
         }
         
         presentationMode.wrappedValue.dismiss()

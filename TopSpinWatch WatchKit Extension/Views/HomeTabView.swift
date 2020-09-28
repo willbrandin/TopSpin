@@ -17,24 +17,16 @@ struct HomeTabView: View {
         TabView(selection: $currentPage) {
             SettingsView()
                 .tag(1)
-                .environmentObject(
-                    store.derived(
-                        deriveState: \.settingState,
-                        embedAction: AppAction.settings)
-                )
+              
             MatchSetupView(startAction: start)
                 .tag(2)
             MatchHistoryList()
                 .tag(3)
-                .environmentObject(
-                    store.derived(
-                        deriveState: \.matchHistory,
-                        embedAction: AppAction.matchHistory)
-                )
+
         }
-        .onAppear {
-            store.send(.workout(action: .requestPermissions))
-        }
+//        .onAppear {
+//            store.send(.workout(action: .requestPermissions))
+//        }
     }
     
     func start() {

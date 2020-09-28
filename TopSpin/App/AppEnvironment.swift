@@ -24,6 +24,8 @@ struct MatchHistoryState: Equatable {
 
 enum AppAction {
     case load
+    case loadFromRepo
+    case listenForDataChange
     case matchHistory(action: MatchHistoryAction)
     case settings(action: MatchSettingsAction)
 }
@@ -43,7 +45,7 @@ struct MatchSettingState: Equatable {
     var settings: [MatchSetting] = []
     
     var defaultSetting: MatchSetting {
-        return settings.first(where: { $0.isDefault }) ?? settings.first!
+        return settings.first(where: { $0.isDefault }) ?? .defaultSettings
     }
 }
 
@@ -74,8 +76,9 @@ private func settingsReducer(_ state: inout MatchSettingState, _ action: MatchSe
         print(setting)
 
     case let .delete(setting):
-        print(setting)
-
+        state.settings.removeAll(where: { $0.id == setting.id })
+        environment.settingsRepository.delete(setting)
+        
     case let .setDefault(setting):
         print(setting)
     }
@@ -93,11 +96,25 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = Reducer { state, 
         
     case .load:
         state.settingState.settings = environment.settingsRepository.load()
-    
-        // Listen to Repo changes.
+        
+    case .loadFromRepo:
+        let repoState = environment.settingsRepository.load()
+
+        if state.settingState.settings != repoState {
+            print("Did change state from Repo listener")
+            state.settingState.settings = repoState
+        }
+        
+    case .listenForDataChange:
+        return environment.settingsRepository.repoUpdatePublisher
+            .map { setting in
+                return AppAction.loadFromRepo
+            }
+            .eraseToAnyPublisher()
+        
     }
     
     return Empty(completeImmediately: true).eraseToAnyPublisher()
-}
+}.log()
 
 typealias AppStore = Store<AppState, AppAction>

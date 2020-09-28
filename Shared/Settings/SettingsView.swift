@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct SettingsView: View {
-        
+    
+    @EnvironmentObject var store: AppStore
+    
     @State private var isAddNewPresented: Bool = false
     
     var pickerView: some View {
         NavigationLink(
-            destination: MatchSettingsPickerContainer(),
+            destination: MatchSettingsPickerContainer().environmentObject(store),
             label: {
                 Text("Match Settings")
             })
@@ -25,7 +27,7 @@ struct SettingsView: View {
                 pickerView
                 
                 #if os(watchOS)
-                NavigationLink("Add New", destination: MatchSettingsFormView())
+                NavigationLink("Add New", destination: MatchSettingsFormView().environmentObject(store))
                 #else
                 Button("Add New") {
                     isAddNewPresented = true

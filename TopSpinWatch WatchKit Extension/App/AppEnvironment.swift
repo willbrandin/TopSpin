@@ -48,7 +48,7 @@ struct MatchSettingState: Equatable {
     ]
     
     var defaultSetting: MatchSetting {
-        return settings.first(where: { $0.isDefault }) ?? settings.first!
+        return settings.first(where: { $0.isDefault }) ?? .defaultSettings
     }
 }
 
@@ -150,5 +150,6 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = Reducer { state, 
     
     return Empty(completeImmediately: true).eraseToAnyPublisher()
 }
+.log()
 
 typealias AppStore = Store<AppState, AppAction>

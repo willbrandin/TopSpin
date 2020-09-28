@@ -10,12 +10,12 @@ import SwiftUI
 struct MatchHistoryList: View {
     
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var store: Store<MatchHistoryState, MatchHistoryAction>
+    @EnvironmentObject var store: AppStore
 
     var historyListView: some View {
         ScrollView {
             LazyVStack(spacing: 0) {
-                ForEach(store.state.matches) { match in
+                ForEach(store.state.matchHistory.matches) { match in
                     MatchHistoryItem(match: match)
                         .contextMenu {
                             Button(action: { self.delete(match) }){
@@ -35,7 +35,7 @@ struct MatchHistoryList: View {
     
     var body: some View {
         VStack {
-            if store.state.matches.isEmpty {
+            if store.state.matchHistory.matches.isEmpty {
                 HistoryEmptyView()
             } else {
                 historyListView
@@ -45,7 +45,7 @@ struct MatchHistoryList: View {
     }
     
     func delete(_ match: Match) {
-        store.send(.delete(match: match))
+        store.send(.matchHistory(action: .delete(match: match)))
     }
 }
 

@@ -29,5 +29,5 @@ struct MatchSetting: Equatable, Identifiable {
 }
 
 extension MatchSetting {
-    static let defaultSettings = MatchSetting(id: UUID(), createdDate: Date(), isDefault: true, isTrackingWorkout: true, isWinByTwo: true, name: "Default", scoreLimit: .eleven, serveInterval: .everyTwo)
+    static let defaultSettings = MatchSetting(id: UUID(), createdDate: Date(), isDefault: false, isTrackingWorkout: true, isWinByTwo: true, name: "Standard", scoreLimit: .eleven, serveInterval: .everyTwo)
 }

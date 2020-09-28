@@ -9,23 +9,21 @@ import SwiftUI
 import CoreData
 
 struct MatchSettingsPickerContainer: View {
-    @EnvironmentObject var store: Store<MatchSettingState, MatchSettingsAction>
-
+    
+    @EnvironmentObject var store: AppStore
+    
     var body: some View {
-        MatchSettingsPickerView(defaultSetting: store.state.defaultSetting)
+        MatchSettingsPickerView(settings: store.state.settingState.settings)
     }
 }
 
 struct MatchSettingsPickerView: View {
     
-    @EnvironmentObject var store: Store<MatchSettingState, MatchSettingsAction>
-
-    @State private var defaultSetting: MatchSetting
-    @State private var isAddNewPresented: Bool = false
+    @EnvironmentObject var store: AppStore
     
-    init(defaultSetting: MatchSetting) {
-        self._defaultSetting = State(wrappedValue: defaultSetting)
-    }
+    var settings: [MatchSetting]
+    
+    @State private var isAddNewPresented: Bool = false
     
     var addSettingsButtton: some View {
         Button("Add New") {
@@ -40,7 +38,7 @@ struct MatchSettingsPickerView: View {
     
     func listItemLink(_ name: String, isDefault: Bool, setting: MatchSetting) -> some View {
         NavigationLink(
-            destination: MatchSettingsFormView(setting: setting),
+            destination: MatchSettingsFormView(setting: setting).environmentObject(store),
             label: {
                 HStack {
                     VStack(alignment: .leading) {
@@ -59,12 +57,24 @@ struct MatchSettingsPickerView: View {
     
     var listView: some View {
         List {
-            Section {
-                ForEach(store.state.settings) { setting in
-                    listItemLink(setting.name, isDefault: setting.isDefault, setting: setting)
+            if !settings.isEmpty {
+                Section(header: Text("Custom Settings")) {
+                    ForEach(settings) { setting in
+                        listItemLink(setting.name, isDefault: setting.isDefault, setting: setting)
+                    }
                 }
-                .onDelete { set in
-                    delete(at: set)
+            }
+            
+            Section(header: Text("Standard Settings")) {
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text(MatchSetting.defaultSettings.name)
+                        
+                        Text("Standard to 11")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                    Spacer()
                 }
             }
             
@@ -83,9 +93,7 @@ struct MatchSettingsPickerView: View {
                 #endif
             }
         }
-        .onAppear {
-            setSelected()
-        }
+        
     }
     
     var body: some View {
@@ -100,24 +108,12 @@ struct MatchSettingsPickerView: View {
 
         #endif
     }
-    
-    private func setSelected() {
-        defaultSetting = store.state.defaultSetting
-    }
-    
-    private func delete(at offsets: IndexSet) {
-//        let settings = offsets.map { settingStore.settings[$0] }
-//        settingStore.delete(settings)
-        
-        setSelected()
-    }
 }
 
 struct MatchSettingsPickerView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             MatchSettingsPickerContainer()
-                .environmentObject(SettingStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext))
         }
     }
 }

@@ -51,6 +51,10 @@ class MatchStorage: NSObject, ObservableObject {
         }
     }
     
+    func delete(_ match: Match) {
+        matches.filter( { $0.id == match.id }).forEach { context.delete($0) }
+    }
+    
     func delete(_ matches: [CDMatch]) {
         matches.forEach { context.delete($0) }
         

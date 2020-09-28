@@ -9,10 +9,10 @@ import SwiftUI
 
 struct MatchHistoryList: View {
     
-    @EnvironmentObject var store: Store<MatchHistoryState, MatchHistoryAction>
+    @EnvironmentObject var store: AppStore
 
     var body: some View {
-        if store.state.matches.isEmpty {
+        if store.state.matchHistory.matches.isEmpty {
             Text("Start a Match for it to appear in Match History.")
                 .font(.headline)
                 .foregroundColor(.secondary)
@@ -21,7 +21,7 @@ struct MatchHistoryList: View {
                 
         } else {
             List {
-                ForEach(store.state.matches) { match in
+                ForEach(store.state.matchHistory.matches) { match in
                     MatchHistoryItem(match: match)
                 }
             }

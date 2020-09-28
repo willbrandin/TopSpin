@@ -24,6 +24,7 @@ struct TopSpinApp: App {
                 .environmentObject(store)
                 .onAppear {
                     store.send(.load)
+                    store.send(.listenForDataChange)
                 }
                 .onChange(of: scenePhase) { scenePhase in
                     switch scenePhase {

@@ -13,7 +13,6 @@ struct TopSpinApp: App {
     @StateObject private var store: AppStore
     
     init() {
-        let state = AppState()
         let environment = AppEnvironment()
         self._store = StateObject(wrappedValue: AppStore(initialState: AppState(), reducer: appReducer, environment: environment))
     }
