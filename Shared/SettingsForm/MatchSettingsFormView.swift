@@ -114,7 +114,24 @@ struct MatchSettingsFormView: View {
             return
         }
         
-        if setting == nil {
+        if let setting = self.setting {
+            guard let limit = MatchScoreLimit(rawValue: scoreLimit),
+                  let interval = MatchServeInterval(rawValue: serveInterval) else {
+                return
+            }
+            
+            let setting = MatchSetting(id: setting.id,
+                                       createdDate: setting.createdDate,
+                                       isDefault: setAsDefault,
+                                       isTrackingWorkout: trackWorkoutData,
+                                       isWinByTwo: winByTwo,
+                                       name: settingsName,
+                                       scoreLimit: limit,
+                                       serveInterval: interval)
+            
+            store.send(.settings(action: .update(setting: setting)))
+            
+        } else {
             guard let limit = MatchScoreLimit(rawValue: scoreLimit),
                   let interval = MatchServeInterval(rawValue: serveInterval) else {
                 return
@@ -131,8 +148,6 @@ struct MatchSettingsFormView: View {
             
             store.send(.settings(action:.add(setting: setting)))
             
-        } else {
-            store.send(.settings(action: .delete(setting: setting!)))
         }
         
         presentationMode.wrappedValue.dismiss()

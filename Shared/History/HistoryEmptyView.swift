@@ -18,6 +18,10 @@ struct HistoryEmptyView: View {
     
     var body: some View {
         VStack {
+            Image(systemName: "applewatch")
+                .font(.largeTitle)
+                .padding()
+                .foregroundColor(.secondary)
             Text("Start a match on your wrist.\nWhen finished, it will display here.")
                 .font(.headline)
                 .foregroundColor(.secondary)
@@ -55,7 +59,7 @@ struct HistoryEmptyView: View {
     
     
     func openWatchAction() {
-        UIApplication.shared.open(URL(string: "itms-watchs://com.willBrandin.dev")!) { (didOpen) in
+        UIApplication.shared.open(URL(string: "https://apps.apple.com/us/app/top-spin/id1479868372")!) { (didOpen) in
             print(didOpen ? "Did open url" : "FAILED TO OPEN")
         }
     }

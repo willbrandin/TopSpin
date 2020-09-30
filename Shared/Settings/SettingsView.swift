@@ -36,6 +36,7 @@ struct SettingsView: View {
                     NavigationView {
                         MatchSettingsFormView()
                     }
+                    .environmentObject(self.store)
                 }
                 #endif
                 

@@ -56,6 +56,11 @@
 		D27978FF251CF70E00771DB9 /* StatefulPreviewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27978FD251CF70E00771DB9 /* StatefulPreviewWrapper.swift */; };
 		D2797910251D00FB00771DB9 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D279790F251D00FB00771DB9 /* HealthKit.framework */; };
 		D2801F4E25199BCC00E85E90 /* HistorySummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2801F4D25199BCC00E85E90 /* HistorySummaryView.swift */; };
+		D2A713FE2524215E008F053D /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A713FD2524215E008F053D /* Reducer.swift */; };
+		D2A713FF2524215E008F053D /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A713FD2524215E008F053D /* Reducer.swift */; };
+		D2A71409252421AA008F053D /* SettingReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A71408252421AA008F053D /* SettingReducer.swift */; };
+		D2A714182524227A008F053D /* MatchHistoryReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A714172524227A008F053D /* MatchHistoryReducer.swift */; };
+		D2A71423252422D2008F053D /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A71422252422D2008F053D /* AppReducer.swift */; };
 		D2B01F02251ED201002E8E74 /* HeartRatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B01F01251ED201002E8E74 /* HeartRatesView.swift */; };
 		D2B01F03251ED201002E8E74 /* HeartRatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B01F01251ED201002E8E74 /* HeartRatesView.swift */; };
 		D2B01F0D251ED2A2002E8E74 /* HeartRateValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B01F0C251ED2A2002E8E74 /* HeartRateValueView.swift */; };
@@ -201,6 +206,10 @@
 		D27978FD251CF70E00771DB9 /* StatefulPreviewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulPreviewWrapper.swift; sourceTree = "<group>"; };
 		D279790F251D00FB00771DB9 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.0.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		D2801F4D25199BCC00E85E90 /* HistorySummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySummaryView.swift; sourceTree = "<group>"; };
+		D2A713FD2524215E008F053D /* Reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducer.swift; sourceTree = "<group>"; };
+		D2A71408252421AA008F053D /* SettingReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingReducer.swift; sourceTree = "<group>"; };
+		D2A714172524227A008F053D /* MatchHistoryReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchHistoryReducer.swift; sourceTree = "<group>"; };
+		D2A71422252422D2008F053D /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
 		D2B01F01251ED201002E8E74 /* HeartRatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRatesView.swift; sourceTree = "<group>"; };
 		D2B01F0C251ED2A2002E8E74 /* HeartRateValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateValueView.swift; sourceTree = "<group>"; };
 		D2B279BA251EB97F0007FF3F /* WorkoutMetricContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutMetricContent.swift; sourceTree = "<group>"; };
@@ -431,6 +440,9 @@
 			isa = PBXGroup;
 			children = (
 				D2D73E8C251FE3FF006896C3 /* AppEnvironment.swift */,
+				D2A71422252422D2008F053D /* AppReducer.swift */,
+				D2A71408252421AA008F053D /* SettingReducer.swift */,
+				D2A714172524227A008F053D /* MatchHistoryReducer.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -640,6 +652,7 @@
 			isa = PBXGroup;
 			children = (
 				D2D73E80251FE33D006896C3 /* Store.swift */,
+				D2A713FD2524215E008F053D /* Reducer.swift */,
 				D2D73E86251FE36F006896C3 /* Store+Binding.swift */,
 			);
 			path = App;
@@ -856,9 +869,12 @@
 				D2B279C3251EB9B30007FF3F /* HorizontalIconView.swift in Sources */,
 				D2F35E0D251A497200739463 /* SettingsView.swift in Sources */,
 				D23F760A25198A87006BF603 /* TopSpinApp.swift in Sources */,
+				D2A71423252422D2008F053D /* AppReducer.swift in Sources */,
 				D23F765525198CF5006BF603 /* MatchHistoryList.swift in Sources */,
+				D2A71409252421AA008F053D /* SettingReducer.swift in Sources */,
 				D23F766125198D24006BF603 /* MatchHistoryItem.swift in Sources */,
 				D2B74D9A251ABD6500D1004B /* Persistance.swift in Sources */,
+				D2A714182524227A008F053D /* MatchHistoryReducer.swift in Sources */,
 				D2801F4E25199BCC00E85E90 /* HistorySummaryView.swift in Sources */,
 				D27978FE251CF70E00771DB9 /* StatefulPreviewWrapper.swift in Sources */,
 				D2D73E72251FE119006896C3 /* existing.swift in Sources */,
@@ -867,6 +883,7 @@
 				D2B279CE251EC25F0007FF3F /* HistoryEmptyView.swift in Sources */,
 				D2F35DE5251A379D00739463 /* MatchSummaryView.swift in Sources */,
 				D2F35DF5251A41F500739463 /* MatchSettingsFormView.swift in Sources */,
+				D2A713FE2524215E008F053D /* Reducer.swift in Sources */,
 				D2D73E3C251F05C0006896C3 /* HomeHistoryView.swift in Sources */,
 				D27978B9251CED2400771DB9 /* RallyTeam.swift in Sources */,
 				D2B279E6251EC3C80007FF3F /* LargeMetricView.swift in Sources */,
@@ -901,6 +918,7 @@
 				D20C55DA251C04E000107FBD /* RallyMatchConfigurable.swift in Sources */,
 				D2F35DDB2519A5B400739463 /* MatchHistoryList.swift in Sources */,
 				D23CCBBB251B95E3002EBE72 /* MatchStorage.swift in Sources */,
+				D2A713FF2524215E008F053D /* Reducer.swift in Sources */,
 				D2D73EB1251FE55A006896C3 /* MatchSetting.swift in Sources */,
 				D2B74D69251AA49B00D1004B /* ActiveMatchView.swift in Sources */,
 				D2B74D91251ABD0C00D1004B /* Persistance.swift in Sources */,

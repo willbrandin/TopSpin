@@ -7,14 +7,14 @@
 
 import CoreData
 
-struct PersistenceController {
+class PersistenceController {
     static let shared = PersistenceController()
 
     static var standardContainer: PersistenceController = {
-        let result = PersistenceController(inMemory: true)
+        let result = PersistenceController()
         let viewContext = result.container.viewContext
         
-        loadFullAccountData(in: viewContext)
+//        loadFullAccountData(in: viewContext)
         return result
     }()
 
@@ -26,8 +26,9 @@ struct PersistenceController {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
         
+        container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         container.viewContext.automaticallyMergesChangesFromParent = true
-        
+
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
@@ -45,6 +46,7 @@ struct PersistenceController {
             }
         })
     }
+
 }
 
 #if DEBUG
@@ -68,17 +70,6 @@ extension PersistenceController {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        
-        let settings = CDMatchSetting(context: context)
-        settings.createdDate = dateFormatter.date(from: creationDateString)
-        settings.id = UUID()
-        settings.isDefault = false
-        settings.isTrackingWorkout = true
-        settings.isWinByTwo = true
-        settings.name = "Default"
-        settings.scoreLimit = 11
-        settings.serveInterval = 2
-        
         creationDateString = "2020-09-21T12:59:00+0000"
         
         let myCustom = CDMatchSetting(context: context)

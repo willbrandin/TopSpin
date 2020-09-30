@@ -33,6 +33,7 @@ struct MatchSettingsPickerView: View {
             NavigationView {
                 MatchSettingsFormView()
             }
+            .environmentObject(self.store)
         }
     }
     
@@ -61,6 +62,9 @@ struct MatchSettingsPickerView: View {
                 Section(header: Text("Custom Settings")) {
                     ForEach(settings) { setting in
                         listItemLink(setting.name, isDefault: setting.isDefault, setting: setting)
+                    }
+                    .onDelete {
+                        delete(settings, at: $0)
                     }
                 }
             }
@@ -107,6 +111,13 @@ struct MatchSettingsPickerView: View {
             .navigationBarItems(trailing: EditButton())
 
         #endif
+    }
+    
+    func delete(_ settings: [MatchSetting], at offsets: IndexSet) {
+        offsets.forEach {
+            let setting = settings[$0]
+            store.send(.settings(action: .delete(setting: setting)))
+        }
     }
 }
 

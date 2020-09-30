@@ -7,35 +7,123 @@
 
 import Foundation
 import Combine
+import CoreData
 
-class SettingsRepository {
+extension MatchSetting {
+    init?(settings: CDMatchSetting) {
+        guard let name = settings.name,
+              let id = settings.id,
+              let createdDate = settings.createdDate,
+              let scoreLimit = MatchScoreLimit(rawValue: Int(settings.scoreLimit)),
+              let serveInterval = MatchServeInterval(rawValue: Int(settings.serveInterval)) else {
+            return nil
+        }
+        
+        let isDefault = settings.isDefault
+        let isTrackingWorkout = settings.isTrackingWorkout
+        let isWinByTwo = settings.isWinByTwo
+        
+        self.init(id: id, createdDate: createdDate, isDefault: isDefault, isTrackingWorkout: isTrackingWorkout, isWinByTwo: isWinByTwo, name: name, scoreLimit: scoreLimit, serveInterval: serveInterval)
+    }
+}
+
+class SettingsRepository: NSObject {
     
-    @Published var settings: [MatchSetting] = [
-        MatchSetting(id: UUID(), createdDate: Date(), isDefault: false, isTrackingWorkout: true, isWinByTwo: true, name: "21", scoreLimit: .twentyOne, serveInterval: .everyFive),
-        MatchSetting(id: UUID(), createdDate: Date(), isDefault: false, isTrackingWorkout: false, isWinByTwo: true, name: "🥶 Chill", scoreLimit: .twentyOne, serveInterval: .everyFive)
-    ]
+    @Published var settings: [MatchSetting] = []
+    private var cdSettings: [CDMatchSetting] = []
+    
+    private let dueSoonController: NSFetchedResultsController<CDMatchSetting>
+    private let context: NSManagedObjectContext
     
     var repoUpdatePublisher: AnyPublisher<[MatchSetting], Never> {
         return $settings.eraseToAnyPublisher()
     }
     
-    init() {
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
-//            self.settings.remove(at: 1)
-//        }
+    init(managedObjectContext: NSManagedObjectContext) {
+        dueSoonController = NSFetchedResultsController(fetchRequest: CDMatchSetting.sortedByDateFetchRequest,
+                                                       managedObjectContext: managedObjectContext,
+                                                       sectionNameKeyPath: nil, cacheName: nil)
+        
+        context = managedObjectContext
+        
+        super.init()
+        
+        dueSoonController.delegate = self
+        
+        do {
+            try dueSoonController.performFetch()
+            if let settings = dueSoonController.fetchedObjects {
+                self.cdSettings = settings
+                self.settings = settings.compactMap { MatchSetting(settings: $0) }
+            }
+
+        } catch {
+            print("failed to fetch items!")
+        }
     }
     
     func load() -> [MatchSetting] {
-        return settings
+        return cdSettings.compactMap({ MatchSetting(settings: $0) })
     }
     
-    func save(_ settings: [MatchSetting]){
-        self.settings = settings
+    func update(_ setting: MatchSetting) {
+        let cdSetting = cdSettings.first(where: { $0.id == setting.id })!
+        
+        cdSetting.setValue(setting.name, forKey: "name")
+        cdSetting.setValue(Int16(setting.scoreLimit.rawValue), forKeyPath: "scoreLimit")
+        cdSetting.setValue(Int16(setting.serveInterval.rawValue), forKeyPath: "serveInterval")
+        cdSetting.setValue(setting.isWinByTwo, forKeyPath: "isWinByTwo")
+        cdSetting.setValue(setting.isTrackingWorkout, forKeyPath: "isTrackingWorkout")
+        cdSetting.setValue(setting.isDefault, forKeyPath: "isDefault")
+        
+        do {
+            try context.save()
+            print("SAVED")
+        } catch {
+            print("FAILED TO SAVE")
+        }
+    }
+    
+    func save(_ setting: MatchSetting) {
+        let cdSetting = CDMatchSetting(context: context)
+        cdSetting.name = setting.name
+        cdSetting.createdDate = setting.createdDate
+        cdSetting.id = setting.id
+        cdSetting.isDefault = setting.isDefault
+        cdSetting.isWinByTwo = setting.isWinByTwo
+        cdSetting.isTrackingWorkout = setting.isTrackingWorkout
+        cdSetting.scoreLimit = Int16(setting.scoreLimit.rawValue)
+        cdSetting.serveInterval = Int16(setting.serveInterval.rawValue)
+
+        do {
+            try context.save()
+            print("SAVED")
+        } catch {
+            print("FAILED TO SAVE")
+        }
     }
     
     func delete(_ setting: MatchSetting) {
-        settings.removeAll(where: {
-                            $0.id == setting.id
-        })
+        cdSettings
+            .filter({ $0.id == setting.id })
+            .forEach { context.delete($0) }
+                
+        do {
+            try context.save()
+            print("SAVED")
+        } catch {
+            print("FAILED TO SAVE")
+        }
+    }
+}
+
+extension SettingsRepository: NSFetchedResultsControllerDelegate {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        guard let settings = controller.fetchedObjects as? [CDMatchSetting]
+        else { return }
+        
+        print("SettingsRepository - DID CHANGE CONTENT")
+        self.cdSettings = settings
+        self.settings = settings.compactMap { MatchSetting(settings: $0) }
     }
 }
