@@ -11,7 +11,8 @@ import SwiftUI
 struct TopSpinApp: App {
 
     @StateObject private var store: AppStore
-    
+    @Environment(\.scenePhase) var scenePhase
+
     init() {
         let container = PersistenceController.shared
         let context = container.container.viewContext
@@ -27,6 +28,21 @@ struct TopSpinApp: App {
             NavigationView {
                 ContentView()
                     .environmentObject(store)
+                    .onAppear {
+                        store.send(.load)
+                        store.send(.listenForDataChange)
+                    }
+                    .onChange(of: scenePhase) { scenePhase in
+                        switch scenePhase {
+                        case .active:
+                            print("FOREGROUND")
+                        case .background:
+                            print("BACKGROUND")
+                        default:
+                            print("\(scenePhase)")
+                            break
+                        }
+                    }
             }
         }
     }

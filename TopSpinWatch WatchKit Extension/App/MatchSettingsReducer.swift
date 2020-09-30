@@ -12,7 +12,6 @@ enum MatchSettingsAction {
     case add(setting: MatchSetting)
     case update(setting: MatchSetting)
     case delete(setting: MatchSetting)
-    case setDefault(setting: MatchSetting)
 }
 
 struct MatchSettingState: Equatable {
@@ -23,26 +22,41 @@ struct MatchSettingState: Equatable {
     }
 }
 
-func settingsReducer(_ state: inout MatchSettingState, _ action: MatchSettingsAction) -> AnyPublisher<AppAction, Never>  {
+func settingsReducer(_ state: inout MatchSettingState, _ action: MatchSettingsAction, _ environment: AppEnvironment) -> AnyPublisher<AppAction, Never>  {
     switch action {
     case let .add(setting):
         if setting.isDefault {
-            state.settings = state.settings.map({
-                var setting = $0
-                setting.isDefault = false
-                return setting
-            })
+            removeCurrentDefault(state: &state, environment)
         }
         
         state.settings.append(setting)
-        
+        environment.settingsRepository.save(setting)
+                
     case let .update(setting):
-        print(setting)
+        state.settings.removeAll(where: { $0.id == setting.id })
+        
+        if setting.isDefault {
+            removeCurrentDefault(state: &state, environment)
+        }
+        
+        state.settings.append(setting)
+        environment.settingsRepository.update(setting)
+
     case let .delete(setting):
-        print(setting)
-    case let .setDefault(setting):
-        print(setting)
+        state.settings.removeAll(where: { $0.id == setting.id })
+        environment.settingsRepository.delete(setting)
     }
     
     return Empty(completeImmediately: true).eraseToAnyPublisher()
+}
+
+private func removeCurrentDefault( state: inout MatchSettingState, _ environment: AppEnvironment) {
+    state.settings = state.settings
+        .filter({$0.isDefault})
+        .map({
+            var setting = $0
+            setting.isDefault = false
+            environment.settingsRepository.update(setting)
+            return setting
+        })
 }
