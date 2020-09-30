@@ -9,34 +9,54 @@ import SwiftUI
 
 struct HeartRatesView: View {
     
-    var body: some View {
+    var metrics: WorkoutHeartMetric
+    
+    var content: some View {
         HStack {
-            HeartRateValueView(title: "AVG", subtitle: "160")
+            HeartRateValueView(title: "AVG", subtitle: "\(metrics.averageHeartRate)")
                 .padding(.trailing)
 
             Divider()
 
-            HeartRateValueView(title: "MIN", subtitle: "145")
+            HeartRateValueView(title: "MIN", subtitle: "\(metrics.minHeartRate)")
                 .padding(.horizontal)
 
             Divider()
 
-            HeartRateValueView(title: "MAX", subtitle: "178")
+            HeartRateValueView(title: "MAX", subtitle: "\(metrics.maxHeartRate)")
                 .padding(.horizontal)
 
             Spacer()
         }
+    }
+    
+    var watchContent: some View {
+            HStack(spacing: 8) {
+                HeartRateValueView(title: "AVG", subtitle: "160")
+                
+                HeartRateValueView(title: "MIN", subtitle: "145")
+                
+                HeartRateValueView(title: "MAX", subtitle: "178")
+                
+                Spacer()
+            }
+    }
+    
+    var body: some View {
+        #if os(watchOS)
+        watchContent
+        #else
+        content
+        #endif
     }
 }
 
 struct HeartRatesView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            HeartRatesView()
-                .previewLayout(.fixed(width: 300.0, height: 60))
-            HeartRatesView()
+            HeartRatesView(metrics: WorkoutHeartMetric(averageHeartRate: 120, maxHeartRate: 123, minHeartRate: 123))
+            HeartRatesView(metrics: WorkoutHeartMetric(averageHeartRate: 120, maxHeartRate: 123, minHeartRate: 123))
                 .colorScheme(.dark)
-                .previewLayout(.fixed(width: 300.0, height: 60))
         }
     }
 }

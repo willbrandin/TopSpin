@@ -18,8 +18,10 @@ struct AppState: Equatable {
 
 enum AppAction {
     case load
-    case loadFromRepo
-    case listenForDataChange
+    case loadSettings
+    case loadHistory
+    case observeSettings
+    case observeHistory
     case matchHistory(action: MatchHistoryAction)
     case settings(action: MatchSettingsAction)
     case workout(action: WorkoutAction)
@@ -46,15 +48,27 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = Reducer { state, 
         
     case .load:
         state.settingState.settings = environment.settingsRepository.load()
+        state.matchHistory.matches = environment.matchRepository.load()
         
-    case .loadFromRepo:
-        print("REPO DID UPDATE")
+    case .loadHistory:
+        print("HISTORY DID UPDATE")
+        state.matchHistory.matches = environment.matchRepository.load()
+        
+    case .observeHistory:
+        return environment.matchRepository.repoUpdatePublisher
+            .map { setting in
+                return AppAction.loadHistory
+            }
+            .eraseToAnyPublisher()
+
+    case .loadSettings:
+        print("SETTINGS DID UPDATE")
         state.settingState.settings = environment.settingsRepository.load()
 
-    case .listenForDataChange:
+    case .observeSettings:
         return environment.settingsRepository.repoUpdatePublisher
             .map { setting in
-                return AppAction.loadFromRepo
+                return AppAction.loadSettings
             }
             .eraseToAnyPublisher()
     }

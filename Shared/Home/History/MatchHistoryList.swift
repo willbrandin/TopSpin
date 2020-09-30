@@ -29,14 +29,14 @@ struct MatchHistoryContainer: View {
 struct MatchHistoryList: View {
     
     @Environment(\.colorScheme) var colorScheme
-
+    
     var matches: [Match]
     var onDelete: (Match) -> Void
     
     var backgroundColor: Color {
         return colorScheme == .dark ? Color(UIColor.systemBackground) : Color(UIColor.secondarySystemBackground)
     }
-
+    
     var historyListView: some View {
         ZStack {
             backgroundColor
@@ -45,16 +45,19 @@ struct MatchHistoryList: View {
             ScrollView {
                 LazyVStack(spacing: 0) {
                     ForEach(matches) { match in
-                        MatchHistoryItem(match: match)
-                            .contextMenu {
-                                Button(action: { self.onDelete(match) }){
-                                    Label("Delete", systemImage: "trash")
+                        NavigationLink(destination: MatchSummaryView(match: match)) {
+                            MatchHistoryItem(match: match)
+                                .contextMenu {
+                                    Button(action: { self.onDelete(match) }){
+                                        Label("Delete", systemImage: "trash")
+                                    }
+                                    
+                                    Button(action: {}) {
+                                        Label("Share", systemImage: "square.and.arrow.up")
+                                    }
                                 }
-                                
-                                Button(action: {}) {
-                                    Label("Share", systemImage: "square.and.arrow.up")
-                                }
-                            }
+                        }
+                        .buttonStyle(PlainButtonStyle())
                         .padding(.horizontal)
                         .padding(.vertical, 6)
                     }
@@ -77,7 +80,7 @@ struct MatchHistoryList: View {
 }
 
 struct MatchHistoryList_Previews: PreviewProvider {
-
+    
     static var previews: some View {
         Group {
             NavigationView {

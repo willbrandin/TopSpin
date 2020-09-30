@@ -21,7 +21,7 @@ struct MatchHistoryScoreView: View {
                     .fontWeight(.bold)
                     .foregroundColor(playerScore > opponentScore ? .green : .red)
                 
-                HStack {
+                HStack(spacing: 0) {
                     Text("\(playerScore)")
                         .bold()
                     Text("-")

@@ -7,32 +7,34 @@
 
 import SwiftUI
 
-struct MatchSummaryView: View {
+struct MatchSummaryWorkoutView: View {
     
     @Environment(\.colorScheme) var colorScheme
-        
-    var yellowColor: Color {
-        return colorScheme == .dark ? .yellow : Color(UIColor.label)
-    }
     
-    var largeMetricSection: some View {
+    var workout: Workout
+    
+    var yellowColor: Color {
+        #if os(watchOS)
+        return .yellow
+        #else
+        return colorScheme == .dark ? .yellow : Color(UIColor.label)
+        #endif
+    }
+  
+    var largeMetricRow: some View {
         HStack {
             LargeMetricView(title: "Duration") {
-                Text("0:28:32")
-                    .font(Font.system(.title, design: .rounded))
+                Text(workout.duration)
                     .foregroundColor(yellowColor)
             }
-            .previewLayout(.sizeThatFits)
             
             Spacer()
             
             LargeMetricView(title: "Active Calories") {
                 HStack(spacing: 0) {
-                    Text("509")
-                        .font(Font.system(.title, design: .rounded))
+                    Text("\(workout.activeCalories)")
                         .foregroundColor(.green)
                     Text("CAL")
-                        .font(Font.system(.title, design: .rounded).smallCaps())
                         .foregroundColor(.green)
                 }
             }
@@ -43,55 +45,119 @@ struct MatchSummaryView: View {
         .padding()
     }
     
-    var workoutMetrics: some View {
-        HStack {
-            VStack {
-                Divider()
-                
-                largeMetricSection
-                
-                Divider()
-
-                VStack(alignment: .leading) {
-                    Text("Heart Rate")
-                        .font(.headline)
-                    
-                    HeartRatesView()
+    var largeMetricList: some View {
+        VStack(spacing: 4) {
+            HStack {
+                LargeMetricView(title: "Duration") {
+                    Text(workout.duration)
+                        .foregroundColor(yellowColor)
                 }
-                .padding()
+                
+                Spacer()
+            }
+                     
+            Divider()
 
-                Divider()
+            HStack {
+                LargeMetricView(title: "Active Calories") {
+                    HStack(spacing: 0) {
+                        Text("\(workout.activeCalories)")
+                            .foregroundColor(.green)
+                        Text("CAL")
+                            .foregroundColor(.green)
+                    }
+                }
+                
+                Spacer()
             }
         }
     }
     
-    var body: some View {
-        ScrollView {
-            MatchSummaryScoreView()
+    var heartRateContent: some View {
+        VStack(alignment: .leading) {
+            Text("Heart Rate")
+                .font(.headline)
             
-            workoutMetrics
-            
-            Spacer()
+            HeartRatesView(metrics: workout.heartRateMetrics)
         }
-        .toolbar {
-            Button(action: {}) {
-                Image(systemName: "square.and.arrow.up")
+    }
+    
+    var workoutMetrics: some View {
+        VStack(spacing: 4) {
+            Divider()
+            
+            #if os(watchOS)
+            largeMetricList
+            #else
+            largeMetricRow
+            #endif
+            
+            Divider()
+
+            #if os(watchOS)
+            heartRateContent
+            #else
+            heartRateContent
+                .padding()
+            #endif
+            
+            Divider()
+        }
+    }
+    
+    var body: some View {
+        workoutMetrics
+    }
+}
+
+struct MatchSummaryView: View {
+    
+    @Environment(\.colorScheme) var colorScheme
+    
+    var match: Match
+    
+    var content: some View {
+        ScrollView {
+            MatchSummaryScoreView(score: "\(match.score.playerScore)-\(match.score.opponentScore)",
+                                  didWin: match.score.playerScore > match.score.opponentScore,
+                                  date: match.workout?.timeFrame ?? match.startTime)
+            
+            if let workout = match.workout {
+                MatchSummaryWorkoutView(workout: workout)
+            } else {
+                Text("No Workout Data")
+                    .foregroundColor(.secondary)
+                    .padding(16)
             }
         }
         .navigationTitle("Sat, Sep 9")
-        .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    var body: some View {
+        #if os(watchOS)
+        content
+        #else
+        content
+            .toolbar {
+                Button(action: {}) {
+                    Image(systemName: "square.and.arrow.up")
+                }
+            }
+            .navigationBarTitleDisplayMode(.inline)
+        #endif
     }
 }
+
 
 struct MatchSummaryView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             NavigationView {
-                MatchSummaryView()
+                MatchSummaryView(match: .mockMatch())
             }
             
             NavigationView {
-                MatchSummaryView()
+                MatchSummaryView(match: .mock_nonWorkout_Match())
             }
             .preferredColorScheme(.dark)
         }

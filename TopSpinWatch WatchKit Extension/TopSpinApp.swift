@@ -18,8 +18,9 @@ struct TopSpinApp: App {
         let context = container.container.viewContext
         
         let settingsRepository = SettingsRepository(managedObjectContext: context)
+        let matchRepository = MatchHistoryRepository(managedObjectContext: context)
 
-        let environment = AppEnvironment(settingsRepository: settingsRepository)
+        let environment = AppEnvironment(settingsRepository: settingsRepository, matchRepository: matchRepository)
         self._store = StateObject(wrappedValue: AppStore(initialState: AppState(), reducer: appReducer, environment: environment))
     }
     
@@ -30,7 +31,8 @@ struct TopSpinApp: App {
                     .environmentObject(store)
                     .onAppear {
                         store.send(.load)
-                        store.send(.listenForDataChange)
+                        store.send(.observeSettings)
+                        store.send(.observeHistory)
                     }
                     .onChange(of: scenePhase) { scenePhase in
                         switch scenePhase {

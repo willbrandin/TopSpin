@@ -19,6 +19,13 @@ struct Match: Equatable, Identifiable {
         
         return dateFormmater.string(from: date)
     }
+    
+    var startTime: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "h:mm a"
+        
+        return dateFormatter.string(from: date).lowercased()
+    }
 }
 
 extension Match {
@@ -43,7 +50,7 @@ extension Match {
                                activeCalories: 132,
                                heartRateMetrics: .mock,
                                startDate: Date(),
-                               endDate: Date().addingTimeInterval(5*60)))
+                               endDate: Date().addingTimeInterval(5*123)))
     }
     
     static func mock_nonWorkout_Match() -> Match {

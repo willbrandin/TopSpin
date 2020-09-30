@@ -22,7 +22,9 @@ struct MatchHistoryList: View {
         } else {
             List {
                 ForEach(store.state.matchHistory.matches) { match in
-                    MatchHistoryItem(match: match)
+                    NavigationLink(destination: MatchSummaryView(match: match)) {
+                        MatchHistoryItem(match: match)
+                    }
                 }
             }
             .navigationTitle("Match History")

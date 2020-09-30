@@ -20,6 +20,7 @@ func historyReducer(_ state: inout MatchHistoryState, _ action: MatchHistoryActi
     switch action {
     case let .add(match):
         state.matches.append(match)
+        environment.matchRepository.save(match)
     }
     
     return Empty(completeImmediately: true).eraseToAnyPublisher()

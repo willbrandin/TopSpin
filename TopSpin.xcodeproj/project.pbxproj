@@ -12,6 +12,7 @@
 		D20C55E2251C04EE00107FBD /* RallyTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20C55E1251C04EE00107FBD /* RallyTeam.swift */; };
 		D2227EFB251E3154009DD539 /* MatchSettingsPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2227EFA251E3154009DD539 /* MatchSettingsPickerView.swift */; };
 		D2227EFC251E3154009DD539 /* MatchSettingsPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2227EFA251E3154009DD539 /* MatchSettingsPickerView.swift */; };
+		D22EDAF52525295400912B09 /* MatchSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F35DE4251A379D00739463 /* MatchSummaryView.swift */; };
 		D23CCB65251AD634002EBE72 /* Match+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23CCB64251AD634002EBE72 /* Match+Extensions.swift */; };
 		D23CCB8D251ADEC2002EBE72 /* HorizontalSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23CCB8C251ADEC2002EBE72 /* HorizontalSummaryView.swift */; };
 		D23CCB9A251AE68A002EBE72 /* Match+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23CCB64251AD634002EBE72 /* Match+Extensions.swift */; };
@@ -37,6 +38,8 @@
 		D23F765525198CF5006BF603 /* MatchHistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F765425198CF5006BF603 /* MatchHistoryList.swift */; };
 		D23F766125198D24006BF603 /* MatchHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F766025198D24006BF603 /* MatchHistoryItem.swift */; };
 		D23F7666251991F5006BF603 /* MatchHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F766025198D24006BF603 /* MatchHistoryItem.swift */; };
+		D260808F2525228A00F73FAE /* MatchSummaryScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B279EC251EC5450007FF3F /* MatchSummaryScoreView.swift */; };
+		D2608098252522EE00F73FAE /* MatchTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E1A251ED74D006896C3 /* MatchTimelineView.swift */; };
 		D261A864251A662100689252 /* MatchSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D261A863251A662100689252 /* MatchSetupView.swift */; };
 		D261A86F251A6BC600689252 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D261A86E251A6BC600689252 /* HealthKit.framework */; };
 		D261A876251A6D9300689252 /* MatchWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D261A875251A6D9300689252 /* MatchWorkoutView.swift */; };
@@ -79,7 +82,6 @@
 		D2B279E6251EC3C80007FF3F /* LargeMetricView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B279E5251EC3C80007FF3F /* LargeMetricView.swift */; };
 		D2B279E7251EC3C80007FF3F /* LargeMetricView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B279E5251EC3C80007FF3F /* LargeMetricView.swift */; };
 		D2B279ED251EC5450007FF3F /* MatchSummaryScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B279EC251EC5450007FF3F /* MatchSummaryScoreView.swift */; };
-		D2B279EE251EC5450007FF3F /* MatchSummaryScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B279EC251EC5450007FF3F /* MatchSummaryScoreView.swift */; };
 		D2B74D5F251A931700D1004B /* ActiveMatchSwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B74D5E251A931700D1004B /* ActiveMatchSwipeView.swift */; };
 		D2B74D69251AA49B00D1004B /* ActiveMatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B74D68251AA49B00D1004B /* ActiveMatchView.swift */; };
 		D2B74D91251ABD0C00D1004B /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B74D90251ABD0C00D1004B /* Persistance.swift */; };
@@ -919,7 +921,6 @@
 			files = (
 				D2B279C4251EB9B30007FF3F /* HorizontalIconView.swift in Sources */,
 				D261A864251A662100689252 /* MatchSetupView.swift in Sources */,
-				D2B279EE251EC5450007FF3F /* MatchSummaryScoreView.swift in Sources */,
 				D2A7145325242755008F053D /* WorkoutReducer.swift in Sources */,
 				D2B01F0E251ED2A2002E8E74 /* HeartRateValueView.swift in Sources */,
 				D2227EFC251E3154009DD539 /* MatchSettingsPickerView.swift in Sources */,
@@ -955,11 +956,14 @@
 				D23CCBB6251B95A7002EBE72 /* MatchHistoryScoreView.swift in Sources */,
 				D2B279BC251EB97F0007FF3F /* WorkoutMetricContent.swift in Sources */,
 				D2D73EAA251FE547006896C3 /* WorkoutManager.swift in Sources */,
+				D22EDAF52525295400912B09 /* MatchSummaryView.swift in Sources */,
 				D2B74DAC251ABEA800D1004B /* TopSpin.xcdatamodeld in Sources */,
 				D20C55DB251C04E000107FBD /* RallyMatchController.swift in Sources */,
 				D2D73EAF251FE55A006896C3 /* Workout.swift in Sources */,
 				D2B01F03251ED201002E8E74 /* HeartRatesView.swift in Sources */,
+				D2608098252522EE00F73FAE /* MatchTimelineView.swift in Sources */,
 				D2BCC6A0252004FB0032CC23 /* Store.swift in Sources */,
+				D260808F2525228A00F73FAE /* MatchSummaryScoreView.swift in Sources */,
 				D2A71447252426D7008F053D /* MatchHistoryReducer.swift in Sources */,
 				D2B74D5F251A931700D1004B /* ActiveMatchSwipeView.swift in Sources */,
 				D2F35E07251A454700739463 /* MatchSettingsFormView.swift in Sources */,
