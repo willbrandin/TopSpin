@@ -120,6 +120,5 @@ struct MatchWorkoutView: View {
 struct MatchWorkoutView_Previews: PreviewProvider {
     static var previews: some View {
         MatchWorkoutView(activeCalories: 123, elapsedSeconds: 1231, heartRate: 133, heartMetrics: .mock, cancelAction: { })
-            .environmentObject(WorkoutManager())
     }
 }

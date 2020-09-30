@@ -38,7 +38,7 @@ struct MatchHistoryItem: View {
         .padding()
         .background(Color(backgroundColor))
         .cornerRadius(8)
-        .shadow(color: Color.black.opacity(colorScheme == .dark ? 0 : 0.1), radius: 16, x: 0, y: 4)
+        .shadow(color: Color.black.opacity(colorScheme == .dark ? 0 : 0.1), radius: 6, x: 0, y: 2)
     }
 }
 

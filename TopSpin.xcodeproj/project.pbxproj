@@ -99,7 +99,6 @@
 		D2D73E5B251FDFAA006896C3 /* MatchScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E5A251FDFAA006896C3 /* MatchScore.swift */; };
 		D2D73E61251FDFB2006896C3 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E60251FDFB2006896C3 /* Workout.swift */; };
 		D2D73E68251FDFD7006896C3 /* MatchSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E67251FDFD7006896C3 /* MatchSetting.swift */; };
-		D2D73E72251FE119006896C3 /* existing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E71251FE119006896C3 /* existing.swift */; };
 		D2D73E81251FE33E006896C3 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E80251FE33D006896C3 /* Store.swift */; };
 		D2D73E87251FE36F006896C3 /* Store+Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E86251FE36F006896C3 /* Store+Binding.swift */; };
 		D2D73EAA251FE547006896C3 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20C55D2251C046D00107FBD /* WorkoutManager.swift */; };
@@ -107,6 +106,8 @@
 		D2D73EB0251FE55A006896C3 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E48251FDE53006896C3 /* Match.swift */; };
 		D2D73EB1251FE55A006896C3 /* MatchSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E67251FDFD7006896C3 /* MatchSetting.swift */; };
 		D2D73EB2251FE55A006896C3 /* MatchScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E5A251FDFAA006896C3 /* MatchScore.swift */; };
+		D2E19AC52524604B00C5D3E8 /* MatchHistoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E19AC42524604B00C5D3E8 /* MatchHistoryRepository.swift */; };
+		D2E19AC62524604B00C5D3E8 /* MatchHistoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E19AC42524604B00C5D3E8 /* MatchHistoryRepository.swift */; };
 		D2F35DDB2519A5B400739463 /* MatchHistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F35DD62519A55900739463 /* MatchHistoryList.swift */; };
 		D2F35DE5251A379D00739463 /* MatchSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F35DE4251A379D00739463 /* MatchSummaryView.swift */; };
 		D2F35DF5251A41F500739463 /* MatchSettingsFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F35DF4251A41F500739463 /* MatchSettingsFormView.swift */; };
@@ -242,10 +243,10 @@
 		D2D73E5A251FDFAA006896C3 /* MatchScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchScore.swift; sourceTree = "<group>"; };
 		D2D73E60251FDFB2006896C3 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		D2D73E67251FDFD7006896C3 /* MatchSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSetting.swift; sourceTree = "<group>"; };
-		D2D73E71251FE119006896C3 /* existing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = existing.swift; sourceTree = "<group>"; };
 		D2D73E80251FE33D006896C3 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		D2D73E86251FE36F006896C3 /* Store+Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Store+Binding.swift"; sourceTree = "<group>"; };
 		D2D73E8C251FE3FF006896C3 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		D2E19AC42524604B00C5D3E8 /* MatchHistoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchHistoryRepository.swift; sourceTree = "<group>"; };
 		D2F35DD62519A55900739463 /* MatchHistoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchHistoryList.swift; sourceTree = "<group>"; };
 		D2F35DE4251A379D00739463 /* MatchSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSummaryView.swift; sourceTree = "<group>"; };
 		D2F35DF4251A41F500739463 /* MatchSettingsFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSettingsFormView.swift; sourceTree = "<group>"; };
@@ -456,6 +457,7 @@
 			isa = PBXGroup;
 			children = (
 				D27773CD2521385300F1787A /* SettingsRepository.swift */,
+				D2E19AC42524604B00C5D3E8 /* MatchHistoryRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -654,7 +656,6 @@
 				D2D73E5A251FDFAA006896C3 /* MatchScore.swift */,
 				D2D73E60251FDFB2006896C3 /* Workout.swift */,
 				D2D73E67251FDFD7006896C3 /* MatchSetting.swift */,
-				D2D73E71251FE119006896C3 /* existing.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -890,7 +891,6 @@
 				D2A714182524227A008F053D /* MatchHistoryReducer.swift in Sources */,
 				D2801F4E25199BCC00E85E90 /* HistorySummaryView.swift in Sources */,
 				D27978FE251CF70E00771DB9 /* StatefulPreviewWrapper.swift in Sources */,
-				D2D73E72251FE119006896C3 /* existing.swift in Sources */,
 				D2D73E87251FE36F006896C3 /* Store+Binding.swift in Sources */,
 				D2D73E61251FDFB2006896C3 /* Workout.swift in Sources */,
 				D2B279CE251EC25F0007FF3F /* HistoryEmptyView.swift in Sources */,
@@ -898,6 +898,7 @@
 				D2F35DF5251A41F500739463 /* MatchSettingsFormView.swift in Sources */,
 				D2A713FE2524215E008F053D /* Reducer.swift in Sources */,
 				D2D73E3C251F05C0006896C3 /* HomeHistoryView.swift in Sources */,
+				D2E19AC52524604B00C5D3E8 /* MatchHistoryRepository.swift in Sources */,
 				D27978B9251CED2400771DB9 /* RallyTeam.swift in Sources */,
 				D2B279E6251EC3C80007FF3F /* LargeMetricView.swift in Sources */,
 				D2D73E81251FE33E006896C3 /* Store.swift in Sources */,
@@ -923,6 +924,7 @@
 				D2BCC6AC2520053C0032CC23 /* AppEnvironment.swift in Sources */,
 				D20C55E2251C04EE00107FBD /* RallyTeam.swift in Sources */,
 				D2F35E12251A4D0100739463 /* SettingsView.swift in Sources */,
+				D2E19AC62524604B00C5D3E8 /* MatchHistoryRepository.swift in Sources */,
 				D23CCBB5251B95A7002EBE72 /* HistoryWorkoutMetricView.swift in Sources */,
 				D27978FF251CF70E00771DB9 /* StatefulPreviewWrapper.swift in Sources */,
 				D23F763025198AB7006BF603 /* ContentView.swift in Sources */,

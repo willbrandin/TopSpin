@@ -12,6 +12,13 @@ struct MatchHistoryContainer: View {
     
     var body: some View {
         MatchHistoryList(matches: store.state.matchHistory.matches, onDelete: self.delete)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("FAKE") {
+                        store.send(.matchHistory(action: .add(match: .mock_nonWorkout_Match())))
+                    }
+                }
+            }
     }
     
     func delete(_ match: Match) {
@@ -25,7 +32,6 @@ struct MatchHistoryList: View {
 
     var matches: [Match]
     var onDelete: (Match) -> Void
-    
     
     var backgroundColor: Color {
         return colorScheme == .dark ? Color(UIColor.systemBackground) : Color(UIColor.secondarySystemBackground)

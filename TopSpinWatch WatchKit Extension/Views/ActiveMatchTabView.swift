@@ -55,8 +55,6 @@ struct ActiveMatchTabContainer: View {
 
 struct ActiveMatchTabView: View {
     
-    @EnvironmentObject var store: AppStore
-    
     @Binding var currentPage: Int
     @ObservedObject var matchController: RallyMatchController
     
@@ -75,11 +73,12 @@ struct ActiveMatchTabView: View {
     }
 }
 
-//struct ActiveMatchTabView_Previews: PreviewProvider {
-//
-//    static var previews: some View {
-//        StatefulPreviewWrapper(2) {
-//            ActiveMatchTabView(currentPage: $0, defaultSettings: .defaultSettings)
-//        }
-//    }
-//}
+struct ActiveMatchTabView_Previews: PreviewProvider {
+
+    static var previews: some View {
+        StatefulPreviewWrapper(2) {
+            ActiveMatchTabView(currentPage: $0, matchController: RallyMatchController(settings: RallySettings(limit: 11, winByTwo: true, serveInterval: 2)), cancel: {}, complete: {})
+                .environmentObject(AppEnvironment.mockStore)
+        }
+    }
+}

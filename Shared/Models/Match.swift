@@ -32,4 +32,26 @@ extension Match {
                                              heartRateMetrics: .mock,
                                              startDate: Date(),
                                              endDate: Date()))
+    
+    static func mockMatch() -> Match {
+        Match(id: UUID(),
+              date: Date(),
+              score: MatchScore(id: UUID(),
+                                playerScore: 11,
+                                opponentScore: 8),
+              workout: Workout(id: UUID(),
+                               activeCalories: 132,
+                               heartRateMetrics: .mock,
+                               startDate: Date(),
+                               endDate: Date().addingTimeInterval(5*60)))
+    }
+    
+    static func mock_nonWorkout_Match() -> Match {
+        Match(id: UUID(),
+              date: Date(),
+              score: MatchScore(id: UUID(),
+                                playerScore: 11,
+                                opponentScore: 8),
+              workout: nil)
+    }
 }

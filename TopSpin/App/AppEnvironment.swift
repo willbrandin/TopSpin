@@ -10,8 +10,9 @@ import Combine
 
 struct AppEnvironment {
     let settingsRepository: SettingsRepository
+    let matchRepository: MatchHistoryRepository
 }
 
 extension AppEnvironment {
-    static let mockStore = AppStore(initialState: AppState(matchHistory: MatchHistoryState(matches: [.mock]), settingState: MatchSettingState()), reducer: appReducer, environment: AppEnvironment(settingsRepository: .mock))
+    static let mockStore = AppStore(initialState: AppState(matchHistory: MatchHistoryState(matches: [.mock]), settingState: MatchSettingState()), reducer: appReducer, environment: AppEnvironment(settingsRepository: .mock, matchRepository: .mock))
 }

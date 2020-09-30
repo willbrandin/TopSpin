@@ -37,6 +37,7 @@ struct MatchHistoryList_Previews: PreviewProvider {
                 MatchHistoryList()
             }
             .preferredColorScheme(.dark)
+            .environmentObject(AppEnvironment.mockStore)
         }
     }
 }

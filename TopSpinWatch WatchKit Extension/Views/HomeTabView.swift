@@ -24,9 +24,9 @@ struct HomeTabView: View {
                 .tag(3)
 
         }
-//        .onAppear {
-//            store.send(.workout(action: .requestPermissions))
-//        }
+        .onAppear {
+            store.send(.workout(action: .requestPermissions))
+        }
     }
     
     func start() {
@@ -39,6 +39,9 @@ struct HomeTabView: View {
 struct HomeTabView_Previews: PreviewProvider {
     
     static var previews: some View {
-        HomeTabView(currentPage: .constant(2))
+        StatefulPreviewWrapper(2) {
+            HomeTabView(currentPage: $0)
+                .environmentObject(AppEnvironment.mockStore)
+        }
     }
 }
