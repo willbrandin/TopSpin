@@ -2,7 +2,7 @@
 //  MatchSettingsReducer.swift
 //  TopSpinWatch WatchKit Extension
 //
-//  Created by Will Brandin on 9/29/20.
+//  Created by Will Brandin on 9/29/20.x
 //
 
 import Foundation

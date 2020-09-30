@@ -60,7 +60,7 @@
 		D2A713FF2524215E008F053D /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A713FD2524215E008F053D /* Reducer.swift */; };
 		D2A71409252421AA008F053D /* SettingReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A71408252421AA008F053D /* SettingReducer.swift */; };
 		D2A714182524227A008F053D /* MatchHistoryReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A714172524227A008F053D /* MatchHistoryReducer.swift */; };
-		D2A71423252422D2008F053D /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A71422252422D2008F053D /* AppReducer.swift */; };
+		D2A71423252422D2008F053D /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A71422252422D2008F053D /* AppStore.swift */; };
 		D2A7143D25242584008F053D /* SettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27773CD2521385300F1787A /* SettingsRepository.swift */; };
 		D2A71447252426D7008F053D /* MatchHistoryReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A71446252426D7008F053D /* MatchHistoryReducer.swift */; };
 		D2A7144D25242703008F053D /* MatchSettingsReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A7144C25242703008F053D /* MatchSettingsReducer.swift */; };
@@ -214,7 +214,7 @@
 		D2A713FD2524215E008F053D /* Reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducer.swift; sourceTree = "<group>"; };
 		D2A71408252421AA008F053D /* SettingReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingReducer.swift; sourceTree = "<group>"; };
 		D2A714172524227A008F053D /* MatchHistoryReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchHistoryReducer.swift; sourceTree = "<group>"; };
-		D2A71422252422D2008F053D /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
+		D2A71422252422D2008F053D /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
 		D2A71446252426D7008F053D /* MatchHistoryReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchHistoryReducer.swift; sourceTree = "<group>"; };
 		D2A7144C25242703008F053D /* MatchSettingsReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSettingsReducer.swift; sourceTree = "<group>"; };
 		D2A7145225242755008F053D /* WorkoutReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutReducer.swift; sourceTree = "<group>"; };
@@ -449,7 +449,7 @@
 			isa = PBXGroup;
 			children = (
 				D2D73E8C251FE3FF006896C3 /* AppEnvironment.swift */,
-				D2A71422252422D2008F053D /* AppReducer.swift */,
+				D2A71422252422D2008F053D /* AppStore.swift */,
 				D2A714172524227A008F053D /* MatchHistoryReducer.swift */,
 			);
 			path = App;
@@ -882,7 +882,7 @@
 				D2B279C3251EB9B30007FF3F /* HorizontalIconView.swift in Sources */,
 				D2F35E0D251A497200739463 /* SettingsView.swift in Sources */,
 				D23F760A25198A87006BF603 /* TopSpinApp.swift in Sources */,
-				D2A71423252422D2008F053D /* AppReducer.swift in Sources */,
+				D2A71423252422D2008F053D /* AppStore.swift in Sources */,
 				D23F765525198CF5006BF603 /* MatchHistoryList.swift in Sources */,
 				D2A71409252421AA008F053D /* SettingReducer.swift in Sources */,
 				D23F766125198D24006BF603 /* MatchHistoryItem.swift in Sources */,
