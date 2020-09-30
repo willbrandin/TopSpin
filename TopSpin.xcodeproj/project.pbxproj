@@ -395,13 +395,10 @@
 				D2D73E33251EFA2A006896C3 /* LiveMatchView */,
 				D2B279DC251EC3740007FF3F /* Summary */,
 				D2B279C1251EB9A50007FF3F /* Views */,
-				D2B279B8251EB8DD0007FF3F /* HistorySummary */,
 				D27978FC251CF6F500771DB9 /* Utility */,
 				D2B74D8F251ABD0000D1004B /* Persistance */,
-				D2B279A8251EA49F0007FF3F /* SettingsForm */,
 				D2F35DF3251A41E400739463 /* Settings */,
 				D2D73E3A251F05AE006896C3 /* Home */,
-				D23F765A25198D01006BF603 /* History */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -643,6 +640,8 @@
 		D2D73E3A251F05AE006896C3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				D2B279B8251EB8DD0007FF3F /* HistorySummary */,
+				D23F765A25198D01006BF603 /* History */,
 				D2D73E3B251F05C0006896C3 /* HomeHistoryView.swift */,
 			);
 			path = Home;
@@ -695,6 +694,7 @@
 		D2F35DF3251A41E400739463 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				D2B279A8251EA49F0007FF3F /* SettingsForm */,
 				D2F35E0C251A497200739463 /* SettingsView.swift */,
 				D2227EFA251E3154009DD539 /* MatchSettingsPickerView.swift */,
 			);
