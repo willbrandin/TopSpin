@@ -85,7 +85,7 @@ struct HistorySummaryView: View {
         .padding()
         .background(Color(backgroundColor))
         .cornerRadius(8)
-        .shadow(color: Color.black.opacity(colorScheme == .dark ? 0 : 0.1), radius: 8, x: 0, y: 2)
+        .shadow(color: Color.black.opacity(colorScheme == .dark ? 0 : 0.05), radius: 8, x: 0, y: 4)
     }
 }
 

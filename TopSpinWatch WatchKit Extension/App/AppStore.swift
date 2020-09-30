@@ -13,6 +13,7 @@ struct AppState: Equatable {
     var matchHistory: MatchHistoryState = MatchHistoryState()
     var settingState: MatchSettingState = MatchSettingState()
     var workoutState: WorkoutState = WorkoutState()
+    var activeMatchState: ActiveMatchState = ActiveMatchState()
 }
 
 enum AppAction {

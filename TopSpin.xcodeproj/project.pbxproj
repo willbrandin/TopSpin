@@ -40,6 +40,7 @@
 		D261A864251A662100689252 /* MatchSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D261A863251A662100689252 /* MatchSetupView.swift */; };
 		D261A86F251A6BC600689252 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D261A86E251A6BC600689252 /* HealthKit.framework */; };
 		D261A876251A6D9300689252 /* MatchWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D261A875251A6D9300689252 /* MatchWorkoutView.swift */; };
+		D26AED7D2524E084008D89FE /* ActiveMatchReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26AED7C2524E084008D89FE /* ActiveMatchReducer.swift */; };
 		D27773CE2521385300F1787A /* SettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27773CD2521385300F1787A /* SettingsRepository.swift */; };
 		D27978AD251CED0800771DB9 /* RallyTeamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27978AC251CED0800771DB9 /* RallyTeamTests.swift */; };
 		D27978B9251CED2400771DB9 /* RallyTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20C55E1251C04EE00107FBD /* RallyTeam.swift */; };
@@ -198,6 +199,7 @@
 		D261A863251A662100689252 /* MatchSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSetupView.swift; sourceTree = "<group>"; };
 		D261A86E251A6BC600689252 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		D261A875251A6D9300689252 /* MatchWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchWorkoutView.swift; sourceTree = "<group>"; };
+		D26AED7C2524E084008D89FE /* ActiveMatchReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveMatchReducer.swift; sourceTree = "<group>"; };
 		D27773CD2521385300F1787A /* SettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepository.swift; sourceTree = "<group>"; };
 		D27978AA251CED0800771DB9 /* TopSpinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TopSpinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D27978AC251CED0800771DB9 /* RallyTeamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RallyTeamTests.swift; sourceTree = "<group>"; };
@@ -366,8 +368,8 @@
 		D23F762E25198AB7006BF603 /* TopSpinWatch WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				D2BCC69B252004F00032CC23 /* App */,
 				D2B74DA1251ABE0C00D1004B /* TopSpinWatch WatchKit Extension.entitlements */,
+				D2BCC69B252004F00032CC23 /* App */,
 				D2F35DD42519A54D00739463 /* Views */,
 				D23F762F25198AB7006BF603 /* ContentView.swift */,
 				D23F763125198AB7006BF603 /* TopSpinApp.swift */,
@@ -602,6 +604,7 @@
 				D2A7144C25242703008F053D /* MatchSettingsReducer.swift */,
 				D2A7145225242755008F053D /* WorkoutReducer.swift */,
 				D2A7145C2524278E008F053D /* AppStore.swift */,
+				D26AED7C2524E084008D89FE /* ActiveMatchReducer.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -960,6 +963,7 @@
 				D2A71447252426D7008F053D /* MatchHistoryReducer.swift in Sources */,
 				D2B74D5F251A931700D1004B /* ActiveMatchSwipeView.swift in Sources */,
 				D2F35E07251A454700739463 /* MatchSettingsFormView.swift in Sources */,
+				D26AED7D2524E084008D89FE /* ActiveMatchReducer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
