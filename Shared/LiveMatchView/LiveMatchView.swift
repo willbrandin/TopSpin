@@ -50,7 +50,7 @@ struct LiveMatchView: View {
                     .frame(height: 48)
                     .frame(maxWidth: .infinity)
                     .background(Color.blue)
-                    .cornerRadius(16)
+                    .cornerRadius(8)
             }
                                     
             Button(action: {}) {
@@ -60,7 +60,7 @@ struct LiveMatchView: View {
                     .frame(height: 48)
                     .frame(maxWidth: .infinity)
                     .background(Color.blue)
-                    .cornerRadius(16)
+                    .cornerRadius(8)
             }
         }
         .padding(.horizontal)

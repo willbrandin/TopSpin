@@ -27,6 +27,11 @@ struct HorizontalSummaryView: View {
 
 struct HorizontalSummaryView_Previews: PreviewProvider {
     static var previews: some View {
-        HorizontalSummaryView()
+        Group {
+            HorizontalSummaryView()
+                .preferredColorScheme(.dark)
+            HorizontalSummaryView()
+                .background(Color(.secondarySystemBackground))
+        }
     }
 }

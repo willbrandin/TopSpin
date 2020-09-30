@@ -126,5 +126,6 @@ struct MatchSettingsPickerView_Previews: PreviewProvider {
         NavigationView {
             MatchSettingsPickerContainer()
         }
+        .environmentObject(AppEnvironment.mockStore)
     }
 }

@@ -14,7 +14,7 @@ struct ContentView: View {
     
     var sideBarRootNavigation: some View {
         List {
-            NavigationLink(destination: MatchHistoryList()) {
+            NavigationLink(destination: MatchHistoryContainer()) {
                 Text("Match History")
             }
             
@@ -30,7 +30,7 @@ struct ContentView: View {
             
             TabView {
                 NavigationView {
-                    MatchHistoryList()
+                    MatchHistoryContainer()
                 }
                 .tabItem {
                     Image(systemName: "list.dash")
@@ -48,7 +48,7 @@ struct ContentView: View {
         } else {
             NavigationView {
                 sideBarRootNavigation
-                MatchHistoryList()
+                MatchHistoryContainer()
             }
         }
     }
@@ -57,6 +57,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .preferredColorScheme(.dark)
+            .environment(\.horizontalSizeClass, .compact)
+            .environmentObject(AppEnvironment.mockStore)
     }
 }

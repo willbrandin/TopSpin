@@ -9,6 +9,12 @@ import SwiftUI
 
 struct HistorySummaryView: View {
         
+    @Environment(\.colorScheme) var colorScheme
+
+    
+    var backgroundColor: UIColor {
+        return colorScheme == .dark ? .secondarySystemBackground : .systemBackground
+    }
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -74,20 +80,25 @@ struct HistorySummaryView: View {
                         .fontWeight(.bold)
                 }
             }
-            .frame(minHeight: 50)
+            .frame(maxHeight: 50)
         }
         .padding()
-        .background(Color(.secondarySystemBackground))
+        .background(Color(backgroundColor))
         .cornerRadius(8)
+        .shadow(color: Color.black.opacity(colorScheme == .dark ? 0 : 0.1), radius: 8, x: 0, y: 2)
     }
 }
 
 struct HistorySummaryView_Previews: PreviewProvider {
     static var previews: some View {
-        ScrollView {
+        Group {
             HistorySummaryView()
+                .preferredColorScheme(.dark)
+                .previewLayout(.sizeThatFits)
                 .padding()
-            Spacer()
+            HistorySummaryView()
+                .previewLayout(.sizeThatFits)
+                .padding()
         }
     }
 }

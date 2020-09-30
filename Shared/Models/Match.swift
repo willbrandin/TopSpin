@@ -22,5 +22,14 @@ struct Match: Equatable, Identifiable {
 }
 
 extension Match {
-    static let mock = Match(id: UUID(), date: Date(), score: MatchScore(id: UUID(), playerScore: 11, opponentScore: 8), workout: Workout(id: UUID(), activeCalories: 132, heartRateMetrics: .mock, startDate: Date(), endDate: Date()))
+    static let mock = Match(id: UUID(),
+                            date: Date(),
+                            score: MatchScore(id: UUID(),
+                                              playerScore: 11,
+                                              opponentScore: 8),
+                            workout: Workout(id: UUID(),
+                                             activeCalories: 132,
+                                             heartRateMetrics: .mock,
+                                             startDate: Date(),
+                                             endDate: Date()))
 }

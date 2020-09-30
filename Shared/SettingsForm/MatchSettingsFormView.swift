@@ -160,5 +160,6 @@ struct MatchSettingsFormView_Previews: PreviewProvider {
         NavigationView {
             MatchSettingsFormView()
         }
+        .environmentObject(AppEnvironment.mockStore)
     }
 }

@@ -12,3 +12,7 @@ struct AppEnvironment {
     let settingsRepository: SettingsRepository
     let workoutSession: WorkoutManager = WorkoutManager()
 }
+
+extension AppEnvironment {
+    static let mockStore = AppStore(initialState: AppState(matchHistory: MatchHistoryState(matches: [.mock, .mock, .mock]), settingState: MatchSettingState()), reducer: appReducer, environment: AppEnvironment(settingsRepository: .mock))
+}

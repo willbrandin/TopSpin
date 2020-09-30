@@ -67,5 +67,6 @@ struct SettingsView_Previews: PreviewProvider {
         NavigationView {
             SettingsView()
         }
+        .environmentObject(AppEnvironment.mockStore)
     }
 }

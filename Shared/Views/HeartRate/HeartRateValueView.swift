@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct HeartRateValueView: View {
     var title: String
     var subtitle: String
@@ -23,7 +22,6 @@ struct HeartRateValueView: View {
         }
     }
 }
-
 
 struct HeartRateValueView_Previews: PreviewProvider {
     static var previews: some View {

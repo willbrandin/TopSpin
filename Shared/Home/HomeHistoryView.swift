@@ -13,7 +13,7 @@ struct HomeHistoryView: View {
     
     var body: some View {
         ZStack {
-            MatchHistoryList()
+            MatchHistoryContainer()
                 .onTapGesture {
                     self.isMatchCurrentlyActive = !isMatchCurrentlyActive
                 }
@@ -46,14 +46,13 @@ struct HomeHistoryView: View {
 }
 
 struct HomeHistoryView_Previews: PreviewProvider {
-    static let matchStorage = MatchStorage(managedObjectContext: PersistenceController.standardContainer.container.viewContext)
-
+    
     static var previews: some View {
         TabView {
             NavigationView {
                 HomeHistoryView()
-                    .environmentObject(matchStorage)
             }
         }
+        .environmentObject(AppEnvironment.mockStore)
     }
 }
