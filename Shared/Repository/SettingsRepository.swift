@@ -127,3 +127,7 @@ extension SettingsRepository: NSFetchedResultsControllerDelegate {
         self.settings = settings.compactMap { MatchSetting(settings: $0) }
     }
 }
+
+extension SettingsRepository {
+    static let mock = SettingsRepository(managedObjectContext: PersistenceController.standardContainer.container.viewContext)
+}

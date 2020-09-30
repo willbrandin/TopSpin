@@ -11,7 +11,3 @@ import Combine
 struct AppEnvironment {
     let settingsRepository: SettingsRepository
 }
-
-extension SettingsRepository {
-    static let mock = SettingsRepository(managedObjectContext: PersistenceController.standardContainer.container.viewContext)
-}

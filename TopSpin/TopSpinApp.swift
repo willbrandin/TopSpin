@@ -14,7 +14,7 @@ struct TopSpinApp: App {
     @StateObject private var store: AppStore
     
     init() {
-        let container = PersistenceController.shared // Debug
+        let container = PersistenceController.shared
         let context = container.container.viewContext
         
         let settingsRepository = SettingsRepository(managedObjectContext: context)

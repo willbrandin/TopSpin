@@ -1,0 +1,54 @@
+//
+//  WorkoutReducerr.swift
+//  TopSpinWatch WatchKit Extension
+//
+//  Created by Will Brandin on 9/29/20.
+//
+
+import Foundation
+import Combine
+
+struct WorkoutState: Equatable {
+    var heartMetrics = WorkoutHeartMetric(averageHeartRate: 0, maxHeartRate: 0, minHeartRate: 0)
+    var heartRate = 0
+    var activeCalories = 0
+    var elapsedSeconds = 0
+    var startDate: Date?
+    var endDate: Date?
+}
+
+enum WorkoutAction {
+    case start
+    case end
+    case setWorkoutState(workout: WorkoutState)
+    case pause
+    case requestPermissions
+}
+
+func workoutReducer(_ state: inout WorkoutState, _ action: WorkoutAction, _ environment: AppEnvironment) -> AnyPublisher<AppAction, Never>  {
+    switch action {
+    
+    case .start:
+        environment.workoutSession.startWorkout()
+        
+        return environment.workoutSession
+            .workoutPublisher
+            .map { AppAction.workout(action: .setWorkoutState(workout: $0)) }
+            .eraseToAnyPublisher()
+    
+    case .end:
+        environment.workoutSession.endWorkout()
+        state.endDate = environment.workoutSession.workoutEndDate ?? Date()
+        
+    case .requestPermissions:
+        environment.workoutSession.requestAuthorization()
+        
+    case .pause:
+        environment.workoutSession.pauseWorkout()
+        
+    case let .setWorkoutState(workout):
+        state = workout
+    }
+    
+    return Empty(completeImmediately: true).eraseToAnyPublisher()
+}
