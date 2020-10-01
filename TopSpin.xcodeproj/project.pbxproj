@@ -13,6 +13,7 @@
 		D2227EFB251E3154009DD539 /* MatchSettingsPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2227EFA251E3154009DD539 /* MatchSettingsPickerView.swift */; };
 		D2227EFC251E3154009DD539 /* MatchSettingsPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2227EFA251E3154009DD539 /* MatchSettingsPickerView.swift */; };
 		D22EDAF52525295400912B09 /* MatchSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F35DE4251A379D00739463 /* MatchSummaryView.swift */; };
+		D22EDB0A2525491200912B09 /* TopSpinWatch WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D23F761E25198AB5006BF603 /* TopSpinWatch WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D23CCB65251AD634002EBE72 /* Match+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23CCB64251AD634002EBE72 /* Match+Extensions.swift */; };
 		D23CCB8D251ADEC2002EBE72 /* HorizontalSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23CCB8C251ADEC2002EBE72 /* HorizontalSummaryView.swift */; };
 		D23CCB9A251AE68A002EBE72 /* Match+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23CCB64251AD634002EBE72 /* Match+Extensions.swift */; };
@@ -161,6 +162,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
+				D22EDB0A2525491200912B09 /* TopSpinWatch WatchKit App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1128,6 +1130,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TopSpin/TopSpin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "\"TopSpin/Preview Content\"";
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;
 				ENABLE_PREVIEWS = YES;
@@ -1137,6 +1140,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.willBrandin.dev.TopSpin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
@@ -1152,6 +1156,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TopSpin/TopSpin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "\"TopSpin/Preview Content\"";
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;
 				ENABLE_PREVIEWS = YES;
@@ -1161,6 +1166,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.willBrandin.dev.TopSpin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
@@ -1175,6 +1181,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "TopSpinWatch WatchKit Extension/TopSpinWatch WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "\"TopSpinWatch WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;
 				ENABLE_PREVIEWS = YES;
@@ -1184,6 +1191,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.willBrandin.dev.TopSpin.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -1200,6 +1208,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "TopSpinWatch WatchKit Extension/TopSpinWatch WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "\"TopSpinWatch WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;
 				ENABLE_PREVIEWS = YES;
@@ -1209,6 +1218,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.willBrandin.dev.TopSpin.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -1226,9 +1236,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;
 				IBSC_MODULE = TopSpinWatch_WatchKit_Extension;
 				INFOPLIST_FILE = "TopSpinWatch WatchKit App/Info.plist";
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.willBrandin.dev.TopSpin.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -1246,9 +1258,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;
 				IBSC_MODULE = TopSpinWatch_WatchKit_Extension;
 				INFOPLIST_FILE = "TopSpinWatch WatchKit App/Info.plist";
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.willBrandin.dev.TopSpin.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
