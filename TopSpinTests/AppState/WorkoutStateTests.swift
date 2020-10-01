@@ -14,8 +14,8 @@ class WorkoutStateTests: XCTestCase {
     
     var store: AppStore = AppStore(initialState: AppState(),
                                    reducer: appReducer,
-                                   environment: AppEnvironment(settingsRepository: .mock,
-                                                               matchRepository: .mock,
+                                   environment: AppEnvironment(settingsRepository: nil,
+                                                               matchRepository: nil,
                                                                workoutSession: nil,
                                                                activeMatchController: nil))
     

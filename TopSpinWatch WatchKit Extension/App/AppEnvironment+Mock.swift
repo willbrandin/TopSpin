@@ -12,8 +12,8 @@ extension AppEnvironment {
     static let mockStore = AppStore(initialState: AppState(matchHistory: MatchHistoryState(matches: [.mock]),
                                                            settingState: MatchSettingState()),
                                     reducer: appReducer,
-                                    environment: AppEnvironment(settingsRepository: .mock,
-                                                                matchRepository: .mock,
+                                    environment: AppEnvironment(settingsRepository: nil,
+                                                                matchRepository: nil,
                                                                 workoutSession: WorkoutManager.shared,
                                                                 activeMatchController: RallyMatchController(settings: .defaultMatchSettings)))
 }

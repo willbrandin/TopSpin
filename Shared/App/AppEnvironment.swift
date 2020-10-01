@@ -9,8 +9,8 @@ import Foundation
 import Combine
 
 struct AppEnvironment {
-    let settingsRepository: SettingsRepository
-    let matchRepository: MatchHistoryRepository
+    let settingsRepository: SettingsRepository?
+    let matchRepository: MatchHistoryRepository?
     let workoutSession: WorkoutInteractable?
     let activeMatchController: RallyMatchController?
 }

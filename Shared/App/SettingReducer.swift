@@ -30,7 +30,7 @@ func settingsReducer(_ state: inout MatchSettingState, _ action: MatchSettingsAc
         }
         
         state.settings.append(setting)
-        environment.settingsRepository.save(setting)
+        environment.settingsRepository?.save(setting)
                 
     case let .update(setting):
         state.settings.removeAll(where: { $0.id == setting.id })
@@ -40,11 +40,11 @@ func settingsReducer(_ state: inout MatchSettingState, _ action: MatchSettingsAc
         }
         
         state.settings.append(setting)
-        environment.settingsRepository.update(setting)
+        environment.settingsRepository?.update(setting)
 
     case let .delete(setting):
         state.settings.removeAll(where: { $0.id == setting.id })
-        environment.settingsRepository.delete(setting)
+        environment.settingsRepository?.delete(setting)
     }
     
     return Empty(completeImmediately: true).eraseToAnyPublisher()
@@ -56,7 +56,7 @@ private func removeCurrentDefault( state: inout MatchSettingState, _ environment
         .map({
             var setting = $0
             setting.isDefault = false
-            environment.settingsRepository.update(setting)
+            environment.settingsRepository?.update(setting)
             return setting
         })
 }

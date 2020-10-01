@@ -12,8 +12,8 @@ import XCTest
 class MatchTrackingStateTests: XCTestCase {
     var store: AppStore = AppStore(initialState: AppState(),
                                    reducer: appReducer,
-                                   environment: AppEnvironment(settingsRepository: .mock,
-                                                               matchRepository: .mock,
+                                   environment: AppEnvironment(settingsRepository: nil,
+                                                               matchRepository: nil,
                                                                workoutSession: nil,
                                                                activeMatchController: nil))
     
@@ -147,13 +147,11 @@ class MatchTrackingStateTests: XCTestCase {
         
         XCTAssert(store.state.activeMatchState.winningTeam == .one)
         XCTAssert(store.state.activeMatchState.teamDidWin)
-        XCTAssertFalse(store.state.matchIsActive)
 
         store.send(.saveMatch)
         XCTAssertFalse(store.state.matchHistory.matches.isEmpty)
 
         store.send(.activeMatch(action: .complete))
-
         XCTAssert(store.state.activeMatchState.teamOneScore == 0)
         XCTAssert(store.state.activeMatchState.teamTwoScore == 0)
         XCTAssert(store.state.activeMatchState.servingTeam == .one)

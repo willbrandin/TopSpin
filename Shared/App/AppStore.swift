@@ -41,30 +41,30 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = Reducer { state, 
         return historyReducer(&state.matchHistory, action, environment)
         
     case .load:
-        state.settingState.settings = environment.settingsRepository.load()
-        state.matchHistory.matches = environment.matchRepository.load()
+        state.settingState.settings = environment.settingsRepository?.load() ?? []
+        state.matchHistory.matches = environment.matchRepository?.load() ?? []
         
     case .loadSettings:
         print("SETTINGS DID UPDATE")
-        state.settingState.settings = environment.settingsRepository.load()
+        state.settingState.settings = environment.settingsRepository?.load() ?? []
         
     case .loadHistory:
         print("HISTORY DID UPDATE")
-        state.matchHistory.matches = environment.matchRepository.load()
+        state.matchHistory.matches = environment.matchRepository?.load() ?? []
 
     case .observeHistory:
-        return environment.matchRepository.repoUpdatePublisher
+        return environment.matchRepository?.repoUpdatePublisher
             .map { setting in
                 return AppAction.loadHistory
             }
-            .eraseToAnyPublisher()
+            .eraseToAnyPublisher() ?? Empty(completeImmediately: true).eraseToAnyPublisher()
         
     case .observeSettings:
-        return environment.settingsRepository.repoUpdatePublisher
+        return environment.settingsRepository?.repoUpdatePublisher
             .map { setting in
                 return AppAction.loadSettings
             }
-            .eraseToAnyPublisher()
+            .eraseToAnyPublisher() ?? Empty(completeImmediately: true).eraseToAnyPublisher()
         
     case .workout(action: let action):
         return workoutReducer(&state.workoutState, action, environment)
@@ -86,12 +86,12 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = Reducer { state, 
             let match = Match(id: UUID(), date: Date(), score: score, workout: workout)
             
             state.matchHistory.matches.append(match)
-            environment.matchRepository.save(match)
+            environment.matchRepository?.save(match)
         } else {
             let match = Match(id: UUID(), date: Date(), score: score, workout: nil)
 
             state.matchHistory.matches.append(match)
-            environment.matchRepository.save(match)
+            environment.matchRepository?.save(match)
         }
         
         state.activeMatchState.correlationId = nil

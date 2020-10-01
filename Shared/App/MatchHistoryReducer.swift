@@ -21,11 +21,11 @@ func historyReducer(_ state: inout MatchHistoryState, _ action: MatchHistoryActi
     switch action {
     case let .add(match):
         state.matches.append(match)
-        environment.matchRepository.save(match)
+        environment.matchRepository?.save(match)
     
     case let .delete(match):
         state.matches.removeAll(where: { $0.id == match.id })
-        environment.matchRepository.delete(match)
+        environment.matchRepository?.delete(match)
     }
     
     return Empty(completeImmediately: true).eraseToAnyPublisher()
