@@ -5,11 +5,18 @@
 //  Created by Will Brandin on 9/29/20.
 //
 
+import Foundation
 import Combine
 
 struct AppState: Equatable {
     var matchHistory: MatchHistoryState = MatchHistoryState()
     var settingState: MatchSettingState = MatchSettingState()
+    var workoutState: WorkoutState = WorkoutState()
+    var activeMatchState: ActiveMatchState = ActiveMatchState()
+    
+    var matchIsActive: Bool {
+        activeMatchState.isActive
+    }
 }
 
 enum AppAction {
@@ -20,6 +27,9 @@ enum AppAction {
     case observeHistory
     case matchHistory(action: MatchHistoryAction)
     case settings(action: MatchSettingsAction)
+    case workout(action: WorkoutAction)
+    case activeMatch(action: ActiveMatchAction)
+    case saveMatch
 }
 
 let appReducer: Reducer<AppState, AppAction, AppEnvironment> = Reducer { state, action, environment in
@@ -55,6 +65,37 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = Reducer { state, 
                 return AppAction.loadSettings
             }
             .eraseToAnyPublisher()
+        
+    case .workout(action: let action):
+        return workoutReducer(&state.workoutState, action, environment)
+        
+    case .activeMatch(action: let action):
+        return activeMatchReducer(&state.activeMatchState, action, environment)
+
+    case .saveMatch:
+        let score = MatchScore(id: UUID(), playerScore: state.activeMatchState.teamOneScore, opponentScore: state.activeMatchState.teamTwoScore)
+        
+        if let matchCorrelation = state.activeMatchState.correlationId,
+           let workoutCorrelation = state.workoutState.correlationId,
+           matchCorrelation == workoutCorrelation {
+            let workout = Workout(id: UUID(),
+                                  activeCalories: state.workoutState.activeCalories,
+                                  heartRateMetrics: state.workoutState.heartMetrics,
+                                  startDate: state.workoutState.startDate!,
+                                  endDate: state.workoutState.endDate!)
+            let match = Match(id: UUID(), date: Date(), score: score, workout: workout)
+            
+            state.matchHistory.matches.append(match)
+            environment.matchRepository.save(match)
+        } else {
+            let match = Match(id: UUID(), date: Date(), score: score, workout: nil)
+
+            state.matchHistory.matches.append(match)
+            environment.matchRepository.save(match)
+        }
+        
+        state.activeMatchState.correlationId = nil
+        state.workoutState.correlationId = nil
     }
     
     return Empty(completeImmediately: true).eraseToAnyPublisher()

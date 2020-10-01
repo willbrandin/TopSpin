@@ -13,3 +13,13 @@ public protocol RallyMatchConfigurable {
     var winByTwo: Bool { get }
     var serveInterval: Int { get }
 }
+
+public struct RallySettings: RallyMatchConfigurable {
+    public let limit: Int
+    public let winByTwo: Bool
+    public let serveInterval: Int
+}
+
+extension RallySettings {
+    static let defaultMatchSettings = RallySettings(limit: 11, winByTwo: true, serveInterval: 2)
+}

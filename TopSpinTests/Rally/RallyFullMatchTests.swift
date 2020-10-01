@@ -11,7 +11,7 @@ import XCTest
 
 class RallyFullMatchTests: XCTestCase {
     
-    var matchController = RallyMatchController(settings: RallyMatchSettings.standard)
+    var matchController = RallyMatchController(settings: .defaultMatchSettings)
     
     func testFullMatch_standard() {
         XCTAssert(matchController.servingTeam == .one)

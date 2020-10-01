@@ -27,6 +27,7 @@ enum AppAction {
     case workout(action: WorkoutAction)
     case matchActive
     case endMatch
+    case saveMatch
 }
 
 let appReducer: Reducer<AppState, AppAction, AppEnvironment> = Reducer { state, action, environment in
@@ -42,6 +43,12 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = Reducer { state, 
                 
     case .matchActive:
         state.matchIsActive = true
+        //environment.matchController.setdefault( .default)
+    
+    case .saveMatch:
+        print(state.workoutState)
+        print(state.activeMatchState)
+        break
         
     case .endMatch:
         state.matchIsActive = false

@@ -24,6 +24,7 @@ struct HistoryEmptyView: View {
         ZStack {
             backgroundColor
                 .edgesIgnoringSafeArea(.all)
+            
             VStack {
                 Spacer()
                 
@@ -69,9 +70,8 @@ struct HistoryEmptyView: View {
         }
     }
     
-    
     func openWatchAction() {
-        UIApplication.shared.open(URL(string: "https://apps.apple.com/us/app/top-spin/id1479868372")!) { (didOpen) in
+        UIApplication.shared.open(URL(string: "itms-watchs://com.willBrandin.dev")!) { (didOpen) in
             print(didOpen ? "Did open url" : "FAILED TO OPEN")
         }
     }

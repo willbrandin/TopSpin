@@ -9,6 +9,14 @@
 import Foundation
 import Combine
 
+public struct RallyMatchState {
+    var teamOneScore: Int = 0
+    var teamTwoScore: Int = 0
+    var servingTeam: RallyTeam = .one
+    var teamHasGamePoint: Bool = false
+    var winningTeam: RallyTeam? = nil
+}
+
 /// Initialized with settings. Provides all game logic.
 public class RallyMatchController: ObservableObject {
     
@@ -16,8 +24,11 @@ public class RallyMatchController: ObservableObject {
     
     @Published public var teamOneScore: Int = 0 {
         didSet {
+            matchState.teamOneScore += 1
+
             if determineWin(for: .one) {
                 self.winningTeam = .one
+                matchState.winningTeam = .one
             }
             
             determineServingTeam()
@@ -26,8 +37,11 @@ public class RallyMatchController: ObservableObject {
 
     @Published public var teamTwoScore: Int = 0 {
         didSet {
+            matchState.teamTwoScore += 1
+
             if determineWin(for: .two) {
                 self.winningTeam = .two
+                matchState.winningTeam = .two
             }
             
             determineServingTeam()
@@ -38,10 +52,18 @@ public class RallyMatchController: ObservableObject {
     @Published public var teamDidWin: Bool = false
     
     /// True when a RallyTeam has GamePoint - a single point left to win the game.
-    @Published public var teamHasGamePoint: Bool = false
+    @Published public var teamHasGamePoint: Bool = false {
+        didSet {
+            matchState.teamHasGamePoint = teamHasGamePoint
+        }
+    }
     
     /// RallyTeam that is currently serving
-    @Published public var servingTeam: RallyTeam = .one
+    @Published public var servingTeam: RallyTeam = .one {
+        didSet {
+            matchState.servingTeam = servingTeam
+        }
+    }
     
     /// RallyTeam that has won
     @Published public internal(set) var winningTeam: RallyTeam? = nil {
@@ -51,17 +73,23 @@ public class RallyMatchController: ObservableObject {
         }
     }
     
+    @Published public var matchState: RallyMatchState = RallyMatchState()
+    
     deinit {
         print("RallyMatchController: - Deinit")
     }
     
-    private var settings: RallyMatchConfigurable!
+    private var settings: RallySettings!
     
     // MARK: - Initializer
     
-    public init(settings: RallyMatchConfigurable) {
+    public init(settings: RallySettings) {
         self.settings = settings
         print("RallyMatchController: - Init")
+    }
+    
+    public func setMatchSettings(_ settings: RallySettings) {
+        self.settings = settings
     }
     
     public func setNewGame() {
@@ -71,6 +99,7 @@ public class RallyMatchController: ObservableObject {
         teamDidWin = false
         teamHasGamePoint = false
         winningTeam = nil
+        matchState = RallyMatchState()
         print("RallyMatchController: - New Game Set")
     }
         

@@ -11,10 +11,10 @@ struct HistorySummaryView: View {
         
     @Environment(\.colorScheme) var colorScheme
 
-    
     var backgroundColor: UIColor {
         return colorScheme == .dark ? .secondarySystemBackground : .systemBackground
     }
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {

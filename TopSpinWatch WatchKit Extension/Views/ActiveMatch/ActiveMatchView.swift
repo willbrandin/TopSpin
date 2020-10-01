@@ -9,9 +9,14 @@ import SwiftUI
 
 struct ActiveMatchView: View {
         
-    @ObservedObject var matchController: RallyMatchController
+    @EnvironmentObject var store: AppStore
+    
     var completeAction: () -> Void
     var cancelAction: () -> Void
+
+    var matchController: ActiveMatchState {
+        store.state.activeMatchState
+    }
         
     var body: some View {
         ScrollView {
@@ -49,38 +54,22 @@ struct ActiveMatchView: View {
                 Spacer()
                 
                 Button("Player 1") {
-                    matchController.incrementScore(for: .one)
+                    store.send(.activeMatch(action: .teamScored(team: .one)))
                 }
                 Button("Player 2") {
-                    matchController.incrementScore(for: .two)
+                    store.send(.activeMatch(action: .teamScored(team: .two)))
                 }
                 
                 Button("Cancel", action: cancelAction)
                 .buttonStyle(BorderedButtonStyle(tint: .red))
                 .padding(.top, 24)
-                
-            }
-            .alert(isPresented: $matchController.teamDidWin) {
-                let winningTeam = matchController.winningTeam
-                let title = winningTeam == .one ? "You win!" : "Maybe next time!"
-                let button: Alert.Button = .default(Text("Save Match"), action: completeAction)
-                return Alert(title: Text(title), message: nil, dismissButton: button)
             }
         }
     }
 }
 
-extension ActiveMatchView: Equatable {
-    static func == (lhs: ActiveMatchView, rhs: ActiveMatchView) -> Bool {
-        return lhs.matchController.teamOneScore == rhs.matchController.teamOneScore
-            && lhs.matchController.teamTwoScore == rhs.matchController.teamTwoScore
-            && rhs.matchController.servingTeam == lhs.matchController.servingTeam
-            && rhs.matchController.teamHasGamePoint == lhs.matchController.teamHasGamePoint
-    }
-}
-
 struct ActiveMatchView_Previews: PreviewProvider {
     static var previews: some View {
-        ActiveMatchView(matchController: .init(settings: RallySettings(limit: 11, winByTwo: true, serveInterval: 2)), completeAction: {}, cancelAction: {})
+        ActiveMatchView(completeAction: {}, cancelAction: {})
     }
 }

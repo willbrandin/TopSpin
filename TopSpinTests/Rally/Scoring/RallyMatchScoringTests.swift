@@ -11,7 +11,7 @@ import XCTest
 
 class RallyMatchScoringTests: XCTestCase {
     
-    var matchController = RallyMatchController(settings: RallyMatchSettings.standard)
+    var matchController = RallyMatchController(settings: .defaultMatchSettings)
 
     func testIncrementTeamOneScore() {
         matchController.incrementScore(for: .one)

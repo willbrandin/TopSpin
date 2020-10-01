@@ -7,48 +7,38 @@
 
 import SwiftUI
 
-struct RallySettings: RallyMatchConfigurable {
-    let limit: Int
-    let winByTwo: Bool
-    let serveInterval: Int
-}
-
 struct ActiveMatchTabContainer: View {
     @EnvironmentObject var store: AppStore
     
     @Binding var currentPage: Int
-    @StateObject private var matchController: RallyMatchController
-    
-    init(currentPage: Binding<Int>, defaultSettings: MatchSetting) {
-        self._currentPage = currentPage
-        let matchSettings = RallySettings(limit: defaultSettings.scoreLimit.rawValue,
-                                          winByTwo: defaultSettings.isWinByTwo,
-                                          serveInterval: defaultSettings.serveInterval.rawValue)
-        
-        self._matchController = StateObject(wrappedValue: RallyMatchController(settings: matchSettings))
-    }
     
     var body: some View {
-        ActiveMatchTabView(currentPage: $currentPage, matchController: matchController, cancel: cancel, complete: complete)
+        ActiveMatchTabView(currentPage: $currentPage, cancel: cancel, complete: complete)
+            .alert(isPresented: .constant(store.state.activeMatchState.teamDidWin), content: {
+                let winningTeam = RallyTeam.one
+                let title = winningTeam == .one ? "You win!" : "Maybe next time!"
+                let button: Alert.Button = .default(Text("Save Match"), action: complete)
+                return Alert(title: Text(title), message: nil, dismissButton: button)
+            })
     }
     
     func cancel() {
         print("MATCH CANCELLED")
         store.send(.workout(action: .end))
-        store.send(.endMatch)
+        store.send(.workout(action: .reset))
+        store.send(.activeMatch(action: .cancel))
+//        store.send(.endMatch)
         currentPage = 2
     }
     
     func complete() {
         store.send(.workout(action: .end))
-
-        let workoutState = store.state.workoutState
-        let workout = Workout(id: UUID(), activeCalories: workoutState.activeCalories, heartRateMetrics: workoutState.heartMetrics, startDate: workoutState.startDate ?? Date(), endDate: workoutState.endDate ?? Date())
-        let match = Match(id: UUID(), date: Date(), score: MatchScore(id: UUID(), playerScore: matchController.teamOneScore, opponentScore: matchController.teamTwoScore), workout: workout)
-
-        store.send(.matchHistory(action: .add(match: match)))
+//        store.send(.activeMatch(action: .complete))
+        store.send(.saveMatch)
+        store.send(.activeMatch(action: .complete))
+        store.send(.workout(action: .reset))
         print("MATCH COMPLETE")
-        store.send(.endMatch)
+//        store.send(.endMatch)
         currentPage = 2
     }
 }
@@ -56,7 +46,6 @@ struct ActiveMatchTabContainer: View {
 struct ActiveMatchTabView: View {
     
     @Binding var currentPage: Int
-    @ObservedObject var matchController: RallyMatchController
     
     var cancel: () -> Void
     var complete: () -> Void
@@ -66,8 +55,7 @@ struct ActiveMatchTabView: View {
             MatchWorkoutContainerView(cancelAction: cancel)
                 .tag(1)
             
-            ActiveMatchView(matchController: matchController, completeAction: complete, cancelAction: cancel)
-                .equatable()
+            ActiveMatchView(completeAction: complete, cancelAction: cancel)
                 .tag(2)
         }
     }
@@ -77,7 +65,7 @@ struct ActiveMatchTabView_Previews: PreviewProvider {
 
     static var previews: some View {
         StatefulPreviewWrapper(2) {
-            ActiveMatchTabView(currentPage: $0, matchController: RallyMatchController(settings: RallySettings(limit: 11, winByTwo: true, serveInterval: 2)), cancel: {}, complete: {})
+            ActiveMatchTabView(currentPage: $0, cancel: {}, complete: {})
                 .environmentObject(AppEnvironment.mockStore)
         }
     }

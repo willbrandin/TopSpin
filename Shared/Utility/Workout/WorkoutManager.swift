@@ -10,7 +10,7 @@ import HealthKit
 import Combine
 
 // https://developer.apple.com/documentation/healthkit/workouts_and_activity_rings/speedysloth_creating_a_workout
-class WorkoutManager: NSObject, ObservableObject {
+class WorkoutManager: NSObject, ObservableObject, WorkoutInteractable {
         
     static let shared = WorkoutManager()
         
@@ -60,7 +60,7 @@ class WorkoutManager: NSObject, ObservableObject {
     // Set up and start the timer.
     func setUpTimer() {
         start = Date()
-        cancellable = Timer.publish(every: 0.1, on: .main, in: .default)
+        cancellable = Timer.publish(every: 1, on: .main, in: .default)
             .autoconnect()
             .sink { [weak self] _ in
                 guard let self = self else { return }

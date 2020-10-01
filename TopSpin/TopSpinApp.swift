@@ -20,7 +20,11 @@ struct TopSpinApp: App {
         let settingsRepository = SettingsRepository(managedObjectContext: context)
         let matchRepository = MatchHistoryRepository(managedObjectContext: context)
         
-        let environment = AppEnvironment(settingsRepository: settingsRepository, matchRepository: matchRepository)
+        let environment = AppEnvironment(settingsRepository: settingsRepository,
+                                         matchRepository: matchRepository,
+                                         workoutSession: nil,
+                                         activeMatchController: nil)
+        
         self._store = StateObject(wrappedValue: AppStore(initialState: AppState(), reducer: appReducer, environment: environment))
     }
     

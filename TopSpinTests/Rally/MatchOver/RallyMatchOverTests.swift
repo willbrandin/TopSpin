@@ -11,7 +11,7 @@ import XCTest
 
 class RallyMatchOverTests: XCTestCase {
     
-    var matchController = RallyMatchController(settings: RallyMatchSettings.standard)
+    var matchController = RallyMatchController(settings: .defaultMatchSettings)
 
     func testTeamOne_NotWin() {
         matchController.incrementScore(for: .one)
@@ -83,7 +83,7 @@ class RallyMatchOverTests: XCTestCase {
     }
     
     func testTeamWin_21WinByTwo() {
-        matchController = RallyMatchController(settings: RallyMatchSettings.playTo21)
+        matchController = RallyMatchController(settings: RallySettings(limit: 21, winByTwo: true, serveInterval: 5))
         matchController.teamTwoScore = 20
         matchController.teamOneScore = 19
         
@@ -103,7 +103,7 @@ class RallyMatchOverTests: XCTestCase {
     }
     
     func testNoWinner() {
-        matchController = RallyMatchController(settings: RallyMatchSettings.playTo21)
+        matchController = RallyMatchController(settings: RallySettings(limit: 21, winByTwo: true, serveInterval: 5))
         matchController.teamTwoScore = 21
         matchController.teamOneScore = 20
         
@@ -129,7 +129,7 @@ class RallyMatchOverTests: XCTestCase {
     }
     
     func testNoWinByTwo() {
-        matchController = RallyMatchController(settings: RallyMatchSettings.playTo11NoWinByTwo)
+        matchController = RallyMatchController(settings: RallySettings(limit: 11, winByTwo: false, serveInterval: 2))
         matchController.teamTwoScore = 10
         matchController.teamOneScore = 10
         

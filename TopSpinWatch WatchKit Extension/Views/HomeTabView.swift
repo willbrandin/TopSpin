@@ -26,13 +26,21 @@ struct HomeTabView: View {
         }
         .onAppear {
             store.send(.workout(action: .requestPermissions))
+            
+            if store.state.workoutState.isActive {
+                store.send(.workout(action: .end))
+                store.send(.workout(action: .reset))
+            }
         }
     }
     
     func start() {
         print("MATCH STARTED")
-        store.send(.matchActive)
-        store.send(.workout(action: .start))
+        let correlation = UUID()
+        store.send(.activeMatch(action: .start(settings: store.state.settingState.defaultSetting, correlation: correlation)))
+        store.send(.activeMatch(action: .observeActiveMatch))
+        store.send(.workout(action: .start(correlation: correlation)))
+        store.send(.workout(action: .observeWorkout))
     }
 }
 
