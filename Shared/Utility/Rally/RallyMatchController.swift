@@ -69,7 +69,10 @@ public class RallyMatchController: ObservableObject {
     @Published public internal(set) var winningTeam: RallyTeam? = nil {
         didSet {
             teamDidWin = winningTeam != nil
-            print("RallyMatchController: - Team \(String(describing: winningTeam)) did win.")
+            
+            if winningTeam != nil {
+                print("RallyMatchController: - Team \(String(describing: winningTeam)) did win.")
+            }
         }
     }
     

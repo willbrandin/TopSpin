@@ -39,7 +39,7 @@ struct MatchSettingsPickerView: View {
     
     func listItemLink(_ name: String, isDefault: Bool, setting: MatchSetting) -> some View {
         NavigationLink(
-            destination: MatchSettingsFormView(setting: setting).environmentObject(store),
+            destination: MatchSettingsFormView(setting: setting).environmentObject(self.store),
             label: {
                 HStack {
                     VStack(alignment: .leading) {
@@ -84,7 +84,7 @@ struct MatchSettingsPickerView: View {
             
             Section {
                 #if os(watchOS)
-                NavigationLink("Add New", destination: MatchSettingsFormView())
+                NavigationLink("Add New", destination: MatchSettingsFormView().environmentObject(self.store))
                 #else
                 Button("Add New") {
                     isAddNewPresented = true
@@ -93,6 +93,7 @@ struct MatchSettingsPickerView: View {
                     NavigationView {
                         MatchSettingsFormView()
                     }
+                    .environmentObject(self.store)
                 }
                 #endif
             }

@@ -15,7 +15,7 @@ struct SettingsView: View {
     
     var pickerView: some View {
         NavigationLink(
-            destination: MatchSettingsPickerContainer().environmentObject(store),
+            destination: MatchSettingsPickerContainer().environmentObject(self.store),
             label: {
                 Text("Match Settings")
             })
@@ -27,7 +27,7 @@ struct SettingsView: View {
                 pickerView
                 
                 #if os(watchOS)
-                NavigationLink("Add New", destination: MatchSettingsFormView().environmentObject(store))
+                NavigationLink("Add New", destination: MatchSettingsFormView().environmentObject(self.store))
                 #else
                 Button("Add New") {
                     isAddNewPresented = true

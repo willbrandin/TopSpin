@@ -36,11 +36,6 @@ struct TopSpinApp: App {
             NavigationView {
                 ContentView()
                     .environmentObject(store)
-                    .onAppear {
-                        store.send(.load)
-                        store.send(.observeSettings)
-                        store.send(.observeHistory)
-                    }
                     .onChange(of: scenePhase) { scenePhase in
                         switch scenePhase {
                         case .active:
@@ -52,6 +47,11 @@ struct TopSpinApp: App {
                             break
                         }
                     }
+            }
+            .onAppear {
+                store.send(.load)
+                store.send(.observeSettings)
+                store.send(.observeHistory)
             }
         }
     }
