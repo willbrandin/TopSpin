@@ -42,7 +42,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = Reducer { state, 
         
     case .load:
         state.settingState.settings = environment.settingsRepository?.load() ?? []
-        state.matchHistory.matches = environment.matchRepository?.load() ?? []
+//        state.matchHistory.matches = environment.matchRepository?.load() ?? []
         
     case .loadSettings:
         print("SETTINGS DID UPDATE")
@@ -50,7 +50,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = Reducer { state, 
         
     case .loadHistory:
         print("HISTORY DID UPDATE")
-        state.matchHistory.matches = environment.matchRepository?.load() ?? []
+//        state.matchHistory.matches = environment.matchRepository?.load() ?? []
 
     case .observeHistory:
         return environment.matchRepository?.repoUpdatePublisher

@@ -39,6 +39,7 @@
 		D23F765525198CF5006BF603 /* MatchHistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F765425198CF5006BF603 /* MatchHistoryList.swift */; };
 		D23F766125198D24006BF603 /* MatchHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F766025198D24006BF603 /* MatchHistoryItem.swift */; };
 		D23F7666251991F5006BF603 /* MatchHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F766025198D24006BF603 /* MatchHistoryItem.swift */; };
+		D2426A75252B6328002264D5 /* SquareSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2426A74252B6328002264D5 /* SquareSummaryView.swift */; };
 		D260808F2525228A00F73FAE /* MatchSummaryScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B279EC251EC5450007FF3F /* MatchSummaryScoreView.swift */; };
 		D2608098252522EE00F73FAE /* MatchTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E1A251ED74D006896C3 /* MatchTimelineView.swift */; };
 		D261A864251A662100689252 /* MatchSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D261A863251A662100689252 /* MatchSetupView.swift */; };
@@ -209,6 +210,7 @@
 		D23F764A25198AE0006BF603 /* TopSpin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TopSpin.entitlements; sourceTree = "<group>"; };
 		D23F765425198CF5006BF603 /* MatchHistoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchHistoryList.swift; sourceTree = "<group>"; };
 		D23F766025198D24006BF603 /* MatchHistoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchHistoryItem.swift; sourceTree = "<group>"; };
+		D2426A74252B6328002264D5 /* SquareSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareSummaryView.swift; sourceTree = "<group>"; };
 		D261A863251A662100689252 /* MatchSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSetupView.swift; sourceTree = "<group>"; };
 		D261A86E251A6BC600689252 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		D261A875251A6D9300689252 /* MatchWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchWorkoutView.swift; sourceTree = "<group>"; };
@@ -434,6 +436,14 @@
 			path = History;
 			sourceTree = "<group>";
 		};
+		D2426A7E252B66D1002264D5 /* SquareSummary */ = {
+			isa = PBXGroup;
+			children = (
+				D2426A74252B6328002264D5 /* SquareSummaryView.swift */,
+			);
+			path = SquareSummary;
+			sourceTree = "<group>";
+		};
 		D261A862251A660900689252 /* MatchStart */ = {
 			isa = PBXGroup;
 			children = (
@@ -580,6 +590,7 @@
 		D2B279C1251EB9A50007FF3F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D2426A7E252B66D1002264D5 /* SquareSummary */,
 				D2D73E28251EF379006896C3 /* FloatingLiveWorkoutView */,
 				D2D73E19251ED739006896C3 /* MatchTimeline */,
 				D2D73E0F251ED312006896C3 /* HeartRate */,
@@ -912,6 +923,7 @@
 				D2D73E68251FDFD7006896C3 /* MatchSetting.swift in Sources */,
 				D2D73E2A251EF398006896C3 /* FloatingLiveWorkoutView.swift in Sources */,
 				D23CCB8D251ADEC2002EBE72 /* HorizontalSummaryView.swift in Sources */,
+				D2426A75252B6328002264D5 /* SquareSummaryView.swift in Sources */,
 				D23CCBC5251BA65B002EBE72 /* SettingStorage.swift in Sources */,
 				D2D73E35251EFA4B006896C3 /* LiveMatchView.swift in Sources */,
 				D2D73E1B251ED74D006896C3 /* MatchTimelineView.swift in Sources */,

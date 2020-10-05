@@ -11,7 +11,7 @@ struct MatchHistoryContainer: View {
     @EnvironmentObject var store: AppStore
     
     var body: some View {
-        MatchHistoryList(matches: store.state.matchHistory.matches, onDelete: self.delete)
+        MatchHistoryList(matches: store.state.matchHistory.matches, matchSummary: store.state.matchHistory.matchSummary, onDelete: self.delete)
     }
     
     func delete(_ match: Match) {
@@ -24,6 +24,7 @@ struct MatchHistoryList: View {
     @Environment(\.colorScheme) var colorScheme
     
     var matches: [Match]
+    var matchSummary: [MatchSummary]
     var onDelete: (Match) -> Void
     
     var backgroundColor: Color {
@@ -36,6 +37,17 @@ struct MatchHistoryList: View {
                 .edgesIgnoringSafeArea(.all)
             
             ScrollView {
+                
+                if !matchSummary.isEmpty {
+                    HorizontalSummaryView(historySummary: matchSummary)
+                    
+                    HStack {
+                        Text("Match History")
+                            .padding(.horizontal)
+                        Spacer()
+                    }
+                }
+                
                 LazyVStack(spacing: 0) {
                     ForEach(matches) { match in
                         NavigationLink(destination: MatchSummaryView(match: match)) {
@@ -74,15 +86,20 @@ struct MatchHistoryList: View {
 
 struct MatchHistoryList_Previews: PreviewProvider {
     
+    static let list = [
+        MatchSummary(dateRange: "SEP 2020", wins: 12, loses: 2, calories: 459, avgHeartRate: 145),
+        MatchSummary(dateRange: "AUG 2020", wins: 22, loses: 4, calories: 688, avgHeartRate: 138),
+    ]
+    
     static var previews: some View {
         Group {
             NavigationView {
-                MatchHistoryList(matches: [.mock], onDelete: {_ in })
+                MatchHistoryList(matches: [.mock], matchSummary: list, onDelete: {_ in })
             }
             .preferredColorScheme(.dark)
             
             NavigationView {
-                MatchHistoryList(matches: [.mock], onDelete: {_ in })
+                MatchHistoryList(matches: [.mock], matchSummary: list, onDelete: {_ in })
             }
         }
     }

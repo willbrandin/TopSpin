@@ -11,6 +11,8 @@ struct HistorySummaryView: View {
         
     @Environment(\.colorScheme) var colorScheme
 
+    var summary: MatchSummary
+    
     var backgroundColor: UIColor {
         return colorScheme == .dark ? .secondarySystemBackground : .systemBackground
     }
@@ -18,28 +20,23 @@ struct HistorySummaryView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("Summary")
-                    .font(.title3)
-                    .bold()
-                
-                Spacer()
-                
-                Text("Sep 1 - Sep 14")
-                    .font(.caption2)
+                Text(summary.dateRange.uppercased())
+                    .font(.caption)
                     .foregroundColor(.secondary)
                     .bold()
+                Spacer()
             }
             .padding(.bottom, 8)
                         
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Wins")
-                        .font(.caption2)
+                        .font(.caption)
                         .foregroundColor(.green)
                         .bold()
                     
-                    Text("32")
-                        .font(Font.system(.title3, design: .rounded))
+                    Text("\(summary.wins)")
+                        .font(Font.system(.title2, design: .rounded))
                         .fontWeight(.bold)
                 }
                 
@@ -47,11 +44,11 @@ struct HistorySummaryView: View {
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Loses")
-                        .font(.caption2)
+                        .font(.caption)
                         .foregroundColor(.red)
                         .bold()
-                    Text("12")
-                        .font(Font.system(.title3, design: .rounded))
+                    Text("\(summary.loses)")
+                        .font(Font.system(.title2, design: .rounded))
                         .fontWeight(.bold)
                 }
                 
@@ -59,11 +56,11 @@ struct HistorySummaryView: View {
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Calories")
-                        .font(.caption2)
+                        .font(.caption)
                         .foregroundColor(.secondary)
                         .bold()
-                    Text("5,788")
-                        .font(Font.system(.title3, design: .rounded))
+                    Text("\(summary.calories)")
+                        .font(Font.system(.title2, design: .rounded))
                         .fontWeight(.bold)
                         .bold()
                 }
@@ -72,13 +69,15 @@ struct HistorySummaryView: View {
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Avg. Heart Rate")
-                        .font(.caption2)
+                        .font(.caption)
                         .foregroundColor(.secondary)
                         .bold()
-                    Text("140")
-                        .font(Font.system(.title3, design: .rounded))
+                    Text("\(summary.avgHeartRate)")
+                        .font(Font.system(.title2, design: .rounded))
                         .fontWeight(.bold)
                 }
+                
+                Spacer()
             }
             .frame(maxHeight: 50)
         }
@@ -92,13 +91,18 @@ struct HistorySummaryView: View {
 struct HistorySummaryView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            HistorySummaryView()
+            HistorySummaryView(summary: MatchSummary(dateRange: "SEP 2020", wins: 12, loses: 2, calories: 459, avgHeartRate: 145))
                 .preferredColorScheme(.dark)
                 .previewLayout(.sizeThatFits)
                 .padding()
-            HistorySummaryView()
+            HistorySummaryView(summary: MatchSummary(dateRange: "SEP 2020", wins: 12, loses: 2, calories: 459, avgHeartRate: 145))
                 .previewLayout(.sizeThatFits)
                 .padding()
+            
+            HistorySummaryView(summary: MatchSummary(dateRange: "SEP 2020", wins: 12, loses: 2, calories: 459, avgHeartRate: 145))
+                .previewLayout(.sizeThatFits)
+                .padding()
+                .redacted(reason: .placeholder)
         }
     }
 }
