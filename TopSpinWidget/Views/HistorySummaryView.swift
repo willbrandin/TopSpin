@@ -1,26 +1,24 @@
 //
 //  HistorySummaryView.swift
-//  TopSpin
+//  TopSpinWidgetExtension
 //
-//  Created by Will Brandin on 9/21/20.
+//  Created by Will Brandin on 10/5/20.
 //
 
 import SwiftUI
+import WidgetKit
 
 struct HistorySummaryView: View {
         
-    @Environment(\.colorScheme) var colorScheme
-
     var summary: MatchSummary
-    
-    var backgroundColor: UIColor {
-        return colorScheme == .dark ? .secondarySystemBackground : .systemBackground
-    }
-    
+  
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
                 VStack(alignment: .leading) {
+                    Text("Monthly Summary")
+                        .font(.title2)
+                        .fontWeight(.semibold)
                     Text(summary.dateRange.uppercased())
                         .font(.caption)
                         .foregroundColor(.secondary)
@@ -28,6 +26,8 @@ struct HistorySummaryView: View {
                 }
                 Spacer()
             }
+                            
+            Spacer()
             
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
@@ -83,23 +83,19 @@ struct HistorySummaryView: View {
             .frame(maxHeight: 50)
         }
         .padding()
-        .background(Color(backgroundColor))
-        .cornerRadius(8)
-        .shadow(color: Color.black.opacity(colorScheme == .dark ? 0 : 0.05), radius: 8, x: 0, y: 4)
+        .clipShape(ContainerRelativeShape())
     }
 }
 
 struct HistorySummaryView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            HistorySummaryView(summary: MatchSummary(id: UUID(), dateRange: "SEP 2020", wins: 12, loses: 2, calories: 459, avgHeartRate: 145))
-                .preferredColorScheme(.dark)
-                .previewLayout(.sizeThatFits)
-                .padding()
+            HistorySummaryView(summary: MatchSummary(id: UUID(), dateRange: "SEP 2020", wins: 12, loses: 2, calories: 4459, avgHeartRate: 145))
+                .previewContext(WidgetPreviewContext(family: .systemMedium))
             
             HistorySummaryView(summary: MatchSummary(id: UUID(), dateRange: "SEP 2020", wins: 12, loses: 2, calories: 459, avgHeartRate: 145))
-                .previewLayout(.sizeThatFits)
-                .padding()
+                .redacted(reason: .placeholder)
+                .previewContext(WidgetPreviewContext(family: .systemMedium))
         }
     }
 }

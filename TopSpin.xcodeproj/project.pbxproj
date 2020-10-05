@@ -39,13 +39,27 @@
 		D23F765525198CF5006BF603 /* MatchHistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F765425198CF5006BF603 /* MatchHistoryList.swift */; };
 		D23F766125198D24006BF603 /* MatchHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F766025198D24006BF603 /* MatchHistoryItem.swift */; };
 		D23F7666251991F5006BF603 /* MatchHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F766025198D24006BF603 /* MatchHistoryItem.swift */; };
-		D2426A75252B6328002264D5 /* SquareSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2426A74252B6328002264D5 /* SquareSummaryView.swift */; };
 		D260808F2525228A00F73FAE /* MatchSummaryScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B279EC251EC5450007FF3F /* MatchSummaryScoreView.swift */; };
 		D2608098252522EE00F73FAE /* MatchTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E1A251ED74D006896C3 /* MatchTimelineView.swift */; };
 		D261A864251A662100689252 /* MatchSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D261A863251A662100689252 /* MatchSetupView.swift */; };
 		D261A86F251A6BC600689252 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D261A86E251A6BC600689252 /* HealthKit.framework */; };
 		D261A876251A6D9300689252 /* MatchWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D261A875251A6D9300689252 /* MatchWorkoutView.swift */; };
 		D26AED7D2524E084008D89FE /* ActiveMatchReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26AED7C2524E084008D89FE /* ActiveMatchReducer.swift */; };
+		D27148FB252B7C9C008EEEC8 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27148FA252B7C9C008EEEC8 /* WidgetKit.framework */; };
+		D27148FD252B7C9C008EEEC8 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27148FC252B7C9C008EEEC8 /* SwiftUI.framework */; };
+		D2714900252B7C9C008EEEC8 /* TopSpinWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27148FF252B7C9C008EEEC8 /* TopSpinWidget.swift */; };
+		D2714902252B7C9D008EEEC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2714901252B7C9D008EEEC8 /* Assets.xcassets */; };
+		D2714906252B7C9D008EEEC8 /* TopSpinWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D27148F9252B7C9C008EEEC8 /* TopSpinWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D2714918252B7CC8008EEEC8 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2714917252B7CC8008EEEC8 /* UserDefaultsManager.swift */; };
+		D271491E252B7EC0008EEEC8 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2714917252B7CC8008EEEC8 /* UserDefaultsManager.swift */; };
+		D2714925252B7ED2008EEEC8 /* MatchSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2714924252B7ED2008EEEC8 /* MatchSummary.swift */; };
+		D271492B252B7EE0008EEEC8 /* MatchSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2714924252B7ED2008EEEC8 /* MatchSummary.swift */; };
+		D2714936252B7F93008EEEC8 /* MatchSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2714924252B7ED2008EEEC8 /* MatchSummary.swift */; };
+		D2714948252B7FF1008EEEC8 /* MatchSummary+TimelineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2714947252B7FF1008EEEC8 /* MatchSummary+TimelineEntry.swift */; };
+		D271494E252B800D008EEEC8 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2714917252B7CC8008EEEC8 /* UserDefaultsManager.swift */; };
+		D2714954252B825A008EEEC8 /* MatchSummary+TimelineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2714947252B7FF1008EEEC8 /* MatchSummary+TimelineEntry.swift */; };
+		D271495A252B82D0008EEEC8 /* SquareSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2426A74252B6328002264D5 /* SquareSummaryView.swift */; };
+		D2714967252B8656008EEEC8 /* HistorySummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2714966252B8656008EEEC8 /* HistorySummaryView.swift */; };
 		D27773CE2521385300F1787A /* SettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27773CD2521385300F1787A /* SettingsRepository.swift */; };
 		D27978AD251CED0800771DB9 /* RallyTeamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27978AC251CED0800771DB9 /* RallyTeamTests.swift */; };
 		D27978B9251CED2400771DB9 /* RallyTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20C55E1251C04EE00107FBD /* RallyTeam.swift */; };
@@ -138,6 +152,13 @@
 			remoteGlobalIDString = D23F762925198AB7006BF603;
 			remoteInfo = "TopSpinWatch WatchKit Extension";
 		};
+		D2714904252B7C9D008EEEC8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D23F75FE25198A87006BF603 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D27148F8252B7C9C008EEEC8;
+			remoteInfo = TopSpinWidgetExtension;
+		};
 		D27978AF251CED0800771DB9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D23F75FE25198A87006BF603 /* Project object */;
@@ -162,6 +183,17 @@
 			dstSubfolderSpec = 13;
 			files = (
 				D23F762B25198AB7006BF603 /* TopSpinWatch WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2714907252B7C9D008EEEC8 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D2714906252B7C9D008EEEC8 /* TopSpinWidgetExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,6 +247,17 @@
 		D261A86E251A6BC600689252 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		D261A875251A6D9300689252 /* MatchWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchWorkoutView.swift; sourceTree = "<group>"; };
 		D26AED7C2524E084008D89FE /* ActiveMatchReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveMatchReducer.swift; sourceTree = "<group>"; };
+		D27148F9252B7C9C008EEEC8 /* TopSpinWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TopSpinWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D27148FA252B7C9C008EEEC8 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		D27148FC252B7C9C008EEEC8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		D27148FF252B7C9C008EEEC8 /* TopSpinWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopSpinWidget.swift; sourceTree = "<group>"; };
+		D2714901252B7C9D008EEEC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D2714903252B7C9D008EEEC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2714910252B7CA6008EEEC8 /* TopSpinWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TopSpinWidgetExtension.entitlements; sourceTree = "<group>"; };
+		D2714917252B7CC8008EEEC8 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		D2714924252B7ED2008EEEC8 /* MatchSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSummary.swift; sourceTree = "<group>"; };
+		D2714947252B7FF1008EEEC8 /* MatchSummary+TimelineEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MatchSummary+TimelineEntry.swift"; sourceTree = "<group>"; };
+		D2714966252B8656008EEEC8 /* HistorySummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySummaryView.swift; sourceTree = "<group>"; };
 		D27773CD2521385300F1787A /* SettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepository.swift; sourceTree = "<group>"; };
 		D27978AA251CED0800771DB9 /* TopSpinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TopSpinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D27978AC251CED0800771DB9 /* RallyTeamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RallyTeamTests.swift; sourceTree = "<group>"; };
@@ -291,6 +334,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D27148F6252B7C9C008EEEC8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D27148FD252B7C9C008EEEC8 /* SwiftUI.framework in Frameworks */,
+				D27148FB252B7C9C008EEEC8 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D27978A7251CED0800771DB9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -331,11 +383,13 @@
 		D23F75FD25198A87006BF603 = {
 			isa = PBXGroup;
 			children = (
+				D2714910252B7CA6008EEEC8 /* TopSpinWidgetExtension.entitlements */,
 				D23F764F25198AF8006BF603 /* Shared */,
 				D23F760825198A87006BF603 /* TopSpin */,
 				D23F762225198AB5006BF603 /* TopSpinWatch WatchKit App */,
 				D23F762E25198AB7006BF603 /* TopSpinWatch WatchKit Extension */,
 				D27978AB251CED0800771DB9 /* TopSpinTests */,
+				D27148FE252B7C9C008EEEC8 /* TopSpinWidget */,
 				D23F760725198A87006BF603 /* Products */,
 				D261A86D251A6BC600689252 /* Frameworks */,
 			);
@@ -348,6 +402,7 @@
 				D23F761E25198AB5006BF603 /* TopSpinWatch WatchKit App.app */,
 				D23F762A25198AB7006BF603 /* TopSpinWatch WatchKit Extension.appex */,
 				D27978AA251CED0800771DB9 /* TopSpinTests.xctest */,
+				D27148F9252B7C9C008EEEC8 /* TopSpinWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -436,12 +491,13 @@
 			path = History;
 			sourceTree = "<group>";
 		};
-		D2426A7E252B66D1002264D5 /* SquareSummary */ = {
+		D2426A7E252B66D1002264D5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D2714966252B8656008EEEC8 /* HistorySummaryView.swift */,
 				D2426A74252B6328002264D5 /* SquareSummaryView.swift */,
 			);
-			path = SquareSummary;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		D261A862251A660900689252 /* MatchStart */ = {
@@ -459,6 +515,8 @@
 				D2B74DA6251ABE1000D1004B /* CloudKit.framework */,
 				D2B74D9F251ABDE400D1004B /* CloudKit.framework */,
 				D261A86E251A6BC600689252 /* HealthKit.framework */,
+				D27148FA252B7C9C008EEEC8 /* WidgetKit.framework */,
+				D27148FC252B7C9C008EEEC8 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -469,6 +527,26 @@
 				D261A875251A6D9300689252 /* MatchWorkoutView.swift */,
 			);
 			path = MatchWorkout;
+			sourceTree = "<group>";
+		};
+		D27148FE252B7C9C008EEEC8 /* TopSpinWidget */ = {
+			isa = PBXGroup;
+			children = (
+				D27148FF252B7C9C008EEEC8 /* TopSpinWidget.swift */,
+				D2714901252B7C9D008EEEC8 /* Assets.xcassets */,
+				D2714903252B7C9D008EEEC8 /* Info.plist */,
+				D2714947252B7FF1008EEEC8 /* MatchSummary+TimelineEntry.swift */,
+				D2426A7E252B66D1002264D5 /* Views */,
+			);
+			path = TopSpinWidget;
+			sourceTree = "<group>";
+		};
+		D2714916252B7CBA008EEEC8 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				D2714917252B7CC8008EEEC8 /* UserDefaultsManager.swift */,
+			);
+			path = UserDefaults;
 			sourceTree = "<group>";
 		};
 		D27773BF252132BF00F1787A /* App */ = {
@@ -542,6 +620,7 @@
 		D27978FC251CF6F500771DB9 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				D2714916252B7CBA008EEEC8 /* UserDefaults */,
 				D20C55FD251CEC7F00107FBD /* Rally */,
 				D20C55FE251CEC8800107FBD /* Workout */,
 				D27978FD251CF70E00771DB9 /* StatefulPreviewWrapper.swift */,
@@ -590,7 +669,6 @@
 		D2B279C1251EB9A50007FF3F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D2426A7E252B66D1002264D5 /* SquareSummary */,
 				D2D73E28251EF379006896C3 /* FloatingLiveWorkoutView */,
 				D2D73E19251ED739006896C3 /* MatchTimeline */,
 				D2D73E0F251ED312006896C3 /* HeartRate */,
@@ -688,6 +766,7 @@
 				D2D73E5A251FDFAA006896C3 /* MatchScore.swift */,
 				D2D73E60251FDFB2006896C3 /* Workout.swift */,
 				D2D73E67251FDFD7006896C3 /* MatchSetting.swift */,
+				D2714924252B7ED2008EEEC8 /* MatchSummary.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -768,11 +847,13 @@
 				D23F760325198A87006BF603 /* Frameworks */,
 				D23F760425198A87006BF603 /* Resources */,
 				D2797951251D931A00771DB9 /* Embed Watch Content */,
+				D2714907252B7C9D008EEEC8 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				D2BCC692252004D10032CC23 /* PBXTargetDependency */,
+				D2714905252B7C9D008EEEC8 /* PBXTargetDependency */,
 			);
 			name = TopSpin;
 			productName = TopSpin;
@@ -813,6 +894,23 @@
 			productReference = D23F762A25198AB7006BF603 /* TopSpinWatch WatchKit Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
+		D27148F8252B7C9C008EEEC8 /* TopSpinWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D271490A252B7C9D008EEEC8 /* Build configuration list for PBXNativeTarget "TopSpinWidgetExtension" */;
+			buildPhases = (
+				D27148F5252B7C9C008EEEC8 /* Sources */,
+				D27148F6252B7C9C008EEEC8 /* Frameworks */,
+				D27148F7252B7C9C008EEEC8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TopSpinWidgetExtension;
+			productName = TopSpinWidgetExtension;
+			productReference = D27148F9252B7C9C008EEEC8 /* TopSpinWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		D27978A9251CED0800771DB9 /* TopSpinTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D27978B3251CED0800771DB9 /* Build configuration list for PBXNativeTarget "TopSpinTests" */;
@@ -849,6 +947,9 @@
 					D23F762925198AB7006BF603 = {
 						CreatedOnToolsVersion = 12.0;
 					};
+					D27148F8252B7C9C008EEEC8 = {
+						CreatedOnToolsVersion = 12.0;
+					};
 					D27978A9251CED0800771DB9 = {
 						CreatedOnToolsVersion = 12.0;
 						TestTargetID = D23F760525198A87006BF603;
@@ -872,6 +973,7 @@
 				D23F761D25198AB5006BF603 /* TopSpinWatch WatchKit App */,
 				D23F762925198AB7006BF603 /* TopSpinWatch WatchKit Extension */,
 				D27978A9251CED0800771DB9 /* TopSpinTests */,
+				D27148F8252B7C9C008EEEC8 /* TopSpinWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -903,6 +1005,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D27148F7252B7C9C008EEEC8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2714902252B7C9D008EEEC8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D27978A8251CED0800771DB9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -919,15 +1029,16 @@
 			files = (
 				D2227EFB251E3154009DD539 /* MatchSettingsPickerView.swift in Sources */,
 				D23F760C25198A87006BF603 /* ContentView.swift in Sources */,
+				D2714918252B7CC8008EEEC8 /* UserDefaultsManager.swift in Sources */,
 				D2B279ED251EC5450007FF3F /* MatchSummaryScoreView.swift in Sources */,
 				D2D73E68251FDFD7006896C3 /* MatchSetting.swift in Sources */,
 				D2D73E2A251EF398006896C3 /* FloatingLiveWorkoutView.swift in Sources */,
 				D23CCB8D251ADEC2002EBE72 /* HorizontalSummaryView.swift in Sources */,
-				D2426A75252B6328002264D5 /* SquareSummaryView.swift in Sources */,
 				D23CCBC5251BA65B002EBE72 /* SettingStorage.swift in Sources */,
 				D2D73E35251EFA4B006896C3 /* LiveMatchView.swift in Sources */,
 				D2D73E1B251ED74D006896C3 /* MatchTimelineView.swift in Sources */,
 				D23CCBAC251B8DBE002EBE72 /* MatchStorage.swift in Sources */,
+				D2714948252B7FF1008EEEC8 /* MatchSummary+TimelineEntry.swift in Sources */,
 				D23CCB65251AD634002EBE72 /* Match+Extensions.swift in Sources */,
 				D23CCBA0251B8AE3002EBE72 /* HistoryWorkoutMetricView.swift in Sources */,
 				D2BCC687251FF17E0032CC23 /* AppEnvironment.swift in Sources */,
@@ -936,6 +1047,7 @@
 				D23CCBA6251B8B2C002EBE72 /* MatchHistoryScoreView.swift in Sources */,
 				D2B01F02251ED201002E8E74 /* HeartRatesView.swift in Sources */,
 				D27978BB251CED2400771DB9 /* RallyMatchController.swift in Sources */,
+				D2714925252B7ED2008EEEC8 /* MatchSummary.swift in Sources */,
 				D2B279C3251EB9B30007FF3F /* HorizontalIconView.swift in Sources */,
 				D2F35E0D251A497200739463 /* SettingsView.swift in Sources */,
 				D23F760A25198A87006BF603 /* TopSpinApp.swift in Sources */,
@@ -994,9 +1106,11 @@
 				D2F35DDB2519A5B400739463 /* MatchHistoryList.swift in Sources */,
 				D23CCBBB251B95E3002EBE72 /* MatchStorage.swift in Sources */,
 				D2A713FF2524215E008F053D /* Reducer.swift in Sources */,
+				D2714936252B7F93008EEEC8 /* MatchSummary.swift in Sources */,
 				D2A7143D25242584008F053D /* SettingsRepository.swift in Sources */,
 				D2D73EB1251FE55A006896C3 /* MatchSetting.swift in Sources */,
 				D2B74D69251AA49B00D1004B /* ActiveMatchView.swift in Sources */,
+				D271494E252B800D008EEEC8 /* UserDefaultsManager.swift in Sources */,
 				D2B74D91251ABD0C00D1004B /* Persistance.swift in Sources */,
 				D261A876251A6D9300689252 /* MatchWorkoutView.swift in Sources */,
 				D23F763225198AB7006BF603 /* TopSpinApp.swift in Sources */,
@@ -1028,6 +1142,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D27148F5252B7C9C008EEEC8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2714954252B825A008EEEC8 /* MatchSummary+TimelineEntry.swift in Sources */,
+				D271495A252B82D0008EEEC8 /* SquareSummaryView.swift in Sources */,
+				D271492B252B7EE0008EEEC8 /* MatchSummary.swift in Sources */,
+				D271491E252B7EC0008EEEC8 /* UserDefaultsManager.swift in Sources */,
+				D2714900252B7C9C008EEEC8 /* TopSpinWidget.swift in Sources */,
+				D2714967252B8656008EEEC8 /* HistorySummaryView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D27978A6251CED0800771DB9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1051,6 +1178,11 @@
 			isa = PBXTargetDependency;
 			target = D23F762925198AB7006BF603 /* TopSpinWatch WatchKit Extension */;
 			targetProxy = D23F762C25198AB7006BF603 /* PBXContainerItemProxy */;
+		};
+		D2714905252B7C9D008EEEC8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D27148F8252B7C9C008EEEC8 /* TopSpinWidgetExtension */;
+			targetProxy = D2714904252B7C9D008EEEC8 /* PBXContainerItemProxy */;
 		};
 		D27978B0251CED0800771DB9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1184,6 +1316,7 @@
 		D23F761625198A89006BF603 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TopSpin/TopSpin.entitlements;
@@ -1210,6 +1343,7 @@
 		D23F761725198A89006BF603 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TopSpin/TopSpin.entitlements;
@@ -1331,6 +1465,54 @@
 			};
 			name = Release;
 		};
+		D2714908252B7C9D008EEEC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = TopSpinWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = 2J9S2B5EZD;
+				INFOPLIST_FILE = TopSpinWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.willBrandin.dev.TopSpin.TopSpinWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D2714909252B7C9D008EEEC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = TopSpinWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = 2J9S2B5EZD;
+				INFOPLIST_FILE = TopSpinWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.willBrandin.dev.TopSpin.TopSpinWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		D27978B1251CED0800771DB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1406,6 +1588,15 @@
 			buildConfigurations = (
 				D23F764025198AB8006BF603 /* Debug */,
 				D23F764125198AB8006BF603 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D271490A252B7C9D008EEEC8 /* Build configuration list for PBXNativeTarget "TopSpinWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2714908252B7C9D008EEEC8 /* Debug */,
+				D2714909252B7C9D008EEEC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
