@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="CDMatch" representedClassName="CDMatch" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <relationship name="score" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDMatchScore" inverseName="match" inverseEntity="CDMatchScore"/>
-        <relationship name="workout" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDWorkout" inverseName="match" inverseEntity="CDWorkout"/>
+        <relationship name="score" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CDMatchScore" inverseName="match" inverseEntity="CDMatchScore"/>
+        <relationship name="workout" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CDWorkout" inverseName="match" inverseEntity="CDWorkout"/>
     </entity>
     <entity name="CDMatchScore" representedClassName="CDMatchScore" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>

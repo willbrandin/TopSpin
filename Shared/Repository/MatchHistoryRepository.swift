@@ -128,8 +128,9 @@ class MatchHistoryRepository: NSObject {
 
 extension MatchHistoryRepository: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        guard let matches = controller.fetchedObjects as? [CDMatch]
-        else { return }
+        guard let matches = controller.fetchedObjects as? [CDMatch] else {
+            return
+        }
         
         print("SettingsRepository - DID CHANGE CONTENT")
         self.cdMatches = matches
