@@ -32,11 +32,11 @@ struct HeartRatesView: View {
     
     var watchContent: some View {
             HStack(spacing: 8) {
-                HeartRateValueView(title: "AVG", subtitle: "160")
+                HeartRateValueView(title: "AVG", subtitle: "\(metrics.averageHeartRate)")
                 
-                HeartRateValueView(title: "MIN", subtitle: "145")
+                HeartRateValueView(title: "MIN", subtitle: "\(metrics.minHeartRate)")
                 
-                HeartRateValueView(title: "MAX", subtitle: "178")
+                HeartRateValueView(title: "MAX", subtitle: "\(metrics.maxHeartRate)")
                 
                 Spacer()
             }

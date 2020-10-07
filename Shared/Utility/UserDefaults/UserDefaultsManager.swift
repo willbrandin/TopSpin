@@ -6,7 +6,9 @@
 //
 
 import Foundation
-#if !os(watchOS)
+#if os(watchOS)
+import ClockKit
+#else
 import WidgetKit
 #endif
 
@@ -33,7 +35,13 @@ class UserDefaultsManager {
         set {
             if let encoded = try? UserDefaultsManager.encoder.encode(newValue) {
                 UserDefaultsManager.userDefaults?.set(encoded, forKey: UserDefaultsManager.summaryEntryKey)
-                #if !os(watchOS)
+                #if os(watchOS)
+                let server = CLKComplicationServer.sharedInstance()
+                for complication in server.activeComplications ?? [] {
+                    server.reloadTimeline(for: complication)
+                }
+                
+                #else
                 WidgetCenter.shared.reloadTimelines(ofKind: "TopSpinWidget.monthly.summary")
                 WidgetCenter.shared.reloadTimelines(ofKind: "TopSpinWidget.monthly.score.summary")
                 #endif

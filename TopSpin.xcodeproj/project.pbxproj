@@ -91,6 +91,8 @@
 		D2A71423252422D2008F053D /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A71422252422D2008F053D /* AppStore.swift */; };
 		D2A7143D25242584008F053D /* SettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27773CD2521385300F1787A /* SettingsRepository.swift */; };
 		D2A7145325242755008F053D /* WorkoutReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A7145225242755008F053D /* WorkoutReducer.swift */; };
+		D2AE4760252E73320082EEA9 /* HistorySummaryComplicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AE475F252E73320082EEA9 /* HistorySummaryComplicationView.swift */; };
+		D2AE4767252E77250082EEA9 /* VerticalSummaryComplicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AE4766252E77250082EEA9 /* VerticalSummaryComplicationView.swift */; };
 		D2B01F02251ED201002E8E74 /* HeartRatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B01F01251ED201002E8E74 /* HeartRatesView.swift */; };
 		D2B01F03251ED201002E8E74 /* HeartRatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B01F01251ED201002E8E74 /* HeartRatesView.swift */; };
 		D2B01F0D251ED2A2002E8E74 /* HeartRateValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B01F0C251ED2A2002E8E74 /* HeartRateValueView.swift */; };
@@ -291,6 +293,8 @@
 		D2A714172524227A008F053D /* MatchHistoryReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchHistoryReducer.swift; sourceTree = "<group>"; };
 		D2A71422252422D2008F053D /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
 		D2A7145225242755008F053D /* WorkoutReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutReducer.swift; sourceTree = "<group>"; };
+		D2AE475F252E73320082EEA9 /* HistorySummaryComplicationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySummaryComplicationView.swift; sourceTree = "<group>"; };
+		D2AE4766252E77250082EEA9 /* VerticalSummaryComplicationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalSummaryComplicationView.swift; sourceTree = "<group>"; };
 		D2B01F01251ED201002E8E74 /* HeartRatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRatesView.swift; sourceTree = "<group>"; };
 		D2B01F0C251ED2A2002E8E74 /* HeartRateValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateValueView.swift; sourceTree = "<group>"; };
 		D2B279BA251EB97F0007FF3F /* WorkoutMetricContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutMetricContent.swift; sourceTree = "<group>"; };
@@ -684,6 +688,15 @@
 			path = Rally;
 			sourceTree = "<group>";
 		};
+		D2AE475E252E731B0082EEA9 /* Complications */ = {
+			isa = PBXGroup;
+			children = (
+				D2AE475F252E73320082EEA9 /* HistorySummaryComplicationView.swift */,
+				D2AE4766252E77250082EEA9 /* VerticalSummaryComplicationView.swift */,
+			);
+			path = Complications;
+			sourceTree = "<group>";
+		};
 		D2B279A8251EA49F0007FF3F /* SettingsForm */ = {
 			isa = PBXGroup;
 			children = (
@@ -852,6 +865,7 @@
 		D2F35DD42519A54D00739463 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D2AE475E252E731B0082EEA9 /* Complications */,
 				D2B74D5D251A930D00D1004B /* ActiveMatch */,
 				D261A874251A6D8400689252 /* MatchWorkout */,
 				D261A862251A660900689252 /* MatchStart */,
@@ -1177,11 +1191,13 @@
 				D2B74DAC251ABEA800D1004B /* TopSpin.xcdatamodeld in Sources */,
 				D20C55DB251C04E000107FBD /* RallyMatchController.swift in Sources */,
 				D2D73EAF251FE55A006896C3 /* Workout.swift in Sources */,
+				D2AE4767252E77250082EEA9 /* VerticalSummaryComplicationView.swift in Sources */,
 				D2B01F03251ED201002E8E74 /* HeartRatesView.swift in Sources */,
 				D2E11B712526367400ECE75D /* MatchHistoryReducer.swift in Sources */,
 				D2608098252522EE00F73FAE /* MatchTimelineView.swift in Sources */,
 				D2BCC6A0252004FB0032CC23 /* Store.swift in Sources */,
 				D260808F2525228A00F73FAE /* MatchSummaryScoreView.swift in Sources */,
+				D2AE4760252E73320082EEA9 /* HistorySummaryComplicationView.swift in Sources */,
 				D2B74D5F251A931700D1004B /* ActiveMatchSwipeView.swift in Sources */,
 				D2F35E07251A454700739463 /* MatchSettingsFormView.swift in Sources */,
 				D26AED7D2524E084008D89FE /* ActiveMatchReducer.swift in Sources */,

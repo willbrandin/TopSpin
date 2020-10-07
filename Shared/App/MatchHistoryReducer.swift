@@ -24,6 +24,7 @@ struct MatchHistoryState: Equatable {
             var totalLoses = 0
             var totalCalories = 0
             var totalHeartRate = 0
+            var totalHeartEntries = 0
             
             matches.forEach { match in
                 if match.score.playerScore > match.score.opponentScore {
@@ -34,9 +35,10 @@ struct MatchHistoryState: Equatable {
                 
                 totalCalories += match.workout?.activeCalories ?? 0
                 totalHeartRate += match.workout?.heartRateMetrics.averageHeartRate ?? 0
+                totalHeartEntries += match.workout?.heartRateMetrics.averageHeartRate != nil ? 1 : 0
             }
             
-            let heartAverage = Int(totalHeartRate/matches.count)
+            let heartAverage = Int(totalHeartRate/totalHeartEntries)
             let summary = MatchSummary(id: UUID(), monthRange: date, wins: totalWins, loses: totalLoses, calories: totalCalories, avgHeartRate: heartAverage)
             
             if date.isInThisMonth || date.isInThePast {
