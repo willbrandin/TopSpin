@@ -42,7 +42,6 @@ class MatchStorage: NSObject, ObservableObject {
     }
     
     func addNew() {
-        
         do {
             try context.save()
             print("SAVED")

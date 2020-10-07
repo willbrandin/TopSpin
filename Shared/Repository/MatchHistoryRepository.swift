@@ -88,7 +88,7 @@ class MatchHistoryRepository: NSObject {
         
         let newItem = CDMatch(context: context)
         newItem.score = score
-        newItem.date = Date()
+        newItem.date = match.date
         newItem.id = match.id
         
         if let matchWorkout = match.workout {
@@ -96,7 +96,7 @@ class MatchHistoryRepository: NSObject {
             workout.id = matchWorkout.id
             workout.activeCalories = Int16(matchWorkout.activeCalories)
             workout.endDate = matchWorkout.endDate
-            workout.startDate = matchWorkout.endDate
+            workout.startDate = matchWorkout.startDate
             workout.maxHeartRate = Int16(matchWorkout.heartRateMetrics.maxHeartRate)
             workout.minHeartRate = Int16(matchWorkout.heartRateMetrics.minHeartRate)
             workout.averageHeartRate = Int16(matchWorkout.heartRateMetrics.averageHeartRate)

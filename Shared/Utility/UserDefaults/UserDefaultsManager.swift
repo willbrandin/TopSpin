@@ -35,6 +35,7 @@ class UserDefaultsManager {
                 UserDefaultsManager.userDefaults?.set(encoded, forKey: UserDefaultsManager.summaryEntryKey)
                 #if !os(watchOS)
                 WidgetCenter.shared.reloadTimelines(ofKind: "TopSpinWidget.monthly.summary")
+                WidgetCenter.shared.reloadTimelines(ofKind: "TopSpinWidget.monthly.score.summary")
                 #endif
             }
         }

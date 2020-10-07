@@ -10,7 +10,8 @@ import SwiftUI
 struct HistorySummaryView: View {
         
     @Environment(\.colorScheme) var colorScheme
-
+    @Environment(\.horizontalSizeClass) var horizontalSize
+    
     var summary: MatchSummary
     
     var backgroundColor: UIColor {
@@ -26,7 +27,10 @@ struct HistorySummaryView: View {
                         .foregroundColor(.secondary)
                         .bold()
                 }
-                Spacer()
+                
+                if horizontalSize != .regular {
+                    Spacer()
+                }
             }
             
             HStack {
@@ -44,7 +48,7 @@ struct HistorySummaryView: View {
                 Divider()
                 
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("Loses")
+                    Text("Losses")
                         .font(.caption)
                         .foregroundColor(.red)
                         .bold()
@@ -78,10 +82,15 @@ struct HistorySummaryView: View {
                         .fontWeight(.bold)
                 }
                 
-                Spacer()
+                if horizontalSize != .regular {
+                    Spacer()
+                }
             }
             .frame(maxHeight: 50)
         }
+        .minimumScaleFactor(0.7)
+        .lineLimit(1)
+        .layoutPriority(1)
         .padding()
         .background(Color(backgroundColor))
         .cornerRadius(8)
@@ -92,12 +101,12 @@ struct HistorySummaryView: View {
 struct HistorySummaryView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            HistorySummaryView(summary: MatchSummary(id: UUID(), dateRange: "SEP 2020", wins: 12, loses: 2, calories: 459, avgHeartRate: 145))
+            HistorySummaryView(summary: MatchSummary(id: UUID(), monthRange: Date(), wins: 12, loses: 2, calories: 459, avgHeartRate: 145))
                 .preferredColorScheme(.dark)
                 .previewLayout(.sizeThatFits)
                 .padding()
             
-            HistorySummaryView(summary: MatchSummary(id: UUID(), dateRange: "SEP 2020", wins: 12, loses: 2, calories: 459, avgHeartRate: 145))
+            HistorySummaryView(summary: MatchSummary(id: UUID(), monthRange: Date(), wins: 12, loses: 2, calories: 459, avgHeartRate: 145))
                 .previewLayout(.sizeThatFits)
                 .padding()
         }

@@ -39,6 +39,14 @@
 		D23F765525198CF5006BF603 /* MatchHistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F765425198CF5006BF603 /* MatchHistoryList.swift */; };
 		D23F766125198D24006BF603 /* MatchHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F766025198D24006BF603 /* MatchHistoryItem.swift */; };
 		D23F7666251991F5006BF603 /* MatchHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F766025198D24006BF603 /* MatchHistoryItem.swift */; };
+		D2493294252E042400D0A610 /* Date+Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2493293252E042400D0A610 /* Date+Comparison.swift */; };
+		D249329A252E04B000D0A610 /* Date+Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2493293252E042400D0A610 /* Date+Comparison.swift */; };
+		D24932A0252E04B100D0A610 /* Date+Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2493293252E042400D0A610 /* Date+Comparison.swift */; };
+		D24932BF252E0E3C00D0A610 /* MatchSummaryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24932AE252E0DC200D0A610 /* MatchSummaryProvider.swift */; };
+		D24932CA252E0E4300D0A610 /* TopSpinWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24932A6252E0D6B00D0A610 /* TopSpinWidgets.swift */; };
+		D24932D1252E0EB500D0A610 /* SummaryScoreWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24932D0252E0EB500D0A610 /* SummaryScoreWidget.swift */; };
+		D24932D8252E0EE600D0A610 /* SquareSummaryScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24932D7252E0EE600D0A610 /* SquareSummaryScoreView.swift */; };
+		D254C63C252D5E5900E041C3 /* AddMatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D254C63B252D5E5900E041C3 /* AddMatchView.swift */; };
 		D260808F2525228A00F73FAE /* MatchSummaryScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B279EC251EC5450007FF3F /* MatchSummaryScoreView.swift */; };
 		D2608098252522EE00F73FAE /* MatchTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E1A251ED74D006896C3 /* MatchTimelineView.swift */; };
 		D261A864251A662100689252 /* MatchSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D261A863251A662100689252 /* MatchSetupView.swift */; };
@@ -47,7 +55,7 @@
 		D26AED7D2524E084008D89FE /* ActiveMatchReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26AED7C2524E084008D89FE /* ActiveMatchReducer.swift */; };
 		D27148FB252B7C9C008EEEC8 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27148FA252B7C9C008EEEC8 /* WidgetKit.framework */; };
 		D27148FD252B7C9C008EEEC8 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27148FC252B7C9C008EEEC8 /* SwiftUI.framework */; };
-		D2714900252B7C9C008EEEC8 /* TopSpinWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27148FF252B7C9C008EEEC8 /* TopSpinWidget.swift */; };
+		D2714900252B7C9C008EEEC8 /* MatchSummaryWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27148FF252B7C9C008EEEC8 /* MatchSummaryWidget.swift */; };
 		D2714902252B7C9D008EEEC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2714901252B7C9D008EEEC8 /* Assets.xcassets */; };
 		D2714906252B7C9D008EEEC8 /* TopSpinWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D27148F9252B7C9C008EEEC8 /* TopSpinWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D2714918252B7CC8008EEEC8 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2714917252B7CC8008EEEC8 /* UserDefaultsManager.swift */; };
@@ -243,6 +251,12 @@
 		D23F765425198CF5006BF603 /* MatchHistoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchHistoryList.swift; sourceTree = "<group>"; };
 		D23F766025198D24006BF603 /* MatchHistoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchHistoryItem.swift; sourceTree = "<group>"; };
 		D2426A74252B6328002264D5 /* SquareSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareSummaryView.swift; sourceTree = "<group>"; };
+		D2493293252E042400D0A610 /* Date+Comparison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Comparison.swift"; sourceTree = "<group>"; };
+		D24932A6252E0D6B00D0A610 /* TopSpinWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopSpinWidgets.swift; sourceTree = "<group>"; };
+		D24932AE252E0DC200D0A610 /* MatchSummaryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSummaryProvider.swift; sourceTree = "<group>"; };
+		D24932D0252E0EB500D0A610 /* SummaryScoreWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryScoreWidget.swift; sourceTree = "<group>"; };
+		D24932D7252E0EE600D0A610 /* SquareSummaryScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareSummaryScoreView.swift; sourceTree = "<group>"; };
+		D254C63B252D5E5900E041C3 /* AddMatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMatchView.swift; sourceTree = "<group>"; };
 		D261A863251A662100689252 /* MatchSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSetupView.swift; sourceTree = "<group>"; };
 		D261A86E251A6BC600689252 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		D261A875251A6D9300689252 /* MatchWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchWorkoutView.swift; sourceTree = "<group>"; };
@@ -250,7 +264,7 @@
 		D27148F9252B7C9C008EEEC8 /* TopSpinWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TopSpinWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D27148FA252B7C9C008EEEC8 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		D27148FC252B7C9C008EEEC8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		D27148FF252B7C9C008EEEC8 /* TopSpinWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopSpinWidget.swift; sourceTree = "<group>"; };
+		D27148FF252B7C9C008EEEC8 /* MatchSummaryWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSummaryWidget.swift; sourceTree = "<group>"; };
 		D2714901252B7C9D008EEEC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2714903252B7C9D008EEEC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2714910252B7CA6008EEEC8 /* TopSpinWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TopSpinWidgetExtension.entitlements; sourceTree = "<group>"; };
@@ -465,6 +479,7 @@
 		D23F764F25198AF8006BF603 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				D2493292252E041200D0A610 /* Extensions */,
 				D27773CC2521384200F1787A /* Repository */,
 				D2D73E7F251FE33D006896C3 /* App */,
 				D2D73E47251FDE47006896C3 /* Models */,
@@ -474,6 +489,7 @@
 				D2B279DC251EC3740007FF3F /* Summary */,
 				D2B279C1251EB9A50007FF3F /* Views */,
 				D2F35DF3251A41E400739463 /* Settings */,
+				D254C63A252D5E4100E041C3 /* AddMatch */,
 				D2D73E3A251F05AE006896C3 /* Home */,
 			);
 			path = Shared;
@@ -496,8 +512,33 @@
 			children = (
 				D2714966252B8656008EEEC8 /* HistorySummaryView.swift */,
 				D2426A74252B6328002264D5 /* SquareSummaryView.swift */,
+				D24932D7252E0EE600D0A610 /* SquareSummaryScoreView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		D2493292252E041200D0A610 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D2493293252E042400D0A610 /* Date+Comparison.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D24932AD252E0DB200D0A610 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				D24932AE252E0DC200D0A610 /* MatchSummaryProvider.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		D254C63A252D5E4100E041C3 /* AddMatch */ = {
+			isa = PBXGroup;
+			children = (
+				D254C63B252D5E5900E041C3 /* AddMatchView.swift */,
+			);
+			path = AddMatch;
 			sourceTree = "<group>";
 		};
 		D261A862251A660900689252 /* MatchStart */ = {
@@ -532,11 +573,14 @@
 		D27148FE252B7C9C008EEEC8 /* TopSpinWidget */ = {
 			isa = PBXGroup;
 			children = (
-				D27148FF252B7C9C008EEEC8 /* TopSpinWidget.swift */,
+				D24932AD252E0DB200D0A610 /* Providers */,
 				D2714901252B7C9D008EEEC8 /* Assets.xcassets */,
 				D2714903252B7C9D008EEEC8 /* Info.plist */,
 				D2714947252B7FF1008EEEC8 /* MatchSummary+TimelineEntry.swift */,
 				D2426A7E252B66D1002264D5 /* Views */,
+				D24932A6252E0D6B00D0A610 /* TopSpinWidgets.swift */,
+				D24932D0252E0EB500D0A610 /* SummaryScoreWidget.swift */,
+				D27148FF252B7C9C008EEEC8 /* MatchSummaryWidget.swift */,
 			);
 			path = TopSpinWidget;
 			sourceTree = "<group>";
@@ -1046,6 +1090,7 @@
 				D2D73E49251FDE53006896C3 /* Match.swift in Sources */,
 				D23CCBA6251B8B2C002EBE72 /* MatchHistoryScoreView.swift in Sources */,
 				D2B01F02251ED201002E8E74 /* HeartRatesView.swift in Sources */,
+				D254C63C252D5E5900E041C3 /* AddMatchView.swift in Sources */,
 				D27978BB251CED2400771DB9 /* RallyMatchController.swift in Sources */,
 				D2714925252B7ED2008EEEC8 /* MatchSummary.swift in Sources */,
 				D2B279C3251EB9B30007FF3F /* HorizontalIconView.swift in Sources */,
@@ -1056,6 +1101,7 @@
 				D23F765525198CF5006BF603 /* MatchHistoryList.swift in Sources */,
 				D2A71409252421AA008F053D /* SettingReducer.swift in Sources */,
 				D23F766125198D24006BF603 /* MatchHistoryItem.swift in Sources */,
+				D2493294252E042400D0A610 /* Date+Comparison.swift in Sources */,
 				D2B74D9A251ABD6500D1004B /* Persistance.swift in Sources */,
 				D2A714182524227A008F053D /* MatchHistoryReducer.swift in Sources */,
 				D2801F4E25199BCC00E85E90 /* HistorySummaryView.swift in Sources */,
@@ -1116,6 +1162,7 @@
 				D23F763225198AB7006BF603 /* TopSpinApp.swift in Sources */,
 				D2E11B7A2526368C00ECE75D /* SettingReducer.swift in Sources */,
 				D27978F6251CF4E100771DB9 /* HomeTabView.swift in Sources */,
+				D24932A0252E04B100D0A610 /* Date+Comparison.swift in Sources */,
 				D23F763425198AB7006BF603 /* ComplicationController.swift in Sources */,
 				D23CCBC6251BA65B002EBE72 /* SettingStorage.swift in Sources */,
 				D23F7666251991F5006BF603 /* MatchHistoryItem.swift in Sources */,
@@ -1148,9 +1195,14 @@
 			files = (
 				D2714954252B825A008EEEC8 /* MatchSummary+TimelineEntry.swift in Sources */,
 				D271495A252B82D0008EEEC8 /* SquareSummaryView.swift in Sources */,
+				D24932CA252E0E4300D0A610 /* TopSpinWidgets.swift in Sources */,
+				D24932D8252E0EE600D0A610 /* SquareSummaryScoreView.swift in Sources */,
+				D24932D1252E0EB500D0A610 /* SummaryScoreWidget.swift in Sources */,
 				D271492B252B7EE0008EEEC8 /* MatchSummary.swift in Sources */,
+				D24932BF252E0E3C00D0A610 /* MatchSummaryProvider.swift in Sources */,
 				D271491E252B7EC0008EEEC8 /* UserDefaultsManager.swift in Sources */,
-				D2714900252B7C9C008EEEC8 /* TopSpinWidget.swift in Sources */,
+				D2714900252B7C9C008EEEC8 /* MatchSummaryWidget.swift in Sources */,
+				D249329A252E04B000D0A610 /* Date+Comparison.swift in Sources */,
 				D2714967252B8656008EEEC8 /* HistorySummaryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

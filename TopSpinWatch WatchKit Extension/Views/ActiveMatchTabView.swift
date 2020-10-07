@@ -15,7 +15,7 @@ struct ActiveMatchTabContainer: View {
     var body: some View {
         ActiveMatchTabView(currentPage: $currentPage, cancel: cancel, complete: complete)
             .alert(isPresented: .constant(store.state.activeMatchState.teamDidWin), content: {
-                let winningTeam = RallyTeam.one
+                let winningTeam = store.state.activeMatchState.winningTeam ?? .one
                 let title = winningTeam == .one ? "You win!" : "Maybe next time!"
                 let button: Alert.Button = .default(Text("Save Match"), action: complete)
                 return Alert(title: Text(title), message: nil, dismissButton: button)
@@ -27,18 +27,15 @@ struct ActiveMatchTabContainer: View {
         store.send(.workout(action: .end))
         store.send(.workout(action: .reset))
         store.send(.activeMatch(action: .cancel))
-//        store.send(.endMatch)
         currentPage = 2
     }
     
     func complete() {
         store.send(.workout(action: .end))
-//        store.send(.activeMatch(action: .complete))
         store.send(.saveMatch)
         store.send(.activeMatch(action: .complete))
         store.send(.workout(action: .reset))
         print("MATCH COMPLETE")
-//        store.send(.endMatch)
         currentPage = 2
     }
 }

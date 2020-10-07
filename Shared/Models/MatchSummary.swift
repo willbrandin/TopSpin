@@ -9,9 +9,15 @@ import Foundation
 
 struct MatchSummary: Identifiable, Codable {
     let id: UUID
-    let dateRange: String
+    let monthRange: Date
     let wins: Int
     let loses: Int
     let calories: Int
     let avgHeartRate: Int
+    
+    var dateRange: String {
+        let dateFormmater = DateFormatter()
+        dateFormmater.dateFormat = "MMM yyyy"
+        return dateFormmater.string(from: monthRange)
+    }
 }

@@ -139,8 +139,10 @@ struct MatchSummaryView: View {
         #else
         content
             .toolbar {
-                Button(action: {}) {
-                    Image(systemName: "square.and.arrow.up")
+                ToolbarItem(placement: .primaryAction) {
+                    Button(action: {}) {
+                        Image(systemName: "square.and.arrow.up")
+                    }
                 }
             }
             .navigationBarTitleDisplayMode(.inline)

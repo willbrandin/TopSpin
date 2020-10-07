@@ -18,12 +18,8 @@ struct MatchHistoryState: Equatable {
     var matchSummary: [MatchSummary] {
         var summaryList = [MatchSummary]()
         let groupedMatchesByMonth = MatchHistoryState.groupedMatchesByMonth(matches)
-        let dateFormmater = DateFormatter()
-        dateFormmater.dateFormat = "MMM yyyy"
-        
+                
         groupedMatchesByMonth.forEach { date, matches in
-            let title = dateFormmater.string(from: date)
-            
             var totalWins = 0
             var totalLoses = 0
             var totalCalories = 0
@@ -41,11 +37,14 @@ struct MatchHistoryState: Equatable {
             }
             
             let heartAverage = Int(totalHeartRate/matches.count)
-            let summary = MatchSummary(id: UUID(), dateRange: title, wins: totalWins, loses: totalLoses, calories: totalCalories, avgHeartRate: heartAverage)
-            summaryList.append(summary)
+            let summary = MatchSummary(id: UUID(), monthRange: date, wins: totalWins, loses: totalLoses, calories: totalCalories, avgHeartRate: heartAverage)
+            
+            if date.isInThisMonth || date.isInThePast {
+                summaryList.append(summary)
+            }
         }
         
-        return summaryList
+        return summaryList.sorted { $0.monthRange > $1.monthRange }
     }
     
     static private func groupedMatchesByMonth(_ matches: [Match]) -> [Date: [Match]] {

@@ -44,7 +44,7 @@ struct HistorySummaryView: View {
                 Divider()
                 
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("Loses")
+                    Text("Losses")
                         .font(.caption)
                         .foregroundColor(.red)
                         .bold()
@@ -82,6 +82,9 @@ struct HistorySummaryView: View {
             }
             .frame(maxHeight: 50)
         }
+        .minimumScaleFactor(0.7)
+        .lineLimit(1)
+        .layoutPriority(1)
         .padding()
         .clipShape(ContainerRelativeShape())
     }
@@ -90,10 +93,10 @@ struct HistorySummaryView: View {
 struct HistorySummaryView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            HistorySummaryView(summary: MatchSummary(id: UUID(), dateRange: "SEP 2020", wins: 12, loses: 2, calories: 4459, avgHeartRate: 145))
+            HistorySummaryView(summary: MatchSummary(id: UUID(), monthRange: Date(), wins: 12, loses: 2, calories: 4459, avgHeartRate: 145))
                 .previewContext(WidgetPreviewContext(family: .systemMedium))
             
-            HistorySummaryView(summary: MatchSummary(id: UUID(), dateRange: "SEP 2020", wins: 12, loses: 2, calories: 459, avgHeartRate: 145))
+            HistorySummaryView(summary: MatchSummary(id: UUID(), monthRange: Date(), wins: 12, loses: 2, calories: 459, avgHeartRate: 145))
                 .redacted(reason: .placeholder)
                 .previewContext(WidgetPreviewContext(family: .systemMedium))
         }

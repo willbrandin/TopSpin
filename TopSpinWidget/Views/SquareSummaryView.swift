@@ -13,7 +13,7 @@ struct SquareSummaryView: View {
     var summary: MatchSummary
    
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading) {
             HStack {
                 Text(summary.dateRange.uppercased())
                     .font(.caption)
@@ -52,7 +52,7 @@ struct SquareSummaryView: View {
                                 
                 VStack(alignment: .leading, spacing: 8) {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Loses")
+                        Text("Losses")
                             .font(.caption)
                             .foregroundColor(.red)
                             .bold()
@@ -85,7 +85,7 @@ struct SquareSummaryView: View {
 struct SquareSummaryView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            SquareSummaryView(summary: MatchSummary(id: UUID(), dateRange: "SEP 2020", wins: 164, loses: 126, calories: 9867, avgHeartRate: 999))
+            SquareSummaryView(summary: MatchSummary(id: UUID(), monthRange: Date(), wins: 164, loses: 126, calories: 9867, avgHeartRate: 999))
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
         }
     }

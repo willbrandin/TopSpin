@@ -27,7 +27,7 @@ struct MatchSummaryScoreView: View {
                         Text(didWin ? "WIN" : "LOSE")
                             .font(.subheadline)
                             .fontWeight(.bold)
-                            .foregroundColor(.green)
+                            .foregroundColor(didWin ? .green : .red)
                     }
                     
                     VStack(alignment: .leading, spacing: 4) {
