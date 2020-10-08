@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import StoreKit
 
 @main
 struct TopSpinApp: App {
@@ -41,8 +42,11 @@ struct TopSpinApp: App {
                     switch scenePhase {
                     case .active:
                         print("FOREGROUND")
+                        setLaunchCount()
+                        
                     case .background:
                         print("BACKGROUND")
+                        
                     default:
                         print("\(scenePhase)")
                         break
@@ -50,4 +54,13 @@ struct TopSpinApp: App {
                 }
         }
     }
+    
+    func setLaunchCount() {
+        LaunchCounter().launch()
+                
+        if let windowScene = UIApplication.shared.windows.first?.windowScene, LaunchCounter().isReadyToRate {
+            SKStoreReviewController.requestReview(in: windowScene)
+        }
+    }
 }
+
