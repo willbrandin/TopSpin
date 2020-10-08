@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MatchScore: Equatable {
+struct MatchScore: Equatable, Codable {
     let id: UUID
     let playerScore: Int
     let opponentScore: Int

@@ -61,7 +61,7 @@ struct VerticalSummaryComplicationView: View {
 
 struct VerticalSummaryComplicationView_Previews: PreviewProvider {
     
-    static let summary = MatchSummary(id: UUID(), monthRange: Date(), wins: 12, loses: 8, calories: 689, avgHeartRate: 154)
+    static let summary = MatchSummary(id: UUID(), monthRange: Date(), wins: 12, loses: 8, calories: 689, avgHeartRate: 154, matches: [])
 
     static var previews: some View {
         Group {

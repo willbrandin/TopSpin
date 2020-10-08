@@ -20,7 +20,7 @@ struct HorizontalSummaryView: View {
                 Spacer()
             }
             ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(spacing: 16) {
+                LazyHStack(alignment: .top, spacing: 16) {
                     ForEach(historySummary) { summary in
                         HistorySummaryView(summary: summary)
                     }
@@ -35,8 +35,8 @@ struct HorizontalSummaryView: View {
 struct HorizontalSummaryView_Previews: PreviewProvider {
     
     static let list = [
-        MatchSummary(id: UUID(), monthRange: Date(), wins: 12, loses: 2, calories: 459, avgHeartRate: 145),
-        MatchSummary(id: UUID(), monthRange: Date(), wins: 22, loses: 4, calories: 688, avgHeartRate: 138),
+        MatchSummary(id: UUID(), monthRange: Date(), wins: 12, loses: 2, calories: 459, avgHeartRate: 145, matches: [.mockMatch(), .mockMatch()]),
+        MatchSummary(id: UUID(), monthRange: Date(), wins: 22, loses: 4, calories: 688, avgHeartRate: 138, matches: [.mockMatch(), .mockMatch()]),
     ]
     
     static var previews: some View {

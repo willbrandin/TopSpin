@@ -32,10 +32,10 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         // Call the handler with the current timeline entry
         
         if complication.identifier == "monthly.summary.complication" {
-            let summary = UserDefaultsManager.shared.summaryEntry ?? MatchSummary(id: UUID(), monthRange: Date(), wins: 0, loses: 0, calories: 0, avgHeartRate: 0)
+            let summary = UserDefaultsManager.shared.summaryEntry ?? MatchSummary(id: UUID(), monthRange: Date(), wins: 0, loses: 0, calories: 0, avgHeartRate: 0, matches: [])
             handler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: CLKComplicationTemplateGraphicRectangularFullView(HistorySummaryComplicationView(summary: summary))))
         } else if complication.identifier == "montly.summary.vertical.complication" {
-            let summary = UserDefaultsManager.shared.summaryEntry ?? MatchSummary(id: UUID(), monthRange: Date(), wins: 0, loses: 0, calories: 0, avgHeartRate: 0)
+            let summary = UserDefaultsManager.shared.summaryEntry ?? MatchSummary(id: UUID(), monthRange: Date(), wins: 0, loses: 0, calories: 0, avgHeartRate: 0, matches: [])
             handler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: CLKComplicationTemplateGraphicRectangularFullView(VerticalSummaryComplicationView(summary: summary))))
         } else {
             handler(nil)
@@ -47,7 +47,9 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     func getLocalizableSampleTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
         // This method will be called once per supported complication, and the results will be cached
         
-        let summary = MatchSummary(id: UUID(), monthRange: Date(), wins: 12, loses: 8, calories: 689, avgHeartRate: 154)
+        let matches: [Match] = [.mockMatch()]
+        
+        let summary = MatchSummary(id: UUID(), monthRange: Date(), wins: 12, loses: 8, calories: 689, avgHeartRate: 154, matches: matches)
 
         if complication.identifier == "monthly.summary.complication" {
             handler(CLKComplicationTemplateGraphicRectangularFullView(HistorySummaryComplicationView(summary: summary)))

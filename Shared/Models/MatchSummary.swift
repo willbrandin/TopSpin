@@ -14,6 +14,7 @@ struct MatchSummary: Identifiable, Codable {
     let loses: Int
     let calories: Int
     let avgHeartRate: Int
+    var matches: [Match]
     
     var dateRange: String {
         let dateFormmater = DateFormatter()

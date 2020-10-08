@@ -70,7 +70,7 @@ struct HistorySummaryComplicationView: View {
 
 struct HistorySummaryComplicationView_Previews: PreviewProvider {
     
-    static let summary = MatchSummary(id: UUID(), monthRange: Date(), wins: 12, loses: 8, calories: 1689, avgHeartRate: 154)
+    static let summary = MatchSummary(id: UUID(), monthRange: Date(), wins: 12, loses: 8, calories: 1689, avgHeartRate: 154, matches: [])
     
     static var previews: some View {
         Group {

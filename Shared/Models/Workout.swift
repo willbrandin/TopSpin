@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Workout: Equatable {
+struct Workout: Equatable, Codable {
     let id: UUID
     let activeCalories: Int
     let heartRateMetrics: WorkoutHeartMetric
@@ -41,7 +41,7 @@ struct Workout: Equatable {
     }
 }
 
-struct WorkoutHeartMetric: Equatable {
+struct WorkoutHeartMetric: Equatable, Codable {
     let averageHeartRate: Int
     let maxHeartRate: Int
     let minHeartRate: Int

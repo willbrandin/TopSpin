@@ -147,6 +147,9 @@ struct MatchSummaryView: View {
 struct MatchSummaryView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
+            MatchSummaryView(match: .mockMatch())
+                .preferredColorScheme(.dark)
+            
             NavigationView {
                 MatchSummaryView(match: .mockMatch())
             }

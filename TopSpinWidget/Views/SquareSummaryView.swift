@@ -85,7 +85,7 @@ struct SquareSummaryView: View {
 struct SquareSummaryView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            SquareSummaryView(summary: MatchSummary(id: UUID(), monthRange: Date(), wins: 164, loses: 126, calories: 9867, avgHeartRate: 999))
+            SquareSummaryView(summary: MatchSummary(id: UUID(), monthRange: Date(), wins: 164, loses: 126, calories: 9867, avgHeartRate: 999, matches: []))
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
         }
     }

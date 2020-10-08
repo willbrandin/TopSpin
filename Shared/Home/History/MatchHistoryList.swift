@@ -128,8 +128,8 @@ struct MatchHistoryList: View {
 struct MatchHistoryList_Previews: PreviewProvider {
     
     static let list = [
-        MatchSummary(id: UUID(), monthRange: Date(), wins: 12, loses: 2, calories: 459, avgHeartRate: 145),
-        MatchSummary(id: UUID(), monthRange: Date(), wins: 22, loses: 4, calories: 688, avgHeartRate: 138),
+        MatchSummary(id: UUID(), monthRange: Date(), wins: 12, loses: 2, calories: 459, avgHeartRate: 145, matches: []),
+        MatchSummary(id: UUID(), monthRange: Date(), wins: 22, loses: 4, calories: 688, avgHeartRate: 138, matches: []),
     ]
     
     static var previews: some View {

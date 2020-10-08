@@ -40,12 +40,14 @@ struct MatchSummaryWidget: Widget {
 }
 
 struct TopSpinWidget_Previews: PreviewProvider {
+    static let summary =  MatchSummary(id: UUID(), monthRange: Date(), wins: 12, loses: 2, calories: 459, avgHeartRate: 145, matches: [.mockMatch()])
+
     static var previews: some View {
         Group {
-            MatchSummaryWidgetEntryView(entry: MatchSummary(id: UUID(), monthRange: Date(), wins: 32, loses: 18, calories: 5432, avgHeartRate: 143))
+            MatchSummaryWidgetEntryView(entry: summary)
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
             
-            MatchSummaryWidgetEntryView(entry: MatchSummary(id: UUID(), monthRange: Date(), wins: 32, loses: 18, calories: 5432, avgHeartRate: 143))
+            MatchSummaryWidgetEntryView(entry: summary)
                 .previewContext(WidgetPreviewContext(family: .systemMedium))
         }
     }

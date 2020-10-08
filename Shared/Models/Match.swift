@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Match: Equatable, Identifiable {
+struct Match: Equatable, Identifiable, Codable {
     let id: UUID
     let date: Date
     let score: MatchScore

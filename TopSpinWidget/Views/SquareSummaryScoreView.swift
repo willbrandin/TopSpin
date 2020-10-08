@@ -56,8 +56,10 @@ struct SquareSummaryScoreView: View {
 }
 
 struct SquareSummaryScoreView_Previews: PreviewProvider {
+    static let summary =  MatchSummary(id: UUID(), monthRange: Date(), wins: 12, loses: 2, calories: 459, avgHeartRate: 145, matches: [.mockMatch()])
+
     static var previews: some View {
-        SquareSummaryScoreView(summary: MatchSummary(id: UUID(), monthRange: Date(), wins: 164, loses: 126, calories: 9867, avgHeartRate: 999))
+        SquareSummaryScoreView(summary: summary)
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

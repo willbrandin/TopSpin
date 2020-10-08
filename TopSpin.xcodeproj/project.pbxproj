@@ -115,6 +115,91 @@
 		D2B74DA7251ABE1000D1004B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2B74DA6251ABE1000D1004B /* CloudKit.framework */; };
 		D2B74DAB251ABEA800D1004B /* TopSpin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D2B74DA9251ABEA800D1004B /* TopSpin.xcdatamodeld */; };
 		D2B74DAC251ABEA800D1004B /* TopSpin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D2B74DA9251ABEA800D1004B /* TopSpin.xcdatamodeld */; };
+		D2B86392252F7E7800C8F2EA /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E48251FDE53006896C3 /* Match.swift */; };
+		D2B86398252F7E8100C8F2EA /* MatchScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E5A251FDFAA006896C3 /* MatchScore.swift */; };
+		D2B86399252F7E8100C8F2EA /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E60251FDFB2006896C3 /* Workout.swift */; };
+		D2B8639A252F7E8100C8F2EA /* MatchSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E67251FDFD7006896C3 /* MatchSetting.swift */; };
+		D2B86452252F8D8D00C8F2EA /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86430252F8D8C00C8F2EA /* ChartData.swift */; };
+		D2B86453252F8D8D00C8F2EA /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86430252F8D8C00C8F2EA /* ChartData.swift */; };
+		D2B86454252F8D8D00C8F2EA /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86430252F8D8C00C8F2EA /* ChartData.swift */; };
+		D2B86455252F8D8D00C8F2EA /* ChartBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86431252F8D8C00C8F2EA /* ChartBase.swift */; };
+		D2B86456252F8D8D00C8F2EA /* ChartBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86431252F8D8C00C8F2EA /* ChartBase.swift */; };
+		D2B86457252F8D8D00C8F2EA /* ChartBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86431252F8D8C00C8F2EA /* ChartBase.swift */; };
+		D2B86458252F8D8D00C8F2EA /* ChartValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86432252F8D8C00C8F2EA /* ChartValue.swift */; };
+		D2B86459252F8D8D00C8F2EA /* ChartValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86432252F8D8C00C8F2EA /* ChartValue.swift */; };
+		D2B8645A252F8D8D00C8F2EA /* ChartValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86432252F8D8C00C8F2EA /* ChartValue.swift */; };
+		D2B8645B252F8D8D00C8F2EA /* ChartLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86434252F8D8C00C8F2EA /* ChartLabel.swift */; };
+		D2B8645C252F8D8D00C8F2EA /* ChartLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86434252F8D8C00C8F2EA /* ChartLabel.swift */; };
+		D2B8645D252F8D8D00C8F2EA /* ChartLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86434252F8D8C00C8F2EA /* ChartLabel.swift */; };
+		D2B8645E252F8D8D00C8F2EA /* ChartStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86436252F8D8C00C8F2EA /* ChartStyle.swift */; };
+		D2B8645F252F8D8D00C8F2EA /* ChartStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86436252F8D8C00C8F2EA /* ChartStyle.swift */; };
+		D2B86460252F8D8D00C8F2EA /* ChartStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86436252F8D8C00C8F2EA /* ChartStyle.swift */; };
+		D2B86461252F8D8D00C8F2EA /* ColorGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86437252F8D8C00C8F2EA /* ColorGradient.swift */; };
+		D2B86462252F8D8D00C8F2EA /* ColorGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86437252F8D8C00C8F2EA /* ColorGradient.swift */; };
+		D2B86463252F8D8D00C8F2EA /* ColorGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86437252F8D8C00C8F2EA /* ColorGradient.swift */; };
+		D2B86464252F8D8D00C8F2EA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86438252F8D8C00C8F2EA /* Colors.swift */; };
+		D2B86465252F8D8D00C8F2EA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86438252F8D8C00C8F2EA /* Colors.swift */; };
+		D2B86466252F8D8D00C8F2EA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86438252F8D8C00C8F2EA /* Colors.swift */; };
+		D2B86467252F8D8D00C8F2EA /* ChartBase+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8643A252F8D8D00C8F2EA /* ChartBase+Extension.swift */; };
+		D2B86468252F8D8D00C8F2EA /* ChartBase+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8643A252F8D8D00C8F2EA /* ChartBase+Extension.swift */; };
+		D2B86469252F8D8D00C8F2EA /* ChartBase+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8643A252F8D8D00C8F2EA /* ChartBase+Extension.swift */; };
+		D2B8646A252F8D8D00C8F2EA /* Path+QuadCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8643B252F8D8D00C8F2EA /* Path+QuadCurve.swift */; };
+		D2B8646B252F8D8D00C8F2EA /* Path+QuadCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8643B252F8D8D00C8F2EA /* Path+QuadCurve.swift */; };
+		D2B8646C252F8D8D00C8F2EA /* Path+QuadCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8643B252F8D8D00C8F2EA /* Path+QuadCurve.swift */; };
+		D2B8646D252F8D8D00C8F2EA /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8643C252F8D8D00C8F2EA /* Color+Extension.swift */; };
+		D2B8646E252F8D8D00C8F2EA /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8643C252F8D8D00C8F2EA /* Color+Extension.swift */; };
+		D2B8646F252F8D8D00C8F2EA /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8643C252F8D8D00C8F2EA /* Color+Extension.swift */; };
+		D2B86470252F8D8D00C8F2EA /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8643D252F8D8D00C8F2EA /* CGPoint+Extension.swift */; };
+		D2B86471252F8D8D00C8F2EA /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8643D252F8D8D00C8F2EA /* CGPoint+Extension.swift */; };
+		D2B86472252F8D8D00C8F2EA /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8643D252F8D8D00C8F2EA /* CGPoint+Extension.swift */; };
+		D2B86473252F8D8D00C8F2EA /* CGRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8643E252F8D8D00C8F2EA /* CGRect+Extension.swift */; };
+		D2B86474252F8D8D00C8F2EA /* CGRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8643E252F8D8D00C8F2EA /* CGRect+Extension.swift */; };
+		D2B86475252F8D8D00C8F2EA /* CGRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8643E252F8D8D00C8F2EA /* CGRect+Extension.swift */; };
+		D2B86476252F8D8D00C8F2EA /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8643F252F8D8D00C8F2EA /* View+Extension.swift */; };
+		D2B86477252F8D8D00C8F2EA /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8643F252F8D8D00C8F2EA /* View+Extension.swift */; };
+		D2B86478252F8D8D00C8F2EA /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8643F252F8D8D00C8F2EA /* View+Extension.swift */; };
+		D2B86479252F8D8D00C8F2EA /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86440252F8D8D00C8F2EA /* Array+Extension.swift */; };
+		D2B8647A252F8D8D00C8F2EA /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86440252F8D8D00C8F2EA /* Array+Extension.swift */; };
+		D2B8647B252F8D8D00C8F2EA /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86440252F8D8D00C8F2EA /* Array+Extension.swift */; };
+		D2B8647C252F8D8D00C8F2EA /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86442252F8D8D00C8F2EA /* CardView.swift */; };
+		D2B8647D252F8D8D00C8F2EA /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86442252F8D8D00C8F2EA /* CardView.swift */; };
+		D2B8647E252F8D8D00C8F2EA /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86442252F8D8D00C8F2EA /* CardView.swift */; };
+		D2B8647F252F8D8D00C8F2EA /* ChartGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86444252F8D8D00C8F2EA /* ChartGrid.swift */; };
+		D2B86480252F8D8D00C8F2EA /* ChartGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86444252F8D8D00C8F2EA /* ChartGrid.swift */; };
+		D2B86481252F8D8D00C8F2EA /* ChartGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86444252F8D8D00C8F2EA /* ChartGrid.swift */; };
+		D2B86482252F8D8D00C8F2EA /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86447252F8D8D00C8F2EA /* BarChart.swift */; };
+		D2B86483252F8D8D00C8F2EA /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86447252F8D8D00C8F2EA /* BarChart.swift */; };
+		D2B86484252F8D8D00C8F2EA /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86447252F8D8D00C8F2EA /* BarChart.swift */; };
+		D2B86485252F8D8D00C8F2EA /* BarChartRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86448252F8D8D00C8F2EA /* BarChartRow.swift */; };
+		D2B86486252F8D8D00C8F2EA /* BarChartRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86448252F8D8D00C8F2EA /* BarChartRow.swift */; };
+		D2B86487252F8D8D00C8F2EA /* BarChartRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86448252F8D8D00C8F2EA /* BarChartRow.swift */; };
+		D2B86488252F8D8D00C8F2EA /* BarChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86449252F8D8D00C8F2EA /* BarChartCell.swift */; };
+		D2B86489252F8D8D00C8F2EA /* BarChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86449252F8D8D00C8F2EA /* BarChartCell.swift */; };
+		D2B8648A252F8D8D00C8F2EA /* BarChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86449252F8D8D00C8F2EA /* BarChartCell.swift */; };
+		D2B8648B252F8D8D00C8F2EA /* PieChartRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8644B252F8D8D00C8F2EA /* PieChartRow.swift */; };
+		D2B8648C252F8D8D00C8F2EA /* PieChartRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8644B252F8D8D00C8F2EA /* PieChartRow.swift */; };
+		D2B8648D252F8D8D00C8F2EA /* PieChartRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8644B252F8D8D00C8F2EA /* PieChartRow.swift */; };
+		D2B8648E252F8D8D00C8F2EA /* PieChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8644C252F8D8D00C8F2EA /* PieChartCell.swift */; };
+		D2B8648F252F8D8D00C8F2EA /* PieChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8644C252F8D8D00C8F2EA /* PieChartCell.swift */; };
+		D2B86490252F8D8D00C8F2EA /* PieChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8644C252F8D8D00C8F2EA /* PieChartCell.swift */; };
+		D2B86491252F8D8D00C8F2EA /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8644D252F8D8D00C8F2EA /* PieChart.swift */; };
+		D2B86492252F8D8D00C8F2EA /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8644D252F8D8D00C8F2EA /* PieChart.swift */; };
+		D2B86493252F8D8D00C8F2EA /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8644D252F8D8D00C8F2EA /* PieChart.swift */; };
+		D2B86494252F8D8D00C8F2EA /* IndicatorPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8644F252F8D8D00C8F2EA /* IndicatorPoint.swift */; };
+		D2B86495252F8D8D00C8F2EA /* IndicatorPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8644F252F8D8D00C8F2EA /* IndicatorPoint.swift */; };
+		D2B86496252F8D8D00C8F2EA /* IndicatorPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8644F252F8D8D00C8F2EA /* IndicatorPoint.swift */; };
+		D2B86497252F8D8D00C8F2EA /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86450252F8D8D00C8F2EA /* LineChart.swift */; };
+		D2B86498252F8D8D00C8F2EA /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86450252F8D8D00C8F2EA /* LineChart.swift */; };
+		D2B86499252F8D8D00C8F2EA /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86450252F8D8D00C8F2EA /* LineChart.swift */; };
+		D2B8649A252F8D8D00C8F2EA /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86451252F8D8D00C8F2EA /* Line.swift */; };
+		D2B8649B252F8D8D00C8F2EA /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86451252F8D8D00C8F2EA /* Line.swift */; };
+		D2B8649C252F8D8D00C8F2EA /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86451252F8D8D00C8F2EA /* Line.swift */; };
+		D2B864A8252FA09600C8F2EA /* RandomAccessCollection+Indexed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B864A7252FA09600C8F2EA /* RandomAccessCollection+Indexed.swift */; };
+		D2B864A9252FA09600C8F2EA /* RandomAccessCollection+Indexed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B864A7252FA09600C8F2EA /* RandomAccessCollection+Indexed.swift */; };
+		D2B864AA252FA09600C8F2EA /* RandomAccessCollection+Indexed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B864A7252FA09600C8F2EA /* RandomAccessCollection+Indexed.swift */; };
+		D2B864B1252FA0B500C8F2EA /* MetricGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B864B0252FA0B500C8F2EA /* MetricGraphView.swift */; };
+		D2B864B2252FA0B500C8F2EA /* MetricGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B864B0252FA0B500C8F2EA /* MetricGraphView.swift */; };
+		D2B864B3252FA0B500C8F2EA /* MetricGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B864B0252FA0B500C8F2EA /* MetricGraphView.swift */; };
 		D2BCC687251FF17E0032CC23 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E8C251FE3FF006896C3 /* AppEnvironment.swift */; };
 		D2BCC6A0252004FB0032CC23 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E80251FE33D006896C3 /* Store.swift */; };
 		D2BCC6A1252004FB0032CC23 /* Store+Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E86251FE36F006896C3 /* Store+Binding.swift */; };
@@ -311,6 +396,33 @@
 		D2B74DA1251ABE0C00D1004B /* TopSpinWatch WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TopSpinWatch WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		D2B74DA6251ABE1000D1004B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		D2B74DAA251ABEA800D1004B /* TopSpin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TopSpin.xcdatamodel; sourceTree = "<group>"; };
+		D2B86430252F8D8C00C8F2EA /* ChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
+		D2B86431252F8D8C00C8F2EA /* ChartBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartBase.swift; sourceTree = "<group>"; };
+		D2B86432252F8D8C00C8F2EA /* ChartValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartValue.swift; sourceTree = "<group>"; };
+		D2B86434252F8D8C00C8F2EA /* ChartLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartLabel.swift; sourceTree = "<group>"; };
+		D2B86436252F8D8C00C8F2EA /* ChartStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartStyle.swift; sourceTree = "<group>"; };
+		D2B86437252F8D8C00C8F2EA /* ColorGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorGradient.swift; sourceTree = "<group>"; };
+		D2B86438252F8D8C00C8F2EA /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		D2B8643A252F8D8D00C8F2EA /* ChartBase+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChartBase+Extension.swift"; sourceTree = "<group>"; };
+		D2B8643B252F8D8D00C8F2EA /* Path+QuadCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Path+QuadCurve.swift"; sourceTree = "<group>"; };
+		D2B8643C252F8D8D00C8F2EA /* Color+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		D2B8643D252F8D8D00C8F2EA /* CGPoint+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extension.swift"; sourceTree = "<group>"; };
+		D2B8643E252F8D8D00C8F2EA /* CGRect+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Extension.swift"; sourceTree = "<group>"; };
+		D2B8643F252F8D8D00C8F2EA /* View+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		D2B86440252F8D8D00C8F2EA /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		D2B86442252F8D8D00C8F2EA /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		D2B86444252F8D8D00C8F2EA /* ChartGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartGrid.swift; sourceTree = "<group>"; };
+		D2B86447252F8D8D00C8F2EA /* BarChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
+		D2B86448252F8D8D00C8F2EA /* BarChartRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartRow.swift; sourceTree = "<group>"; };
+		D2B86449252F8D8D00C8F2EA /* BarChartCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartCell.swift; sourceTree = "<group>"; };
+		D2B8644B252F8D8D00C8F2EA /* PieChartRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartRow.swift; sourceTree = "<group>"; };
+		D2B8644C252F8D8D00C8F2EA /* PieChartCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartCell.swift; sourceTree = "<group>"; };
+		D2B8644D252F8D8D00C8F2EA /* PieChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
+		D2B8644F252F8D8D00C8F2EA /* IndicatorPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorPoint.swift; sourceTree = "<group>"; };
+		D2B86450252F8D8D00C8F2EA /* LineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
+		D2B86451252F8D8D00C8F2EA /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		D2B864A7252FA09600C8F2EA /* RandomAccessCollection+Indexed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RandomAccessCollection+Indexed.swift"; sourceTree = "<group>"; };
+		D2B864B0252FA0B500C8F2EA /* MetricGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricGraphView.swift; sourceTree = "<group>"; };
 		D2BCC6AB2520053C0032CC23 /* AppEnvironment+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppEnvironment+Mock.swift"; sourceTree = "<group>"; };
 		D2D73E1A251ED74D006896C3 /* MatchTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTimelineView.swift; sourceTree = "<group>"; };
 		D2D73E29251EF398006896C3 /* FloatingLiveWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingLiveWorkoutView.swift; sourceTree = "<group>"; };
@@ -527,6 +639,7 @@
 			isa = PBXGroup;
 			children = (
 				D2493293252E042400D0A610 /* Date+Comparison.swift */,
+				D2B864A7252FA09600C8F2EA /* RandomAccessCollection+Indexed.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -670,6 +783,7 @@
 		D27978FC251CF6F500771DB9 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				D2B863A0252F87E100C8F2EA /* Chart */,
 				D2714916252B7CBA008EEEC8 /* UserDefaults */,
 				D20C55FD251CEC7F00107FBD /* Rally */,
 				D20C55FE251CEC8800107FBD /* Workout */,
@@ -712,6 +826,7 @@
 			children = (
 				D2801F4D25199BCC00E85E90 /* HistorySummaryView.swift */,
 				D23CCB8C251ADEC2002EBE72 /* HorizontalSummaryView.swift */,
+				D2B864B0252FA0B500C8F2EA /* MetricGraphView.swift */,
 			);
 			path = HistorySummary;
 			sourceTree = "<group>";
@@ -766,6 +881,126 @@
 				D23CCBC4251BA65B002EBE72 /* SettingStorage.swift */,
 			);
 			path = Persistance;
+			sourceTree = "<group>";
+		};
+		D2B863A0252F87E100C8F2EA /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				D2B8642E252F8D8C00C8F2EA /* Base */,
+				D2B86445252F8D8D00C8F2EA /* Charts */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		D2B8642E252F8D8C00C8F2EA /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				D2B8642F252F8D8C00C8F2EA /* Chart */,
+				D2B86433252F8D8C00C8F2EA /* Label */,
+				D2B86435252F8D8C00C8F2EA /* Style */,
+				D2B86439252F8D8C00C8F2EA /* Extensions */,
+				D2B86441252F8D8D00C8F2EA /* CardView */,
+				D2B86443252F8D8D00C8F2EA /* Grid */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		D2B8642F252F8D8C00C8F2EA /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				D2B86430252F8D8C00C8F2EA /* ChartData.swift */,
+				D2B86431252F8D8C00C8F2EA /* ChartBase.swift */,
+				D2B86432252F8D8C00C8F2EA /* ChartValue.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		D2B86433252F8D8C00C8F2EA /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				D2B86434252F8D8C00C8F2EA /* ChartLabel.swift */,
+			);
+			path = Label;
+			sourceTree = "<group>";
+		};
+		D2B86435252F8D8C00C8F2EA /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				D2B86436252F8D8C00C8F2EA /* ChartStyle.swift */,
+				D2B86437252F8D8C00C8F2EA /* ColorGradient.swift */,
+				D2B86438252F8D8C00C8F2EA /* Colors.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		D2B86439252F8D8C00C8F2EA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D2B8643A252F8D8D00C8F2EA /* ChartBase+Extension.swift */,
+				D2B8643B252F8D8D00C8F2EA /* Path+QuadCurve.swift */,
+				D2B8643C252F8D8D00C8F2EA /* Color+Extension.swift */,
+				D2B8643D252F8D8D00C8F2EA /* CGPoint+Extension.swift */,
+				D2B8643E252F8D8D00C8F2EA /* CGRect+Extension.swift */,
+				D2B8643F252F8D8D00C8F2EA /* View+Extension.swift */,
+				D2B86440252F8D8D00C8F2EA /* Array+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D2B86441252F8D8D00C8F2EA /* CardView */ = {
+			isa = PBXGroup;
+			children = (
+				D2B86442252F8D8D00C8F2EA /* CardView.swift */,
+			);
+			path = CardView;
+			sourceTree = "<group>";
+		};
+		D2B86443252F8D8D00C8F2EA /* Grid */ = {
+			isa = PBXGroup;
+			children = (
+				D2B86444252F8D8D00C8F2EA /* ChartGrid.swift */,
+			);
+			path = Grid;
+			sourceTree = "<group>";
+		};
+		D2B86445252F8D8D00C8F2EA /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				D2B86446252F8D8D00C8F2EA /* BarChart */,
+				D2B8644A252F8D8D00C8F2EA /* PieChart */,
+				D2B8644E252F8D8D00C8F2EA /* LineChart */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
+		D2B86446252F8D8D00C8F2EA /* BarChart */ = {
+			isa = PBXGroup;
+			children = (
+				D2B86447252F8D8D00C8F2EA /* BarChart.swift */,
+				D2B86448252F8D8D00C8F2EA /* BarChartRow.swift */,
+				D2B86449252F8D8D00C8F2EA /* BarChartCell.swift */,
+			);
+			path = BarChart;
+			sourceTree = "<group>";
+		};
+		D2B8644A252F8D8D00C8F2EA /* PieChart */ = {
+			isa = PBXGroup;
+			children = (
+				D2B8644B252F8D8D00C8F2EA /* PieChartRow.swift */,
+				D2B8644C252F8D8D00C8F2EA /* PieChartCell.swift */,
+				D2B8644D252F8D8D00C8F2EA /* PieChart.swift */,
+			);
+			path = PieChart;
+			sourceTree = "<group>";
+		};
+		D2B8644E252F8D8D00C8F2EA /* LineChart */ = {
+			isa = PBXGroup;
+			children = (
+				D2B8644F252F8D8D00C8F2EA /* IndicatorPoint.swift */,
+				D2B86450252F8D8D00C8F2EA /* LineChart.swift */,
+				D2B86451252F8D8D00C8F2EA /* Line.swift */,
+			);
+			path = LineChart;
 			sourceTree = "<group>";
 		};
 		D2BCC69B252004F00032CC23 /* App */ = {
@@ -917,6 +1152,8 @@
 				D2714905252B7C9D008EEEC8 /* PBXTargetDependency */,
 			);
 			name = TopSpin;
+			packageProductDependencies = (
+			);
 			productName = TopSpin;
 			productReference = D23F760625198A87006BF603 /* TopSpin.app */;
 			productType = "com.apple.product-type.application";
@@ -951,6 +1188,8 @@
 			dependencies = (
 			);
 			name = "TopSpinWatch WatchKit Extension";
+			packageProductDependencies = (
+			);
 			productName = "TopSpinWatch WatchKit Extension";
 			productReference = D23F762A25198AB7006BF603 /* TopSpinWatch WatchKit Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
@@ -1026,6 +1265,8 @@
 				Base,
 			);
 			mainGroup = D23F75FD25198A87006BF603;
+			packageReferences = (
+			);
 			productRefGroup = D23F760725198A87006BF603 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1093,13 +1334,20 @@
 				D2714918252B7CC8008EEEC8 /* UserDefaultsManager.swift in Sources */,
 				D2B279ED251EC5450007FF3F /* MatchSummaryScoreView.swift in Sources */,
 				D2D73E68251FDFD7006896C3 /* MatchSetting.swift in Sources */,
+				D2B864A8252FA09600C8F2EA /* RandomAccessCollection+Indexed.swift in Sources */,
+				D2B86464252F8D8D00C8F2EA /* Colors.swift in Sources */,
+				D2B864B1252FA0B500C8F2EA /* MetricGraphView.swift in Sources */,
 				D2D73E2A251EF398006896C3 /* FloatingLiveWorkoutView.swift in Sources */,
+				D2B86473252F8D8D00C8F2EA /* CGRect+Extension.swift in Sources */,
 				D23CCB8D251ADEC2002EBE72 /* HorizontalSummaryView.swift in Sources */,
+				D2B8648E252F8D8D00C8F2EA /* PieChartCell.swift in Sources */,
 				D23CCBC5251BA65B002EBE72 /* SettingStorage.swift in Sources */,
 				D2D73E35251EFA4B006896C3 /* LiveMatchView.swift in Sources */,
 				D2D73E1B251ED74D006896C3 /* MatchTimelineView.swift in Sources */,
 				D23CCBAC251B8DBE002EBE72 /* MatchStorage.swift in Sources */,
+				D2B86494252F8D8D00C8F2EA /* IndicatorPoint.swift in Sources */,
 				D2714948252B7FF1008EEEC8 /* MatchSummary+TimelineEntry.swift in Sources */,
+				D2B8647C252F8D8D00C8F2EA /* CardView.swift in Sources */,
 				D23CCB65251AD634002EBE72 /* Match+Extensions.swift in Sources */,
 				D23CCBA0251B8AE3002EBE72 /* HistoryWorkoutMetricView.swift in Sources */,
 				D2BCC687251FF17E0032CC23 /* AppEnvironment.swift in Sources */,
@@ -1108,9 +1356,13 @@
 				D23CCBA6251B8B2C002EBE72 /* MatchHistoryScoreView.swift in Sources */,
 				D2B01F02251ED201002E8E74 /* HeartRatesView.swift in Sources */,
 				D254C63C252D5E5900E041C3 /* AddMatchView.swift in Sources */,
+				D2B8647F252F8D8D00C8F2EA /* ChartGrid.swift in Sources */,
 				D27978BB251CED2400771DB9 /* RallyMatchController.swift in Sources */,
 				D2AE478A252E97020082EEA9 /* ShareSheet.swift in Sources */,
+				D2B86488252F8D8D00C8F2EA /* BarChartCell.swift in Sources */,
+				D2B8649A252F8D8D00C8F2EA /* Line.swift in Sources */,
 				D2714925252B7ED2008EEEC8 /* MatchSummary.swift in Sources */,
+				D2B86455252F8D8D00C8F2EA /* ChartBase.swift in Sources */,
 				D2B279C3251EB9B30007FF3F /* HorizontalIconView.swift in Sources */,
 				D2F35E0D251A497200739463 /* SettingsView.swift in Sources */,
 				D23F760A25198A87006BF603 /* TopSpinApp.swift in Sources */,
@@ -1119,25 +1371,41 @@
 				D23F765525198CF5006BF603 /* MatchHistoryList.swift in Sources */,
 				D2A71409252421AA008F053D /* SettingReducer.swift in Sources */,
 				D23F766125198D24006BF603 /* MatchHistoryItem.swift in Sources */,
+				D2B86491252F8D8D00C8F2EA /* PieChart.swift in Sources */,
 				D2493294252E042400D0A610 /* Date+Comparison.swift in Sources */,
 				D2B74D9A251ABD6500D1004B /* Persistance.swift in Sources */,
+				D2B86479252F8D8D00C8F2EA /* Array+Extension.swift in Sources */,
 				D2A714182524227A008F053D /* MatchHistoryReducer.swift in Sources */,
 				D2801F4E25199BCC00E85E90 /* HistorySummaryView.swift in Sources */,
+				D2B86467252F8D8D00C8F2EA /* ChartBase+Extension.swift in Sources */,
 				D27978FE251CF70E00771DB9 /* StatefulPreviewWrapper.swift in Sources */,
 				D2E11B63252634E100ECE75D /* ProtocolWorkoutInteractable.swift in Sources */,
+				D2B8645E252F8D8D00C8F2EA /* ChartStyle.swift in Sources */,
+				D2B86461252F8D8D00C8F2EA /* ColorGradient.swift in Sources */,
 				D2D73E87251FE36F006896C3 /* Store+Binding.swift in Sources */,
 				D2D73E61251FDFB2006896C3 /* Workout.swift in Sources */,
 				D2E11B93252637C500ECE75D /* AppExtension+Mock.swift in Sources */,
 				D2B279CE251EC25F0007FF3F /* HistoryEmptyView.swift in Sources */,
+				D2B8648B252F8D8D00C8F2EA /* PieChartRow.swift in Sources */,
+				D2B86497252F8D8D00C8F2EA /* LineChart.swift in Sources */,
 				D2F35DE5251A379D00739463 /* MatchSummaryView.swift in Sources */,
 				D2F35DF5251A41F500739463 /* MatchSettingsFormView.swift in Sources */,
+				D2B86458252F8D8D00C8F2EA /* ChartValue.swift in Sources */,
 				D2A713FE2524215E008F053D /* Reducer.swift in Sources */,
 				D2D73E3C251F05C0006896C3 /* HomeHistoryView.swift in Sources */,
+				D2B8646D252F8D8D00C8F2EA /* Color+Extension.swift in Sources */,
 				D2E19AC52524604B00C5D3E8 /* MatchHistoryRepository.swift in Sources */,
+				D2B86485252F8D8D00C8F2EA /* BarChartRow.swift in Sources */,
+				D2B86476252F8D8D00C8F2EA /* View+Extension.swift in Sources */,
+				D2B86452252F8D8D00C8F2EA /* ChartData.swift in Sources */,
 				D27978B9251CED2400771DB9 /* RallyTeam.swift in Sources */,
 				D2B279E6251EC3C80007FF3F /* LargeMetricView.swift in Sources */,
+				D2B86470252F8D8D00C8F2EA /* CGPoint+Extension.swift in Sources */,
+				D2B8646A252F8D8D00C8F2EA /* Path+QuadCurve.swift in Sources */,
 				D2D73E81251FE33E006896C3 /* Store.swift in Sources */,
+				D2B86482252F8D8D00C8F2EA /* BarChart.swift in Sources */,
 				D2B74DAB251ABEA800D1004B /* TopSpin.xcdatamodeld in Sources */,
+				D2B8645B252F8D8D00C8F2EA /* ChartLabel.swift in Sources */,
 				D2B279BB251EB97F0007FF3F /* WorkoutMetricContent.swift in Sources */,
 				D2E11B6C2526363D00ECE75D /* WorkoutReducer.swift in Sources */,
 				D2D73E5B251FDFAA006896C3 /* MatchScore.swift in Sources */,
@@ -1154,46 +1422,71 @@
 				D261A864251A662100689252 /* MatchSetupView.swift in Sources */,
 				D2A7145325242755008F053D /* WorkoutReducer.swift in Sources */,
 				D2B01F0E251ED2A2002E8E74 /* HeartRateValueView.swift in Sources */,
+				D2B86498252F8D8D00C8F2EA /* LineChart.swift in Sources */,
 				D2227EFC251E3154009DD539 /* MatchSettingsPickerView.swift in Sources */,
 				D2BCC6AC2520053C0032CC23 /* AppEnvironment+Mock.swift in Sources */,
 				D20C55E2251C04EE00107FBD /* RallyTeam.swift in Sources */,
 				D2E19AC62524604B00C5D3E8 /* MatchHistoryRepository.swift in Sources */,
+				D2B864B2252FA0B500C8F2EA /* MetricGraphView.swift in Sources */,
 				D23CCBB5251B95A7002EBE72 /* HistoryWorkoutMetricView.swift in Sources */,
+				D2B86468252F8D8D00C8F2EA /* ChartBase+Extension.swift in Sources */,
 				D27978FF251CF70E00771DB9 /* StatefulPreviewWrapper.swift in Sources */,
+				D2B8647A252F8D8D00C8F2EA /* Array+Extension.swift in Sources */,
+				D2B86465252F8D8D00C8F2EA /* Colors.swift in Sources */,
 				D23F763025198AB7006BF603 /* ContentView.swift in Sources */,
+				D2B8649B252F8D8D00C8F2EA /* Line.swift in Sources */,
+				D2B86474252F8D8D00C8F2EA /* CGRect+Extension.swift in Sources */,
+				D2B86471252F8D8D00C8F2EA /* CGPoint+Extension.swift in Sources */,
 				D2D73EB2251FE55A006896C3 /* MatchScore.swift in Sources */,
 				D27978EF251CF48500771DB9 /* ActiveMatchTabView.swift in Sources */,
+				D2B8646B252F8D8D00C8F2EA /* Path+QuadCurve.swift in Sources */,
 				D2B279E7251EC3C80007FF3F /* LargeMetricView.swift in Sources */,
+				D2B8648C252F8D8D00C8F2EA /* PieChartRow.swift in Sources */,
 				D23CCB9A251AE68A002EBE72 /* Match+Extensions.swift in Sources */,
 				D20C55DA251C04E000107FBD /* RallyMatchConfigurable.swift in Sources */,
 				D2F35DDB2519A5B400739463 /* MatchHistoryList.swift in Sources */,
+				D2B864A9252FA09600C8F2EA /* RandomAccessCollection+Indexed.swift in Sources */,
+				D2B86477252F8D8D00C8F2EA /* View+Extension.swift in Sources */,
+				D2B8645C252F8D8D00C8F2EA /* ChartLabel.swift in Sources */,
 				D23CCBBB251B95E3002EBE72 /* MatchStorage.swift in Sources */,
 				D2A713FF2524215E008F053D /* Reducer.swift in Sources */,
+				D2B86486252F8D8D00C8F2EA /* BarChartRow.swift in Sources */,
 				D2714936252B7F93008EEEC8 /* MatchSummary.swift in Sources */,
 				D2A7143D25242584008F053D /* SettingsRepository.swift in Sources */,
 				D2D73EB1251FE55A006896C3 /* MatchSetting.swift in Sources */,
+				D2B86495252F8D8D00C8F2EA /* IndicatorPoint.swift in Sources */,
+				D2B86489252F8D8D00C8F2EA /* BarChartCell.swift in Sources */,
 				D2B74D69251AA49B00D1004B /* ActiveMatchView.swift in Sources */,
 				D271494E252B800D008EEEC8 /* UserDefaultsManager.swift in Sources */,
 				D2B74D91251ABD0C00D1004B /* Persistance.swift in Sources */,
 				D261A876251A6D9300689252 /* MatchWorkoutView.swift in Sources */,
 				D23F763225198AB7006BF603 /* TopSpinApp.swift in Sources */,
+				D2B8646E252F8D8D00C8F2EA /* Color+Extension.swift in Sources */,
+				D2B86492252F8D8D00C8F2EA /* PieChart.swift in Sources */,
 				D2E11B7A2526368C00ECE75D /* SettingReducer.swift in Sources */,
+				D2B86453252F8D8D00C8F2EA /* ChartData.swift in Sources */,
+				D2B8645F252F8D8D00C8F2EA /* ChartStyle.swift in Sources */,
 				D27978F6251CF4E100771DB9 /* HomeTabView.swift in Sources */,
 				D24932A0252E04B100D0A610 /* Date+Comparison.swift in Sources */,
+				D2B86456252F8D8D00C8F2EA /* ChartBase.swift in Sources */,
 				D23F763425198AB7006BF603 /* ComplicationController.swift in Sources */,
 				D23CCBC6251BA65B002EBE72 /* SettingStorage.swift in Sources */,
 				D23F7666251991F5006BF603 /* MatchHistoryItem.swift in Sources */,
 				D2E11B842526370A00ECE75D /* AppStore.swift in Sources */,
+				D2B8647D252F8D8D00C8F2EA /* CardView.swift in Sources */,
 				D2D73EB0251FE55A006896C3 /* Match.swift in Sources */,
 				D2BCC6A1252004FB0032CC23 /* Store+Binding.swift in Sources */,
 				D23CCBB6251B95A7002EBE72 /* MatchHistoryScoreView.swift in Sources */,
+				D2B86480252F8D8D00C8F2EA /* ChartGrid.swift in Sources */,
 				D2E11B5A252634CA00ECE75D /* ProtocolWorkoutInteractable.swift in Sources */,
 				D2B279BC251EB97F0007FF3F /* WorkoutMetricContent.swift in Sources */,
 				D2D73EAA251FE547006896C3 /* WorkoutManager.swift in Sources */,
+				D2B86459252F8D8D00C8F2EA /* ChartValue.swift in Sources */,
 				D22EDAF52525295400912B09 /* MatchSummaryView.swift in Sources */,
 				D2B74DAC251ABEA800D1004B /* TopSpin.xcdatamodeld in Sources */,
 				D20C55DB251C04E000107FBD /* RallyMatchController.swift in Sources */,
 				D2D73EAF251FE55A006896C3 /* Workout.swift in Sources */,
+				D2B86462252F8D8D00C8F2EA /* ColorGradient.swift in Sources */,
 				D2AE4767252E77250082EEA9 /* VerticalSummaryComplicationView.swift in Sources */,
 				D2B01F03251ED201002E8E74 /* HeartRatesView.swift in Sources */,
 				D2E11B712526367400ECE75D /* MatchHistoryReducer.swift in Sources */,
@@ -1201,6 +1494,8 @@
 				D2BCC6A0252004FB0032CC23 /* Store.swift in Sources */,
 				D2AE479A252E970C0082EEA9 /* SettingsView.swift in Sources */,
 				D260808F2525228A00F73FAE /* MatchSummaryScoreView.swift in Sources */,
+				D2B8648F252F8D8D00C8F2EA /* PieChartCell.swift in Sources */,
+				D2B86483252F8D8D00C8F2EA /* BarChart.swift in Sources */,
 				D2AE4760252E73320082EEA9 /* HistorySummaryComplicationView.swift in Sources */,
 				D2B74D5F251A931700D1004B /* ActiveMatchSwipeView.swift in Sources */,
 				D2F35E07251A454700739463 /* MatchSettingsFormView.swift in Sources */,
@@ -1213,17 +1508,48 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2B86463252F8D8D00C8F2EA /* ColorGradient.swift in Sources */,
+				D2B86487252F8D8D00C8F2EA /* BarChartRow.swift in Sources */,
+				D2B8647B252F8D8D00C8F2EA /* Array+Extension.swift in Sources */,
+				D2B8646F252F8D8D00C8F2EA /* Color+Extension.swift in Sources */,
+				D2B86466252F8D8D00C8F2EA /* Colors.swift in Sources */,
+				D2B86499252F8D8D00C8F2EA /* LineChart.swift in Sources */,
+				D2B8647E252F8D8D00C8F2EA /* CardView.swift in Sources */,
+				D2B864B3252FA0B500C8F2EA /* MetricGraphView.swift in Sources */,
+				D2B8648D252F8D8D00C8F2EA /* PieChartRow.swift in Sources */,
+				D2B86457252F8D8D00C8F2EA /* ChartBase.swift in Sources */,
 				D2714954252B825A008EEEC8 /* MatchSummary+TimelineEntry.swift in Sources */,
 				D271495A252B82D0008EEEC8 /* SquareSummaryView.swift in Sources */,
 				D24932CA252E0E4300D0A610 /* TopSpinWidgets.swift in Sources */,
+				D2B8645A252F8D8D00C8F2EA /* ChartValue.swift in Sources */,
+				D2B86493252F8D8D00C8F2EA /* PieChart.swift in Sources */,
 				D24932D8252E0EE600D0A610 /* SquareSummaryScoreView.swift in Sources */,
 				D24932D1252E0EB500D0A610 /* SummaryScoreWidget.swift in Sources */,
 				D271492B252B7EE0008EEEC8 /* MatchSummary.swift in Sources */,
+				D2B86454252F8D8D00C8F2EA /* ChartData.swift in Sources */,
 				D24932BF252E0E3C00D0A610 /* MatchSummaryProvider.swift in Sources */,
+				D2B86490252F8D8D00C8F2EA /* PieChartCell.swift in Sources */,
+				D2B86481252F8D8D00C8F2EA /* ChartGrid.swift in Sources */,
+				D2B86484252F8D8D00C8F2EA /* BarChart.swift in Sources */,
+				D2B8639A252F7E8100C8F2EA /* MatchSetting.swift in Sources */,
+				D2B86496252F8D8D00C8F2EA /* IndicatorPoint.swift in Sources */,
 				D271491E252B7EC0008EEEC8 /* UserDefaultsManager.swift in Sources */,
 				D2714900252B7C9C008EEEC8 /* MatchSummaryWidget.swift in Sources */,
+				D2B864AA252FA09600C8F2EA /* RandomAccessCollection+Indexed.swift in Sources */,
+				D2B8646C252F8D8D00C8F2EA /* Path+QuadCurve.swift in Sources */,
+				D2B8648A252F8D8D00C8F2EA /* BarChartCell.swift in Sources */,
+				D2B86399252F7E8100C8F2EA /* Workout.swift in Sources */,
+				D2B8649C252F8D8D00C8F2EA /* Line.swift in Sources */,
+				D2B86475252F8D8D00C8F2EA /* CGRect+Extension.swift in Sources */,
+				D2B8645D252F8D8D00C8F2EA /* ChartLabel.swift in Sources */,
 				D249329A252E04B000D0A610 /* Date+Comparison.swift in Sources */,
 				D2714967252B8656008EEEC8 /* HistorySummaryView.swift in Sources */,
+				D2B86392252F7E7800C8F2EA /* Match.swift in Sources */,
+				D2B86472252F8D8D00C8F2EA /* CGPoint+Extension.swift in Sources */,
+				D2B86469252F8D8D00C8F2EA /* ChartBase+Extension.swift in Sources */,
+				D2B86460252F8D8D00C8F2EA /* ChartStyle.swift in Sources */,
+				D2B86478252F8D8D00C8F2EA /* View+Extension.swift in Sources */,
+				D2B86398252F7E8100C8F2EA /* MatchScore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

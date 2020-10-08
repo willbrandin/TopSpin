@@ -91,13 +91,15 @@ struct HistorySummaryView: View {
 }
 
 struct HistorySummaryView_Previews: PreviewProvider {
+    
+    static let summary =  MatchSummary(id: UUID(), monthRange: Date(), wins: 12, loses: 2, calories: 459, avgHeartRate: 145, matches: [.mockMatch()])
+
     static var previews: some View {
         Group {
-            HistorySummaryView(summary: MatchSummary(id: UUID(), monthRange: Date(), wins: 12, loses: 2, calories: 4459, avgHeartRate: 145))
+            HistorySummaryView(summary: summary)
                 .previewContext(WidgetPreviewContext(family: .systemMedium))
             
-            HistorySummaryView(summary: MatchSummary(id: UUID(), monthRange: Date(), wins: 12, loses: 2, calories: 459, avgHeartRate: 145))
-                .redacted(reason: .placeholder)
+            HistorySummaryView(summary: summary)
                 .previewContext(WidgetPreviewContext(family: .systemMedium))
         }
     }
