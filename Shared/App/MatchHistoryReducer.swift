@@ -38,7 +38,8 @@ struct MatchHistoryState: Equatable {
                 totalHeartEntries += match.workout?.heartRateMetrics.averageHeartRate != nil ? 1 : 0
             }
             
-            let heartAverage = Int(totalHeartRate/totalHeartEntries)
+            let totalEntries = max(1, totalHeartEntries) // So that you cannot divide by 0
+            let heartAverage = Int(totalHeartRate/totalEntries)
             let summary = MatchSummary(id: UUID(), monthRange: date, wins: totalWins, loses: totalLoses, calories: totalCalories, avgHeartRate: heartAverage)
             
             if date.isInThisMonth || date.isInThePast {

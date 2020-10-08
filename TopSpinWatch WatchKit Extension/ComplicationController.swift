@@ -39,6 +39,8 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         } else if complication.identifier == "montly.summary.vertical.complication" {
             let summary = UserDefaultsManager.shared.summaryEntry ?? MatchSummary(id: UUID(), monthRange: Date(), wins: 0, loses: 0, calories: 0, avgHeartRate: 0)
             handler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: CLKComplicationTemplateGraphicRectangularFullView(VerticalSummaryComplicationView(summary: summary))))
+        } else {
+            handler(nil)
         }
     }
 
@@ -51,8 +53,10 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
 
         if complication.identifier == "monthly.summary.complication" {
             handler(CLKComplicationTemplateGraphicRectangularFullView(HistorySummaryComplicationView(summary: summary)))
-        } else {
+        } else if complication.identifier == "montly.summary.vertical.complication" {
             handler(CLKComplicationTemplateGraphicRectangularFullView(VerticalSummaryComplicationView(summary: summary)))
+        } else {
+            handler(nil)
         }
     }
 }
