@@ -11,7 +11,7 @@ struct MonthlySummaryDetail: View {
     
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.horizontalSizeClass) var horizontalSize
-        
+    
     var summary: MatchSummary
     
     var heartPoints: [Double] {
@@ -29,68 +29,57 @@ struct MonthlySummaryDetail: View {
     var bodyContent: some View {
         VStack {
             HStack {
-                VStack(alignment: .leading) {
-                    Text(summary.dateRange.uppercased())
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                        .bold()
-                }
-                
-                Spacer()
-            }
-            
-            HStack {
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Wins")
-                        .font(.caption)
+                        .font(.subheadline)
                         .foregroundColor(.green)
                         .bold()
                     
                     Text("\(summary.wins)")
-                        .font(Font.system(.title, design: .rounded))
+                        .font(Font.system(.largeTitle, design: .rounded))
                         .fontWeight(.bold)
                 }
                 
-                Divider()
+                Spacer()
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Losses")
-                        .font(.caption)
+                        .font(.subheadline)
                         .foregroundColor(.red)
                         .bold()
                     Text("\(summary.loses)")
-                        .font(Font.system(.title, design: .rounded))
+                        .font(Font.system(.largeTitle, design: .rounded))
                         .fontWeight(.bold)
                 }
                 
-                Divider()
-                
+                Spacer()
+                Spacer()
+            }
+            .padding(.bottom)
+            
+            HStack {
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Calories")
-                        .font(.caption)
+                        .font(.subheadline)
                         .foregroundColor(.secondary)
                         .bold()
                     Text("\(summary.calories)")
-                        .font(Font.system(.title, design: .rounded))
+                        .font(Font.system(.largeTitle, design: .rounded))
                         .fontWeight(.bold)
                         .bold()
                 }
-                
-                Divider()
-                
+                Spacer()
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Avg. Heart Rate")
-                        .font(.caption)
+                        .font(.subheadline)
                         .foregroundColor(.secondary)
                         .bold()
                     Text("\(summary.avgHeartRate)")
-                        .font(Font.system(.title, design: .rounded))
+                        .font(Font.system(.largeTitle, design: .rounded))
                         .fontWeight(.bold)
                 }
-                
-                if horizontalSize != .regular {
-                    Spacer()
-                }
+                Spacer()
+                Spacer()
             }
             .frame(maxHeight: 50)
         }
@@ -99,8 +88,14 @@ struct MonthlySummaryDetail: View {
     var body: some View {
         VStack {
             bodyContent
+                .padding()
+            
+            MetricGraphView(title: "Average Heart Rate", labels: summary.matches.map({ $0.shortDate }), data: heartPoints, foregroundColor: ColorGradient(.pink, .red))
+            MetricGraphView(title: "Calories Burned", labels: summary.matches.map({ $0.shortDate }), data: caloriePoints, foregroundColor: ColorGradient(.green))
+            
+            Spacer()
         }
-        .navigationTitle("SEP 2020")
+        .navigationTitle(summary.dateRange)
         .navigationBarTitleDisplayMode(.inline)
     }
 }
@@ -111,8 +106,14 @@ struct MonthlySummaryDetail_Previews: PreviewProvider {
     static let summary =  MatchSummary(id: UUID(), monthRange: Date(), wins: 12, loses: 2, calories: 459, avgHeartRate: 145, matches: matchRange.map { _ in Match.mockMatch() })
     
     static var previews: some View {
-        NavigationView {
-            MonthlySummaryDetail(summary: summary)
+        Group {
+            NavigationView {
+                MonthlySummaryDetail(summary: summary)
+            }
+            NavigationView {
+                MonthlySummaryDetail(summary: summary)
+            }
+            .preferredColorScheme(.dark)
         }
     }
 }

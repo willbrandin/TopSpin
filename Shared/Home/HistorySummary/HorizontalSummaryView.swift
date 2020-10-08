@@ -22,7 +22,10 @@ struct HorizontalSummaryView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(alignment: .top, spacing: 16) {
                     ForEach(historySummary) { summary in
-                        HistorySummaryView(summary: summary)
+                        NavigationLink(destination: MonthlySummaryDetail(summary: summary)) {
+                            HistorySummaryView(summary: summary)
+                        }
+                        .buttonStyle(PlainButtonStyle())
                     }
                 }
                 .padding(.horizontal)

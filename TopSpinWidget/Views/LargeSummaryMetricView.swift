@@ -114,7 +114,7 @@ struct LargeSummaryMetricView: View {
                     }
                      
                     if !caloriePoints.isEmpty {
-                        MetricGraphView(title: "Calories Burned", labels: [], data: caloriePoints, foregroundColor: ColorGradient(.green, .green), height: 70)
+                        MetricGraphView(title: "Calories Burned", labels: [], data: caloriePoints, foregroundColor: ColorGradient(.green), height: 70)
                     }
                 }
             }
