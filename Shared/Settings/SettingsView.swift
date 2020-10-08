@@ -12,6 +12,7 @@ struct SettingsView: View {
     @EnvironmentObject var store: AppStore
     
     @State private var isAddNewPresented: Bool = false
+    @State private var isShowingShare: Bool = false
     
     var pickerView: some View {
         NavigationLink(
@@ -19,6 +20,11 @@ struct SettingsView: View {
             label: {
                 Text("Match Settings")
             })
+    }
+    
+    var shareLink: String {
+        let link = "https://apps.apple.com/us/app/id1534058819"
+        return "Check this out! Think you can take me? \(link)"
     }
     
     var listView: some View {
@@ -44,6 +50,10 @@ struct SettingsView: View {
             
             Section(header: Text("About")) {
                 Text("Version 1.0")
+                
+                Button("Share") {
+                    self.isShowingShare = true
+                }
             }
         }
     }
@@ -56,8 +66,10 @@ struct SettingsView: View {
         listView
             .listStyle(InsetGroupedListStyle())
             .navigationTitle("Settings")
+            .sheet(isPresented: $isShowingShare) {
+                ShareSheet(sharing: [shareLink])
+            }
         #endif
-        
     }
 
 }

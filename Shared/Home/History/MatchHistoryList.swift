@@ -61,10 +61,6 @@ struct MatchHistoryList: View {
                             Button(action: { self.onDelete(match) }){
                                 Label("Delete", systemImage: "trash")
                             }
-                            
-                            Button(action: {}) {
-                                Label("Share", systemImage: "square.and.arrow.up")
-                            }
                         }
                 }
                 .buttonStyle(PlainButtonStyle())
@@ -82,10 +78,6 @@ struct MatchHistoryList: View {
                         .contextMenu {
                             Button(action: { self.onDelete(match) }){
                                 Label("Delete", systemImage: "trash")
-                            }
-                            
-                            Button(action: {}) {
-                                Label("Share", systemImage: "square.and.arrow.up")
                             }
                         }
                 }
@@ -131,7 +123,6 @@ struct MatchHistoryList: View {
         }
         .navigationTitle("Match History")
     }
-    
 }
 
 struct MatchHistoryList_Previews: PreviewProvider {

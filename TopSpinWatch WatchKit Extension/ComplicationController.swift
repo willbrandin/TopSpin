@@ -16,8 +16,6 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         let descriptors = [
             CLKComplicationDescriptor(identifier: "monthly.summary.complication", displayName: "Monthly Summary", supportedFamilies: [CLKComplicationFamily.graphicRectangular]),
             CLKComplicationDescriptor(identifier: "montly.summary.vertical.complication", displayName: "Monthly Summary", supportedFamilies: [CLKComplicationFamily.graphicRectangular])
-
-            // Multiple complication support can be added here with more descriptors
         ]
         
         // Call the handler with the currently supported complication descriptors
