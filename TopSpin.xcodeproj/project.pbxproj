@@ -200,6 +200,8 @@
 		D2B864B1252FA0B500C8F2EA /* MetricGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B864B0252FA0B500C8F2EA /* MetricGraphView.swift */; };
 		D2B864B2252FA0B500C8F2EA /* MetricGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B864B0252FA0B500C8F2EA /* MetricGraphView.swift */; };
 		D2B864B3252FA0B500C8F2EA /* MetricGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B864B0252FA0B500C8F2EA /* MetricGraphView.swift */; };
+		D2B864E4252FA4D500C8F2EA /* LargeSummaryMetricView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B864E1252FA4D500C8F2EA /* LargeSummaryMetricView.swift */; };
+		D2B864F6252FB0D400C8F2EA /* MonthlySummaryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B864F5252FB0D400C8F2EA /* MonthlySummaryDetail.swift */; };
 		D2BCC687251FF17E0032CC23 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E8C251FE3FF006896C3 /* AppEnvironment.swift */; };
 		D2BCC6A0252004FB0032CC23 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E80251FE33D006896C3 /* Store.swift */; };
 		D2BCC6A1252004FB0032CC23 /* Store+Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D73E86251FE36F006896C3 /* Store+Binding.swift */; };
@@ -423,6 +425,8 @@
 		D2B86451252F8D8D00C8F2EA /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		D2B864A7252FA09600C8F2EA /* RandomAccessCollection+Indexed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RandomAccessCollection+Indexed.swift"; sourceTree = "<group>"; };
 		D2B864B0252FA0B500C8F2EA /* MetricGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricGraphView.swift; sourceTree = "<group>"; };
+		D2B864E1252FA4D500C8F2EA /* LargeSummaryMetricView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeSummaryMetricView.swift; sourceTree = "<group>"; };
+		D2B864F5252FB0D400C8F2EA /* MonthlySummaryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlySummaryDetail.swift; sourceTree = "<group>"; };
 		D2BCC6AB2520053C0032CC23 /* AppEnvironment+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppEnvironment+Mock.swift"; sourceTree = "<group>"; };
 		D2D73E1A251ED74D006896C3 /* MatchTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTimelineView.swift; sourceTree = "<group>"; };
 		D2D73E29251EF398006896C3 /* FloatingLiveWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingLiveWorkoutView.swift; sourceTree = "<group>"; };
@@ -597,6 +601,7 @@
 		D23F764F25198AF8006BF603 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				D2B864F4252FB0BF00C8F2EA /* SummaryDetail */,
 				D2493292252E041200D0A610 /* Extensions */,
 				D27773CC2521384200F1787A /* Repository */,
 				D2D73E7F251FE33D006896C3 /* App */,
@@ -631,6 +636,7 @@
 				D2714966252B8656008EEEC8 /* HistorySummaryView.swift */,
 				D2426A74252B6328002264D5 /* SquareSummaryView.swift */,
 				D24932D7252E0EE600D0A610 /* SquareSummaryScoreView.swift */,
+				D2B864E1252FA4D500C8F2EA /* LargeSummaryMetricView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1001,6 +1007,14 @@
 				D2B86451252F8D8D00C8F2EA /* Line.swift */,
 			);
 			path = LineChart;
+			sourceTree = "<group>";
+		};
+		D2B864F4252FB0BF00C8F2EA /* SummaryDetail */ = {
+			isa = PBXGroup;
+			children = (
+				D2B864F5252FB0D400C8F2EA /* MonthlySummaryDetail.swift */,
+			);
+			path = SummaryDetail;
 			sourceTree = "<group>";
 		};
 		D2BCC69B252004F00032CC23 /* App */ = {
@@ -1388,6 +1402,7 @@
 				D2B279CE251EC25F0007FF3F /* HistoryEmptyView.swift in Sources */,
 				D2B8648B252F8D8D00C8F2EA /* PieChartRow.swift in Sources */,
 				D2B86497252F8D8D00C8F2EA /* LineChart.swift in Sources */,
+				D2B864F6252FB0D400C8F2EA /* MonthlySummaryDetail.swift in Sources */,
 				D2F35DE5251A379D00739463 /* MatchSummaryView.swift in Sources */,
 				D2F35DF5251A41F500739463 /* MatchSettingsFormView.swift in Sources */,
 				D2B86458252F8D8D00C8F2EA /* ChartValue.swift in Sources */,
@@ -1508,6 +1523,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2B864E4252FA4D500C8F2EA /* LargeSummaryMetricView.swift in Sources */,
 				D2B86463252F8D8D00C8F2EA /* ColorGradient.swift in Sources */,
 				D2B86487252F8D8D00C8F2EA /* BarChartRow.swift in Sources */,
 				D2B8647B252F8D8D00C8F2EA /* Array+Extension.swift in Sources */,
@@ -1719,7 +1735,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TopSpin/TopSpin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "\"TopSpin/Preview Content\"";
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;
 				ENABLE_PREVIEWS = YES;
@@ -1729,7 +1745,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.willBrandin.dev.TopSpin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
@@ -1746,7 +1762,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TopSpin/TopSpin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "\"TopSpin/Preview Content\"";
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;
 				ENABLE_PREVIEWS = YES;
@@ -1756,7 +1772,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.willBrandin.dev.TopSpin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
@@ -1771,7 +1787,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "TopSpinWatch WatchKit Extension/TopSpinWatch WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "\"TopSpinWatch WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;
 				ENABLE_PREVIEWS = YES;
@@ -1781,7 +1797,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.willBrandin.dev.TopSpin.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -1798,7 +1814,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "TopSpinWatch WatchKit Extension/TopSpinWatch WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "\"TopSpinWatch WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;
 				ENABLE_PREVIEWS = YES;
@@ -1808,7 +1824,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.willBrandin.dev.TopSpin.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -1826,11 +1842,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;
 				IBSC_MODULE = TopSpinWatch_WatchKit_Extension;
 				INFOPLIST_FILE = "TopSpinWatch WatchKit App/Info.plist";
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.willBrandin.dev.TopSpin.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -1848,11 +1864,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;
 				IBSC_MODULE = TopSpinWatch_WatchKit_Extension;
 				INFOPLIST_FILE = "TopSpinWatch WatchKit App/Info.plist";
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.willBrandin.dev.TopSpin.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -1870,7 +1886,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = TopSpinWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;
 				INFOPLIST_FILE = TopSpinWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1878,7 +1894,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.willBrandin.dev.TopSpin.TopSpinWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1894,7 +1910,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = TopSpinWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;
 				INFOPLIST_FILE = TopSpinWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1902,7 +1918,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.willBrandin.dev.TopSpin.TopSpinWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

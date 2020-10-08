@@ -1,23 +1,29 @@
 //
-//  HistorySummaryView.swift
+//  MonthlySummaryDetail.swift
 //  TopSpin
 //
-//  Created by Will Brandin on 9/21/20.
+//  Created by Will Brandin on 10/8/20.
 //
 
 import SwiftUI
 
-struct HistorySummaryView: View {
+struct MonthlySummaryDetail: View {
     
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.horizontalSizeClass) var horizontalSize
-    
-    @State private var isExpanded: Bool = false
-    
+        
     var summary: MatchSummary
     
-    var backgroundColor: UIColor {
-        return colorScheme == .dark ? .secondarySystemBackground : .systemBackground
+    var heartPoints: [Double] {
+        return summary.matches
+            .compactMap({ $0.workout?.heartRateMetrics.averageHeartRate })
+            .compactMap({ Double($0) })
+    }
+    
+    var caloriePoints: [Double] {
+        return summary.matches
+            .compactMap({ $0.workout?.activeCalories })
+            .compactMap({ Double($0) })
     }
     
     var bodyContent: some View {
@@ -91,33 +97,22 @@ struct HistorySummaryView: View {
     }
     
     var body: some View {
-        bodyContent
-            .minimumScaleFactor(0.7)
-            .lineLimit(1)
-            .layoutPriority(1)
-            .padding()
-            .padding(.trailing)
-            .background(Color(backgroundColor))
-            .cornerRadius(8)
-            .shadow(color: Color.black.opacity(colorScheme == .dark ? 0 : 0.05), radius: 8, x: 0, y: 4)
+        VStack {
+            bodyContent
+        }
+        .navigationTitle("SEP 2020")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
-struct HistorySummaryView_Previews: PreviewProvider {
+struct MonthlySummaryDetail_Previews: PreviewProvider {
     
     static let matchRange: CountableClosedRange = 1...14
     static let summary =  MatchSummary(id: UUID(), monthRange: Date(), wins: 12, loses: 2, calories: 459, avgHeartRate: 145, matches: matchRange.map { _ in Match.mockMatch() })
     
     static var previews: some View {
-        Group {
-            HistorySummaryView(summary: summary)
-                .preferredColorScheme(.dark)
-                .previewLayout(.sizeThatFits)
-                .padding()
-            
-            HistorySummaryView(summary: summary)
-                .previewLayout(.sizeThatFits)
-                .padding()
+        NavigationView {
+            MonthlySummaryDetail(summary: summary)
         }
     }
 }

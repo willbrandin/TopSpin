@@ -20,8 +20,11 @@ struct MatchSummaryWidgetEntryView : View {
         case .systemMedium:
             HistorySummaryView(summary: entry)
             
-        default:
-            SquareSummaryView(summary: entry)
+        case .systemLarge:
+            LargeSummaryMetricView(summary: entry)
+            
+        @unknown default:
+            fatalError()
         }
     }
 }
@@ -33,7 +36,7 @@ struct MatchSummaryWidget: Widget {
         StaticConfiguration(kind: kind, provider: MatchSummaryProvider()) { entry in
             MatchSummaryWidgetEntryView(entry: entry)
         }
-        .supportedFamilies([.systemSmall, .systemMedium])
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
         .configurationDisplayName("Monthly Summary")
         .description("See your total wins, loses, and workout data for the current month.")
     }

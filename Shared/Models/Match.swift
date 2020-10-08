@@ -47,10 +47,10 @@ extension Match {
                                 playerScore: 11,
                                 opponentScore: 8),
               workout: Workout(id: UUID(),
-                               activeCalories: 132,
-                               heartRateMetrics: .mock,
+                               activeCalories: Int.random(in: 80...134),
+                               heartRateMetrics: WorkoutHeartMetric(averageHeartRate: Int.random(in: 144...154), maxHeartRate: Int.random(in: 155...165), minHeartRate: Int.random(in: 123...133)),
                                startDate: Date(),
-                               endDate: Date().addingTimeInterval(5*123)))
+                               endDate: Date().addingTimeInterval(5 * Double.random(in: 80...134))))
     }
     
     static func mock_nonWorkout_Match() -> Match {

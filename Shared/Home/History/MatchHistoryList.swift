@@ -128,14 +128,14 @@ struct MatchHistoryList: View {
 struct MatchHistoryList_Previews: PreviewProvider {
     
     static let list = [
-        MatchSummary(id: UUID(), monthRange: Date(), wins: 12, loses: 2, calories: 459, avgHeartRate: 145, matches: []),
-        MatchSummary(id: UUID(), monthRange: Date(), wins: 22, loses: 4, calories: 688, avgHeartRate: 138, matches: []),
+        MatchSummary(id: UUID(), monthRange: Date(), wins: 12, loses: 2, calories: 459, avgHeartRate: 145, matches: [.mockMatch(), .mockMatch(), .mockMatch(), .mockMatch(), .mockMatch()]),
+        MatchSummary(id: UUID(), monthRange: Date(), wins: 22, loses: 4, calories: 688, avgHeartRate: 138, matches: [.mockMatch(), .mockMatch(), .mockMatch(), .mockMatch(), .mockMatch()]),
     ]
     
     static var previews: some View {
         Group {
             NavigationView {
-                MatchHistoryList(matches: [.mock], matchSummary: list, onDelete: {_ in })
+                MatchHistoryList(matches: [.mockMatch(), .mockMatch(), .mockMatch(), .mockMatch(), .mockMatch()], matchSummary: list, onDelete: {_ in })
             }
             .preferredColorScheme(.dark)
             

@@ -58,6 +58,7 @@ struct MetricGraphView: View {
     var labels: [String]
     var data: [Double]
     var foregroundColor: ColorGradient
+    var height: CGFloat = 100
 
     private let labelCount = 4
 
@@ -78,7 +79,7 @@ struct MetricGraphView: View {
             .padding(.horizontal)
             
             VerticalBarChart(data: data, foregroundColor: foregroundColor)
-                .frame(height: 100)
+                .frame(height: height)
                 .padding(.horizontal)
             
             
