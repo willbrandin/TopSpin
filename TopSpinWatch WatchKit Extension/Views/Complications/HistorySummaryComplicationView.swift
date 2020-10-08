@@ -31,7 +31,9 @@ struct HistorySummaryComplicationView: View {
                         .foregroundColor(.green)
                         .complicationForeground()
                 }
+                
                 Spacer()
+                
                 VStack {
                     Text("LOSS")
                         .font(.system(size: 10, weight: .regular, design: .rounded))
