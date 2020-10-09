@@ -37,6 +37,7 @@ struct TopSpinApp: App {
                     store.send(.load)
                     store.send(.observeSettings)
                     store.send(.observeHistory)
+                    setLaunchCount()
                 }
                 .onChange(of: scenePhase) { scenePhase in
                     switch scenePhase {
