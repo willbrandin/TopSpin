@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "48.png",
+      "filename" : "48.jpeg",
       "idiom" : "watch",
       "role" : "notificationCenter",
       "scale" : "2x",
@@ -9,7 +9,7 @@
       "subtype" : "38mm"
     },
     {
-      "filename" : "55.png",
+      "filename" : "55.jpeg",
       "idiom" : "watch",
       "role" : "notificationCenter",
       "scale" : "2x",
@@ -17,21 +17,21 @@
       "subtype" : "42mm"
     },
     {
-      "filename" : "58.png",
+      "filename" : "58.jpeg",
       "idiom" : "watch",
       "role" : "companionSettings",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
-      "filename" : "87.png",
+      "filename" : "87.jpeg",
       "idiom" : "watch",
       "role" : "companionSettings",
       "scale" : "3x",
       "size" : "29x29"
     },
     {
-      "filename" : "80.png",
+      "filename" : "80.jpeg",
       "idiom" : "watch",
       "role" : "appLauncher",
       "scale" : "2x",
@@ -39,7 +39,7 @@
       "subtype" : "38mm"
     },
     {
-      "filename" : "88.png",
+      "filename" : "88.jpeg",
       "idiom" : "watch",
       "role" : "appLauncher",
       "scale" : "2x",
@@ -47,7 +47,7 @@
       "subtype" : "40mm"
     },
     {
-      "filename" : "100.png",
+      "filename" : "100.jpeg",
       "idiom" : "watch",
       "role" : "appLauncher",
       "scale" : "2x",
@@ -55,7 +55,7 @@
       "subtype" : "44mm"
     },
     {
-      "filename" : "172.png",
+      "filename" : "172.jpeg",
       "idiom" : "watch",
       "role" : "quickLook",
       "scale" : "2x",
@@ -63,7 +63,7 @@
       "subtype" : "38mm"
     },
     {
-      "filename" : "196.png",
+      "filename" : "196.jpeg",
       "idiom" : "watch",
       "role" : "quickLook",
       "scale" : "2x",
@@ -71,7 +71,7 @@
       "subtype" : "42mm"
     },
     {
-      "filename" : "216.png",
+      "filename" : "216.jpeg",
       "idiom" : "watch",
       "role" : "quickLook",
       "scale" : "2x",
@@ -79,7 +79,7 @@
       "subtype" : "44mm"
     },
     {
-      "filename" : "1024 copy.png",
+      "filename" : "1024.jpeg",
       "idiom" : "watch-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
