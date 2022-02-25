@@ -8,11 +8,11 @@
 
 import Foundation
 
-public enum RallyTeam: Equatable {
+public enum RallyTeamDEP: Equatable {
     case one
     case two
     
-    func toggle() -> RallyTeam {
+    func toggle() -> RallyTeamDEP {
         return self == .one ? .two : .one
     }
 }

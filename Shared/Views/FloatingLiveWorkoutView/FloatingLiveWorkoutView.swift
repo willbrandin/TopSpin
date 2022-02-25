@@ -46,6 +46,7 @@ struct FloatingLiveWorkoutView: View {
                     }
                 }
                 .padding(8)
+                .padding(.trailing, 8)
                 .background(backgroundColor)
                 .cornerRadius(16)
                 .shadow(radius: 4)
@@ -61,16 +62,7 @@ struct FloatingLiveWorkoutView: View {
 
 struct FloatingLiveWorkoutView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            FloatingLiveWorkoutView()
-                .previewLayout(.fixed(width: 800, height: 370))
-            
-            ZStack {
-                Color.gray
-                
-                FloatingLiveWorkoutView()
-                    .preferredColorScheme(.dark)
-            }
-        }
+        FloatingLiveWorkoutView()
+        
     }
 }

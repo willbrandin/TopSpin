@@ -3,10 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE2647FC264F37150096E0EE /* MatchStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2647FA264F37150096E0EE /* MatchStorage.swift */; };
+		CE2647FD264F37150096E0EE /* MatchStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2647FA264F37150096E0EE /* MatchStorage.swift */; };
+		CE2647FE264F37150096E0EE /* SettingStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2647FB264F37150096E0EE /* SettingStorage.swift */; };
+		CE2647FF264F37150096E0EE /* SettingStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2647FB264F37150096E0EE /* SettingStorage.swift */; };
+		CE74810C26F2BD3100DE5BA9 /* HealthClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74810A26F2BD0F00DE5BA9 /* HealthClientTest.swift */; };
+		CE74810F26F2BD9100DE5BA9 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = CE74810E26F2BD9100DE5BA9 /* ComposableArchitecture */; };
+		CEDA19D72634DD870030AB70 /* Rally in Frameworks */ = {isa = PBXBuildFile; productRef = CEDA19D62634DD870030AB70 /* Rally */; };
 		D20C55DA251C04E000107FBD /* RallyMatchConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20C55D8251C04E000107FBD /* RallyMatchConfigurable.swift */; };
 		D20C55DB251C04E000107FBD /* RallyMatchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20C55D9251C04E000107FBD /* RallyMatchController.swift */; };
 		D20C55E2251C04EE00107FBD /* RallyTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20C55E1251C04EE00107FBD /* RallyTeam.swift */; };
@@ -20,12 +27,8 @@
 		D23CCB9A251AE68A002EBE72 /* Match+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23CCB64251AD634002EBE72 /* Match+Extensions.swift */; };
 		D23CCBA0251B8AE3002EBE72 /* HistoryWorkoutMetricView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23CCB9F251B8AE3002EBE72 /* HistoryWorkoutMetricView.swift */; };
 		D23CCBA6251B8B2C002EBE72 /* MatchHistoryScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23CCBA5251B8B2C002EBE72 /* MatchHistoryScoreView.swift */; };
-		D23CCBAC251B8DBE002EBE72 /* MatchStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23CCBAB251B8DBE002EBE72 /* MatchStorage.swift */; };
 		D23CCBB5251B95A7002EBE72 /* HistoryWorkoutMetricView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23CCB9F251B8AE3002EBE72 /* HistoryWorkoutMetricView.swift */; };
 		D23CCBB6251B95A7002EBE72 /* MatchHistoryScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23CCBA5251B8B2C002EBE72 /* MatchHistoryScoreView.swift */; };
-		D23CCBBB251B95E3002EBE72 /* MatchStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23CCBAB251B8DBE002EBE72 /* MatchStorage.swift */; };
-		D23CCBC5251BA65B002EBE72 /* SettingStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23CCBC4251BA65B002EBE72 /* SettingStorage.swift */; };
-		D23CCBC6251BA65B002EBE72 /* SettingStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23CCBC4251BA65B002EBE72 /* SettingStorage.swift */; };
 		D23F760A25198A87006BF603 /* TopSpinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F760925198A87006BF603 /* TopSpinApp.swift */; };
 		D23F760C25198A87006BF603 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F760B25198A87006BF603 /* ContentView.swift */; };
 		D23F760E25198A89006BF603 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D23F760D25198A89006BF603 /* Assets.xcassets */; };
@@ -311,6 +314,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CE0FBB4C2616B35C00156B70 /* Rally */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Rally; path = ../Rally; sourceTree = "<group>"; };
+		CE2647FA264F37150096E0EE /* MatchStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchStorage.swift; sourceTree = "<group>"; };
+		CE2647FB264F37150096E0EE /* SettingStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingStorage.swift; sourceTree = "<group>"; };
+		CE74810A26F2BD0F00DE5BA9 /* HealthClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthClientTest.swift; sourceTree = "<group>"; };
 		D20C55D2251C046D00107FBD /* WorkoutManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
 		D20C55D8251C04E000107FBD /* RallyMatchConfigurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RallyMatchConfigurable.swift; sourceTree = "<group>"; };
 		D20C55D9251C04E000107FBD /* RallyMatchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RallyMatchController.swift; sourceTree = "<group>"; };
@@ -321,8 +328,6 @@
 		D23CCB8C251ADEC2002EBE72 /* HorizontalSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSummaryView.swift; sourceTree = "<group>"; };
 		D23CCB9F251B8AE3002EBE72 /* HistoryWorkoutMetricView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryWorkoutMetricView.swift; sourceTree = "<group>"; };
 		D23CCBA5251B8B2C002EBE72 /* MatchHistoryScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchHistoryScoreView.swift; sourceTree = "<group>"; };
-		D23CCBAB251B8DBE002EBE72 /* MatchStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchStorage.swift; sourceTree = "<group>"; };
-		D23CCBC4251BA65B002EBE72 /* SettingStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingStorage.swift; sourceTree = "<group>"; };
 		D23F760625198A87006BF603 /* TopSpin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopSpin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D23F760925198A87006BF603 /* TopSpinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopSpinApp.swift; sourceTree = "<group>"; };
 		D23F760B25198A87006BF603 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -467,7 +472,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEDA19D72634DD870030AB70 /* Rally in Frameworks */,
 				D2B74DA7251ABE1000D1004B /* CloudKit.framework in Frameworks */,
+				CE74810F26F2BD9100DE5BA9 /* ComposableArchitecture in Frameworks */,
 				D2797910251D00FB00771DB9 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,6 +513,7 @@
 			children = (
 				D20C55D2251C046D00107FBD /* WorkoutManager.swift */,
 				D2E11B59252634CA00ECE75D /* ProtocolWorkoutInteractable.swift */,
+				CE74810A26F2BD0F00DE5BA9 /* HealthClientTest.swift */,
 			);
 			path = Workout;
 			sourceTree = "<group>";
@@ -529,6 +537,7 @@
 		D23F75FD25198A87006BF603 = {
 			isa = PBXGroup;
 			children = (
+				CE0FBB4C2616B35C00156B70 /* Rally */,
 				D2714910252B7CA6008EEEC8 /* TopSpinWidgetExtension.entitlements */,
 				D23F764F25198AF8006BF603 /* Shared */,
 				D23F760825198A87006BF603 /* TopSpin */,
@@ -891,11 +900,11 @@
 		D2B74D8F251ABD0000D1004B /* Persistance */ = {
 			isa = PBXGroup;
 			children = (
+				CE2647FA264F37150096E0EE /* MatchStorage.swift */,
+				CE2647FB264F37150096E0EE /* SettingStorage.swift */,
 				D23CCB63251AD625002EBE72 /* Models */,
 				D2B74D90251ABD0C00D1004B /* Persistance.swift */,
 				D2B74DA9251ABEA800D1004B /* TopSpin.xcdatamodeld */,
-				D23CCBAB251B8DBE002EBE72 /* MatchStorage.swift */,
-				D23CCBC4251BA65B002EBE72 /* SettingStorage.swift */,
 			);
 			path = Persistance;
 			sourceTree = "<group>";
@@ -1214,6 +1223,8 @@
 			);
 			name = "TopSpinWatch WatchKit Extension";
 			packageProductDependencies = (
+				CEDA19D62634DD870030AB70 /* Rally */,
+				CE74810E26F2BD9100DE5BA9 /* ComposableArchitecture */,
 			);
 			productName = "TopSpinWatch WatchKit Extension";
 			productReference = D23F762A25198AB7006BF603 /* TopSpinWatch WatchKit Extension.appex */;
@@ -1291,6 +1302,7 @@
 			);
 			mainGroup = D23F75FD25198A87006BF603;
 			packageReferences = (
+				CE74810D26F2BD9100DE5BA9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = D23F760725198A87006BF603 /* Products */;
 			projectDirPath = "";
@@ -1360,16 +1372,15 @@
 				D2B279ED251EC5450007FF3F /* MatchSummaryScoreView.swift in Sources */,
 				D2D73E68251FDFD7006896C3 /* MatchSetting.swift in Sources */,
 				D2B864A8252FA09600C8F2EA /* RandomAccessCollection+Indexed.swift in Sources */,
+				CE2647FE264F37150096E0EE /* SettingStorage.swift in Sources */,
 				D2B86464252F8D8D00C8F2EA /* Colors.swift in Sources */,
 				D2B864B1252FA0B500C8F2EA /* MetricGraphView.swift in Sources */,
 				D2D73E2A251EF398006896C3 /* FloatingLiveWorkoutView.swift in Sources */,
 				D2B86473252F8D8D00C8F2EA /* CGRect+Extension.swift in Sources */,
 				D23CCB8D251ADEC2002EBE72 /* HorizontalSummaryView.swift in Sources */,
 				D2B8648E252F8D8D00C8F2EA /* PieChartCell.swift in Sources */,
-				D23CCBC5251BA65B002EBE72 /* SettingStorage.swift in Sources */,
 				D2D73E35251EFA4B006896C3 /* LiveMatchView.swift in Sources */,
 				D2D73E1B251ED74D006896C3 /* MatchTimelineView.swift in Sources */,
-				D23CCBAC251B8DBE002EBE72 /* MatchStorage.swift in Sources */,
 				D2B86494252F8D8D00C8F2EA /* IndicatorPoint.swift in Sources */,
 				D2714948252B7FF1008EEEC8 /* MatchSummary+TimelineEntry.swift in Sources */,
 				D2B8647C252F8D8D00C8F2EA /* CardView.swift in Sources */,
@@ -1385,6 +1396,7 @@
 				D27978BB251CED2400771DB9 /* RallyMatchController.swift in Sources */,
 				D2AE478A252E97020082EEA9 /* ShareSheet.swift in Sources */,
 				D2B86488252F8D8D00C8F2EA /* BarChartCell.swift in Sources */,
+				CE2647FC264F37150096E0EE /* MatchStorage.swift in Sources */,
 				D2B8649A252F8D8D00C8F2EA /* Line.swift in Sources */,
 				D2714925252B7ED2008EEEC8 /* MatchSummary.swift in Sources */,
 				D2B86455252F8D8D00C8F2EA /* ChartBase.swift in Sources */,
@@ -1451,6 +1463,8 @@
 				D2B01F0E251ED2A2002E8E74 /* HeartRateValueView.swift in Sources */,
 				D2B86498252F8D8D00C8F2EA /* LineChart.swift in Sources */,
 				D2227EFC251E3154009DD539 /* MatchSettingsPickerView.swift in Sources */,
+				CE74810C26F2BD3100DE5BA9 /* HealthClientTest.swift in Sources */,
+				CE2647FF264F37150096E0EE /* SettingStorage.swift in Sources */,
 				D2BCC6AC2520053C0032CC23 /* AppEnvironment+Mock.swift in Sources */,
 				D20C55E2251C04EE00107FBD /* RallyTeam.swift in Sources */,
 				D2E19AC62524604B00C5D3E8 /* MatchHistoryRepository.swift in Sources */,
@@ -1473,9 +1487,9 @@
 				D20C55DA251C04E000107FBD /* RallyMatchConfigurable.swift in Sources */,
 				D2F35DDB2519A5B400739463 /* MatchHistoryList.swift in Sources */,
 				D2B864A9252FA09600C8F2EA /* RandomAccessCollection+Indexed.swift in Sources */,
+				CE2647FD264F37150096E0EE /* MatchStorage.swift in Sources */,
 				D2B86477252F8D8D00C8F2EA /* View+Extension.swift in Sources */,
 				D2B8645C252F8D8D00C8F2EA /* ChartLabel.swift in Sources */,
-				D23CCBBB251B95E3002EBE72 /* MatchStorage.swift in Sources */,
 				D2A713FF2524215E008F053D /* Reducer.swift in Sources */,
 				D2B86486252F8D8D00C8F2EA /* BarChartRow.swift in Sources */,
 				D2714936252B7F93008EEEC8 /* MatchSummary.swift in Sources */,
@@ -1497,7 +1511,6 @@
 				D24932A0252E04B100D0A610 /* Date+Comparison.swift in Sources */,
 				D2B86456252F8D8D00C8F2EA /* ChartBase.swift in Sources */,
 				D23F763425198AB7006BF603 /* ComplicationController.swift in Sources */,
-				D23CCBC6251BA65B002EBE72 /* SettingStorage.swift in Sources */,
 				D23F7666251991F5006BF603 /* MatchHistoryItem.swift in Sources */,
 				D2E11B842526370A00ECE75D /* AppStore.swift in Sources */,
 				D2B8647D252F8D8D00C8F2EA /* CardView.swift in Sources */,
@@ -1752,7 +1765,7 @@
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = TopSpin/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1779,7 +1792,7 @@
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = TopSpin/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1800,7 +1813,7 @@
 				CODE_SIGN_ENTITLEMENTS = "TopSpinWatch WatchKit Extension/TopSpinWatch WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TopSpinWatch WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "TopSpinWatch WatchKit Extension/Info.plist";
@@ -1827,7 +1840,7 @@
 				CODE_SIGN_ENTITLEMENTS = "TopSpinWatch WatchKit Extension/TopSpinWatch WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TopSpinWatch WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "TopSpinWatch WatchKit Extension/Info.plist";
@@ -2037,6 +2050,29 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CE74810D26F2BD9100DE5BA9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CE74810E26F2BD9100DE5BA9 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE74810D26F2BD9100DE5BA9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		CEDA19D62634DD870030AB70 /* Rally */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Rally;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		D2B74DA9251ABEA800D1004B /* TopSpin.xcdatamodeld */ = {

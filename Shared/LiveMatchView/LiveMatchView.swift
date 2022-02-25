@@ -109,7 +109,7 @@ struct LiveMatchView: View {
                         Spacer()
                     }
                     .padding(.horizontal)
-                    .font(Font.system(size: 140, weight: .regular, design: .rounded))
+                    .font(Font.system(size: 140, weight: .semibold, design: .rounded))
                     .lineLimit(1)
                     .layoutPriority(1)
                     .minimumScaleFactor(0.5)
@@ -132,11 +132,10 @@ struct LiveMatchView: View {
 
 struct LiveMatchView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
+        if #available(iOS 15.0, *) {
             LiveMatchView()
-                .previewLayout(.fixed(width: 800, height: 370))
-                .environment(\.horizontalSizeClass, .regular)
-            
+                .previewInterfaceOrientation(.landscapeLeft)
+        } else {
             LiveMatchView()
                 .preferredColorScheme(.dark)
         }

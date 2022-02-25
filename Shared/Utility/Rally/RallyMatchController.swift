@@ -12,9 +12,9 @@ import Combine
 public struct RallyMatchState {
     var teamOneScore: Int = 0
     var teamTwoScore: Int = 0
-    var servingTeam: RallyTeam = .one
+    var servingTeam: RallyTeamDEP = .one
     var teamHasGamePoint: Bool = false
-    var winningTeam: RallyTeam? = nil
+    var winningTeam: RallyTeamDEP? = nil
 }
 
 /// Initialized with settings. Provides all game logic.
@@ -51,22 +51,22 @@ public class RallyMatchController: ObservableObject {
     /// True when a team has won
     @Published public var teamDidWin: Bool = false
     
-    /// True when a RallyTeam has GamePoint - a single point left to win the game.
+    /// True when a RallyTeamDEP has GamePoint - a single point left to win the game.
     @Published public var teamHasGamePoint: Bool = false {
         didSet {
             matchState.teamHasGamePoint = teamHasGamePoint
         }
     }
     
-    /// RallyTeam that is currently serving
-    @Published public var servingTeam: RallyTeam = .one {
+    /// RallyTeamDEP that is currently serving
+    @Published public var servingTeam: RallyTeamDEP = .one {
         didSet {
             matchState.servingTeam = servingTeam
         }
     }
     
-    /// RallyTeam that has won
-    @Published public internal(set) var winningTeam: RallyTeam? = nil {
+    /// RallyTeamDEP that has won
+    @Published public internal(set) var winningTeam: RallyTeamDEP? = nil {
         didSet {
             teamDidWin = winningTeam != nil
             
@@ -108,7 +108,7 @@ public class RallyMatchController: ObservableObject {
         
     // MARK: - Internal Methods
     
-    internal func incrementScore(for team: RallyTeam) {
+    internal func incrementScore(for team: RallyTeamDEP) {
         switch team {
         case .one: teamOneScore += 1
         case .two: teamTwoScore += 1
@@ -121,7 +121,7 @@ public class RallyMatchController: ObservableObject {
         self.servingTeam = determineServingTeam(with: settings, current: servingTeam, score: (teamOne: teamOneScore, teamTwo: teamTwoScore))
     }
     
-    internal func determineWin(for team: RallyTeam) -> Bool {
+    internal func determineWin(for team: RallyTeamDEP) -> Bool {
         let teamScore: Int = team == .one ? teamOneScore : teamTwoScore
         let opposingTeamScore: Int = team != .one ? teamOneScore : teamTwoScore
         
@@ -138,7 +138,7 @@ public class RallyMatchController: ObservableObject {
         }
     }
     
-    internal func determineServingTeam(with gameSettings: RallyMatchConfigurable, current servingTeam: RallyTeam, score: (teamOne: Int, teamTwo: Int)) -> RallyTeam {
+    internal func determineServingTeam(with gameSettings: RallyMatchConfigurable, current servingTeam: RallyTeamDEP, score: (teamOne: Int, teamTwo: Int)) -> RallyTeamDEP {
         let teamOneGamePoint = hasGamePoint(for: score.teamOne, against: score.teamTwo, with: gameSettings)
         let teamTwoGamePoint = hasGamePoint(for: score.teamTwo, against: score.teamOne, with: gameSettings)
 

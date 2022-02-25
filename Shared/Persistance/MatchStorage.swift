@@ -74,3 +74,30 @@ extension MatchStorage: NSFetchedResultsControllerDelegate {
         self.matches = matches
     }
 }
+
+class MatchRepo: NSObject, NSFetchedResultsControllerDelegate, ObservableObject {
+    private let colorController: NSFetchedResultsController<CDMatch>
+    
+    init(managedObjectContext: NSManagedObjectContext) {
+        let sortDescriptors = [NSSortDescriptor(keyPath: \CDMatch.date!, ascending: true)]
+        colorController = CDMatch.resultsController(context: managedObjectContext, sortDescriptors: sortDescriptors)
+        super.init()
+        colorController.delegate = self
+        try? colorController.performFetch()
+    }
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        objectWillChange.send()
+    }
+    
+    var colors: [CDMatch] {
+        return colorController.fetchedObjects ?? []
+    }
+}
+extension CDMatch {
+    static func resultsController(context: NSManagedObjectContext, sortDescriptors: [NSSortDescriptor] = []) -> NSFetchedResultsController<CDMatch> {
+        let request = NSFetchRequest<CDMatch>(entityName: "CDMatch")
+        request.sortDescriptors = sortDescriptors.isEmpty ? nil : sortDescriptors
+        return NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+    }
+}

@@ -13,9 +13,9 @@ struct ActiveMatchState: Equatable {
     var isActive: Bool = false
     var teamOneScore: Int = 0
     var teamTwoScore: Int = 0
-    var servingTeam: RallyTeam = .one
+    var servingTeam: RallyTeamDEP = .one
     var teamHasGamePoint: Bool = false
-    var winningTeam: RallyTeam? = nil
+    var winningTeam: RallyTeamDEP? = nil
     
     var teamDidWin: Bool {
         winningTeam != nil
@@ -25,7 +25,7 @@ struct ActiveMatchState: Equatable {
 enum ActiveMatchAction {
     case observeActiveMatch
     case start(settings: MatchSetting, correlation: UUID?)
-    case teamScored(team: RallyTeam)
+    case teamScored(team: RallyTeamDEP)
     case setRallyState(state: RallyMatchState)
     case complete
     case cancel

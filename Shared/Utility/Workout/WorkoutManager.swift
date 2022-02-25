@@ -9,6 +9,8 @@ import Foundation
 import HealthKit
 import Combine
 
+let healthClient = HealthClient.live
+
 // https://developer.apple.com/documentation/healthkit/workouts_and_activity_rings/speedysloth_creating_a_workout
 class WorkoutManager: NSObject, ObservableObject, WorkoutInteractable {
         

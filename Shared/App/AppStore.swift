@@ -100,5 +100,6 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = Reducer { state, 
     
     return Empty(completeImmediately: true).eraseToAnyPublisher()
 }
+.log()
 
 typealias AppStore = Store<AppState, AppAction>
